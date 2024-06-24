@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.bg-tiles {
+		background-size: 73px 73px;
+		background-image: linear-gradient(currentColor 1px, transparent 1px),
+			linear-gradient(to right, currentColor 1px, transparent 1px);
+		@apply -m-0.5;
+	}
+}
+
+@layer components {
+	.container {
+		@apply px-2 minsm:max-w-[640px] minmd:max-w-[768px] minlg:max-w-[1024px] minxl:max-w-[1280px] min2xl:max-w-[1312px];
+	}
+}
+
+@layer base {
+	html {
+		font-family: 'Poppins', system-ui, sans-serif;
+	}
+}
+
+@media (max-width: 1279.98px) {
+}
+
+@media (max-width: 1023.98px) {
+}
+
+@media (max-width: 767.98px) {
+}
+
+@media (max-width: 639.98px) {
+}
+
+@media (max-width: 424.98px) {
+}
