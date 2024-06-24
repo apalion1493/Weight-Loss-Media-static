@@ -52,6 +52,7 @@
   },
   "homepage": "https://github.com/manjumjn/gulp-with-tailwindcss#readme",
   "dependencies": {
-    "@splidejs/splide": "^4.1.4"
+    "@splidejs/splide": "^4.1.4",
+    "alpinejs": "^3.14.1"
   }
 }

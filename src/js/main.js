@@ -54,8 +54,6 @@ if (modal && openModalBtn && closeModalElements) {
 			closeModal()
 		}
 	})
-} else {
-	console.log('test')
 }
 
 document.addEventListener('DOMContentLoaded', function () {

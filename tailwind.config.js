@@ -31,16 +31,19 @@ module.exports = {
 		},
 		fontSize: {
 			none: ['0px', '0px'],
-			sm: ['8px', '11px'], //8px
-			h11: '0.75rem', //12px
-			h10: '0.875rem', //14px
 			base: '1rem', //16px
-			h8: '1.125rem', //18px
-			md: '1.25rem', //20px
-			h6: '1.5rem', //24px
-			h5: '2rem', //32px
-			h3: '2.75rem', //44px
-			h1: '3.625rem', //58px
+			body7: ['14px', '140%'],
+			body6: ['14px', '120%'],
+			body5: ['16px', '120%'],
+			body3: ['16px', '140%'],
+			overline: ['16px', '120%'],
+			body2: ['18px', '140%'], //18px
+			body: ['18px', '150%'], //20px
+			button: ['18px', '120%'], //24px
+			t2: ['20px', '120%'], //32px
+			tt: ['22px', '150%'], //32px
+			h3: ['38px', '120%'],
+			h1: ['64px', '120%'],
 		},
 		screens: {
 			xl: { max: '1279px' },
@@ -64,7 +67,10 @@ module.exports = {
 		},
 		extend: {
 			boxShadow: {
-				'3xl': '0 35px 60px -15px rgba(193, 148, 118, 0.15)',
+				'shadow-1': '0px 0px 18px -1px rgba(86, 85, 92, 0.15)',
+				'shadow-2':
+					'0px 1px 4px 0px rgba(25, 24, 27, 0.08), 0px 5px 10px 0px rgba(25, 24, 27, 0.05)',
+				'shadow-3': '0px 4px 14px 0px rgba(25, 24, 27, 0.05);',
 			},
 			colors: {
 				transparent: 'transparent',
