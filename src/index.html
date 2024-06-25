@@ -6,6 +6,11 @@
 })
 
 <body class="">
+  <div x-data="{ items: ['item1', 'item2', 'item3'], testFunc() {
+    console.log(123)
+  } }">
+    <button @click='testFunc'>button</button>
+  </div>
   <main class="flex flex-col justify-between min-h-screen">
     @@include('components/Header.html', {
     'commonStyle': 'bg-secondary'
@@ -31,11 +36,79 @@
         </div>
       </div>
     </section>
-    <section class='py-24 bg-secondary'></section>
-    <section class="py-20"></section>
-    <section class="py-20"></section>
+    <section class='py-24 bg-secondary'>
+      @@include('components/button-white.html', {
+      'url': '#',
+      'title': 'Button',
+      'style': 'uppercase text-primary',
+      })
+    </section>
+    <section class="py-20">
+      @@include('components/button.html', {
+      'url': '#',
+      'title': 'Button',
+      'style': 'uppercase',
+      })
+      <br>
+      <br>
+      @@include('components/button-small.html', {
+      'url': '#',
+      'title': 'Button',
+      'style': 'uppercase text-primary',
+      })
+      <br>
+      <br>
+
+    </section>
+    <section class="py-20 ">
+      <div class='flex gap-5'>
+        @@include('components/blog-card.html', {
+        'style': 'max-w-[411px]',
+        'image': 'img/card-blog-1.jpg',
+        'imageAlt': 'Image Alt',
+        'date': 'September 1, 2022',
+        'title': 'The 5 effective fitness morning routines you should follow',
+        'link': '#'
+        })
+        @@include('components/blog-card.html', {
+        'style': 'max-w-[411px]',
+        'image': 'img/card-blog-1.jpg',
+        'imageAlt': 'Image Alt',
+        'date': 'September 1, 2022',
+        'title': 'The 5 effective fitness morning routines you should follow',
+        'link': '#'
+        })
+        @@include('components/blog-card.html', {
+        'style': 'max-w-[411px]',
+        'image': 'img/card-blog-1.jpg',
+        'imageAlt': 'Image Alt',
+        'date': 'September 1, 2022',
+        'title': 'The 5 effective fitness morning routines you should follow',
+        'link': '#'
+        })
+      </div>
+      <div class='flex gap-5'>
+        @@include('components/mini-blog-card.html', {
+        'style': 'max-w-[550px]',
+        'image': 'img/card-blog-2.jpg',
+        'imageAlt': 'Image Alt',
+        'date': 'September 1, 2022',
+        'title': 'The 5 effective fitness morning routines you should follow',
+        'link': '#'
+        })
+        @@include('components/mini-blog-card.html', {
+        'style': 'max-w-[550px]',
+        'image': 'img/card-blog-2.jpg',
+        'imageAlt': 'Image Alt',
+        'date': 'September 1, 2022',
+        'title': 'The 5 effective fitness morning routines you should follow',
+        'link': '#'
+        })
+      </div>
+    </section>
     <section class="py-20"></section>
     <section class="py-20 mt-24"></section>
+
 
 
     @@include('components/Footer.html')

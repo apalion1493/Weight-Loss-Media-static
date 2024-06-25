@@ -20,7 +20,22 @@
 @layer base {
 	html {
 		font-family: 'Poppins', system-ui, sans-serif;
+		@apply text-primary;
 	}
+}
+
+.blog-card__text {
+	display: -webkit-box;
+	-webkit-line-clamp: 3; // количество строк
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.mini-blog-card__text {
+	display: -webkit-box;
+	-webkit-line-clamp: 2; // количество строк
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
 
 @media (max-width: 1279.98px) {

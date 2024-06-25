@@ -36,12 +36,11 @@ module.exports = {
 			body6: ['14px', '120%'],
 			body5: ['16px', '120%'],
 			body3: ['16px', '140%'],
-			overline: ['16px', '120%'],
-			body2: ['18px', '140%'], //18px
-			body: ['18px', '150%'], //20px
-			button: ['18px', '120%'], //24px
-			t2: ['20px', '120%'], //32px
-			tt: ['22px', '150%'], //32px
+			body2: ['18px', '140%'],
+			body: ['18px', '150%'],
+			button: ['18px', '120%'],
+			t2: ['20px', '120%'],
+			tt: ['22px', '150%'],
 			h3: ['38px', '120%'],
 			h1: ['64px', '120%'],
 		},
@@ -77,6 +76,9 @@ module.exports = {
 				primary: '#19181B',
 				secondary: 'rgba(25, 24, 27, 0.05)',
 				'grey-1': 'rgba(25, 24, 27, 0.60)',
+				'grey-2': 'rgba(255, 255, 255, 0.50)',
+				'border-1': 'rgba(255, 255, 255, 0.30)',
+				'border-2': 'rgba(25, 24, 27, 0.30)',
 				white: '#ffffff',
 				purple: '#3f3cbb',
 				midnight: '#121063',

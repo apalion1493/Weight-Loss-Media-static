@@ -1,0 +1,78 @@
+<footer class="pt-10 bg-primary text-white">
+	<div class="container flex flex-col">
+		<div class="grid grid-cols-12 gap-5 py-14">
+			<div class="col-span-7">
+				<div class='flex flex-col max-w-[442px] items-start'>
+					<img class='mb-4' src="img/Logo-1.svg" alt="Main Logo WLM">
+					<p class='text-body3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						Habitasse arcu vulputate velit scelerisque.</p>
+				</div>
+			</div>
+			<div class="col-span-5">
+				<div class='flex flex-col'>
+					<span class='text-white uppercase mb-4'>Subscribe to our newsletter</span>
+					<input type="text">
+				</div>
+			</div>
+		</div>
+		<div class="grid grid-cols-12 gap-5 border-y border-border-1 py-14">
+			<div class="col-span-3">
+				<div class='flex flex-col gap-y-12'>
+					<h4 class='uppercase font-medium text-t2'>Pages</h4>
+					<ul class='flex flex-col gap-5' x-data="{ listLinkOne: [
+						'Food for Weight Loss',
+						'Sports for Weight Loss',
+						'Weight Loss Procedures',
+						'Weight Loss Surgery',
+						'Medications for Weight Loss',
+						'Psychology in Weight Loss',
+					] }">
+						<template x-for="link in listLinkOne">
+							<li>
+								<a class='uppercase transition hover:text-danger tracking-wider' href="#" x-text="link"></a>
+							</li>
+						</template>
+					</ul>
+				</div>
+			</div>
+			<div class="col-span-2">
+
+			</div>
+			<div class="col-span-2">
+
+			</div>
+			<div class="col-span-1"></div>
+			<div class="col-span-4">
+				<div class='flex flex-col'>
+					<span class='uppercase font-medium text-t2 block mb-14'>Latest Articles</span>
+					<div class='flex flex-col gap-y-6'>
+						<a href='#' class='flex gap-5 h-[157px] uppercase text-primary'>
+	<div class='min-w-[146px] flex items-center justify-center overflow-hidden'>
+		<img class='object-cover' src="img/blog-post-fitness-templates.jpg" alt="Title image">
+	</div>
+	<div class='flex flex-col gap-3'>
+		<time class='text-grey-2 text-body6 uppercase' datetime="September 1, 2022">September 1, 2022</time>
+		<p class='text-white'>The 5 effective morning routines you should follow</p>
+		<span class='text-danger font-medium text-body7 block mt-auto mb-3'>Read More</span>
+	</div>
+</a>
+						<a href='#' class='flex gap-5 h-[157px] uppercase text-primary'>
+	<div class='min-w-[146px] flex items-center justify-center overflow-hidden'>
+		<img class='object-cover' src="img/blog-post-fitness-templates.jpg" alt="Title image">
+	</div>
+	<div class='flex flex-col gap-3'>
+		<time class='text-grey-2 text-body6 uppercase' datetime="September 1, 2022">September 1, 2022</time>
+		<p class='text-white'>The 5 effective morning routines you should follow</p>
+		<span class='text-danger font-medium text-body7 block mt-auto mb-3'>Read More</span>
+	</div>
+</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="grid grid-cols-12 gap-5 py-14">
+			<div class="col-span-7"></div>
+			<div class="col-span-5"></div>
+		</div>
+	</div>
+</footer>

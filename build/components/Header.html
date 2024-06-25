@@ -1,0 +1,5 @@
+<div x-data="{ open: false }">
+    <button @click="open = !open">Переключить</button>
+
+    <div x-show="open" @click.outside="open = false">Содержимое...</div>
+</div>
