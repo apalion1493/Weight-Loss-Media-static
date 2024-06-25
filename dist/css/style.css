@@ -809,6 +809,9 @@ select {
 .h-full {
   height: 100%;
 }
+.h-\[180px\] {
+  height: 180px;
+}
 .max-h-screen {
   max-height: 100vh;
 }
@@ -918,6 +921,9 @@ select {
 .rounded-xl {
   border-radius: 0.75rem;
 }
+.rounded-\[32px\] {
+  border-radius: 32px;
+}
 .border {
   border-width: 1px;
 }
@@ -1009,6 +1015,10 @@ select {
 .py-\[10px\] {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 .pb-8 {
   padding-bottom: 2rem;
@@ -1156,6 +1166,22 @@ select {
   overflow: hidden;
 }
 
+.input::-moz-placeholder {
+  letter-spacing: -0.032px;
+  font-size: 16px;
+  line-height: 120%;
+  text-transform: uppercase;
+  color: rgba(25, 24, 27, 0.60);
+}
+
+.input::placeholder {
+  letter-spacing: -0.032px;
+  font-size: 16px;
+  line-height: 120%;
+  text-transform: uppercase;
+  color: rgba(25, 24, 27, 0.60);
+}
+
 .button:hover {
   background: initial;
 }
@@ -1205,6 +1231,10 @@ select {
   --tw-shadow: 0px 4px 14px 0px rgba(25, 24, 27, 0.05);;
   --tw-shadow-colored: 0px 4px 14px 0px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.focus\:border-border-2:focus {
+  border-color: rgba(25, 24, 27, 0.30);
 }
 
 .focus\:shadow-none:focus {

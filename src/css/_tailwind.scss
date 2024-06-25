@@ -38,6 +38,11 @@
 	overflow: hidden;
 }
 
+.input::placeholder {
+	letter-spacing: -0.032px;
+	@apply text-body5 uppercase text-grey-1;
+}
+
 @media (max-width: 1279.98px) {
 }
 

@@ -6,11 +6,6 @@
 })
 
 <body class="">
-  <div x-data="{ items: ['item1', 'item2', 'item3'], testFunc() {
-    console.log(123)
-  } }">
-    <button @click='testFunc'>button</button>
-  </div>
   <main class="flex flex-col justify-between min-h-screen">
     @@include('components/Header.html', {
     'commonStyle': 'bg-secondary'
@@ -106,7 +101,31 @@
         })
       </div>
     </section>
-    <section class="py-20"></section>
+    <section class="py-20">
+      <div>
+        @@include('components/input.html', {
+        'common-style': '',
+        'idInput': 'id',
+        'label': 'label',
+        'styleInput': '',
+        'type': 'text',
+        'placeholder': 'What’s your name?',
+        'errorStyle': 'block',
+        })
+
+        <br>
+        <br>
+        <br>
+        @@include('components/textarea.html', {
+        'common-style': '',
+        'idInput': 'id',
+        'label': 'label',
+        'styleInput': '',
+        'type': 'text',
+        'placeholder': 'your message...',
+        })
+      </div>
+    </section>
     <section class="py-20 mt-24"></section>
 
 

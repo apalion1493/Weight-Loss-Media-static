@@ -21,11 +21,6 @@
 </head>
 
 <body class="">
-  <div x-data="{ items: ['item1', 'item2', 'item3'], testFunc() {
-    console.log(123)
-  } }">
-    <button @click='testFunc'>button</button>
-  </div>
   <main class="flex flex-col justify-between min-h-screen">
     <div x-data="{ open: false }">
     <button @click="open = !open">Переключить</button>
@@ -151,7 +146,27 @@
 </div>
       </div>
     </section>
-    <section class="py-20"></section>
+    <section class="py-20">
+      <div>
+        <div class="form-group flex flex-col items-start ">
+    <label class="text-none" for="id">label</label>
+    <input
+        class="input rounded-full text-primary border text-body3 w-full focus:outline-0 focus:shadow-none focus:ring-0 focus:border-border-2 border-border-2 py-4 pl-6 pr-2 "
+        type="text" id="id" placeholder="What’s your name?">
+    <small class="self-end text-h11 text-danger mt-3 block">Name is required</small>
+</div>
+
+        <br>
+        <br>
+        <br>
+        <div class="form-group flex flex-col items-start ">
+    <label class="text-none" for="@@idTextarea">label</label>
+    <textarea
+        class="input rounded-[32px] text-primary border text-body3 w-full focus:outline-0 focus:shadow-none focus:ring-0 focus:border-border-2 border-border-2 py-5 px-6 h-[180px]  @@styleTextarea"
+        id="@@idTextarea" placeholder="your message..." rows="@@rows"></textarea>
+</div>
+      </div>
+    </section>
     <section class="py-20 mt-24"></section>
 
 
