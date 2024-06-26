@@ -23,12 +23,10 @@
 <body class="">
 	<main class="flex flex-col justify-between min-h-screen">
 		<div x-data="{ open: false }">
-    <button @click="open = !open">Переключить</button>
-
-    <div x-show="open" @click.outside="open = false">Содержимое...</div>
+    Header
 </div>
 
-		<section class='py-20'>
+		<section class='py-20 mb-5'>
 			<div class="container">
 				<div class="grid grid-cols-12 gap-5">
 					<div class="col-span-5">
@@ -92,7 +90,7 @@
 					</div>
 					<div class="col-span-6">
 						<div class="form-group flex flex-col items-start @@common-style">
-    <label class="text-none" for="emailId">Mail</label>
+    <label class="text-none" for="emailId">Email</label>
     <input
         class="input rounded-full text-primary border text-body3 w-full focus:outline-0 focus:shadow-none focus:ring-0 focus:border-border-2 border-border-2 py-4 pl-6 pr-2 @@styleInput"
         type="email" id="emailId" placeholder="What’s your email?">
