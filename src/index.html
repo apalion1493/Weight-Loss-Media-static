@@ -14,31 +14,235 @@
     <section class='py-20'>
       <div class="container">
         <div class="grid grid-cols-12 gap-5">
-          <div class="col-span-5">
-            <div class="flex flex-col gap-6">
-              <span class='text-danger'>Fitness & Diets</span>
-              <h1>Discribe our <br>
+          <div class="col-span-5 flex items-center">
+            <div class="flex flex-col gap-6 items-start">
+              <span class='text-danger font-medium text-body5 uppercase tracking-1-6'>Fitness & Diets</span>
+              <h1 class='text-h1 font-semibold'>Discribe our <br>
                 <span class='text-danger'>Sport</span> & <span class='text-danger'>Diets</span> <br>
                 Blog Posts<span class='text-danger'>.</span>
               </h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              <p class='text-body text-grey-1'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Habitasse arcu vulputate velit scelerisque cursus nunc.
                 Ac cras sapien quam sem et venenatis velit.
                 A fusce sed convallis.</p>
-              <a href="#">Explore</a>
+              @@include('components/button.html', {
+              'url': '#',
+              'title': 'Explore',
+              'style': 'uppercase',
+              })
+            </div>
+          </div>
+          <div class="col-span-1"></div>
+          <div class="col-span-6">
+            <div class="grid grid-cols-2 grid-rows-2 gap-6 max-h-[611px]">
+              <div class="col-start-1 col-end-2 row-start-1 row-end-2 overflow-hidden">
+                <img class='object-cover w-full h-full'
+                  src="img/6054052042c6ba75e0577466_image-4-instagram-section-fitness-template.jpg"
+                  alt="Image Alt Text">
+              </div>
+              <div class="col-start-1 col-end-2 row-start-2 row-end-3 overflow-hidden">
+                <img class='object-cover w-full h-full' src="img/image-1.jpg" alt="Image Alt Text">
+              </div>
+              <div class="col-start-2 col-end-3 row-start-1 row-end-3 overflow-hidden">
+                <img class='object-cover w-full h-full'
+                  src="img/6054064de7b15561bf213b23_image-3-home-about-fitness-template.jpg" alt="Image Alt Text">
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
     <section class='py-24 bg-secondary'>
+      <div class="container">
+        <div class="grid grid-cols-12 gap-5">
+          <div class="col-span-4">
+            <div class='bg-white shadow-shadow-4 overflow-hidden flex flex-col py-10 px-6 h-full gap-y-6'>
+              <div class='h-[110px] flex items-center'>
+                <i class='fire-icon'></i>
+              </div>
+              <span class='font-medium text-tt'>Support & motivation</span>
+              <p class='text-body text-grey-1'>Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit. Velitolm
+                platea libero, ultricies hendrerit.</p>
+            </div>
+          </div>
+          <div class="col-span-4">
+            <div class='bg-white shadow-shadow-4 overflow-hidden flex flex-col py-10 px-6 h-full gap-y-6'>
+              <div class='h-[110px] flex items-center'>
+                <i class='dumbbell-icon'></i>
+              </div>
+              <span class='font-medium text-tt'>Training</span>
+              <p class='text-body text-grey-1'>Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit. Velitolm
+                platea libero, ultricies hendrerit.</p>
+            </div>
+          </div>
+          <div class="col-span-4">
+            <div class='bg-white shadow-shadow-4 overflow-hidden flex flex-col py-10 px-6 h-full gap-y-6'>
+              <div class='h-[110px] flex items-center'>
+                <i class='apple-icon'></i>
+              </div>
+              <span class='font-medium text-tt'>Nutrition & diet</span>
+              <p class='text-body text-grey-1'>Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit. Velitolm
+                platea libero, ultricies hendrerit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-20">
+      <div class="container">
+        <div class="grid grid-cols-12 gap-5">
+          <div class="col-span-7">
+            <div class="flex flex-col">
+              <span class='text-danger font-medium text-body5 uppercase tracking-1-6'>Popular hernea</span>
+              <h2 class="text-h1 font-semibold mb-14">Grow your Business<span class='text-danger'>.</span></h2>
+              @@include('components/medium-blog-card.html', {
+              'style': 'max-w-full h-full',
+              'image': 'img/medium-blog-img-1.jpg',
+              'imageAlt': 'Image Alt',
+              'date': 'September 1, 2022',
+              'title': 'The 5 effective fitness morning routines you should follow',
+              'link': '#'
+              })
+            </div>
+          </div>
+          <div class='col-span-5'>
+            <div class='flex flex-col gap-y-12'>
+              @@include('components/mini-blog-card.html', {
+              'style': 'max-w-[550px]',
+              'image': 'img/card-blog-2.jpg',
+              'imageAlt': 'Image Alt',
+              'date': 'September 1, 2022',
+              'title': 'The 5 effective fitness morning routines you should follow',
+              'link': '#'
+              })
+              @@include('components/mini-blog-card.html', {
+              'style': 'max-w-[550px]',
+              'image': 'img/card-blog-2.jpg',
+              'imageAlt': 'Image Alt',
+              'date': 'September 1, 2022',
+              'title': 'The 5 effective fitness morning routines you should follow',
+              'link': '#'
+              })
+              @@include('components/mini-blog-card.html', {
+              'style': 'max-w-[550px]',
+              'image': 'img/card-blog-2.jpg',
+              'imageAlt': 'Image Alt',
+              'date': 'September 1, 2022',
+              'title': 'The 5 effective fitness morning routines you should follow',
+              'link': '#'
+              })
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class='py-20 border-t border-b border-border-3'>
+      <div class="container">
+        <div class='grid grid-cols-12 gap-x-5'>
+          <div class="col-span-12">
+            <div class='flex items-center justify-between mb-14'>
+              <h4 class='text-h3 font-medium'>Low-Fat Diets</h4>
+              @@include('components/button.html', {
+              'url': '#',
+              'title': 'More posts',
+              'style': 'uppercase',
+              })
+            </div>
+          </div>
+          <div class="col-span-4">
+            @@include('components/blog-card.html', {
+            'style': 'max-w-[411px]',
+            'image': 'img/card-blog-3.jpg',
+            'imageAlt': 'Image Alt',
+            'date': 'September 1, 2022',
+            'title': 'The 5 effective fitness morning routines you should follow',
+            'link': '#'
+            })
+          </div>
+          <div class="col-span-4">
+            @@include('components/blog-card.html', {
+            'style': 'max-w-[411px]',
+            'image': 'img/card-blog-3.jpg',
+            'imageAlt': 'Image Alt',
+            'date': 'September 1, 2022',
+            'title': 'The 5 effective fitness morning routines you should follow',
+            'link': '#'
+            })
+          </div>
+          <div class="col-span-4">
+            @@include('components/blog-card.html', {
+            'style': 'max-w-[411px]',
+            'image': 'img/card-blog-3.jpg',
+            'imageAlt': 'Image Alt',
+            'date': 'September 1, 2022',
+            'title': 'The 5 effective fitness morning routines you should follow',
+            'link': '#'
+            })
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class='py-20'>
+      <div class="container">
+        <div class='grid grid-cols-12 gap-5'>
+          <div class="col-span-12">
+            <div class='flex items-center justify-between mb-14'>
+              <h4 class='text-h3 font-medium'>Yoga and Pilates</h4>
+              @@include('components/button.html', {
+              'url': '#',
+              'title': 'More posts',
+              'style': 'uppercase',
+              })
+            </div>
+          </div>
+          <div class="col-span-4">
+            @@include('components/blog-card.html', {
+            'style': 'max-w-[411px]',
+            'image': 'img/card-blog-4.jpg',
+            'imageAlt': 'Image Alt',
+            'date': 'September 1, 2022',
+            'title': 'The 5 effective fitness morning routines you should follow',
+            'link': '#'
+            })
+          </div>
+          <div class="col-span-4">
+            @@include('components/blog-card.html', {
+            'style': 'max-w-[411px]',
+            'image': 'img/card-blog-4.jpg',
+            'imageAlt': 'Image Alt',
+            'date': 'September 1, 2022',
+            'title': 'The 5 effective fitness morning routines you should follow',
+            'link': '#'
+            })
+          </div>
+          <div class="col-span-4">
+            @@include('components/blog-card.html', {
+            'style': 'max-w-[411px]',
+            'image': 'img/card-blog-4.jpg',
+            'imageAlt': 'Image Alt',
+            'date': 'September 1, 2022',
+            'title': 'The 5 effective fitness morning routines you should follow',
+            'link': '#'
+            })
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- <section class="py-20">
       @@include('components/button-white.html', {
       'url': '#',
       'title': 'Button',
       'style': 'uppercase text-primary',
       })
-    </section>
-    <section class="py-20">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
       @@include('components/button.html', {
       'url': '#',
       'title': 'Button',
@@ -54,54 +258,9 @@
       <br>
       <br>
 
-    </section>
-    <section class="py-20 ">
-      <div class='flex gap-5'>
-        @@include('components/blog-card.html', {
-        'style': 'max-w-[411px]',
-        'image': 'img/card-blog-1.jpg',
-        'imageAlt': 'Image Alt',
-        'date': 'September 1, 2022',
-        'title': 'The 5 effective fitness morning routines you should follow',
-        'link': '#'
-        })
-        @@include('components/blog-card.html', {
-        'style': 'max-w-[411px]',
-        'image': 'img/card-blog-1.jpg',
-        'imageAlt': 'Image Alt',
-        'date': 'September 1, 2022',
-        'title': 'The 5 effective fitness morning routines you should follow',
-        'link': '#'
-        })
-        @@include('components/blog-card.html', {
-        'style': 'max-w-[411px]',
-        'image': 'img/card-blog-1.jpg',
-        'imageAlt': 'Image Alt',
-        'date': 'September 1, 2022',
-        'title': 'The 5 effective fitness morning routines you should follow',
-        'link': '#'
-        })
-      </div>
-      <div class='flex gap-5'>
-        @@include('components/mini-blog-card.html', {
-        'style': 'max-w-[550px]',
-        'image': 'img/card-blog-2.jpg',
-        'imageAlt': 'Image Alt',
-        'date': 'September 1, 2022',
-        'title': 'The 5 effective fitness morning routines you should follow',
-        'link': '#'
-        })
-        @@include('components/mini-blog-card.html', {
-        'style': 'max-w-[550px]',
-        'image': 'img/card-blog-2.jpg',
-        'imageAlt': 'Image Alt',
-        'date': 'September 1, 2022',
-        'title': 'The 5 effective fitness morning routines you should follow',
-        'link': '#'
-        })
-      </div>
-    </section>
-    <section class="py-20">
+    </section> -->
+
+    <!-- <section class="py-20">
       <div>
         @@include('components/input.html', {
         'common-style': '',
@@ -125,10 +284,8 @@
         'placeholder': 'your message...',
         })
       </div>
-    </section>
-    <section class="py-20 mt-24"></section>
-
-
+    </section> -->
+    @@include('components/Newsletter.html')
 
     @@include('components/Footer.html')
   </main>

@@ -43,6 +43,21 @@
 	@apply text-body5 uppercase text-grey-1;
 }
 
+.fire-icon {
+	background: url(../img/Fire-icon.svg);
+	@apply block h-[95px] w-[80px] bg-100-auto bg-center bg-no-repeat;
+}
+
+.dumbbell-icon {
+	background: url(../img/dumbbell-icon.svg);
+	@apply block h-[104px] w-[110px] bg-100-auto bg-center bg-no-repeat;
+}
+
+.apple-icon {
+	background: url(../img/apple-icon.svg);
+	@apply block h-[104px] w-[110px] bg-100-auto bg-center bg-no-repeat;
+}
+
 @media (max-width: 1279.98px) {
 }
 

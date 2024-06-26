@@ -1,9 +1,9 @@
 window.addEventListener('DOMContentLoaded', () => {
 	console.log('Loaded Scripts')
 
-	if (document.querySelector('.splide')) {
-		new Splide('.splide', {
-			perPage: 4,
+	if (document.querySelector('.splide-1')) {
+		new Splide('.splide-1', {
+			perPage: 3,
 			focus: 0,
 			omitEnd: true,
 			gap: 20,

@@ -1,4 +1,122 @@
-<footer class="pt-10 bg-primary text-white">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    .loaded {
+      opacity: 1
+    }
+  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Terms&Conditions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/style.css" />
+</head>
+
+<body class="">
+	<main class="flex flex-col justify-between min-h-screen">
+		<div x-data="{ open: false }">
+    <button @click="open = !open">Переключить</button>
+
+    <div x-show="open" @click.outside="open = false">Содержимое...</div>
+</div>
+
+		<section class='py-20'>
+			<div class="container flex flex-col gap-y-14">
+				<div>
+					<span class='text-danger font-medium text-body5 uppercase tracking-1-6 mb-5 block'>Terms&Conditions</span>
+					<h1 class="text-h1 font-semibold">Terms of Use<span class='text-danger'>.</span></h1>
+				</div>
+				<div>
+					<span class='text-danger font-medium text-body5 uppercase tracking-1-6 mb-5 block'>lorem ipsum</span>
+					<div class='flex flex-col gap-y-8'>
+						<p class='text-body'>Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Odio amet egestas dignissim eu nunc. Suspendisse feugiat scelerisque et, viverra urna
+							imperdiet non malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut viverra.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim.</p>
+						<p class='text-body'>Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Odio amet egestas dignissim eu nunc. Suspendisse feugiat scelerisque et, viverra urna
+							imperdiet non malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut viverra.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<p class='text-body'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu
+							nunc. Id enim volutpat tellus. Cras tellus ac dui at sed. Suspendisse feugiat scelerisque et, viverra urna
+							imperdiet non malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut viverra.
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc. Suspendisse
+							feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus natoque augue in et, et.
+							Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet
+							egestas dignissim eu nunc.</p>
+						<p class='text-body'>Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur
+							adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu
+							nunc. Id pulvinar enim volutpat tellus. Cras tellus ac dui at sed. Suspendisse feugiat scelerisque et,
+							viverra urna imperdiet non malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis
+							lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu
+							nunc. Suspendisse feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus natoque
+							augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing
+							elit. Odio amet egestas dignissim eu nunc. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit
+							amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc. Suspendisse feugiat scelerisque
+							et, viverra urna imperdiet non malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis
+							lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim.
+						</p>
+					</div>
+				</div>
+				<div class='flex flex-col gap-y-8'>
+					<p class='text-body'>Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing
+						elit. Odio amet egestas dignissim eu nunc. Suspendisse feugiat scelerisque et, viverra urna imperdiet non
+						malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum
+						dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim.</p>
+				</div>
+				<div class='flex flex-col gap-y-8'>
+					<p class='text-body'>Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing
+						elit. Odio amet egestas dignissim eu nunc. Suspendisse feugiat scelerisque et, viverra urna imperdiet non
+						malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum
+						dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim.</p>
+					<p class='text-body'>Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing
+						elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc. Id
+						pulvinar enim volutpat tellus. Cras tellus ac dui at sed. Suspendisse feugiat scelerisque et, viverra urna
+						imperdiet non malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut viverra.
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc. Suspendisse
+						feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus natoque augue in et, et.
+						Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet
+						egestas dignissim eu nunc. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur
+						adipiscing elit. Odio amet egestas dignissim eu nunc. Suspendisse feugiat scelerisque et, viverra urna
+						imperdiet non malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut viverra.
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="py-20 bg-secondary">
+	<div class="container">
+		<div class="grid grid-cols-12 gap-5">
+			<div class="col-span-7">
+				<h3 class='text-h3 font-medium'>Subscribe to my weekly <br>
+					newsletter today!</h3>
+			</div>
+			<div class="col-span-5 flex items-center">
+				<div class='flex items-center rounded-[40px] w-full border border-border-2 overflow-hidden py-2 pl-6 pr-2'>
+					<div class="relative w-full">
+						<label for="hero-field" class="text-none absolute -z-10">Placeholder</label>
+						<input type="text" id="hero-field" name="hero-field"
+							class="w-full bg-gray-100 border-0 focus:ring-0 focus:bg-transparent focus:border-0 text-base outline-none text-gray-700 p-0 pr-2 leading-8 transition-colors duration-200 ease-in-out">
+					</div>
+					<button
+						class="button text-body5 px-6 py-[10px] rounded-full border transition group border-primary hover:border-danger bg-primary inline-flex items-center hover:bg-transparent text-white hover:text-danger">
+						<span class="font-normal uppercase">Subscribe</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+		<footer class="pt-10 bg-primary text-white">
 	<div class="container flex flex-col">
 		<div class="grid grid-cols-12 gap-5 py-14">
 			<div class="col-span-7">
@@ -117,24 +235,26 @@
 				<div class='flex flex-col'>
 					<span class='uppercase font-medium text-t2 block mb-14'>Latest Articles</span>
 					<div class='flex flex-col gap-y-6'>
-						@@include('footer-blog-card.html', {
-						'url': '#',
-						'title': 'The 5 effective morning routines you should follow',
-						'date': 'September 1, 2022',
-						'style': 'uppercase text-primary',
-						'image': 'img/blog-post-fitness-templates.jpg',
-						'altImage': 'Title image',
-						'titleStyle': 'text-white'
-						})
-						@@include('footer-blog-card.html', {
-						'url': '#',
-						'title': 'The 5 effective morning routines you should follow',
-						'date': 'September 1, 2022',
-						'style': 'uppercase text-primary',
-						'image': 'img/blog-post-fitness-templates.jpg',
-						'altImage': 'Title image',
-						'titleStyle': 'text-white'
-						})
+						<a href='#' class='flex gap-5 h-[157px] uppercase text-primary'>
+	<div class='min-w-[146px] flex items-center justify-center overflow-hidden'>
+		<img class='object-cover' src="img/blog-post-fitness-templates.jpg" alt="Title image">
+	</div>
+	<div class='flex flex-col gap-3'>
+		<time class='text-grey-2 text-body6 uppercase' datetime="September 1, 2022">September 1, 2022</time>
+		<p class='text-white'>The 5 effective morning routines you should follow</p>
+		<span class='text-danger font-medium text-body7 block mt-auto mb-3'>Read More</span>
+	</div>
+</a>
+						<a href='#' class='flex gap-5 h-[157px] uppercase text-primary'>
+	<div class='min-w-[146px] flex items-center justify-center overflow-hidden'>
+		<img class='object-cover' src="img/blog-post-fitness-templates.jpg" alt="Title image">
+	</div>
+	<div class='flex flex-col gap-3'>
+		<time class='text-grey-2 text-body6 uppercase' datetime="September 1, 2022">September 1, 2022</time>
+		<p class='text-white'>The 5 effective morning routines you should follow</p>
+		<span class='text-danger font-medium text-body7 block mt-auto mb-3'>Read More</span>
+	</div>
+</a>
 					</div>
 				</div>
 			</div>
@@ -146,3 +266,10 @@
 		</div>
 	</div>
 </footer>
+	</main>
+
+	<script defer type="text/html" src="./js/libs/splide.min.js"></script>
+<script type="module" src="./js/scripts.js"></script>
+</body>
+
+</html>

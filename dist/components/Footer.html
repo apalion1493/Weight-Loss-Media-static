@@ -10,8 +10,17 @@
 			</div>
 			<div class="col-span-5">
 				<div class='flex flex-col'>
-					<span class='text-white uppercase mb-4'>Subscribe to our newsletter</span>
-					<input type="text">
+					<label for="sub-footer" class="text-white uppercase font-medium mb-4">SUBSCRIBE TO OUR NEWSLETTER</label>
+					<div class='flex items-center rounded-[40px] w-full border border-white overflow-hidden py-2 pl-6 pr-2'>
+						<div class="relative w-full">
+							<input type="text" id="sub-footer" name="sub-footer"
+								class="w-full bg-transparent border-0 focus:ring-0 focus:bg-transparent focus:border-0 text-base outline-none text-white p-0 pr-2 leading-8 transition-colors duration-200 ease-in-out">
+						</div>
+						<button
+							class="button text-body5 px-6 py-[10px] rounded-full border transition group border-white hover:border-danger bg-white inline-flex items-center hover:bg-transparent text-primary hover:text-danger">
+							<span class="font-normal uppercase">Subscribe</span>
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -133,8 +142,9 @@
 			</div>
 		</div>
 		<div class="grid grid-cols-12 gap-5 py-14">
-			<div class="col-span-7"></div>
-			<div class="col-span-5"></div>
+			<div class="col-span-12">
+				<p class='text-body6 tracking-base uppercase'>Copyright © 2022. All rights reserved.</p>
+			</div>
 		</div>
 	</div>
 </footer>

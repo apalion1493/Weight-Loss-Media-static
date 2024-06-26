@@ -70,6 +70,8 @@ module.exports = {
 				'shadow-2':
 					'0px 1px 4px 0px rgba(25, 24, 27, 0.08), 0px 5px 10px 0px rgba(25, 24, 27, 0.05)',
 				'shadow-3': '0px 4px 14px 0px rgba(25, 24, 27, 0.05);',
+				'shadow-4':
+					'0px 1px 7px 0px rgba(0, 0, 0, 0.02), 0px 4px 14px 0px rgba(25, 24, 27, 0.05)',
 			},
 			colors: {
 				transparent: 'transparent',
@@ -79,6 +81,7 @@ module.exports = {
 				'grey-2': 'rgba(255, 255, 255, 0.50)',
 				'border-1': 'rgba(255, 255, 255, 0.30)',
 				'border-2': 'rgba(25, 24, 27, 0.30)',
+				'border-3': 'rgba(25, 24, 27, 0.10)',
 				white: '#ffffff',
 				purple: '#3f3cbb',
 				midnight: '#121063',
@@ -88,6 +91,10 @@ module.exports = {
 				'bubble-gum': '#ff77e9',
 				danger: '#FF3F56',
 				bermuda: '#78dcca',
+			},
+			letterSpacing: {
+				'1-6': '1.6px',
+				base: '1px',
 			},
 		},
 	},
