@@ -182,19 +182,3 @@
 // .token.variable {
 //   color: #d6deeb;
 // }
-
-.button:hover {
-  background: initial;
-}
-
-.check-icon {
-  background: url(../img/Check-icon.svg) no-repeat center;
-  background-size: 100% auto;
-  display: block;
-  width: 8px;
-  height: 4px;
-}
-
-.active .check-icon {
-  transform: rotate(180deg);
-}

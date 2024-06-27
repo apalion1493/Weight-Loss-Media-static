@@ -22,8 +22,9 @@
 
 <body class="">
 	<main class="flex flex-col justify-between min-h-screen">
-		<div x-data="{ open: false }">
-    Header
+		<div x-data="dropdown">
+    <button @click="toggle">button</button>
+    <div x-show="open">2</div>
 </div>
 
 		<section class='py-20 mb-5'>
@@ -285,8 +286,19 @@
 </footer>
 	</main>
 
-	<script defer type="text/html" src="./js/libs/splide.min.js"></script>
+	<!-- <script defer type="text/html" src="./js/libs/splide.min.js"></script> -->
 <script type="module" src="./js/scripts.js"></script>
+<script>
+	document.addEventListener('alpine:init', () => {
+		Alpine.data('dropdown', () => ({
+			open: false,
+
+			toggle() {
+				this.open = !this.open
+			},
+		}))
+	});
+</script>
 </body>
 
 </html>

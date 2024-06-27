@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+@@include('components/head.html', {
+'title': 'Search results'
+})
+
+<body class="">
+	<main class="flex flex-col justify-between min-h-screen">
+		@@include('components/Header.html', {
+		'commonStyle': 'bg-secondary'
+		})
+
+		<section class='pt-20 pb-10'>
+			<div class="container">
+				<div class="grid grid-cols-12 gap-x-5">
+					<div class="col-span-12">
+						<div class="flex flex-col">
+							<span class='text-danger font-medium text-body5 uppercase tracking-1-6 mb-5 block'>Search results</span>
+							<h1 class="text-h3 font-semibold mb-6">Showing results for ”lorem ipsum”</h1>
+							@@include('components/Search-bar.html' {
+							'id': 'search-id-01',
+							'style': ''
+							})
+						</div>
+					</div>
+				</div>
+		</section>
+		<section class='py-10 border-t border-b border-border-3 mb-24'>
+			<div class="container">
+				<div class="grid grid-cols-12 gap-x-5 gap-y-14">
+					<div class="col-span-12">
+						<div x-data="{ selected: 0 }" class="flex space-x-2 mb-8">
+							<!-- Loop through options -->
+							<template x-for="(option, index) in ['All', 'diets', 'sports']">
+								<button class='transition uppercase px-4 py-[10px] rounded-full text-body6'
+									x-on:click="selected = index" :class="{
+										'bg-primary text-white border-primary': selected === index,
+										'bg-secondary border-secondary ': selected !== index
+									}" x-text="option" class="px-4 py-2 rounded cursor-pointer"></button>
+							</template>
+						</div>
+						<span class='text-border-2 text-body'>Showing results 1 - 12 of 24</span>
+					</div>
+					<div class="col-span-4">
+						@@include('components/blog-card.html', {
+						'image': 'img/card-blog-4.jpg',
+						'date': 'September 1, 2022',
+						'title': 'The 5 effective fitness morning routines you should follow',
+						'link': '#',
+						'style': 'w-full',
+						'category': 'Diet'
+						})
+					</div>
+					<div class="col-span-4">
+						@@include('components/blog-card.html', {
+						'image': 'img/card-blog-4.jpg',
+						'date': 'September 1, 2022',
+						'title': 'The 5 effective fitness morning routines you should follow',
+						'link': '#',
+						'style': 'w-full',
+						'category': 'Diet'
+						})
+					</div>
+					<div class="col-span-4">
+						@@include('components/blog-card.html', {
+						'image': 'img/card-blog-4.jpg',
+						'date': 'September 1, 2022',
+						'title': 'The 5 effective fitness morning routines you should follow',
+						'link': '#',
+						'style': 'w-full',
+						'category': 'Diet'
+						})
+					</div>
+					<div class="col-span-4">
+						@@include('components/blog-card.html', {
+						'image': 'img/card-blog-4.jpg',
+						'date': 'September 1, 2022',
+						'title': 'The 5 effective fitness morning routines you should follow',
+						'link': '#',
+						'style': 'w-full',
+						'category': 'Sports'
+						})
+					</div>
+					<div class="col-span-4">
+						@@include('components/blog-card.html', {
+						'image': 'img/card-blog-4.jpg',
+						'date': 'September 1, 2022',
+						'title': 'The 5 effective fitness morning routines you should follow',
+						'link': '#',
+						'style': 'w-full',
+						'category': 'Sports'
+						})
+					</div>
+					<div class="col-span-4">
+						@@include('components/blog-card.html', {
+						'image': 'img/card-blog-4.jpg',
+						'date': 'September 1, 2022',
+						'title': 'The 5 effective fitness morning routines you should follow',
+						'link': '#',
+						'style': 'w-full',
+						'category': 'Sports'
+						})
+					</div>
+					<div class="col-span-4">
+						@@include('components/blog-card.html', {
+						'image': 'img/card-blog-4.jpg',
+						'date': 'September 1, 2022',
+						'title': 'The 5 effective fitness morning routines you should follow',
+						'link': '#',
+						'style': 'w-full',
+						'category': 'Diet'
+						})
+					</div>
+					<div class="col-span-4">
+						@@include('components/blog-card.html', {
+						'image': 'img/card-blog-4.jpg',
+						'date': 'September 1, 2022',
+						'title': 'The 5 effective fitness morning routines you should follow',
+						'link': '#',
+						'style': 'w-full',
+						'category': 'Diet'
+						})
+					</div>
+					<div class="col-span-4">
+						@@include('components/blog-card.html', {
+						'image': 'img/card-blog-4.jpg',
+						'date': 'September 1, 2022',
+						'title': 'The 5 effective fitness morning routines you should follow',
+						'link': '#',
+						'style': 'w-full',
+						'category': 'Diet'
+						})
+					</div>
+					<div class="col-span-12">
+						<div class='flex items-center justify-between mx-auto max-w-[692px]'>
+							<button
+								class='w-16 h-16 bg-primary disabled:bg-white cursor-pointer flex items-center justify-center rounded-full shadow-shadow-5 group'
+								disabled>
+								<i class='group-disabled:block hidden'>
+									<span class='arrow-left-black'></span>
+								</i>
+								<i class='group-disabled:hidden block rotate-180'>
+									<span class='arrow-right-white'></span>
+								</i>
+							</button>
+							<div class='flex items-center gap-3'>
+								<div class='pagination-num active'>
+									1</div>
+								<div class='pagination-num'>
+									2</div>
+								<div class='pagination-num'>
+									3</div>
+								<div class='pagination-num'>
+									...</div>
+								<div class='pagination-num'>
+									10</div>
+							</div>
+							<button
+								class='w-16 h-16 bg-primary disabled:bg-white cursor-pointer flex items-center justify-center rounded-full shadow-shadow-5 group'>
+								<i class='group-disabled:block hidden rotate-180'>
+									<span class='arrow-left-black'></span>
+								</i>
+								<i class='group-disabled:hidden block'>
+									<span class='arrow-right-white'></span>
+								</i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		@@include('components/Newsletter.html')
+		@@include('components/Footer.html')
+	</main>
+
+	@@include('components/script.html')
+</body>
+
+</html>

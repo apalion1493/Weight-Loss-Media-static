@@ -72,6 +72,7 @@ module.exports = {
 				'shadow-3': '0px 4px 14px 0px rgba(25, 24, 27, 0.05);',
 				'shadow-4':
 					'0px 1px 7px 0px rgba(0, 0, 0, 0.02), 0px 4px 14px 0px rgba(25, 24, 27, 0.05)',
+				'shadow-5': '0px 3px 20px -2px rgba(25, 24, 27, 0.15)',
 			},
 			colors: {
 				transparent: 'transparent',
