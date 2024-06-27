@@ -278,7 +278,22 @@
 				this.open = !this.open
 			},
 		}))
-	});
+	})
+
+	function numberedList() {
+		return {
+			items: {
+				'1': ['Lorem ipsum', 'https//www.fintess.recipes-onliner ecipes'],
+				'2': ['Odio amet', 'https//www.fintess.recipes-online'],
+				'3': ['Suspendisse urna', 'https//www.fintess.recipes-online'],
+			},
+
+			formattedNumber(number) {
+				// Форматируем числа меньше 10 с ведущим нулем
+				return number < 10 ? `0${number}` : number
+			}
+		}
+	}
 </script>
 </body>
 

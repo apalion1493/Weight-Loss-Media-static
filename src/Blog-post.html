@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+@@include('components/head.html', {
+'title': 'Blog Post'
+})
+
+<body class="">
+	<main class="flex flex-col justify-between min-h-screen">
+		@@include('components/Header.html', {
+		'commonStyle': 'bg-secondary'
+		})
+
+		<section class='py-14 relative'>
+			<div class='bg-1 absolute top-0 left-0 z-0'></div>
+			<div class="container relative z-10">
+				<div class="grid grid-cols-12 gap-x-5">
+					<div class="col-span-12">
+						<nav class="flex mb-8" aria-label="Breadcrumb">
+							<ol class="inline-flex items-center flex-wrap gap-x-3">
+								<li class="inline-flex items-center gap-x-3">
+									<a href="#"
+										class="inline-flex items-center text-body3 font-medium text-border-2 transition-colors hover:text-danger">
+										Category
+									</a>
+									<span class='font-medium text-border-2'>/</span>
+								</li>
+								<li class="inline-flex items-center gap-x-3">
+									<a href="#"
+										class="text-body3 font-medium text-border-2 transition-colors hover:text-danger">Subcategory</a>
+									<span class='font-medium text-primary'>/</span>
+								</li>
+								<li class="inline-flex items-center gap-x-3" aria-current="page">
+									<div class="flex items-center">
+										<span class="text-body3 font-medium text-primary">Blog Post</span>
+									</div>
+								</li>
+							</ol>
+						</nav>
+					</div>
+					<div class="col-span-8">
+						<div class='flex items-center mb-6'>
+							<span class='uppercase bg-primary px-6 py-[10px] rounded-full text-white text-body5 mr-5'>recipes</span>
+							<p class='text-grey-1 text-body'>9 min read - <time datetime="September 1, 2022">September 1, 2022</time>
+							</p>
+						</div>
+						<h1 class='text-h1 font-semibold'>6 essential and easy
+							diet recipes for beginners</h1>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class='py-20'>
+			<div class="container">
+				<div class="grid grid-cols-12 gap-x-5">
+					<div class="col-span-8">
+						<div class='flex flex-col'>
+							<p class='text-body text-grey-1 mb-8'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet
+								egestas dignissim eu nunc. Id pulvinar enim volutpat tellus. Cras tellus ac dui at sed. Suspendisse
+								feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus natoque augue in et,
+								et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio
+								amet egestas dignissim eu nunc. Suspendisse feugiat scelerisque et, viverra urna imperdiet non
+								malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum
+								dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc.</p>
+							<img class='mb-8' src="img/blog-img-2.jpg" alt="plate of salad">
+							<p class='text-body text-grey-1'>Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet,
+								consectetur adipiscing elit. Odio amet egestas dignissim eu nunc. Suspendisse feugiat scelerisque et,
+								viverra urna imperdiet non malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis
+								lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim.
+							</p>
+							<div class='my-14 py-6 px-5 flex flex-col shadow-shadow-4'>
+								<span class='font-medium text-body2 mb-3 block'>In This Article</span>
+								<div class='pt-5 border-t border-border-3'>
+									<div class="">
+										<div class="flex relative pb-6">
+											<div class="h-[26px] w-2 absolute top-[23px] inset-0 flex items-center justify-center">
+												<div class="h-full border-r border-danger pointer-events-none"></div>
+											</div>
+											<div
+												class="w-2 min-w-2 h-2 mt-2 rounded-full bg-danger inline-flex items-center justify-center relative z-10">
+											</div>
+											<div class="flex-grow pl-4">
+												<span class="text-body3">Introduction</span>
+											</div>
+										</div>
+										<div class="flex relative pb-6">
+											<div class="h-[26px] w-2 absolute top-[23px] inset-0 flex items-center justify-center">
+												<div class="h-full border-r border-danger pointer-events-none"></div>
+											</div>
+											<div
+												class="w-2 min-w-2 h-2 mt-2 rounded-full bg-danger inline-flex items-center justify-center relative z-10">
+											</div>
+											<div class="flex-grow pl-4">
+												<span class="text-body3">Best Recipes</span>
+											</div>
+										</div>
+										<div class="flex relative pb-6">
+											<div class="h-[26px] w-2 absolute top-[23px] inset-0 flex items-center justify-center">
+												<div class="h-full border-r border-danger pointer-events-none"></div>
+											</div>
+											<div
+												class="w-2 min-w-2 h-2 mt-2 rounded-full bg-danger inline-flex items-center justify-center relative z-10">
+											</div>
+											<div class="flex-grow pl-4">
+												<span class="text-body3">About Diet Plan
+												</span>
+											</div>
+										</div>
+										<div class="flex relative pb-6">
+											<div class="h-[26px] w-2 absolute top-[23px] inset-0 flex items-center justify-center">
+												<div class="h-full border-r border-danger pointer-events-none"></div>
+											</div>
+											<div
+												class="w-2 min-w-2 h-2 mt-2 rounded-full bg-danger inline-flex items-center justify-center relative z-10">
+											</div>
+											<div class="flex-grow pl-4">
+												<span class="text-body3">14 Best Diets</span>
+											</div>
+										</div>
+										<div class="flex relative pb-6">
+											<div class="h-[26px] w-2 absolute top-[23px] inset-0 flex items-center justify-center">
+												<div class="h-full border-r border-danger pointer-events-none"></div>
+											</div>
+											<div
+												class="w-2 min-w-2 h-2 mt-2 rounded-full bg-danger inline-flex items-center justify-center relative z-10">
+											</div>
+											<div class="flex-grow pl-4">
+												<span class="text-body3">Diet Plan</span>
+											</div>
+										</div>
+										<div class="flex relative">
+											<div
+												class="w-2 min-w-2 h-2 mt-2 rounded-full bg-danger inline-flex items-center justify-center relative z-10">
+											</div>
+											<div class="flex-grow pl-4">
+												<span class="text-body3">Lorem Ipsum</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<h3 class='text-tt font-medium mb-6'>Is diet good for your health and fitness?</h3>
+							<p class='text-body text-grey-1 mb-6'>
+								Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet
+								egestas dignissim eu nunc. Suspendisse feugiat scelerisque et, viverra urna imperdiet non malesuada. In
+								massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit
+								amet, consectetur adipiscing elit. Odio amet egestas dignissim.
+							</p>
+							<p class='pl-6 border-l border-danger text-body mb-20'>
+								Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet
+								egestas dignissim eu nunc. Suspendisse feugiat scelerisque et, viverra urna imperdiet non malesuada. In
+								massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit
+								amet, consectetur adipiscing elit.
+							</p>
+
+							<span class='text-danger font-medium text-body5 uppercase tracking-1-6 block mb-5'>Video</span>
+							<h3 class='text-h3 font-medium mb-10'>Video recipes for beginners!</h3>
+							<img class='mb-14' src="img/blog-img-2.jpg" alt="plate of salad">
+							<div x-data="{ isOpen: false }" class="w-full mb-14 shadow-shadow-4 rounded transition-colors">
+								<button @click="isOpen = !isOpen" class="flex justify-between items-center text-body2 w-full px-6 py-5">
+									About Video
+									<span class='transition' x-bind:class='isOpen ? "rotate-180" : ""'>
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
+											<path
+												d="M15.6824 8.51371C15.4707 8.72543 15.2133 8.83129 14.9104 8.83129C14.6074 8.83129 14.35 8.72543 14.1383 8.51371L8.25755 2.63295L2.37679 8.51371C2.16507 8.72543 1.90589 8.83129 1.59926 8.83129C1.29263 8.83129 1.03345 8.72543 0.821732 8.51371C0.61001 8.30198 0.50415 8.04463 0.50415 7.74165C0.50415 7.43867 0.61001 7.18132 0.821732 6.9696L7.16244 0.628892C7.30845 0.482877 7.4782 0.369715 7.67167 0.289407C7.86514 0.209099 8.05861 0.168945 8.25208 0.168945C8.44555 0.168945 8.63719 0.209099 8.82701 0.289407C9.01683 0.369715 9.1884 0.482877 9.34171 0.628892L15.6824 6.9696C15.8941 7.18132 16 7.43867 16 7.74165C16 8.04463 15.8941 8.30198 15.6824 8.51371Z"
+												fill="#19181B" />
+										</svg>
+									</span>
+								</button>
+								<div x-show="isOpen" x-transition class=" bg-white pb-5 px-6 pt-1 rounded">
+									<p class="text-body">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc. Id
+										enim volutpat tellus. Cras tellus ac dui at sed. Suspendisse feugiat scelerisque et, viverra urna
+										imperdiet non malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut
+										viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu
+										nunc. Suspendisse feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus
+										natoque augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet,
+										consectetur adipiscing elit. Odio amet egestas dignissim eu nunc.
+									</p>
+									<br>
+									<p class="text-body">
+										Suspendisse feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus natoque
+										augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur
+										adipiscing elit. Odio amet egestas dignissim eu nunc.
+									</p>
+								</div>
+							</div>
+							<p class='text-body text-grey-1 mb-6'>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc. Id enim
+								volutpat tellus. Cras tellus ac dui at sed. Suspendisse feugiat scelerisque et, viverra urna imperdiet
+								non malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut viverra. Lorem
+								ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc. Suspendisse
+								feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus natoque augue in et,
+								et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio
+								amet egestas dignissim eu nunc.
+								<br>
+								<br>
+								Suspendisse feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus natoque
+								augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur
+								adipiscing elit. Odio amet egestas dignissim eu nunc.
+							</p>
+							<img class='mb-14' src="img/blog-img-2.jpg" alt="plate of salad">
+							<p class='text-body text-grey-1 mb-6'>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc. Id enim
+								volutpat tellus. Cras tellus ac dui at sed. Suspendisse feugiat scelerisque et, viverra urna imperdiet
+								non malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut viverra. Lorem
+								ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc. Suspendisse
+								feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus natoque augue in et,
+								et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio
+								amet egestas dignissim eu nunc.
+								<br>
+								<br>
+								Suspendisse feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus natoque
+								augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur
+								adipiscing elit. Odio amet egestas dignissim eu nunc.
+							</p>
+							<div x-data="{ isOpen: false }" class="w-full mb-8 shadow-shadow-4 rounded transition-colors">
+								<button @click="isOpen = !isOpen" class="flex justify-between items-center text-body2 w-full px-6 py-5">
+									Article Sources
+									<span class='transition' x-bind:class='isOpen ? "rotate-180" : ""'>
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
+											<path
+												d="M15.6824 8.51371C15.4707 8.72543 15.2133 8.83129 14.9104 8.83129C14.6074 8.83129 14.35 8.72543 14.1383 8.51371L8.25755 2.63295L2.37679 8.51371C2.16507 8.72543 1.90589 8.83129 1.59926 8.83129C1.29263 8.83129 1.03345 8.72543 0.821732 8.51371C0.61001 8.30198 0.50415 8.04463 0.50415 7.74165C0.50415 7.43867 0.61001 7.18132 0.821732 6.9696L7.16244 0.628892C7.30845 0.482877 7.4782 0.369715 7.67167 0.289407C7.86514 0.209099 8.05861 0.168945 8.25208 0.168945C8.44555 0.168945 8.63719 0.209099 8.82701 0.289407C9.01683 0.369715 9.1884 0.482877 9.34171 0.628892L15.6824 6.9696C15.8941 7.18132 16 7.43867 16 7.74165C16 8.04463 15.8941 8.30198 15.6824 8.51371Z"
+												fill="#19181B" />
+										</svg>
+									</span>
+								</button>
+								<div x-show="isOpen" x-transition class=" bg-white pb-5 px-6 pt-1 rounded">
+									<ol x-data="numberedList()" class="flex flex-col gap-y-6">
+										<template x-for="(item, index) in items" :key="index">
+											<li class='text-body3'>
+												<span x-text="formattedNumber(index)" class="text-danger font-medium"></span>.
+												<span class="ml-2" x-text="item[0]"></span>
+												<a target='_blank' :href="item[1]" x-text="item[1]"
+													class="ml-6 transition text-grey-1 hover:text-danger"></a>
+											</li>
+										</template>
+									</ol>
+								</div>
+							</div>
+							<div class='flex items-center shadow-shadow-4 py-5 px-6 mb-[72px]'>
+								<img class='mr-2 rounded-full' src="img/avatar-img.png" alt="Avatar">
+								<div>
+									<p class="text-body2 font-medium mb-2">Sophie Moore</p>
+									<p class="text-body3 text-grey-1 ">Personal Trainer</p>
+								</div>
+							</div>
+
+							<div>
+								<h4>Comments</h4>
+								<span>(24)</span>
+							</div>
+							<div class='flex flex-col'>
+								<div class='flex flex-col'>
+									<div class='flex items-center'>
+										<img class='mr-2 rounded-full' src="img/avatar-img.png" alt="Avatar">
+										<div>
+											<p class="text-body2 font-medium mb-2 mr-6">Sophie Moore <span class='text-danger'>-></span></p>
+											<p class="text-body3 text-grey-1 ">month ago</p>
+										</div>
+									</div>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc. Id
+										enim volutpat tellus.
+										Cras tellus ac dui at sed.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</section>
+
+
+		@@include('components/Newsletter.html')
+		@@include('components/Footer.html')
+	</main>
+
+	@@include('components/script.html')
+</body>
+
+</html>

@@ -76,6 +76,11 @@
 	@apply block h-[23px] w-[13px] bg-100-auto bg-center bg-no-repeat;
 }
 
+.bg-1 {
+	background: url(../img/bg-1.png);
+	@apply opacity-15 block h-[100%] w-[100%] bg-cover bg-center bg-no-repeat;
+}
+
 @media (max-width: 1279.98px) {
 }
 
