@@ -10,7 +10,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Search results</title>
+  <title>Category page</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -27,80 +27,173 @@
     <div x-show="open">2</div>
 </div>
 
-		<section class='pt-20 pb-10'>
+		<section class='py-20'>
+			<div class="container">
+				<div class="grid grid-cols-12 gap-x-5">
+					<div class="col-span-6">
+						<div class='flex flex-col h-full items-start justify-center gap-y-6 max-w-[500px]'>
+							<span class='text-danger font-medium text-body5 uppercase tracking-1-6'>All about diets</span>
+							<h1 class='text-h1 font-semibold'>Food for <br>
+								Weight Loss<span class='text-danger'>.</span>
+							</h1>
+							<p class='text-body text-grey-1'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Habitasse arcu vulputate velit scelerisque cursus nunc.
+								Ac cras sapien quam sem et venenatis velit.
+								A fusce sed convallis.</p>
+							<a class="button text-button px-10 py-4 rounded-full border transition group border-primary hover:border-danger bg-primary inline-flex items-center justify-center hover:bg-transparent text-white hover:text-danger mt-4"
+    href="#">
+    <span class="font-medium">Read Posts</span>
+</a>
+						</div>
+					</div>
+					<div class="col-span-6">
+						<img src="img/image-home-hero-fitness-template.png" alt="">
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class='py-20 bg-secondary'>
+			<div class="container">
+				<div class="grid grid-cols-12 gap-x-5">
+					<div class="col-span-6">
+						<div class='flex flex-col h-full items-start gap-y-6 max-w-[500px]'>
+							<span class='text-danger font-medium text-body5 uppercase tracking-1-6'>Questions & Answers</span>
+							<h2 class='text-h1 font-semibold'>FAQs<span class='text-danger'>.</span>
+							</h2>
+							<p class='text-body'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Habitasse arcu
+								vulputate velit scelerisque cursus nunc.
+								Ac cras sapien quam sem et venenatis velit. </p>
+						</div>
+					</div>
+					<div class="col-span-6">
+						<div x-data="{ selectedAccordionItem: 'one' }" class="w-full overflow-hidden">
+							<div class="px-4 border-b border-border-3 transition-all"
+								:class="selectedAccordionItem === 'one'  ?  'py-3'  :  'py-10'">
+								<button id="controlsAccordionItemOne" type="button"
+									class="flex w-full items-center justify-between gap-4 text-left font-medium text-tt"
+									aria-controls="accordionItemOne" @click="selectedAccordionItem = 'one'"
+									:aria-expanded="selectedAccordionItem === 'one' ? 'true' : 'false'">
+									Lorem ipsum dolor sit amet consectetur?
+									<div class='w-10 min-w-10 h-10 border ml-2 rounded-full flex items-center justify-center'
+										:class="selectedAccordionItem === 'one'  ?  'border-danger'  :  'border-primary'">
+										<span :class="selectedAccordionItem === 'one'  ?  'minus-icon'  :  'plus-icon'"></span>
+									</div>
+								</button>
+								<div class='mt-3' x-cloak x-show="selectedAccordionItem === 'one'" id="accordionItemOne" role="region"
+									aria-labelledby="controlsAccordionItemOne" x-collapse>
+									<div class="text-body sm:text-base text-pretty text-grey-1">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Habitasse arcu vulputate velit scelerisque cursus nunc.
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Habitasse arcu vulputate velit scelerisque cursus nunc.
+									</div>
+								</div>
+							</div>
+							<div class="px-4 border-b border-border-3 transition-all"
+								:class="selectedAccordionItem === 'two'  ?  'py-3'  :  'py-10'">
+								<button id="controlsAccordionItemTwo" type="button"
+									class="flex w-full items-center justify-between gap-4 text-left font-medium text-tt"
+									aria-controls="accordionItemTwo" @click="selectedAccordionItem = 'two'"
+									:aria-expanded="selectedAccordionItem === 'two' ? 'true' : 'false'">
+									Lorem ipsum dolor sit amet consectetur?
+									<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"
+										stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true"
+										:class="selectedAccordionItem === 'two'  ?  'rotate-180'  :  ''">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+									</svg> -->
+									<div class='w-10 min-w-10 h-10 border ml-2 rounded-full flex items-center justify-center'
+										:class="selectedAccordionItem === 'two'  ?  'border-danger'  :  'border-primary'">
+										<span :class="selectedAccordionItem === 'two'  ?  'minus-icon'  :  'plus-icon'"></span>
+									</div>
+								</button>
+								<div class='mt-3' x-cloak x-show="selectedAccordionItem === 'two'" id="accordionItemTwo" role="region"
+									aria-labelledby="controlsAccordionItemTwo" x-collapse>
+									<div class="text-body sm:text-base text-pretty text-grey-1">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Habitasse arcu vulputate velit scelerisque cursus nunc.
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Habitasse arcu vulputate velit scelerisque cursus nunc.
+									</div>
+								</div>
+							</div>
+							<div class="px-4 border-b border-border-3 transition-all"
+								:class="selectedAccordionItem === 'three'  ?  'py-3'  :  'py-10'">
+								<button id="controlsAccordionItemThree" type="button"
+									class="flex w-full items-center justify-between gap-4 text-left font-medium text-tt"
+									aria-controls="accordionItemThree" @click="selectedAccordionItem = 'three'"
+									:aria-expanded="selectedAccordionItem === 'three' ? 'true' : 'false'">
+									Lorem ipsum dolor sit amet consectetur?
+									<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"
+										stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true"
+										:class="selectedAccordionItem === 'three'  ?  'rotate-180'  :  ''">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+									</svg> -->
+									<div class='w-10 min-w-10 h-10 border ml-2 rounded-full flex items-center justify-center'
+										:class="selectedAccordionItem === 'three'  ?  'border-danger'  :  'border-primary'">
+										<span :class="selectedAccordionItem === 'three'  ?  'minus-icon'  :  'plus-icon'"></span>
+									</div>
+								</button>
+								<div class='mt-3' x-cloak x-show="selectedAccordionItem === 'three'" id="accordionItemThree"
+									role="region" aria-labelledby="controlsAccordionItemThree" x-collapse>
+									<div class="text-body sm:text-base text-pretty text-grey-1">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Habitasse arcu vulputate velit scelerisque cursus nunc.
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Habitasse arcu vulputate velit scelerisque cursus nunc.
+									</div>
+								</div>
+							</div>
+							<div class="px-4 transition-all" :class="selectedAccordionItem === 'fourth'  ?  'py-3'  :  'py-10'">
+								<button id="controlsAccordionItemFourth" type="button"
+									class="flex w-full items-center justify-between gap-4 text-left font-medium text-tt"
+									aria-controls="accordionItemFourth" @click="selectedAccordionItem = 'fourth'"
+									:aria-expanded="selectedAccordionItem === 'fourth' ? 'true' : 'false'">
+									Lorem ipsum dolor sit amet consectetur?
+									<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"
+										stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true"
+										:class="selectedAccordionItem === 'fourth'  ?  'rotate-180'  :  ''">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+									</svg> -->
+									<div class='w-10 min-w-10 h-10 border ml-2 rounded-full flex items-center justify-center'
+										:class="selectedAccordionItem === 'fourth'  ?  'border-danger'  :  'border-primary'">
+										<span :class="selectedAccordionItem === 'fourth'  ?  'minus-icon'  :  'plus-icon'"></span>
+									</div>
+								</button>
+								<div class='mt-3' x-cloak x-show="selectedAccordionItem === 'fourth'" id="accordionItemFourth"
+									role="region" aria-labelledby="controlsAccordionItemFourth" x-collapse>
+									<div class="text-body sm:text-base text-pretty text-grey-1">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Habitasse arcu vulputate velit scelerisque cursus nunc.
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+										Habitasse arcu vulputate velit scelerisque cursus nunc.
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<section class='py-20'>
 			<div class="container">
 				<div class="grid grid-cols-12 gap-x-5">
 					<div class="col-span-12">
-						<div class="flex flex-col">
-							<span class='text-danger font-medium text-body5 uppercase tracking-1-6 mb-5 block'>Search results</span>
-							<h1 class="text-h3 font-semibold mb-6">Showing results for ”lorem ipsum”</h1>
-							<div x-data="{ query: '', results: [], showResults: false }" @click.away="showResults = false"
-	class='flex flex-col relative'>
-	<label for="search" class="text-none absolute -z-10">Search</label>
-	<div class='flex items-center rounded-[40px] w-full border border-border-2 overflow-hidden py-2 pl-6 pr-2'>
-		<div class="relative w-full">
-			<input type="search" id="search" name="Search bar" placeholder='Start your search with keyword' x-model="query"
-				@input.debounce.300="fetchResults" @focus="showResults = true"
-				class="w-full bg-white border-0 focus:ring-0 focus:bg-transparent focus:border-0 text-base outline-none p-0 pr-2 leading-8 transition-colors duration-200 ease-in-out">
-		</div>
-		<button
-			class="button text-body5 px-6 py-[10px] rounded-full border transition group border-primary hover:border-danger bg-primary inline-flex items-center hover:bg-transparent text-white hover:text-danger">
-			<span class="font-normal uppercase">Search</span>
-		</button>
-	</div>
-	<div x-show="showResults && query.length > 0"
-		class="absolute top-full mt-2 p-6 w-full bg-white border border-gray-200 rounded-lg shadow-shadow-2 z-10">
-		<ul>
-			<template x-for="result in results" :key="result.id">
-				<li class="p-2 text-body3 hover:bg-gray-100 cursor-pointer" @click="selectResult(result)">
-					<span x-text="result.title"></span>
-				</li>
-			</template>
-		</ul>
-	</div>
-</div>
-
-<script>
-	function fetchResults() {
-		this.results = []
-		if (this.query.length > 0) {
-			// Имитация поиска. Поменять на реальный API вызов или логику поиска.
-			this.results = [
-				{ id: 1, title: 'Result 1' },
-				{ id: 2, title: 'Result 2' },
-				{ id: 3, title: 'Result 3' },
-			]
-		}
-		this.showResults = this.results.length > 0
-	}
-
-	function selectResult(result) {
-		this.query = result.title
-		this.showResults = false
-	}
-</script>
+						<div class='flex justify-between'>
+							<h2 class='text-h3 font-medium'>Low-Carb Diets</h2>
+							<a class="button text-button px-10 py-4 rounded-full border transition group border-primary hover:border-danger bg-primary inline-flex items-center justify-center hover:bg-transparent text-white hover:text-danger "
+    href="#">
+    <span class="font-medium">More posts</span>
+</a>
 						</div>
 					</div>
-				</div>
-		</section>
-		<section class='py-10 border-t border-b border-border-3 mb-24'>
-			<div class="container">
-				<div class="grid grid-cols-12 gap-x-5 gap-y-14">
-					<div class="col-span-12">
-						<div x-data="{ selected: 0 }" class="flex space-x-2 mb-8">
-							<!-- Loop through options -->
-							<template x-for="(option, index) in ['All', 'diets', 'sports']">
-								<button class='transition uppercase px-4 py-[10px] rounded-full text-body6'
-									x-on:click="selected = index" :class="{
-										'bg-primary text-white border-primary': selected === index,
-										'bg-secondary border-secondary ': selected !== index
-									}" x-text="option" class="px-4 py-2 rounded cursor-pointer"></button>
-							</template>
-						</div>
-						<span class='text-border-2 text-body'>Showing results 1 - 12 of 24</span>
-					</div>
-					<div class="col-span-4">
-						<div
+					<div class='col-span-12'>
+						<div class="mt-10">
+							<div class="splide splide-1 text-black pb-10" aria-label="Splide Basic HTML Example">
+								<div class="splide__track">
+									<ul class="splide__list">
+										<li class="splide__slide">
+											<div
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
 	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
 	<div class='flex flex-col px-5 pb-8 h-full'>
@@ -116,9 +209,9 @@
 			href="#">Read More</a>
 	</div>
 </div>
-					</div>
-					<div class="col-span-4">
-						<div
+										</li>
+										<li class="splide__slide">
+											<div
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
 	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
 	<div class='flex flex-col px-5 pb-8 h-full'>
@@ -134,9 +227,9 @@
 			href="#">Read More</a>
 	</div>
 </div>
-					</div>
-					<div class="col-span-4">
-						<div
+										</li>
+										<li class="splide__slide">
+											<div
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
 	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
 	<div class='flex flex-col px-5 pb-8 h-full'>
@@ -152,63 +245,9 @@
 			href="#">Read More</a>
 	</div>
 </div>
-					</div>
-					<div class="col-span-4">
-						<div
-	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
-	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
-	<div class='flex flex-col px-5 pb-8 h-full'>
-		<div class='flex items-center justify-between mb-8'>
-			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px]' datetime="September 1, 2022">September 1, 2022</time>
-			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Sports</span>
-		</div>
-		<span class='text-tt mb-3 block font-medium'>The 5 effective fitness morning routines you should follow</span>
-		<p class='blog-card__text text-grey-1 mb-2 text-body'>Lorem ipsum dolor sit amet, consectetur
-			adipiscing elit. Habitasse arcu vulputate
-			velit scelerisque... </p>
-		<a class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium'
-			href="#">Read More</a>
-	</div>
-</div>
-					</div>
-					<div class="col-span-4">
-						<div
-	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
-	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
-	<div class='flex flex-col px-5 pb-8 h-full'>
-		<div class='flex items-center justify-between mb-8'>
-			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px]' datetime="September 1, 2022">September 1, 2022</time>
-			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Sports</span>
-		</div>
-		<span class='text-tt mb-3 block font-medium'>The 5 effective fitness morning routines you should follow</span>
-		<p class='blog-card__text text-grey-1 mb-2 text-body'>Lorem ipsum dolor sit amet, consectetur
-			adipiscing elit. Habitasse arcu vulputate
-			velit scelerisque... </p>
-		<a class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium'
-			href="#">Read More</a>
-	</div>
-</div>
-					</div>
-					<div class="col-span-4">
-						<div
-	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
-	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
-	<div class='flex flex-col px-5 pb-8 h-full'>
-		<div class='flex items-center justify-between mb-8'>
-			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px]' datetime="September 1, 2022">September 1, 2022</time>
-			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Sports</span>
-		</div>
-		<span class='text-tt mb-3 block font-medium'>The 5 effective fitness morning routines you should follow</span>
-		<p class='blog-card__text text-grey-1 mb-2 text-body'>Lorem ipsum dolor sit amet, consectetur
-			adipiscing elit. Habitasse arcu vulputate
-			velit scelerisque... </p>
-		<a class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium'
-			href="#">Read More</a>
-	</div>
-</div>
-					</div>
-					<div class="col-span-4">
-						<div
+										</li>
+										<li class="splide__slide">
+											<div
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
 	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
 	<div class='flex flex-col px-5 pb-8 h-full'>
@@ -224,9 +263,9 @@
 			href="#">Read More</a>
 	</div>
 </div>
-					</div>
-					<div class="col-span-4">
-						<div
+										</li>
+										<li class="splide__slide">
+											<div
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
 	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
 	<div class='flex flex-col px-5 pb-8 h-full'>
@@ -242,9 +281,9 @@
 			href="#">Read More</a>
 	</div>
 </div>
-					</div>
-					<div class="col-span-4">
-						<div
+										</li>
+										<li class="splide__slide">
+											<div
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
 	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
 	<div class='flex flex-col px-5 pb-8 h-full'>
@@ -260,40 +299,56 @@
 			href="#">Read More</a>
 	</div>
 </div>
-					</div>
-					<div class="col-span-12">
-						<div class='flex items-center justify-between mx-auto max-w-[692px]'>
-							<button
-								class='w-16 h-16 bg-primary disabled:bg-white cursor-pointer flex items-center justify-center rounded-full shadow-shadow-5 group'
-								disabled>
-								<i class='group-disabled:block hidden'>
-									<span class='arrow-left-black'></span>
-								</i>
-								<i class='group-disabled:hidden block rotate-180'>
-									<span class='arrow-right-white'></span>
-								</i>
-							</button>
-							<div class='flex items-center gap-3'>
-								<div class='pagination-num active'>
-									1</div>
-								<div class='pagination-num'>
-									2</div>
-								<div class='pagination-num'>
-									3</div>
-								<div class='pagination-num'>
-									...</div>
-								<div class='pagination-num'>
-									10</div>
+										</li>
+										<li class="splide__slide">
+											<div
+	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
+	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<div class='flex flex-col px-5 pb-8 h-full'>
+		<div class='flex items-center justify-between mb-8'>
+			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px]' datetime="September 1, 2022">September 1, 2022</time>
+			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Diet</span>
+		</div>
+		<span class='text-tt mb-3 block font-medium'>The 5 effective fitness morning routines you should follow</span>
+		<p class='blog-card__text text-grey-1 mb-2 text-body'>Lorem ipsum dolor sit amet, consectetur
+			adipiscing elit. Habitasse arcu vulputate
+			velit scelerisque... </p>
+		<a class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium'
+			href="#">Read More</a>
+	</div>
+</div>
+										</li>
+										<li class="splide__slide">
+											<div
+	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
+	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<div class='flex flex-col px-5 pb-8 h-full'>
+		<div class='flex items-center justify-between mb-8'>
+			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px]' datetime="September 1, 2022">September 1, 2022</time>
+			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Diet</span>
+		</div>
+		<span class='text-tt mb-3 block font-medium'>The 5 effective fitness morning routines you should follow</span>
+		<p class='blog-card__text text-grey-1 mb-2 text-body'>Lorem ipsum dolor sit amet, consectetur
+			adipiscing elit. Habitasse arcu vulputate
+			velit scelerisque... </p>
+		<a class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium'
+			href="#">Read More</a>
+	</div>
+</div>
+										</li>
+
+
+									</ul>
+								</div>
+								<div class="splide__arrows">
+									<button class="splide__arrow splide__arrow--prev  opacity-100">
+										b
+									</button>
+									<button class="splide__arrow splide__arrow--next  opacity-100">
+										b
+									</button>
+								</div>
 							</div>
-							<button
-								class='w-16 h-16 bg-primary disabled:bg-white cursor-pointer flex items-center justify-center rounded-full shadow-shadow-5 group'>
-								<i class='group-disabled:block hidden rotate-180'>
-									<span class='arrow-left-black'></span>
-								</i>
-								<i class='group-disabled:hidden block'>
-									<span class='arrow-right-white'></span>
-								</i>
-							</button>
 						</div>
 					</div>
 				</div>

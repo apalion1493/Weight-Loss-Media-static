@@ -49,6 +49,7 @@
 	"license": "ISC",
 	"homepage": "https://github.com/apalion1493/Start-Template-2024#readme",
 	"dependencies": {
+		"@alpinejs/collapse": "^3.14.1",
 		"@splidejs/splide": "^4.1.4",
 		"alpinejs": "^3.14.1"
 	}

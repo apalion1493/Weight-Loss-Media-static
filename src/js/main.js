@@ -2,14 +2,52 @@ window.addEventListener('DOMContentLoaded', () => {
 	console.log('Loaded Scripts')
 
 	if (document.querySelector('.splide-1')) {
-		new Splide('.splide-1', {
+		const splide = new Splide('.splide-1', {
 			perPage: 3,
 			focus: 0,
 			omitEnd: true,
 			gap: 20,
 			perMove: 1,
 			arrows: true,
-			pagination: true,
+			pagination: {
+				type: 'custom',
+				render: function (splide, list) {
+					const maxVisibleNumbers = 5
+					let totalSlides = splide.length
+					let currentPage = splide.index + 1
+
+					let pageNumbers = Array.from({ length: totalSlides }, (_, i) => i + 1)
+
+					let visibleNumbers = pageNumbers.slice(
+						Math.max(0, currentPage - Math.ceil(maxVisibleNumbers / 2)),
+						currentPage + Math.floor(maxVisibleNumbers / 2)
+					)
+
+					if (
+						visibleNumbers.length < maxVisibleNumbers &&
+						pageNumbers.length > maxVisibleNumbers
+					) {
+						visibleNumbers = pageNumbers.slice(0, maxVisibleNumbers)
+					}
+
+					list.innerHTML = ''
+
+					visibleNumbers.forEach(number => {
+						let li = document.createElement('li')
+						li.textContent = number
+						li.className =
+							'splide__pagination__page' +
+							(number === currentPage ? ' is-active' : '')
+						li.setAttribute('data-index', number - 1)
+						list.appendChild(li)
+
+						// Добавляем обработчик клика для перехода к слайду
+						li.addEventListener('click', function () {
+							splide.go(number - 1)
+						})
+					})
+				},
+			},
 			breakpoints: {
 				1024: {
 					perPage: 3,
@@ -26,7 +64,17 @@ window.addEventListener('DOMContentLoaded', () => {
 				pagination: 'splide__pagination your-class-pagination',
 				page: 'splide__pagination__page your-class-page',
 			},
-		}).mount()
+		})
+		// splide.on('pagination:mounted', function (data) {
+		// 	// You can add your class to the UL element
+		// 	data.list.classList.add('splide__pagination--custom')
+
+		// 	// `items` contains all dot items
+		// 	data.items.forEach(function (item) {
+		// 		item.button.textContent = String(item.page + 1)
+		// 	})
+		// })
+		splide.mount()
 	}
 })
 

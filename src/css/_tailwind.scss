@@ -86,6 +86,51 @@
 	@apply h-[20px] w-[20px] block bg-100-auto bg-center bg-no-repeat;
 }
 
+.minus-icon {
+	background: url(../img/minus-icon.svg);
+	@apply h-[1px] w-[17px] block bg-100-auto bg-center bg-no-repeat;
+}
+
+.plus-icon {
+	background: url(../img/plus-icon.svg);
+	@apply h-[17px] w-[17px] block bg-100-auto bg-center bg-no-repeat;
+}
+
+.splide__arrows {
+	max-width: 692px;
+	position: relative;
+	@apply mx-auto;
+}
+
+.splide__pagination {
+	bottom: -55px;
+}
+
+.splide__arrow {
+	top: auto;
+	bottom: -130px;
+	@apply h-16 w-16 bg-primary opacity-100 shadow-shadow-5 transition;
+
+	&:disabled {
+		@apply bg-white opacity-100;
+	}
+
+	&:disabled:hover {
+		@apply bg-white;
+	}
+}
+
+.splide__pagination__page {
+	width: 52px;
+	height: 52px;
+	@apply rounded-full bg-secondary text-t2 font-medium transition;
+
+	&.is-active {
+		transform: scale(1);
+		@apply bg-primary text-white opacity-100;
+	}
+}
+
 @media (max-width: 1279.98px) {
 }
 
