@@ -250,20 +250,144 @@
 								<h4>Comments</h4>
 								<span>(24)</span>
 							</div>
-							<div class='flex flex-col'>
-								<div class='flex flex-col'>
+							<div class='chat-section flex flex-col gap-y-5 mb-10'>
+
+								<div class='flex flex-col py-4 gap-y-6'>
 									<div class='flex items-center'>
 										<img class='mr-2 rounded-full' src="img/avatar-img.png" alt="Avatar">
-										<div>
-											<p class="text-body2 font-medium mb-2 mr-6">Sophie Moore <span class='text-danger'>-></span></p>
-											<p class="text-body3 text-grey-1 ">month ago</p>
+										<div class='flex flex-col'>
+											<p class="text-body2 font-medium mb-2 mr-6 inline-flex gap-x-6">Sophie Moore <a href='#'
+													class='text-danger share-icon'></a></p>
+											<time class="text-body3 text-grey-1 ">month ago</time>
 										</div>
 									</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc. Id
+									<p class='text-body'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas
+										dignissim eu nunc. Id
 										enim volutpat tellus.
 										Cras tellus ac dui at sed.</p>
 								</div>
+								<div class='flex flex-col py-4 gap-y-6'>
+									<div class='flex items-center'>
+										<img class='mr-2 rounded-full' src="img/avatar-img.png" alt="Avatar">
+										<div class='flex flex-col'>
+											<p class="text-body2 font-medium mb-2 mr-6 inline-flex gap-x-6">Sophie Moore <a href='#'
+													class='text-danger share-icon'></a></p>
+											<time class="text-body3 text-grey-1 ">month ago</time>
+										</div>
+									</div>
+									<p class='text-body'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas
+										dignissim eu nunc. Id
+										enim volutpat tellus.
+										Cras tellus ac dui at sed.</p>
+								</div>
+								<div class='flex flex-col py-4 gap-y-6'>
+									<div class='flex items-center'>
+										<img class='mr-2 rounded-full' src="img/avatar-img.png" alt="Avatar">
+										<div class='flex flex-col'>
+											<p class="text-body2 font-medium mb-2 mr-6 inline-flex gap-x-6">Sophie Moore <a href='#'
+													class='text-danger share-icon'></a></p>
+											<time class="text-body3 text-grey-1 ">month ago</time>
+										</div>
+									</div>
+									<p class='text-body'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas
+										dignissim eu nunc. Id
+										enim volutpat tellus.
+										Cras tellus ac dui at sed.</p>
+								</div>
+								<div class='flex flex-col gap-y-6 pl-6 border-l border-border-3'>
+									<span class='text-danger uppercase font-medium text-body5 tracking-1-6'>ANSWERS</span>
+									<div class='flex items-center'>
+
+										<img class='mr-2 rounded-full' src="img/avatar-2-img.png" alt="Avatar">
+										<div class='flex flex-col'>
+											<p class="text-body2 font-medium mb-2 mr-6 inline-flex gap-x-6">Admond Haddys <a href='#'
+													class='text-danger share-icon'></a></p>
+											<time class="text-body3 text-grey-1">12 march 2024</time>
+										</div>
+									</div>
+									<p class='text-body'>Odio amet egestas dignissim eu nunc. Id enim volutpat.</p>
+								</div>
+
+								<a class='text-danger text-button underline mt-10 font-medium' href="#">Show All</a>
 							</div>
+							<div class='flex flex-col p-8 border border-secondary shadow-shadow-4'>
+								<span class='block mb-6 font-medium text-tt'>Leave Comment</span>
+								<form action="">
+									<div class='grid grid-cols-12 gap-x-3 mb-4'>
+										<div class='col-span-6'>
+											@@include('components/input.html', {
+											'label': 'Name',
+											'placeholder': 'What’s your name?',
+											'type': 'text',
+											'idInput': 'nameId',
+											'errorStyle': 'hidden',
+											'commonStyle': ''
+											})
+										</div>
+										<div class='col-span-6'>
+											@@include('components/input.html', {
+											'label': 'Email',
+											'placeholder': 'What’s your email?',
+											'type': 'email',
+											'idInput': 'emailId',
+											'errorStyle': 'hidden',
+											'commonStyle': ''
+											})
+										</div>
+
+									</div>
+									@@include('components/textarea.html', {
+									'label': 'Message',
+									'placeholder': 'What’s your message?',
+									'type': 'text',
+									'idInput': 'messageId',
+									'commonStyle': 'mb-6'
+									})
+									<button type='submit'
+										class="button text-button px-10 py-4 rounded-full border transition group border-primary hover:border-danger bg-primary inline-flex justify-center items-center hover:bg-transparent text-white hover:text-danger uppercase w-[211px]">
+										<span class="font-medium">paste</span>
+									</button>
+								</form>
+							</div>
+
+						</div>
+					</div>
+					<div class="col-span-4">
+						<div class='flex flex-col pl-6 overflow-hidden'>
+							<span class='uppercase font-medium text-t2 block mb-8'>popular Articles</span>
+							<div class='flex flex-col gap-y-6'>
+								@@include('components/footer-blog-card.html', {
+								'url': '#',
+								'title': 'The 5 effective morning routines you should follow',
+								'date': 'September 1, 2022',
+								'style': 'text-primary',
+								'image': 'img/blog-post-fitness-templates.jpg',
+								'altImage': 'Title image',
+								'titleStyle': 'text-body3',
+								'timeStyle': 'text-grey-1'
+								})
+								@@include('components/footer-blog-card.html', {
+								'url': '#',
+								'title': 'The 5 effective morning routines you should follow',
+								'date': 'September 1, 2022',
+								'style': 'text-primary',
+								'image': 'img/blog-post-fitness-templates.jpg',
+								'altImage': 'Title image',
+								'titleStyle': 'text-body3',
+								'timeStyle': 'text-grey-1'
+								})
+								@@include('components/footer-blog-card.html', {
+								'url': '#',
+								'title': 'The 5 effective morning routines you should follow',
+								'date': 'September 1, 2022',
+								'style': 'text-primary',
+								'image': 'img/blog-post-fitness-templates.jpg',
+								'altImage': 'Title image',
+								'titleStyle': 'text-body3',
+								'timeStyle': 'text-grey-1'
+								})
+							</div>
+							<img class='mt-14 object-cover' src="img/article-bg-image-2.png" alt="">
 						</div>
 					</div>
 				</div>

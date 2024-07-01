@@ -13,7 +13,7 @@
 
 @layer components {
 	.container {
-		@apply px-2 minsm:max-w-[640px] minmd:max-w-[768px] minlg:max-w-[1024px] minxl:max-w-[1280px];
+		@apply minsm:max-w-[640px] minmd:max-w-[768px] minlg:max-w-[1024px] minxl:max-w-[1280px] px-2;
 	}
 }
 
@@ -45,21 +45,21 @@
 
 .fire-icon {
 	background: url(../img/Fire-icon.svg);
-	@apply block h-[95px] w-[80px] bg-100-auto bg-center bg-no-repeat;
+	@apply h-[95px] w-[80px] block bg-100-auto bg-center bg-no-repeat;
 }
 
 .dumbbell-icon {
 	background: url(../img/dumbbell-icon.svg);
-	@apply block h-[104px] w-[110px] bg-100-auto bg-center bg-no-repeat;
+	@apply h-[104px] w-[110px] block bg-100-auto bg-center bg-no-repeat;
 }
 
 .apple-icon {
 	background: url(../img/apple-icon.svg);
-	@apply block h-[104px] w-[110px] bg-100-auto bg-center bg-no-repeat;
+	@apply h-[104px] w-[110px] block bg-100-auto bg-center bg-no-repeat;
 }
 
 .pagination-num {
-	@apply flex h-[52px] w-[52px] cursor-pointer items-center justify-center rounded-full bg-secondary text-t2 font-medium uppercase transition;
+	@apply h-[52px] w-[52px] flex cursor-pointer items-center justify-center rounded-full bg-secondary text-t2 font-medium uppercase transition;
 
 	&.active {
 		@apply bg-primary text-white;
@@ -68,17 +68,22 @@
 
 .arrow-left-black {
 	background: url(../img/arrow-left-black.svg);
-	@apply block h-[23px] w-[13px] bg-100-auto bg-center bg-no-repeat;
+	@apply h-[23px] w-[13px] block bg-100-auto bg-center bg-no-repeat;
 }
 
 .arrow-right-white {
 	background: url(../img/arrow-right-white.svg);
-	@apply block h-[23px] w-[13px] bg-100-auto bg-center bg-no-repeat;
+	@apply h-[23px] w-[13px] block bg-100-auto bg-center bg-no-repeat;
 }
 
 .bg-1 {
 	background: url(../img/bg-1.png);
-	@apply opacity-15 block h-[100%] w-[100%] bg-cover bg-center bg-no-repeat;
+	@apply h-[100%] w-[100%] block bg-cover bg-center bg-no-repeat opacity-15;
+}
+
+.share-icon {
+	background: url(../img/share.svg);
+	@apply h-[20px] w-[20px] block bg-100-auto bg-center bg-no-repeat;
 }
 
 @media (max-width: 1279.98px) {

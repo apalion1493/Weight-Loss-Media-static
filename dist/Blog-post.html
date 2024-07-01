@@ -266,20 +266,141 @@
 								<h4>Comments</h4>
 								<span>(24)</span>
 							</div>
-							<div class='flex flex-col'>
-								<div class='flex flex-col'>
+							<div class='chat-section flex flex-col gap-y-5 mb-10'>
+
+								<div class='flex flex-col py-4 gap-y-6'>
 									<div class='flex items-center'>
 										<img class='mr-2 rounded-full' src="img/avatar-img.png" alt="Avatar">
-										<div>
-											<p class="text-body2 font-medium mb-2 mr-6">Sophie Moore <span class='text-danger'>-></span></p>
-											<p class="text-body3 text-grey-1 ">month ago</p>
+										<div class='flex flex-col'>
+											<p class="text-body2 font-medium mb-2 mr-6 inline-flex gap-x-6">Sophie Moore <a href='#'
+													class='text-danger share-icon'></a></p>
+											<time class="text-body3 text-grey-1 ">month ago</time>
 										</div>
 									</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc. Id
+									<p class='text-body'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas
+										dignissim eu nunc. Id
 										enim volutpat tellus.
 										Cras tellus ac dui at sed.</p>
 								</div>
+								<div class='flex flex-col py-4 gap-y-6'>
+									<div class='flex items-center'>
+										<img class='mr-2 rounded-full' src="img/avatar-img.png" alt="Avatar">
+										<div class='flex flex-col'>
+											<p class="text-body2 font-medium mb-2 mr-6 inline-flex gap-x-6">Sophie Moore <a href='#'
+													class='text-danger share-icon'></a></p>
+											<time class="text-body3 text-grey-1 ">month ago</time>
+										</div>
+									</div>
+									<p class='text-body'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas
+										dignissim eu nunc. Id
+										enim volutpat tellus.
+										Cras tellus ac dui at sed.</p>
+								</div>
+								<div class='flex flex-col py-4 gap-y-6'>
+									<div class='flex items-center'>
+										<img class='mr-2 rounded-full' src="img/avatar-img.png" alt="Avatar">
+										<div class='flex flex-col'>
+											<p class="text-body2 font-medium mb-2 mr-6 inline-flex gap-x-6">Sophie Moore <a href='#'
+													class='text-danger share-icon'></a></p>
+											<time class="text-body3 text-grey-1 ">month ago</time>
+										</div>
+									</div>
+									<p class='text-body'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas
+										dignissim eu nunc. Id
+										enim volutpat tellus.
+										Cras tellus ac dui at sed.</p>
+								</div>
+								<div class='flex flex-col gap-y-6 pl-6 border-l border-border-3'>
+									<span class='text-danger uppercase font-medium text-body5 tracking-1-6'>ANSWERS</span>
+									<div class='flex items-center'>
+
+										<img class='mr-2 rounded-full' src="img/avatar-2-img.png" alt="Avatar">
+										<div class='flex flex-col'>
+											<p class="text-body2 font-medium mb-2 mr-6 inline-flex gap-x-6">Admond Haddys <a href='#'
+													class='text-danger share-icon'></a></p>
+											<time class="text-body3 text-grey-1">12 march 2024</time>
+										</div>
+									</div>
+									<p class='text-body'>Odio amet egestas dignissim eu nunc. Id enim volutpat.</p>
+								</div>
+
+								<a class='text-danger text-button underline mt-10 font-medium' href="#">Show All</a>
 							</div>
+							<div class='flex flex-col p-8 border border-secondary shadow-shadow-4'>
+								<span class='block mb-6 font-medium text-tt'>Leave Comment</span>
+								<form action="">
+									<div class='grid grid-cols-12 gap-x-3 mb-4'>
+										<div class='col-span-6'>
+											<div class="form-group flex flex-col items-start @@common-style">
+    <label class="text-none" for="nameId">Name</label>
+    <input
+        class="input rounded-full text-primary border text-body3 w-full focus:outline-0 focus:shadow-none focus:ring-0 focus:border-border-2 border-border-2 py-4 pl-6 pr-2 @@styleInput"
+        type="text" id="nameId" placeholder="What’s your name?">
+    <small class="self-end text-h11 text-danger mt-3 hidden">Name is required</small>
+</div>
+										</div>
+										<div class='col-span-6'>
+											<div class="form-group flex flex-col items-start @@common-style">
+    <label class="text-none" for="emailId">Email</label>
+    <input
+        class="input rounded-full text-primary border text-body3 w-full focus:outline-0 focus:shadow-none focus:ring-0 focus:border-border-2 border-border-2 py-4 pl-6 pr-2 @@styleInput"
+        type="email" id="emailId" placeholder="What’s your email?">
+    <small class="self-end text-h11 text-danger mt-3 hidden">Name is required</small>
+</div>
+										</div>
+
+									</div>
+									<div class="form-group flex flex-col items-start overflow-hidden mb-6">
+    <label class="text-none" for="@@idTextarea">Message</label>
+    <textarea
+        class="input rounded-[32px] text-primary border text-body3 w-full focus:outline-0 focus:shadow-none focus:ring-0 focus:border-border-2 border-border-2 py-5 px-6 h-[180px] resize-none  @@styleTextarea"
+        id="@@idTextarea" placeholder="What’s your message?" rows="@@rows"></textarea>
+</div>
+									<button type='submit'
+										class="button text-button px-10 py-4 rounded-full border transition group border-primary hover:border-danger bg-primary inline-flex justify-center items-center hover:bg-transparent text-white hover:text-danger uppercase w-[211px]">
+										<span class="font-medium">paste</span>
+									</button>
+								</form>
+							</div>
+
+						</div>
+					</div>
+					<div class="col-span-4">
+						<div class='flex flex-col pl-6 overflow-hidden'>
+							<span class='uppercase font-medium text-t2 block mb-8'>popular Articles</span>
+							<div class='flex flex-col gap-y-6'>
+								<a href='#' class='flex gap-5 h-[157px] text-primary'>
+	<div class='min-w-[146px] flex items-center justify-center overflow-hidden'>
+		<img class='object-cover' src="img/blog-post-fitness-templates.jpg" alt="Title image">
+	</div>
+	<div class='flex flex-col gap-3 pt-3'>
+		<time class='text-body6 uppercase text-grey-1' datetime="September 1, 2022">September 1, 2022</time>
+		<p class='text-body3'>The 5 effective morning routines you should follow</p>
+		<span class='text-danger font-medium text-body7 block mt-auto mb-3 uppercase tracking-1-6'>Read More</span>
+	</div>
+</a>
+								<a href='#' class='flex gap-5 h-[157px] text-primary'>
+	<div class='min-w-[146px] flex items-center justify-center overflow-hidden'>
+		<img class='object-cover' src="img/blog-post-fitness-templates.jpg" alt="Title image">
+	</div>
+	<div class='flex flex-col gap-3 pt-3'>
+		<time class='text-body6 uppercase text-grey-1' datetime="September 1, 2022">September 1, 2022</time>
+		<p class='text-body3'>The 5 effective morning routines you should follow</p>
+		<span class='text-danger font-medium text-body7 block mt-auto mb-3 uppercase tracking-1-6'>Read More</span>
+	</div>
+</a>
+								<a href='#' class='flex gap-5 h-[157px] text-primary'>
+	<div class='min-w-[146px] flex items-center justify-center overflow-hidden'>
+		<img class='object-cover' src="img/blog-post-fitness-templates.jpg" alt="Title image">
+	</div>
+	<div class='flex flex-col gap-3 pt-3'>
+		<time class='text-body6 uppercase text-grey-1' datetime="September 1, 2022">September 1, 2022</time>
+		<p class='text-body3'>The 5 effective morning routines you should follow</p>
+		<span class='text-danger font-medium text-body7 block mt-auto mb-3 uppercase tracking-1-6'>Read More</span>
+	</div>
+</a>
+							</div>
+							<img class='mt-14 object-cover' src="img/article-bg-image-2.png" alt="">
 						</div>
 					</div>
 				</div>
@@ -432,20 +553,20 @@
 	<div class='min-w-[146px] flex items-center justify-center overflow-hidden'>
 		<img class='object-cover' src="img/blog-post-fitness-templates.jpg" alt="Title image">
 	</div>
-	<div class='flex flex-col gap-3'>
-		<time class='text-grey-2 text-body6 uppercase' datetime="September 1, 2022">September 1, 2022</time>
+	<div class='flex flex-col gap-3 pt-3'>
+		<time class='text-body6 uppercase text-grey-2' datetime="September 1, 2022">September 1, 2022</time>
 		<p class='text-white'>The 5 effective morning routines you should follow</p>
-		<span class='text-danger font-medium text-body7 block mt-auto mb-3'>Read More</span>
+		<span class='text-danger font-medium text-body7 block mt-auto mb-3 uppercase tracking-1-6'>Read More</span>
 	</div>
 </a>
 						<a href='#' class='flex gap-5 h-[157px] uppercase text-primary'>
 	<div class='min-w-[146px] flex items-center justify-center overflow-hidden'>
 		<img class='object-cover' src="img/blog-post-fitness-templates.jpg" alt="Title image">
 	</div>
-	<div class='flex flex-col gap-3'>
-		<time class='text-grey-2 text-body6 uppercase' datetime="September 1, 2022">September 1, 2022</time>
+	<div class='flex flex-col gap-3 pt-3'>
+		<time class='text-body6 uppercase text-grey-2' datetime="September 1, 2022">September 1, 2022</time>
 		<p class='text-white'>The 5 effective morning routines you should follow</p>
-		<span class='text-danger font-medium text-body7 block mt-auto mb-3'>Read More</span>
+		<span class='text-danger font-medium text-body7 block mt-auto mb-3 uppercase tracking-1-6'>Read More</span>
 	</div>
 </a>
 					</div>
