@@ -21,81 +21,102 @@ var n,t;n=this,t=function(){"use strict";var v="(prefers-reduced-motion: reduce)
 window.addEventListener('DOMContentLoaded', () => {
 	console.log('Loaded Scripts')
 
-	if (document.querySelector('.splide-1')) {
-		const splide = new Splide('.splide-1', {
-			perPage: 3,
-			focus: 0,
-			omitEnd: true,
-			gap: 20,
-			perMove: 1,
-			arrows: true,
-			pagination: {
-				type: 'custom',
-				render: function (splide, list) {
-					const maxVisibleNumbers = 5
-					let totalSlides = splide.length
-					let currentPage = splide.index + 1
+	// if (document.querySelector('.splide-1')) {
+	// 	const splide = new Splide('.splide-1', {
+	// 		perPage: 3,
+	// 		focus: 0,
+	// 		omitEnd: true,
+	// 		gap: 20,
+	// 		perMove: 1,
+	// 		arrows: true,
+	// 		pagination: true,
+	// 		breakpoints: {
+	// 			1024: {
+	// 				perPage: 3,
+	// 			},
+	// 			768: {
+	// 				perPage: 2,
+	// 			},
+	// 			640: {
+	// 				perPage: 1,
+	// 				pagination: false,
+	// 			},
+	// 		},
+	// 		classes: {
+	// 			pagination: 'splide__pagination your-class-pagination',
+	// 			page: 'splide__pagination__page your-class-page',
+	// 		},
+	// 	})
+	// 	splide.on('pagination:mounted', function (data) {
+	// 		const maxVisibleButtons = 5 // Максимальное количество видимых кнопок
+	// 		const list = data.list
+	// 		const items = data.items
+	// 		const totalItems = items.length
 
-					let pageNumbers = Array.from({ length: totalSlides }, (_, i) => i + 1)
+	// 		if (totalItems > maxVisibleButtons) {
+	// 			// Очистить стандартную пагинацию
+	// 			console.log(123)
+	// 			list.innerHTML = ''
+	// 			list.appendChild(createPaginationButton(items[0]))
+	// 			list.appendChild(createPaginationButton(items[1]))
 
-					let visibleNumbers = pageNumbers.slice(
-						Math.max(0, currentPage - Math.ceil(maxVisibleNumbers / 2)),
-						currentPage + Math.floor(maxVisibleNumbers / 2)
-					)
+	// 			const dotsButton = document.createElement('li')
+	// 			dotsButton.classList.add(
+	// 				'splide__pagination__page',
+	// 				'your-class-page',
+	// 				'dots'
+	// 			)
+	// 			dotsButton.innerHTML = '<button>...</button>'
+	// 			list.appendChild(dotsButton)
+	// 		} else {
+	// 			list.classList.add('splide__pagination--custom')
 
-					if (
-						visibleNumbers.length < maxVisibleNumbers &&
-						pageNumbers.length > maxVisibleNumbers
-					) {
-						visibleNumbers = pageNumbers.slice(0, maxVisibleNumbers)
-					}
+	// 			items.forEach(function (item) {
+	// 				item.button.textContent = String(item.page + 1)
+	// 			})
+	// 		}
+	// 	})
 
-					list.innerHTML = ''
+	// 	function createPaginationButton(item) {
+	// 		const listItem = document.createElement('li')
+	// 		listItem.classList.add('splide__pagination__page', 'your-class-page')
+	// 		listItem.innerHTML = `<button>${item.page + 1}</button>`
+	// 		listItem.addEventListener('click', () => {
+	// 			splide.go(item.page)
+	// 		})
+	// 		return listItem
+	// 	}
+	// 	splide.mount()
+	// }
 
-					visibleNumbers.forEach(number => {
-						let li = document.createElement('li')
-						li.textContent = number
-						li.className =
-							'splide__pagination__page' +
-							(number === currentPage ? ' is-active' : '')
-						li.setAttribute('data-index', number - 1)
-						list.appendChild(li)
+	const swiper = new Swiper('.splide-1', {
+		// Optional parameters
+		direction: 'horizontal',
+		slidesPerView: 3,
+		spaceBetween: 24,
+		// loop: true,
 
-						// Добавляем обработчик клика для перехода к слайду
-						li.addEventListener('click', function () {
-							splide.go(number - 1)
-						})
-					})
-				},
+		// If we need pagination
+		pagination: {
+			el: '.swiper-pagination',
+			renderBullet: function (index, className) {
+				return '<span class="' + className + '">' + (index + 1) + '</span>'
 			},
-			breakpoints: {
-				1024: {
-					perPage: 3,
-				},
-				768: {
-					perPage: 2,
-				},
-				640: {
-					perPage: 1,
-					pagination: false,
-				},
-			},
-			classes: {
-				pagination: 'splide__pagination your-class-pagination',
-				page: 'splide__pagination__page your-class-page',
-			},
-		})
-		// splide.on('pagination:mounted', function (data) {
-		// 	// You can add your class to the UL element
-		// 	data.list.classList.add('splide__pagination--custom')
+			dynamicBullets: true,
+			clickable: true,
+		},
 
-		// 	// `items` contains all dot items
-		// 	data.items.forEach(function (item) {
-		// 		item.button.textContent = String(item.page + 1)
-		// 	})
-		// })
-		splide.mount()
-	}
+		// Navigation arrows
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+
+		// And if we need scrollbar
+		scrollbar: {
+			el: '.swiper-scrollbar',
+		},
+	})
 })
 
 const modal = document.getElementById('modal')
