@@ -96,6 +96,16 @@
 	@apply h-[17px] w-[17px] block bg-100-auto bg-center bg-no-repeat;
 }
 
+.search-icon {
+	background: url(../img/Search.svg);
+	@apply h-[20px] w-[20px] bg-100-auto bg-center bg-no-repeat;
+}
+
+.search-red-icon {
+	background: url(../img/Search-red.svg);
+	@apply h-[20px] w-[20px] bg-100-auto bg-center bg-no-repeat;
+}
+
 // .splide__arrows {
 // 	max-width: 692px;
 // 	position: relative;

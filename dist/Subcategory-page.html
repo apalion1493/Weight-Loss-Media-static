@@ -10,7 +10,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Search results</title>
+  <title>Category page</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -31,56 +31,62 @@
 		<section class='pt-20 pb-10'>
 			<div class="container">
 				<div class="grid grid-cols-12 gap-x-5">
-					<div class="col-span-12">
-						<div class="flex flex-col">
-							<span class='text-danger font-medium text-body5 uppercase tracking-1-6 mb-5 block'>Search results</span>
-							<h1 class="text-h3 font-semibold mb-6">Showing results for ”lorem ipsum”</h1>
-							<div x-data="{ query: '', results: [], showResults: false }" @click.away="showResults = false"
-	class='flex flex-col w-full relative @@style'>
-	<label for="@@id" class="text-none absolute -z-10">Search</label>
-	<form class='flex items-center rounded-[40px] w-full border border-border-2 overflow-hidden py-2 pl-6 pr-2'>
-		<div class="relative w-full">
-			<input type="search" id="@@id" name="Search bar" placeholder="@@placeholder" x-model="query"
-				@input.debounce.300="fetchResults" @focus="showResults = true"
-				class="input w-full bg-white border-0 focus:ring-0 focus:bg-transparent focus:border-0 text-base outline-none p-0 pr-2 leading-8 transition-colors duration-200 ease-in-out">
-		</div>
-		<button type='submit'
-			class="button text-body5 px-6 py-[10px] rounded-full border transition group border-primary hover:border-danger bg-primary inline-flex items-center hover:bg-transparent text-white hover:text-danger">
-			<i class='search-icon mr-3 group-hover:hidden block'></i>
-			<i class='search-red-icon group-hover:block hidden mr-3'></i>
-			<span class="font-normal uppercase">Search</span>
-		</button>
-	</form>
-	<div x-show="showResults && query.length > 0"
-		class="absolute top-full mt-2 p-6 w-full bg-white border border-gray-200 rounded-lg shadow-shadow-2 z-10">
-		<ul>
-			<template x-for="result in results" :key="result.id">
-				<li class="p-2 text-body3 hover:bg-gray-100 cursor-pointer" @click="selectResult(result)">
-					<span x-text="result.title"></span>
-				</li>
-			</template>
-		</ul>
-	</div>
-</div>
+					<div class="col-span-6">
+						<div class='flex flex-col h-full items-start justify-center gap-y-6'>
+							<span class='text-danger font-medium text-body5 uppercase tracking-1-6'>Low-carb diet</span>
+							<h1 class='text-h1 font-semibold'>Low-Carb Diets<span class='text-danger'>.</span>
+							</h1>
 						</div>
+					</div>
+					<div class="col-span-1"></div>
+					<div class="col-span-5">
+						<p class='text-body text-grey-1'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+							Habitasse arcu vulputate velit scelerisque cursus nunc.
+							Ac cras sapien quam sem et venenatis velit. </p>
+					</div>
+					<div class="col-span-12 mt-16">
+						<img src="img/image-home-hero-fitness-template-3.jpg" alt="">
 					</div>
 				</div>
+			</div>
 		</section>
-		<section class='py-10 border-t border-b border-border-3 mb-24'>
+		<section class='py-20'>
 			<div class="container">
 				<div class="grid grid-cols-12 gap-x-5 gap-y-14">
-					<div class="col-span-12">
-						<div x-data="{ selected: 0 }" class="flex space-x-2 mb-8">
-							<!-- Loop through options -->
-							<template x-for="(option, index) in ['All', 'diets', 'sports']">
-								<button class='transition uppercase px-4 py-[10px] rounded-full text-body6'
-									x-on:click="selected = index" :class="{
-										'bg-primary text-white border-primary': selected === index,
-										'bg-secondary border-secondary ': selected !== index
-									}" x-text="option" class="px-4 py-2 rounded cursor-pointer"></button>
-							</template>
+					<div class="col-span-7">
+						<div class='flex justify-between'>
+							<h2 class='text-h3 font-medium'>Low-Carb Diets</h2>
 						</div>
-						<span class='text-border-2 text-body'>Showing results 1 - 12 of 24</span>
+					</div>
+					<div class="col-span-5 flex items-center">
+						<div x-data="{ query: '', results: [], showResults: false }" @click.away="showResults = false"
+							class='flex flex-col w-full relative'>
+							<label for="Id-2" class="text-none absolute -z-10">Search</label>
+							<form
+								class='flex items-center rounded-[40px] w-full border border-border-2 overflow-hidden py-2 pl-6 pr-2'>
+								<div class="relative w-full">
+									<input type="search" id="Id-2" name="Search bar" placeholder="Start your search with keyword"
+										x-model="query" @input.debounce.300="fetchResults" @focus="showResults = true"
+										class="input w-full bg-white border-0 focus:ring-0 focus:bg-transparent focus:border-0 text-base outline-none p-0 pr-2 leading-8 transition-colors duration-200 ease-in-out">
+								</div>
+								<button type='submit'
+									class="button text-body5 px-6 py-[10px] rounded-full border transition group border-primary hover:border-danger bg-primary inline-flex items-center hover:bg-transparent text-white hover:text-danger">
+									<i class='search-icon mr-3 group-hover:hidden block'></i>
+									<i class='search-red-icon group-hover:block hidden mr-3'></i>
+									<span class="font-normal uppercase">Search</span>
+								</button>
+							</form>
+							<div x-show="showResults && query.length > 0"
+								class="absolute top-full mt-2 p-6 w-full bg-white border border-gray-200 rounded-lg shadow-shadow-2 z-10">
+								<ul>
+									<template x-for="result in results" :key="result.id">
+										<li class="p-2 text-body3 hover:bg-gray-100 cursor-pointer" @click="selectResult(result)">
+											<span x-text="result.title"></span>
+										</li>
+									</template>
+								</ul>
+							</div>
+						</div>
 					</div>
 					<div class="col-span-4">
 						<a href="#"
@@ -143,7 +149,7 @@
 	<div class='flex flex-col px-5 pb-8 h-full'>
 		<div class='flex items-center justify-between mb-8'>
 			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px]' datetime="September 1, 2022">September 1, 2022</time>
-			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Sports</span>
+			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Diet</span>
 		</div>
 		<span class='text-tt mb-3 block font-medium'>The 5 effective fitness morning routines you should follow</span>
 		<p class='blog-card__text text-grey-1 mb-2 text-body'>Lorem ipsum dolor sit amet, consectetur
@@ -161,7 +167,7 @@
 	<div class='flex flex-col px-5 pb-8 h-full'>
 		<div class='flex items-center justify-between mb-8'>
 			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px]' datetime="September 1, 2022">September 1, 2022</time>
-			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Sports</span>
+			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Diet</span>
 		</div>
 		<span class='text-tt mb-3 block font-medium'>The 5 effective fitness morning routines you should follow</span>
 		<p class='blog-card__text text-grey-1 mb-2 text-body'>Lorem ipsum dolor sit amet, consectetur
@@ -179,7 +185,7 @@
 	<div class='flex flex-col px-5 pb-8 h-full'>
 		<div class='flex items-center justify-between mb-8'>
 			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px]' datetime="September 1, 2022">September 1, 2022</time>
-			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Sports</span>
+			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Diet</span>
 		</div>
 		<span class='text-tt mb-3 block font-medium'>The 5 effective fitness morning routines you should follow</span>
 		<p class='blog-card__text text-grey-1 mb-2 text-body'>Lorem ipsum dolor sit amet, consectetur
@@ -280,7 +286,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
 		</section>
 
 		<section class="py-20 bg-secondary">
