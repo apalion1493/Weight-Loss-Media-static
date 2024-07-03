@@ -1,5 +1,5 @@
 <header class='py-12'>
-    <div class="container">
+    <div class="container overflow-hidden">
         <div class="grid grid-cols-12 gap-x-5">
             <div class="col-span-12">
                 <div class='flex items-center justify-between'>
@@ -7,7 +7,7 @@
                         <img src="img/Logo-1.svg" alt="Main Logo WLM" />
                     </a>
                     <div class='flex items-center relative w-full h-[58px]'>
-                        <ul class='flex items-center gap-x-8 relative z-10 mx-auto pr-[144px]'>
+                        <ul class='flex items-center gap-x-8 xl:gap-x-4 relative z-10 mx-auto pr-[144px]'>
                             <li>
                                 <div x-data="{ isOpen: false, openedWithKeyboard: false, leaveTimeout: null }"
                                     @mouseleave.prevent="leaveTimeout = setTimeout(() => { isOpen = false }, 250)"
@@ -19,7 +19,7 @@
                                         @keydown.space.prevent="openedWithKeyboard = true"
                                         @keydown.enter.prevent="openedWithKeyboard = true"
                                         @keydown.down.prevent="openedWithKeyboard = true"
-                                        class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger"
+                                        class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger text-body5 xl:text-body6"
                                         :aria-expanded="isOpen || openedWithKeyboard" aria-haspopup="true">
                                         Food
                                         <svg aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +71,7 @@
                                         @keydown.space.prevent="openedWithKeyboard = true"
                                         @keydown.enter.prevent="openedWithKeyboard = true"
                                         @keydown.down.prevent="openedWithKeyboard = true"
-                                        class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger"
+                                        class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger text-body5 xl:text-body6"
                                         :aria-expanded="isOpen || openedWithKeyboard" aria-haspopup="true">
                                         Sports
                                         <svg aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +123,7 @@
                                         @keydown.space.prevent="openedWithKeyboard = true"
                                         @keydown.enter.prevent="openedWithKeyboard = true"
                                         @keydown.down.prevent="openedWithKeyboard = true"
-                                        class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger"
+                                        class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger text-body5 xl:text-body6"
                                         :aria-expanded="isOpen || openedWithKeyboard" aria-haspopup="true">
                                         Procedures
                                         <svg aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -175,7 +175,7 @@
                                         @keydown.space.prevent="openedWithKeyboard = true"
                                         @keydown.enter.prevent="openedWithKeyboard = true"
                                         @keydown.down.prevent="openedWithKeyboard = true"
-                                        class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger"
+                                        class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger text-body5 xl:text-body6"
                                         :aria-expanded="isOpen || openedWithKeyboard" aria-haspopup="true">
                                         Surgery
                                         <svg aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -227,7 +227,7 @@
                                         @keydown.space.prevent="openedWithKeyboard = true"
                                         @keydown.enter.prevent="openedWithKeyboard = true"
                                         @keydown.down.prevent="openedWithKeyboard = true"
-                                        class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger"
+                                        class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger text-body5 xl:text-body6"
                                         :aria-expanded="isOpen || openedWithKeyboard" aria-haspopup="true">
                                         Medications
                                         <svg aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -279,7 +279,7 @@
                                         @keydown.space.prevent="openedWithKeyboard = true"
                                         @keydown.enter.prevent="openedWithKeyboard = true"
                                         @keydown.down.prevent="openedWithKeyboard = true"
-                                        class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger"
+                                        class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger text-body5 xl:text-body6"
                                         :aria-expanded="isOpen || openedWithKeyboard" aria-haspopup="true">
                                         Psychology
                                         <svg aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg"

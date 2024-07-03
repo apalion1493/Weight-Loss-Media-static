@@ -32,6 +32,7 @@ module.exports = {
 		fontSize: {
 			none: ['0px', '0px'],
 			base: '1rem', //16px
+			body8: ['12px', '120%'],
 			body7: ['14px', '140%'],
 			body6: ['14px', '120%'],
 			body5: ['16px', '120%'],
@@ -41,7 +42,9 @@ module.exports = {
 			button: ['18px', '120%'],
 			t2: ['20px', '120%'],
 			tt: ['22px', '150%'],
+			h3Mob: ['28px', '120%'],
 			h3: ['38px', '120%'],
+			h1Mob: ['40px', '120%'],
 			h1: ['64px', '120%'],
 		},
 		screens: {

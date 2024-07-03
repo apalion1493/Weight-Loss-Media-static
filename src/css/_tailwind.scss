@@ -13,7 +13,7 @@
 
 @layer components {
 	.container {
-		@apply minsm:max-w-[640px] minmd:max-w-[768px] minlg:max-w-[1024px] minxl:max-w-[1280px] px-2;
+		@apply px-2 minsm:max-w-[640px] minmd:max-w-[768px] minlg:max-w-[1024px] minxl:max-w-[1280px];
 	}
 }
 
@@ -40,26 +40,26 @@
 
 .input::placeholder {
 	letter-spacing: -0.032px;
-	@apply text-body5 uppercase text-grey-1;
+	@apply text-body5 uppercase text-grey-1 md:text-body6;
 }
 
 .fire-icon {
 	background: url(../img/Fire-icon.svg);
-	@apply h-[95px] w-[80px] block bg-100-auto bg-center bg-no-repeat;
+	@apply block h-[95px] w-[80px] bg-100-auto bg-center bg-no-repeat;
 }
 
 .dumbbell-icon {
 	background: url(../img/dumbbell-icon.svg);
-	@apply h-[104px] w-[110px] block bg-100-auto bg-center bg-no-repeat;
+	@apply block h-[104px] w-[110px] bg-100-auto bg-center bg-no-repeat;
 }
 
 .apple-icon {
 	background: url(../img/apple-icon.svg);
-	@apply h-[104px] w-[110px] block bg-100-auto bg-center bg-no-repeat;
+	@apply block h-[104px] w-[110px] bg-100-auto bg-center bg-no-repeat;
 }
 
 .pagination-num {
-	@apply h-[52px] w-[52px] flex cursor-pointer items-center justify-center rounded-full bg-secondary text-t2 font-medium uppercase transition;
+	@apply flex h-[52px] w-[52px] cursor-pointer items-center justify-center rounded-full bg-secondary text-t2 font-medium uppercase transition;
 
 	&.active {
 		@apply bg-primary text-white;
@@ -68,32 +68,32 @@
 
 .arrow-left-black {
 	background: url(../img/arrow-left-black.svg);
-	@apply h-[23px] w-[13px] block bg-100-auto bg-center bg-no-repeat;
+	@apply block h-[23px] w-[13px] bg-100-auto bg-center bg-no-repeat;
 }
 
 .arrow-right-white {
 	background: url(../img/arrow-right-white.svg);
-	@apply h-[23px] w-[13px] block bg-100-auto bg-center bg-no-repeat;
+	@apply block h-[23px] w-[13px] bg-100-auto bg-center bg-no-repeat;
 }
 
 .bg-1 {
 	background: url(../img/bg-1.png);
-	@apply h-[100%] w-[100%] block bg-cover bg-center bg-no-repeat opacity-15;
+	@apply block h-[100%] w-[100%] bg-cover bg-center bg-no-repeat opacity-15;
 }
 
 .share-icon {
 	background: url(../img/share.svg);
-	@apply h-[20px] w-[20px] block bg-100-auto bg-center bg-no-repeat;
+	@apply block h-[20px] w-[20px] bg-100-auto bg-center bg-no-repeat;
 }
 
 .minus-icon {
 	background: url(../img/minus-icon.svg);
-	@apply h-[1px] w-[17px] block bg-100-auto bg-center bg-no-repeat;
+	@apply block h-[1px] w-[17px] bg-100-auto bg-center bg-no-repeat;
 }
 
 .plus-icon {
 	background: url(../img/plus-icon.svg);
-	@apply h-[17px] w-[17px] block bg-100-auto bg-center bg-no-repeat;
+	@apply block h-[17px] w-[17px] bg-100-auto bg-center bg-no-repeat;
 }
 
 .search-icon {
@@ -161,7 +161,7 @@
 }
 
 .swiper-button-wrapper {
-	@apply max-w-[692px] absolute bottom-4 left-1/2 mx-auto h-14 w-full -translate-x-1/2 transform;
+	@apply absolute bottom-4 left-1/2 mx-auto h-14 w-full max-w-[692px] -translate-x-1/2 transform;
 }
 
 .swiper-button-next,
