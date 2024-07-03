@@ -1,4 +1,368 @@
-<div x-data="dropdown">
-    <button @click="toggle">button</button>
-    <div x-show="open">2</div>
-</div>
+<header class='py-12'>
+    <div class="container">
+        <div class="grid grid-cols-12 gap-x-5">
+            <div class="col-span-12">
+                <div class='flex items-center justify-between'>
+                    <a class='min-w-[145px]' href="index.html">
+                        <img src="img/Logo-1.svg" alt="Main Logo WLM" />
+                    </a>
+                    <div class='flex items-center relative w-full h-[58px]'>
+                        <ul class='flex items-center gap-x-8 relative z-10 mx-auto pr-[144px]'>
+                            <li>
+                                <div x-data="{ isOpen: false, openedWithKeyboard: false, leaveTimeout: null }"
+                                    @mouseleave.prevent="leaveTimeout = setTimeout(() => { isOpen = false }, 250)"
+                                    @mouseenter="leaveTimeout ? clearTimeout(leaveTimeout) : true"
+                                    @keydown.esc.prevent="isOpen = false, openedWithKeyboard = false"
+                                    @click.outside="isOpen = false, openedWithKeyboard = false" class="relative">
+                                    <!-- Toggle Button -->
+                                    <button type="button" @mouseover="isOpen = true"
+                                        @keydown.space.prevent="openedWithKeyboard = true"
+                                        @keydown.enter.prevent="openedWithKeyboard = true"
+                                        @keydown.down.prevent="openedWithKeyboard = true"
+                                        class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger"
+                                        :aria-expanded="isOpen || openedWithKeyboard" aria-haspopup="true">
+                                        Food
+                                        <svg aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                            class="h-4 w-4 rotate-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                        </svg>
+                                    </button>
+                                    <!-- Dropdown Menu -->
+                                    <div x-cloak x-show="isOpen || openedWithKeyboard" x-transition
+                                        x-trap="openedWithKeyboard"
+                                        @click.outside="isOpen = false, openedWithKeyboard = false"
+                                        @keydown.down.prevent="$focus.wrap().next()"
+                                        @keydown.up.prevent="$focus.wrap().previous()"
+                                        class="absolute top-11 left-0 flex w-full min-w-[270px] flex-col gap-y-3 overflow-hidden shadow-shadow-2 bg-white py-4 px-5"
+                                        role="menu">
+                                        <span class='uppercase font-medium tracking-1-6'>Food for weight loss</span>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Low-Carb
+                                            Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Low-Fat
+                                            Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">High-Protein Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Plant-Based
+                                            Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Meal
+                                            Planning and Prep</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div x-data="{ isOpen: false, openedWithKeyboard: false, leaveTimeout: null }"
+                                    @mouseleave.prevent="leaveTimeout = setTimeout(() => { isOpen = false }, 250)"
+                                    @mouseenter="leaveTimeout ? clearTimeout(leaveTimeout) : true"
+                                    @keydown.esc.prevent="isOpen = false, openedWithKeyboard = false"
+                                    @click.outside="isOpen = false, openedWithKeyboard = false" class="relative">
+                                    <!-- Toggle Button -->
+                                    <button type="button" @mouseover="isOpen = true"
+                                        @keydown.space.prevent="openedWithKeyboard = true"
+                                        @keydown.enter.prevent="openedWithKeyboard = true"
+                                        @keydown.down.prevent="openedWithKeyboard = true"
+                                        class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger"
+                                        :aria-expanded="isOpen || openedWithKeyboard" aria-haspopup="true">
+                                        Sports
+                                        <svg aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                            class="h-4 w-4 rotate-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                        </svg>
+                                    </button>
+                                    <!-- Dropdown Menu -->
+                                    <div x-cloak x-show="isOpen || openedWithKeyboard" x-transition
+                                        x-trap="openedWithKeyboard"
+                                        @click.outside="isOpen = false, openedWithKeyboard = false"
+                                        @keydown.down.prevent="$focus.wrap().next()"
+                                        @keydown.up.prevent="$focus.wrap().previous()"
+                                        class="absolute top-11 left-0 flex w-full min-w-[270px] flex-col gap-y-3 overflow-hidden shadow-shadow-2 bg-white py-4 px-5"
+                                        role="menu">
+                                        <span class='uppercase font-medium tracking-1-6'>Food for weight loss</span>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Low-Carb
+                                            Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Low-Fat
+                                            Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">High-Protein Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Plant-Based
+                                            Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Meal
+                                            Planning and Prep</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div x-data="{ isOpen: false, openedWithKeyboard: false, leaveTimeout: null }"
+                                    @mouseleave.prevent="leaveTimeout = setTimeout(() => { isOpen = false }, 250)"
+                                    @mouseenter="leaveTimeout ? clearTimeout(leaveTimeout) : true"
+                                    @keydown.esc.prevent="isOpen = false, openedWithKeyboard = false"
+                                    @click.outside="isOpen = false, openedWithKeyboard = false" class="relative">
+                                    <!-- Toggle Button -->
+                                    <button type="button" @mouseover="isOpen = true"
+                                        @keydown.space.prevent="openedWithKeyboard = true"
+                                        @keydown.enter.prevent="openedWithKeyboard = true"
+                                        @keydown.down.prevent="openedWithKeyboard = true"
+                                        class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger"
+                                        :aria-expanded="isOpen || openedWithKeyboard" aria-haspopup="true">
+                                        Procedures
+                                        <svg aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                            class="h-4 w-4 rotate-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                        </svg>
+                                    </button>
+                                    <!-- Dropdown Menu -->
+                                    <div x-cloak x-show="isOpen || openedWithKeyboard" x-transition
+                                        x-trap="openedWithKeyboard"
+                                        @click.outside="isOpen = false, openedWithKeyboard = false"
+                                        @keydown.down.prevent="$focus.wrap().next()"
+                                        @keydown.up.prevent="$focus.wrap().previous()"
+                                        class="absolute top-11 left-0 flex w-full min-w-[270px] flex-col gap-y-3 overflow-hidden shadow-shadow-2 bg-white py-4 px-5"
+                                        role="menu">
+                                        <span class='uppercase font-medium tracking-1-6'>Food for weight loss</span>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Low-Carb
+                                            Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Low-Fat
+                                            Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">High-Protein Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Plant-Based
+                                            Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Meal
+                                            Planning and Prep</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div x-data="{ isOpen: false, openedWithKeyboard: false, leaveTimeout: null }"
+                                    @mouseleave.prevent="leaveTimeout = setTimeout(() => { isOpen = false }, 250)"
+                                    @mouseenter="leaveTimeout ? clearTimeout(leaveTimeout) : true"
+                                    @keydown.esc.prevent="isOpen = false, openedWithKeyboard = false"
+                                    @click.outside="isOpen = false, openedWithKeyboard = false" class="relative">
+                                    <!-- Toggle Button -->
+                                    <button type="button" @mouseover="isOpen = true"
+                                        @keydown.space.prevent="openedWithKeyboard = true"
+                                        @keydown.enter.prevent="openedWithKeyboard = true"
+                                        @keydown.down.prevent="openedWithKeyboard = true"
+                                        class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger"
+                                        :aria-expanded="isOpen || openedWithKeyboard" aria-haspopup="true">
+                                        Surgery
+                                        <svg aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                            class="h-4 w-4 rotate-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                        </svg>
+                                    </button>
+                                    <!-- Dropdown Menu -->
+                                    <div x-cloak x-show="isOpen || openedWithKeyboard" x-transition
+                                        x-trap="openedWithKeyboard"
+                                        @click.outside="isOpen = false, openedWithKeyboard = false"
+                                        @keydown.down.prevent="$focus.wrap().next()"
+                                        @keydown.up.prevent="$focus.wrap().previous()"
+                                        class="absolute top-11 left-0 flex w-full min-w-[270px] flex-col gap-y-3 overflow-hidden shadow-shadow-2 bg-white py-4 px-5"
+                                        role="menu">
+                                        <span class='uppercase font-medium tracking-1-6'>Food for weight loss</span>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Low-Carb
+                                            Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Low-Fat
+                                            Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">High-Protein Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Plant-Based
+                                            Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Meal
+                                            Planning and Prep</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div x-data="{ isOpen: false, openedWithKeyboard: false, leaveTimeout: null }"
+                                    @mouseleave.prevent="leaveTimeout = setTimeout(() => { isOpen = false }, 250)"
+                                    @mouseenter="leaveTimeout ? clearTimeout(leaveTimeout) : true"
+                                    @keydown.esc.prevent="isOpen = false, openedWithKeyboard = false"
+                                    @click.outside="isOpen = false, openedWithKeyboard = false" class="relative">
+                                    <!-- Toggle Button -->
+                                    <button type="button" @mouseover="isOpen = true"
+                                        @keydown.space.prevent="openedWithKeyboard = true"
+                                        @keydown.enter.prevent="openedWithKeyboard = true"
+                                        @keydown.down.prevent="openedWithKeyboard = true"
+                                        class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger"
+                                        :aria-expanded="isOpen || openedWithKeyboard" aria-haspopup="true">
+                                        Medications
+                                        <svg aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                            class="h-4 w-4 rotate-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                        </svg>
+                                    </button>
+                                    <!-- Dropdown Menu -->
+                                    <div x-cloak x-show="isOpen || openedWithKeyboard" x-transition
+                                        x-trap="openedWithKeyboard"
+                                        @click.outside="isOpen = false, openedWithKeyboard = false"
+                                        @keydown.down.prevent="$focus.wrap().next()"
+                                        @keydown.up.prevent="$focus.wrap().previous()"
+                                        class="absolute top-11 left-0 flex w-full min-w-[270px] flex-col gap-y-3 overflow-hidden shadow-shadow-2 bg-white py-4 px-5"
+                                        role="menu">
+                                        <span class='uppercase font-medium tracking-1-6'>Food for weight loss</span>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Low-Carb
+                                            Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Low-Fat
+                                            Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">High-Protein Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Plant-Based
+                                            Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Meal
+                                            Planning and Prep</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div x-data="{ isOpen: false, openedWithKeyboard: false, leaveTimeout: null }"
+                                    @mouseleave.prevent="leaveTimeout = setTimeout(() => { isOpen = false }, 250)"
+                                    @mouseenter="leaveTimeout ? clearTimeout(leaveTimeout) : true"
+                                    @keydown.esc.prevent="isOpen = false, openedWithKeyboard = false"
+                                    @click.outside="isOpen = false, openedWithKeyboard = false" class="relative">
+                                    <!-- Toggle Button -->
+                                    <button type="button" @mouseover="isOpen = true"
+                                        @keydown.space.prevent="openedWithKeyboard = true"
+                                        @keydown.enter.prevent="openedWithKeyboard = true"
+                                        @keydown.down.prevent="openedWithKeyboard = true"
+                                        class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger"
+                                        :aria-expanded="isOpen || openedWithKeyboard" aria-haspopup="true">
+                                        Psychology
+                                        <svg aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                            class="h-4 w-4 rotate-0">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                        </svg>
+                                    </button>
+                                    <!-- Dropdown Menu -->
+                                    <div x-cloak x-show="isOpen || openedWithKeyboard" x-transition
+                                        x-trap="openedWithKeyboard"
+                                        @click.outside="isOpen = false, openedWithKeyboard = false"
+                                        @keydown.down.prevent="$focus.wrap().next()"
+                                        @keydown.up.prevent="$focus.wrap().previous()"
+                                        class="absolute top-11 left-0 flex w-full min-w-[270px] flex-col gap-y-3 overflow-hidden shadow-shadow-2 bg-white py-4 px-5"
+                                        role="menu">
+                                        <span class='uppercase font-medium tracking-1-6'>Food for weight loss</span>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Low-Carb
+                                            Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Low-Fat
+                                            Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">High-Protein Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Plant-Based
+                                            Diets</a>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                            role="menuitem">Meal
+                                            Planning and Prep</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div x-data="{ query: '', results: [], showResults: false, showForm: false }"
+                            @click.away="showResults = false, showForm = false"
+                            class='flex flex-col w-full absolute top-0 right-0 pl-1/24' :class='showForm ? "" : ""'>
+                            <label for="header-search" class="text-none absolute -z-10">Search</label>
+                            <div class='flex items-center relative'>
+                                <div :class='showForm ? "z-20 opacity-100 " : "-z-20 opacity-0"'
+                                    class='flex items-center rounded-[40px] pl-6 pr-40 py-2 w-full  border overflow-hidden transition-all bg-white border-border-2 relative h-[58px]'>
+                                    <div class="relative w-full">
+                                        <input type="search" id="header-search" name="Search bar"
+                                            placeholder="Start your search with keyword" x-model="query"
+                                            @input.debounce.300="fetchResults" @focus="showResults = true"
+                                            class="input w-full bg-white border-0 focus:ring-0 focus:bg-transparent focus:border-0 text-base outline-none p-0 pr-2 leading-8 transition-colors duration-200 ease-in-out">
+                                    </div>
+                                </div>
+                                <button
+                                    class="button text-body5 px-6 py-[10px] rounded-full border transition group border-primary hover:border-danger bg-primary inline-flex items-center hover:bg-transparent text-white hover:text-danger ml-auto absolute right-2 top-2 z-30"
+                                    @click="showForm = !showForm">
+                                    <i class='search-icon mr-3 group-hover:hidden block'></i>
+                                    <i class='search-red-icon group-hover:block hidden mr-3'></i>
+                                    <span class="font-normal uppercase">Search</span>
+                                </button>
+                            </div>
+                            <div x-show="showResults && query.length > 0"
+                                class="absolute left-0 top-full mt-2 pl-1/24 w-full z-10">
+                                <div class='bg-white border border-gray-200 rounded-lg shadow-shadow-2 p-6'>
+                                    <ul>
+                                        <template x-for="result in results" :key="result.id">
+                                            <li class="py-2 text-body3 hover:bg-gray-100 cursor-pointer"
+                                                @click="selectResult(result)">
+                                                <span x-text="result.title"></span>
+                                            </li>
+                                        </template>
+                                    </ul>
+                                    <a class='text-danger uppercase font-semibold text-body6 tracking-[0.5px] mt-6 block'
+                                        href="#">More results</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
