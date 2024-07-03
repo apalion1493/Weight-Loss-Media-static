@@ -2098,11 +2098,6 @@ select {
   .lg\:gap-y-8 {
     row-gap: 2rem;
   }
-
-  .lg\:py-10 {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
-  }
 }
 
 @media (max-width: 767px) {
@@ -2148,12 +2143,12 @@ select {
     margin-bottom: 1.5rem;
   }
 
-  .md\:mt-8 {
-    margin-top: 2rem;
-  }
-
   .md\:mt-4 {
     margin-top: 1rem;
+  }
+
+  .md\:mt-8 {
+    margin-top: 2rem;
   }
 
   .md\:hidden {
@@ -2194,6 +2189,10 @@ select {
 
   .md\:gap-y-5 {
     row-gap: 1.25rem;
+  }
+
+  .md\:gap-y-8 {
+    row-gap: 2rem;
   }
 
   .md\:overflow-y-scroll {
@@ -2260,6 +2259,11 @@ select {
   .md\:text-body3 {
     font-size: 16px;
     line-height: 140%;
+  }
+
+  .md\:text-body4 {
+    font-size: 16px;
+    line-height: 130%;
   }
 
   .md\:text-body5 {
