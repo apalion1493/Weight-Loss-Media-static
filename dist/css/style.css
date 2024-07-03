@@ -2042,6 +2042,14 @@ select {
     grid-column: span 8 / span 8;
   }
 
+  .xl\:col-span-5 {
+    grid-column: span 5 / span 5;
+  }
+
+  .xl\:col-span-7 {
+    grid-column: span 7 / span 7;
+  }
+
   .xl\:hidden {
     display: none;
   }
@@ -2097,6 +2105,10 @@ select {
 
   .lg\:gap-y-8 {
     row-gap: 2rem;
+  }
+
+  .lg\:gap-y-20 {
+    row-gap: 5rem;
   }
 }
 
