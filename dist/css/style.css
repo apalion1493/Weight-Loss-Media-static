@@ -2366,6 +2366,10 @@ select {
     padding-top: 1.5rem;
   }
 
+  .md\:pb-28 {
+    padding-bottom: 7rem;
+  }
+
   .md\:text-center {
     text-align: center;
   }

@@ -106,6 +106,8 @@ function initSwiper() {
 			// Optional parameters
 			direction: 'horizontal',
 			spaceBetween: 24,
+			slidesPerView: 'auto',
+			centeredSlides: true,
 			pagination: {
 				el: '.swiper-pagination',
 				clickable: true,
@@ -115,15 +117,6 @@ function initSwiper() {
 			navigation: {
 				nextEl: '.swiper-button-next',
 				prevEl: '.swiper-button-prev',
-			},
-
-			breakpoints: {
-				768: {
-					slidesPerView: 1,
-				},
-				640: {
-					slidesPerView: 1,
-				},
 			},
 		})
 	} else if (window.innerWidth > 768 && swiperInstance) {
