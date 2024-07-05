@@ -69,7 +69,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	// 	splide.mount()
 	// }
 
-	const swiper = new Swiper('.splide-1', {
+	const swiper1 = new Swiper('.splide-1', {
 		// Optional parameters
 		direction: 'horizontal',
 		slidesPerView: 3,
@@ -98,6 +98,45 @@ window.addEventListener('DOMContentLoaded', () => {
 		},
 	})
 })
+
+let swiperInstance
+function initSwiper() {
+	if (window.innerWidth <= 768 && !swiperInstance) {
+		swiperInstance = new Swiper('.splide-2', {
+			// Optional parameters
+			direction: 'horizontal',
+			spaceBetween: 24,
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+
+			// Navigation arrows
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+
+			breakpoints: {
+				768: {
+					slidesPerView: 1,
+				},
+				640: {
+					slidesPerView: 1,
+				},
+			},
+		})
+	} else if (window.innerWidth > 768 && swiperInstance) {
+		swiperInstance.destroy(true, true)
+		swiperInstance = null
+	}
+}
+
+// Инициализировать при загрузке страницы
+window.addEventListener('load', initSwiper)
+
+// Проверять при изменении размера окна
+window.addEventListener('resize', initSwiper)
 
 const modal = document.getElementById('modal')
 const openModalBtn = document.getElementById('openModal')
@@ -131,23 +170,29 @@ document.addEventListener('DOMContentLoaded', function () {
 	const wishlistCloseBtn = document.querySelector('#wishlist-close')
 	const wishlistBg = document.querySelector('#wishlist-bg')
 
-	wishlistButtonOpen.addEventListener('click', () => {
-		wishlistBlock.classList.add('active')
-		wishlistBg.classList.remove('hidden')
-		document.body.classList.add('overflow-hidden')
-	})
+	if (wishlistButtonOpen) {
+		wishlistButtonOpen.addEventListener('click', () => {
+			wishlistBlock.classList.add('active')
+			wishlistBg.classList.remove('hidden')
+			document.body.classList.add('overflow-hidden')
+		})
+	}
 
-	wishlistCloseBtn.addEventListener('click', () => {
-		wishlistBlock.classList.remove('active')
-		wishlistBg.classList.add('hidden')
-		document.body.classList.remove('overflow-hidden')
-	})
+	if (wishlistCloseBtn) {
+		wishlistCloseBtn.addEventListener('click', () => {
+			wishlistBlock.classList.remove('active')
+			wishlistBg.classList.add('hidden')
+			document.body.classList.remove('overflow-hidden')
+		})
+	}
 
-	wishlistBg.addEventListener('click', () => {
-		wishlistBlock.classList.remove('active')
-		wishlistBg.classList.add('hidden')
-		document.body.classList.remove('overflow-hidden')
-	})
+	if (wishlistBg) {
+		wishlistBg.addEventListener('click', () => {
+			wishlistBlock.classList.remove('active')
+			wishlistBg.classList.add('hidden')
+			document.body.classList.remove('overflow-hidden')
+		})
+	}
 })
 
 // JavaScript to toggle the mega menu
@@ -203,10 +248,12 @@ document.addEventListener('DOMContentLoaded', function () {
 	const burgerButton = document.getElementById('burger-button')
 	const mobileMenu = document.getElementById('mobile-menu')
 
-	burgerButton.addEventListener('click', () => {
-		mobileMenu.classList.toggle('active')
-		document.body.classList.toggle('overflow-hidden')
-	})
+	if (burgerButton && mobileMenu) {
+		burgerButton.addEventListener('click', () => {
+			mobileMenu.classList.toggle('active')
+			document.body.classList.toggle('overflow-hidden')
+		})
+	}
 })
 
 document.querySelectorAll('.menu-btn').forEach(button => {
