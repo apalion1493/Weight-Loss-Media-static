@@ -342,16 +342,21 @@
                                     :class='showForm ? "z-[12] lg:pr-0 lg:z-[32] w-full" : "lg:pr-[56px] w-[200px]"'>
                                     <label for="header-search" class="text-none absolute -z-10">Search</label>
                                     <div class='flex items-center relative'>
-                                        <div :class='showForm ? "py-2 pl-6 pr-40 border opacity-100" : " border-0 p-0 opacity-0"'
+                                        <div :class='showForm ? "py-2 pl-6 lg:pl-4 pr-40 border opacity-100" : " border-0 p-0 opacity-0"'
                                             class='flex items-center rounded-[40px] lg:pr-[58px]  w-full  overflow-hidden transition-all bg-white border-border-2 relative h-[58px]'>
                                             <div class="relative w-full">
                                                 <input type="search" id="header-search" name="Search bar"
                                                     placeholder="Start your search with keyword" x-model="query"
                                                     @input.debounce.300="fetchResults" @focus="showResults = true"
-                                                    class="input w-full bg-white border-0 focus:ring-0 focus:bg-transparent focus:border-0 text-base outline-none p-0 pr-2 leading-8 transition-colors duration-200 ease-in-out appearance-none">
+                                                    class="input w-full bg-white border-0 focus:ring-0 focus:bg-transparent focus:border-0 text-base outline-none p-0 pr-7 leading-8 transition-colors duration-200 ease-in-out appearance-none">
                                                 <button type="button" x-show="query.length > 0" @click="query = ''"
                                                     class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700">
-                                                    ✖
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                                        viewBox="0 0 12 12" fill="none">
+                                                        <path
+                                                            d="M10.2616 0.318046L6.00014 4.57951L1.73867 0.318046C1.31253 -0.108101 0.744331 -0.108101 0.318185 0.318046C-0.107962 0.744192 -0.107962 1.31239 0.318185 1.73853L4.57965 6L0.318185 10.2615C-0.107962 10.6876 -0.107962 11.2558 0.318185 11.682C0.744331 12.1081 1.31253 12.1081 1.73867 11.682L6.00014 7.42049L10.2616 11.682C10.6878 12.1081 11.2559 12.1081 11.6821 11.682C12.1082 11.2558 12.1082 10.6876 11.6821 10.2615L7.42063 6L11.6821 1.73853C12.1082 1.31239 12.1082 0.744192 11.6821 0.318046C11.2559 -0.108101 10.6878 -0.108101 10.2616 0.318046Z"
+                                                            fill="#19181B" />
+                                                    </svg>
                                                 </button>
                                             </div>
                                         </div>
@@ -387,7 +392,17 @@
                             </div>
                             <button @click="mobileMenuIsOpen = !mobileMenuIsOpen" :aria-expanded="mobileMenuIsOpen"
                                 id='burger-button'
-                                class='bg-primary flex items-center justify-center w-12 h-12 min-w-12 text-white minlg:hidden rounded-full z-[31] relative'>X</button>
+                                class='bg-primary flex flex-col items-center justify-center w-12 h-12 min-w-12 text-white minlg:hidden rounded-full z-[31] relative gap-y-1'>
+                                <span
+                                    :class="mobileMenuIsOpen ? 'rotate-45 transform translate-y-[6px]' : 'translate-y-0'"
+                                    class="block w-5 h-[2px] bg-white transition-all duration-300 rounded-full"></span>
+                                <span :class="mobileMenuIsOpen ? 'opacity-0' : 'opacity-100'"
+                                    class="block w-5 h-[2px] bg-white transition-opacity duration-300 rounded-full"></span>
+                                <span
+                                    :class="mobileMenuIsOpen ? '-rotate-45 transform -translate-y-[6px]' : 'translate-y-0'"
+                                    class="block w-5 h-[2px] bg-white transition-all duration-300 rounded-full"></span>
+
+                            </button>
                         </div>
                     </div>
                 </div>
