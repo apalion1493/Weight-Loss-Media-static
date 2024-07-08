@@ -387,7 +387,7 @@
                                         </div>
                                         <button :class='showForm ? "active right-2 clicked" : "right-0"'
                                             class="button text-body5 px-6 py-[10px] rounded-full border transition-all group border-primary hover:border-danger bg-primary inline-flex items-center justify-center hover:bg-transparent text-white hover:text-danger ml-auto absolute top-2 z-30 lg:p-0 lg:w-12 lg:h-12 lg:top-[5px] lg:bg-secondary lg:border-secondary lg:hover:bg-primary lg:hover:border-primary"
-                                            @click="showForm = !showForm">
+                                            @click="showForm = !showForm; showResults = false">
                                             <i
                                                 class='search-icon mr-3 group-hover:hidden block lg:mr-0 lg:hidden lg:group-hover:block'></i>
                                             <i
@@ -439,7 +439,7 @@
                 x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
                 x-transition:leave="transition motion-reduce:transition-none ease-out duration-300"
                 x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" id="mobileMenu"
-                class="fixed max-h-svh overflow-x-auto inset-x-0 top-[98px] z-[30] flex flex-col h-full bg-white px-6 pb-60 pt-16 minlg:hidden overflow-y-scroll items-center">
+                class="fixed max-h-svh overflow-x-auto inset-x-0 top-[98px] z-[32] flex flex-col h-full bg-white px-6 pb-60 pt-16 minlg:hidden overflow-y-scroll items-center">
                 <li class="">
                     <div x-data="{ isExpanded: false }" class="w-full overflow-hidden flex flex-col items-center">
                         <button id="controlsAccordionItemOne" type="button"
@@ -756,52 +756,53 @@
     </nav>
 </header>
 
-		<section class='pt-20 pb-10'>
+		<section class='pt-20 pb-10 lg:py-10'>
 			<div class="container">
-				<div class="grid grid-cols-12 gap-x-5">
-					<div class="col-span-6">
-						<div class='flex flex-col h-full items-start justify-center gap-y-6'>
-							<span class='text-danger font-medium text-body5 uppercase tracking-1-6'>Low-carb diet</span>
-							<h1 class='text-h1 font-semibold'>Low-Carb Diets<span class='text-danger'>.</span>
+				<div class="grid grid-cols-12 gap-x-5 md:gap-y-5">
+					<div class="col-span-6 md:col-span-12">
+						<div class='flex flex-col h-full items-start justify-center gap-y-6 md:gap-y-3'>
+							<span class='text-danger font-medium text-body5 uppercase tracking-1-6 md:text-body8'>Low-carb
+								diet</span>
+							<h1 class='text-h1 font-semibold md:text-h1Mob'>Low-Carb Diets<span class='text-danger'>.</span>
 							</h1>
 						</div>
 					</div>
-					<div class="col-span-1"></div>
-					<div class="col-span-5 flex items-center">
+					<div class="col-span-1 lg:hidden"></div>
+					<div class="col-span-5 md:col-span-12 lg:col-span-6 flex items-center">
 						<p class='text-body text-grey-1'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 							Habitasse arcu vulputate velit scelerisque cursus nunc.
 							Ac cras sapien quam sem et venenatis velit. </p>
 					</div>
-					<div class="col-span-12 mt-16">
+					<div class="col-span-12 mt-16 md:mt-3">
 						<img src="img/image-home-hero-fitness-template-3.jpg" alt="">
 					</div>
 				</div>
 			</div>
 		</section>
-		<section class='py-20'>
+		<section class='py-20 lg:py-10'>
 			<div class="container">
 				<div class="grid grid-cols-12 gap-x-5 gap-y-14">
-					<div class="col-span-7">
+					<div class="col-span-7 xl:col-span-6 md:hidden">
 						<div class='flex justify-between'>
 							<h2 class='text-h3 font-medium'>Low-Carb Diets</h2>
 						</div>
 					</div>
-					<div class="col-span-5 flex items-center">
+					<div class="col-span-5 xl:col-span-6 md:col-span-12 flex items-center">
 						<div x-data="{ query: '', results: [], showResults: false }" @click.away="showResults = false"
 							class='flex flex-col w-full relative'>
 							<label for="Id-2" class="text-none absolute -z-10">Search</label>
 							<form
-								class='flex items-center rounded-[40px] w-full border border-border-2 overflow-hidden py-2 pl-6 pr-2'>
+								class='flex items-center rounded-[40px] w-full h-16 border border-border-2 overflow-hidden py-2 pl-6 pr-2'>
 								<div class="relative w-full">
 									<input type="search" id="Id-2" name="Search bar" placeholder="Start your search with keyword"
 										x-model="query" @input.debounce.300="fetchResults" @focus="showResults = true"
-										class="input w-full bg-white border-0 focus:ring-0 focus:bg-transparent focus:border-0 text-base outline-none p-0 pr-2 leading-8 transition-colors duration-200 ease-in-out">
+										class="input w-full bg-white border-0 focus:ring-0 focus:bg-transparent focus:border-0 text-base outline-none p-0 pr-40 leading-8 transition-colors duration-200 ease-in-out">
 								</div>
 								<button type='submit'
-									class="button text-body5 px-6 py-[10px] rounded-full border transition group border-primary hover:border-danger bg-primary inline-flex items-center hover:bg-transparent text-white hover:text-danger">
+									class="button text-body5 px-6 py-[10px] h-12 rounded-full border transition-all group border-primary hover:border-danger bg-primary inline-flex items-center justify-center hover:bg-transparent text-white hover:text-danger ml-auto absolute top-2 right-2 z-30 lg:p-0 lg:w-10 lg:h-10">
 									<i class='search-icon mr-3 group-hover:hidden block'></i>
 									<i class='search-red-icon group-hover:block hidden mr-3'></i>
-									<span class="font-normal uppercase">Search</span>
+									<span class="font-normal uppercase lg:hidden">Search</span>
 								</button>
 							</form>
 							<div x-show="showResults && query.length > 0"
@@ -816,7 +817,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-span-4">
+					<div class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
 	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
@@ -834,7 +835,7 @@
 	</div>
 </a>
 					</div>
-					<div class="col-span-4">
+					<div class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
 	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
@@ -852,7 +853,7 @@
 	</div>
 </a>
 					</div>
-					<div class="col-span-4">
+					<div class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
 	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
@@ -870,7 +871,7 @@
 	</div>
 </a>
 					</div>
-					<div class="col-span-4">
+					<div class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
 	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
@@ -888,7 +889,7 @@
 	</div>
 </a>
 					</div>
-					<div class="col-span-4">
+					<div class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
 	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
@@ -906,7 +907,7 @@
 	</div>
 </a>
 					</div>
-					<div class="col-span-4">
+					<div class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
 	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
@@ -924,7 +925,7 @@
 	</div>
 </a>
 					</div>
-					<div class="col-span-4">
+					<div class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
 	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
@@ -942,7 +943,7 @@
 	</div>
 </a>
 					</div>
-					<div class="col-span-4">
+					<div class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
 	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
@@ -960,7 +961,7 @@
 	</div>
 </a>
 					</div>
-					<div class="col-span-4">
+					<div class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
 	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">

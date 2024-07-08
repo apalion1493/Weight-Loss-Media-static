@@ -362,7 +362,7 @@
                                         </div>
                                         <button :class='showForm ? "active right-2 clicked" : "right-0"'
                                             class="button text-body5 px-6 py-[10px] rounded-full border transition-all group border-primary hover:border-danger bg-primary inline-flex items-center justify-center hover:bg-transparent text-white hover:text-danger ml-auto absolute top-2 z-30 lg:p-0 lg:w-12 lg:h-12 lg:top-[5px] lg:bg-secondary lg:border-secondary lg:hover:bg-primary lg:hover:border-primary"
-                                            @click="showForm = !showForm">
+                                            @click="showForm = !showForm; showResults = false">
                                             <i
                                                 class='search-icon mr-3 group-hover:hidden block lg:mr-0 lg:hidden lg:group-hover:block'></i>
                                             <i
@@ -414,7 +414,7 @@
                 x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
                 x-transition:leave="transition motion-reduce:transition-none ease-out duration-300"
                 x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" id="mobileMenu"
-                class="fixed max-h-svh overflow-x-auto inset-x-0 top-[98px] z-[30] flex flex-col h-full bg-white px-6 pb-60 pt-16 minlg:hidden overflow-y-scroll items-center">
+                class="fixed max-h-svh overflow-x-auto inset-x-0 top-[98px] z-[32] flex flex-col h-full bg-white px-6 pb-60 pt-16 minlg:hidden overflow-y-scroll items-center">
                 <li class="">
                     <div x-data="{ isExpanded: false }" class="w-full overflow-hidden flex flex-col items-center">
                         <button id="controlsAccordionItemOne" type="button"
