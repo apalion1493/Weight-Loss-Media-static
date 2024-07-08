@@ -1081,6 +1081,18 @@ select {
 .w-full {
   width: 100%;
 }
+.w-\[48px\] {
+  width: 48px;
+}
+.w-\[106px\] {
+  width: 106px;
+}
+.w-\[143px\] {
+  width: 143px;
+}
+.w-\[200px\] {
+  width: 200px;
+}
 .min-w-10 {
   min-width: 2.5rem;
 }
@@ -2259,6 +2271,10 @@ select {
 
   .lg\:pr-\[58px\] {
     padding-right: 58px;
+  }
+
+  .lg\:pr-\[56px\] {
+    padding-right: 56px;
   }
 
   .lg\:shadow {
