@@ -285,22 +285,22 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 })
 
-document.querySelectorAll('.menu-btn').forEach(button => {
-	button.addEventListener('click', () => {
-		const submenu = button.nextElementSibling
+// document.querySelectorAll('.menu-btn').forEach(button => {
+// 	button.addEventListener('click', () => {
+// 		const submenu = button.nextElementSibling
 
-		// Переключаем видимость подменю
-		button.classList.toggle('open-menu')
-		submenu.classList.toggle('hidden')
+// 		// Переключаем видимость подменю
+// 		button.classList.toggle('open-menu')
+// 		submenu.classList.toggle('hidden')
 
-		// Закрываем другие подменю, если они открыты
-		document.querySelectorAll('.submenu').forEach(menu => {
-			if (menu !== submenu) {
-				menu.classList.add('hidden')
-			}
-		})
-	})
-})
+// 		// Закрываем другие подменю, если они открыты
+// 		document.querySelectorAll('.submenu').forEach(menu => {
+// 			if (menu !== submenu) {
+// 				menu.classList.add('hidden')
+// 			}
+// 		})
+// 	})
+// })
 
 // Закрываем подменю при клике вне меню
 document.addEventListener('click', event => {

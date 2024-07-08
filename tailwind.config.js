@@ -99,6 +99,7 @@ module.exports = {
 			},
 			letterSpacing: {
 				'-032': '-0.032px',
+				'0-5': '0.5px',
 				'1-6': '1.6px',
 				base: '1px',
 			},
