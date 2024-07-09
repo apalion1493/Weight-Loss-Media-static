@@ -97,6 +97,37 @@ window.addEventListener('DOMContentLoaded', () => {
 			el: '.swiper-scrollbar',
 		},
 	})
+
+	const swiper3 = new Swiper('.splide-3', {
+		// Optional parameters
+		slidesPerView: 'auto',
+		spaceBetween: 24,
+
+		// loop: true,
+
+		// If we need pagination
+		pagination: false,
+
+		// Navigation arrows
+		navigation: false,
+
+		// And if we need scrollbar
+		scrollbar: false,
+
+		breakpoints: {
+			1280: {
+				slidesPerView: 3,
+			},
+
+			768: {
+				slidesPerView: 2,
+			},
+
+			0: {
+				slidesPerView: 'auto',
+			},
+		},
+	})
 })
 
 let swiperInstance

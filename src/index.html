@@ -11,98 +11,118 @@
     'commonStyle': 'bg-secondary'
     })
 
-    <section class='py-20'>
+    <section class='py-20 lg:py-10'>
       <div class="container">
-        <div class="grid grid-cols-12 gap-x-5 lg:gap-y-8">
+        <div class="grid grid-cols-12 gap-x-6 lg:gap-y-8">
           <div class="col-span-5 xl:col-span-6 lg:col-span-12 flex items-center">
-            <div class="flex flex-col gap-6 items-start">
-              <span class='text-danger font-medium text-body5 uppercase tracking-1-6'>Fitness & Diets</span>
-              <h1 class='text-h1 font-semibold'>Discribe our <br>
+            <div class="flex flex-col gap-6 items-start lg:gap-y-3">
+              <span class='text-danger font-medium text-body5 uppercase tracking-1-6 md:text-body8'>Fitness &
+                Diets</span>
+              <h1 class='text-h1 font-semibold md:text-h1Mob lg:mb-2'>Discribe our <br>
                 <span class='text-danger'>Sport</span> & <span class='text-danger'>Diets</span> <br>
                 Blog Posts<span class='text-danger'>.</span>
               </h1>
-              <p class='text-body text-grey-1'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              <p class='text-body text-grey-1 lg:mb-3 md:text-body4'>Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit.
                 Habitasse arcu vulputate velit scelerisque cursus nunc.
                 Ac cras sapien quam sem et venenatis velit.
                 A fusce sed convallis.</p>
               @@include('components/button.html', {
               'url': '#',
               'title': 'Explore',
-              'style': 'uppercase',
+              'style': 'uppercase md:px-6 md:py-3 md:text-body5',
               })
             </div>
           </div>
           <div class="col-span-1 xl:hidden"></div>
           <div class="col-span-6 xl:col-span-6 lg:col-span-12">
-            <div class="grid grid-cols-2 grid-rows-2 gap-6 max-h-[611px]">
-              <div class="col-start-1 col-end-2 row-start-1 row-end-2 overflow-hidden">
-                <img class='object-cover w-full h-full'
-                  src="img/6054052042c6ba75e0577466_image-4-instagram-section-fitness-template.jpg"
-                  alt="Image Alt Text">
+            <div class="test123">
+              <div class="grid grid-cols-2 grid-rows-2 gap-6 max-h-[611px] sm2:grid-cols-2 sm2:grid-rows-3 md:gap-4">
+                <div
+                  class="col-start-1 col-end-2 row-start-1 row-end-2 sm2:row-start-3 sm2:row-end-3 sm2:col-start-1 sm2:col-end-2 overflow-hidden">
+                  <img class="object-cover w-full h-full"
+                    src="img/6054052042c6ba75e0577466_image-4-instagram-section-fitness-template.jpg"
+                    alt="Image Alt Text">
+                </div>
+                <div
+                  class="col-start-1 col-end-2 row-start-2 row-end-3 sm2:row-start-3 sm2:row-end-3 sm2:col-start-2 sm2:col-end-2 overflow-hidden">
+                  <img class="object-cover w-full h-full" src="img/image-1.jpg" alt="Image Alt Text">
+                </div>
+                <div
+                  class="col-start-2 col-end-3 row-start-1 row-end-3 sm2:row-start-1 sm2:row-end-3 sm2:col-start-1 sm2:col-end-3 overflow-hidden">
+                  <img class="object-cover sm:object-top w-full h-full"
+                    src="img/6054064de7b15561bf213b23_image-3-home-about-fitness-template.jpg" alt="Image Alt Text">
+                </div>
               </div>
-              <div class="col-start-1 col-end-2 row-start-2 row-end-3 overflow-hidden">
-                <img class='object-cover w-full h-full' src="img/image-1.jpg" alt="Image Alt Text">
-              </div>
-              <div class="col-start-2 col-end-3 row-start-1 row-end-3 overflow-hidden">
-                <img class='object-cover w-full h-full'
-                  src="img/6054064de7b15561bf213b23_image-3-home-about-fitness-template.jpg" alt="Image Alt Text">
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class='py-24 lg:py-10 bg-secondary overflow-hidden'>
+      <div class="container">
+        <div class="grid grid-cols-12 gap-x-6 lg:gap-y-5">
+          <div class="col-span-12">
+            <div class="swiper splide-3">
+              <div class="swiper-wrapper "> <!--pl-2 -->
+                <div class="swiper-slide">
+                  <div
+                    class='step-block bg-white shadow-shadow-4 overflow-hidden flex flex-col py-10 px-6 h-full gap-y-6'>
+                    <div class='h-[110px] flex items-center'>
+                      <i class='fire-icon'></i>
+                    </div>
+                    <span class='font-medium text-tt'>Support & motivation</span>
+                    <p class='text-body text-grey-1'>Lorem ipsum dolor sit amet,
+                      consectetur adipiscing elit. Velitolm
+                      platea libero, ultricies hendrerit.</p>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div
+                    class='step-block bg-white shadow-shadow-4 overflow-hidden flex flex-col py-10 px-6 h-full gap-y-6'>
+                    <div class='h-[110px] flex items-center'>
+                      <i class='dumbbell-icon'></i>
+                    </div>
+                    <span class='font-medium text-tt'>Training</span>
+                    <p class='text-body text-grey-1'>Lorem ipsum dolor sit amet,
+                      consectetur adipiscing elit. Velitolm
+                      platea libero, ultricies hendrerit.</p>
+                  </div>
+                </div>
+                <div class="step-block swiper-slide">
+                  <div class='bg-white shadow-shadow-4 overflow-hidden flex flex-col py-10 px-6 h-full gap-y-6'>
+                    <div class='h-[110px] flex items-center'>
+                      <i class='apple-icon'></i>
+                    </div>
+                    <span class='font-medium text-tt'>Nutrition & diet</span>
+                    <p class='text-body text-grey-1'>Lorem ipsum dolor sit amet,
+                      consectetur adipiscing elit. Velitolm
+                      platea libero, ultricies hendrerit.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section class='py-24 bg-secondary'>
+    <section class="py-20 lg:py-10">
       <div class="container">
-        <div class="grid grid-cols-12 gap-x-5 lg:gap-y-5">
-          <div class="col-span-4 lg:col-span-12">
-            <div class='bg-white shadow-shadow-4 overflow-hidden flex flex-col py-10 px-6 h-full gap-y-6'>
-              <div class='h-[110px] flex items-center'>
-                <i class='fire-icon'></i>
-              </div>
-              <span class='font-medium text-tt'>Support & motivation</span>
-              <p class='text-body text-grey-1'>Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Velitolm
-                platea libero, ultricies hendrerit.</p>
-            </div>
-          </div>
-          <div class="col-span-4 lg:col-span-12">
-            <div class='bg-white shadow-shadow-4 overflow-hidden flex flex-col py-10 px-6 h-full gap-y-6'>
-              <div class='h-[110px] flex items-center'>
-                <i class='dumbbell-icon'></i>
-              </div>
-              <span class='font-medium text-tt'>Training</span>
-              <p class='text-body text-grey-1'>Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Velitolm
-                platea libero, ultricies hendrerit.</p>
-            </div>
-          </div>
-          <div class="col-span-4 lg:col-span-12">
-            <div class='bg-white shadow-shadow-4 overflow-hidden flex flex-col py-10 px-6 h-full gap-y-6'>
-              <div class='h-[110px] flex items-center'>
-                <i class='apple-icon'></i>
-              </div>
-              <span class='font-medium text-tt'>Nutrition & diet</span>
-              <p class='text-body text-grey-1'>Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Velitolm
-                platea libero, ultricies hendrerit.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="py-20">
-      <div class="container">
-        <div class="grid grid-cols-12 gap-5 lg:gap-y-12">
+        <div class="grid grid-cols-12 gap-6 lg:gap-y-12 md:gap-y-6">
           <div class="col-span-7 lg:col-span-12">
             <div class="flex flex-col">
-              <span class='text-danger font-medium text-body5 uppercase tracking-1-6'>Popular hernea</span>
-              <h2 class="text-h1 font-semibold mb-14">Grow your Business<span class='text-danger'>.</span></h2>
+              <span
+                class='text-danger font-medium text-body5 uppercase block tracking-1-6 md:text-body8 md:mb-3'>Popular
+                hernea</span>
+              <h2 class="text-h1 font-semibold mb-14 md:text-h1Mob md:mb-8">Grow your Business<span
+                  class='text-danger'>.</span></h2>
               @@include('components/medium-blog-card.html', {
               'style': 'max-w-full h-full',
               'image': 'img/medium-blog-img-1.jpg',
               'imageAlt': 'Image Alt',
               'date': 'September 1, 2022',
+              'category': 'Diet',
               'title': 'The 5 effective fitness morning routines you should follow',
               'link': '#'
               })
@@ -112,6 +132,7 @@
             <div class='flex flex-col gap-y-12 lg:gap-y-6'>
               @@include('components/mini-blog-card.html', {
               'style': 'max-w-[550px] lg:max-w-full',
+              'imgStyle': 'sm:min-w-[116px]',
               'image': 'img/card-blog-2.jpg',
               'imageAlt': 'Image Alt',
               'date': 'September 1, 2022',
@@ -120,6 +141,7 @@
               })
               @@include('components/mini-blog-card.html', {
               'style': 'max-w-[550px] lg:max-w-full',
+              'imgStyle': 'sm:min-w-[116px]',
               'image': 'img/card-blog-2.jpg',
               'imageAlt': 'Image Alt',
               'date': 'September 1, 2022',
@@ -127,7 +149,8 @@
               'link': '#'
               })
               @@include('components/mini-blog-card.html', {
-              'style': 'max-w-[550px] lg:max-w-full',
+              'style': 'max-w-[550px] lg:max-w-full md:hidden',
+              'imgStyle': 'sm:min-w-[116px]',
               'image': 'img/card-blog-2.jpg',
               'imageAlt': 'Image Alt',
               'date': 'September 1, 2022',
@@ -139,16 +162,16 @@
         </div>
       </div>
     </section>
-    <section class='py-20 border-t border-b border-border-3'>
+    <section class='py-20 lg:py-10 border-t border-b border-border-3'>
       <div class="container">
-        <div class='grid grid-cols-12 gap-x-5'>
+        <div class='grid grid-cols-12 gap-6'>
           <div class="col-span-12">
-            <div class='flex items-center justify-between mb-14'>
-              <h4 class='text-h3 font-medium'>Low-Fat Diets</h4>
+            <div class='flex items-center justify-between mb-14 md:mb-3'>
+              <h4 class='text-h3 font-medium md:text-h3Mob'>Low-Fat Diets</h4>
               @@include('components/button.html', {
               'url': '#',
               'title': 'More posts',
-              'style': 'uppercase',
+              'style': 'uppercase md:hidden',
               })
             </div>
           </div>
@@ -185,114 +208,74 @@
             'category': 'Diet'
             })
           </div>
-        </div>
-      </div>
-    </section>
-    <section class='py-20'>
-      <div class="container">
-        <div class='grid grid-cols-12 gap-5'>
-          <div class="col-span-12">
-            <div class='flex items-center justify-between mb-14'>
-              <h4 class='text-h3 font-medium'>Yoga and Pilates</h4>
-              @@include('components/button.html', {
-              'url': '#',
-              'title': 'More posts',
-              'style': 'uppercase',
-              })
-            </div>
-          </div>
-          <div class="col-span-4 lg:col-span-6 md:col-span-12 flex justify-center">
-            @@include('components/blog-card.html', {
-            'style': 'max-w-[411px] sm:max-w-full',
-            'image': 'img/card-blog-4.jpg',
-            'imageAlt': 'Image Alt',
-            'date': 'September 1, 2022',
-            'title': 'The 5 effective fitness morning routines you should follow',
-            'link': '#',
-            'category': 'Diet'
-            })
-          </div>
-          <div class="col-span-4 lg:col-span-6 md:col-span-12 flex justify-center">
-            @@include('components/blog-card.html', {
-            'style': 'max-w-[411px] sm:max-w-full',
-            'image': 'img/card-blog-4.jpg',
-            'imageAlt': 'Image Alt',
-            'date': 'September 1, 2022',
-            'title': 'The 5 effective fitness morning routines you should follow',
-            'link': '#',
-            'category': 'Diet'
-            })
-          </div>
-          <div class="col-span-4 lg:col-span-6 md:col-span-12 flex justify-center">
-            @@include('components/blog-card.html', {
-            'style': 'max-w-[411px] sm:max-w-full',
-            'image': 'img/card-blog-4.jpg',
-            'imageAlt': 'Image Alt',
-            'date': 'September 1, 2022',
-            'title': 'The 5 effective fitness morning routines you should follow',
-            'link': '#',
-            'category': 'Diet'
-            })
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- <section class=" py-20">
-            @@include('components/button-white.html', {
-            'url': '#',
-            'title': 'Button',
-            'style': 'uppercase text-primary',
-            })
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+          <div class="col-span-12 minmd:hidden flex justify-center">
             @@include('components/button.html', {
             'url': '#',
-            'title': 'Button',
-            'style': 'uppercase',
+            'title': 'More posts',
+            'style': 'uppercase w-full max-w-[343px]',
             })
-            <br>
-            <br>
-            @@include('components/button-small.html', {
-            'url': '#',
-            'title': 'Button',
-            'style': 'uppercase text-primary',
-            })
-            <br>
-            <br>
-
-    </section> -->
-
-    <!-- <section class="py-20">
-      <div>
-        @@include('components/input.html', {
-        'common-style': '',
-        'idInput': 'id',
-        'label': 'label',
-        'styleInput': '',
-        'type': 'text',
-        'placeholder': 'What’s your name?',
-        'errorStyle': 'block',
-        })
-
-        <br>
-        <br>
-        <br>
-        @@include('components/textarea.html', {
-        'common-style': '',
-        'idInput': 'id',
-        'label': 'label',
-        'styleInput': '',
-        'type': 'text',
-        'placeholder': 'your message...',
-        })
+          </div>
+        </div>
       </div>
-    </section> -->
-    @@include('components/Newsletter.html')
+    </section>
+    <section class='py-20 lg:py-10'>
+      <div class="container">
+        <div class='grid grid-cols-12 gap-6'>
+          <div class="col-span-12">
+            <div class='flex items-center justify-between mb-14 md:mb-3'>
+              <h4 class='text-h3 font-medium md:text-h3Mob'>Yoga and Pilates</h4>
+              @@include('components/button.html', {
+              'url': '#',
+              'title': 'More posts',
+              'style': 'uppercase md:hidden',
+              })
+            </div>
+          </div>
+          <div class="col-span-4 lg:col-span-6 md:col-span-12 flex justify-center">
+            @@include('components/blog-card.html', {
+            'style': 'max-w-[411px] sm:max-w-full',
+            'image': 'img/card-blog-4.jpg',
+            'imageAlt': 'Image Alt',
+            'date': 'September 1, 2022',
+            'title': 'The 5 effective fitness morning routines you should follow',
+            'link': '#',
+            'category': 'Diet'
+            })
+          </div>
+          <div class="col-span-4 lg:col-span-6 md:col-span-12 flex justify-center">
+            @@include('components/blog-card.html', {
+            'style': 'max-w-[411px] sm:max-w-full',
+            'image': 'img/card-blog-4.jpg',
+            'imageAlt': 'Image Alt',
+            'date': 'September 1, 2022',
+            'title': 'The 5 effective fitness morning routines you should follow',
+            'link': '#',
+            'category': 'Diet'
+            })
+          </div>
+          <div class="col-span-4 lg:col-span-6 md:col-span-12 flex justify-center">
+            @@include('components/blog-card.html', {
+            'style': 'max-w-[411px] sm:max-w-full',
+            'image': 'img/card-blog-4.jpg',
+            'imageAlt': 'Image Alt',
+            'date': 'September 1, 2022',
+            'title': 'The 5 effective fitness morning routines you should follow',
+            'link': '#',
+            'category': 'Diet'
+            })
+          </div>
+          <div class="col-span-12 minmd:hidden flex justify-center">
+            @@include('components/button.html', {
+            'url': '#',
+            'title': 'More posts',
+            'style': 'uppercase w-full max-w-[343px]',
+            })
+          </div>
+        </div>
+      </div>
+    </section>
 
+    @@include('components/Newsletter.html')
     @@include('components/Footer.html')
   </main>
 

@@ -15,8 +15,8 @@
 		</button>
 	</form>
 	<div x-show="showResults && query.length > 0"
-		class="absolute top-full mt-2 p-6 w-full bg-white border border-gray-200 rounded-lg shadow-shadow-2 z-10">
-		<ul>
+		class="absolute top-full mt-2 p-6 w-full bg-white border border-gray-200 rounded-lg shadow-shadow-2 z-10 md:px-4 md:py-5">
+		<ul class='flex flex-col gap-y-4'>
 			<template x-for="result in results" :key="result.id">
 				<li class="p-2 text-body3 hover:bg-gray-100 cursor-pointer" @click="selectResult(result)">
 					<span x-text="result.title"></span>

@@ -27,7 +27,7 @@
     <nav @click.away="mobileMenuIsOpen = false">
         <div class="lg:shadow py-12 z-[33] relative lg:py-5">
             <div class='container'>
-                <div class="grid grid-cols-12 gap-x-5">
+                <div class="grid grid-cols-12 gap-x-6">
                     <div class="col-span-12">
                         <div class="flex items-center justify-between lg:relative">
                             <a class='min-w-[145px] z-[1] lg:min-w-[115px]' href="index.html">
@@ -400,8 +400,9 @@
                                     </div>
                                     <div x-show="showResults && query.length > 0"
                                         class="absolute left-0 top-full mt-2 pl-1/24 w-full z-10 lg:pl-0">
-                                        <div class='bg-white border border-gray-200 rounded-lg shadow-shadow-2 p-6'>
-                                            <ul>
+                                        <div
+                                            class='bg-white border border-gray-200 rounded-lg shadow-shadow-2 p-6 md:px-4 md:py-5'>
+                                            <ul class='flex flex-col gap-y-4'>
                                                 <template x-for="result in results" :key="result.id">
                                                     <li class="text-body3 hover:bg-gray-100 cursor-pointer"
                                                         @click="selectResult(result)">
@@ -759,7 +760,7 @@
 
 		<section class='py-20'>
 			<div class="container">
-				<div class="grid grid-cols-12 gap-x-5">
+				<div class="grid grid-cols-12 gap-x-6">
 					<div class="col-span-6">
 						<div class='flex flex-col h-full items-start justify-center gap-y-6 max-w-[500px]'>
 							<span class='text-danger font-medium text-body5 uppercase tracking-1-6'>All about diets</span>
@@ -784,7 +785,7 @@
 		</section>
 		<section class='py-20 bg-secondary'>
 			<div class="container">
-				<div class="grid grid-cols-12 gap-x-5">
+				<div class="grid grid-cols-12 6">
 					<div class="col-span-6">
 						<div class='flex flex-col h-full items-start gap-y-6 max-w-[500px]'>
 							<span class='text-danger font-medium text-body5 uppercase tracking-1-6'>Questions & Answers</span>
@@ -908,7 +909,7 @@
 
 		<section class='py-20 border-b border-border-3'>
 			<div class="container">
-				<div class="grid grid-cols-12 gap-x-5">
+				<div class="grid grid-cols-12 gap-x-6">
 					<div class="col-span-12">
 						<div class='flex justify-between'>
 							<h2 class='text-h3 font-medium'>Low-Carb Diets</h2>
@@ -1153,7 +1154,7 @@
 
 		<section class='py-20 border-b border-border-3'>
 			<div class="container">
-				<div class="grid grid-cols-12 gap-x-5">
+				<div class="grid grid-cols-12 gap-x-6">
 					<div class="col-span-12">
 						<div class='flex justify-between'>
 							<h2 class='text-h3 font-medium'>Low-Fat Diets</h2>
@@ -1398,7 +1399,7 @@
 
 		<section class='py-20 border-b border-border-3'>
 			<div class="container">
-				<div class="grid grid-cols-12 gap-x-5">
+				<div class="grid grid-cols-12 gap-x-6">
 					<div class="col-span-12">
 						<div class='flex justify-between'>
 							<h2 class='text-h3 font-medium'>High-Protein Diets</h2>
@@ -1643,7 +1644,7 @@
 
 		<section class='py-20 border-b border-border-3'>
 			<div class="container">
-				<div class="grid grid-cols-12 gap-x-5">
+				<div class="grid grid-cols-12 gap-x-6">
 					<div class="col-span-12">
 						<div class='flex justify-between'>
 							<h2 class='text-h3 font-medium'>Meal Planning and Prep</h2>
@@ -1888,7 +1889,7 @@
 
 		<section class='py-20'>
 			<div class="container">
-				<div class="grid grid-cols-12 gap-x-5">
+				<div class="grid grid-cols-12 gap-x-6">
 					<div class="col-span-12">
 						<div class='flex justify-between'>
 							<h2 class='text-h3 font-medium'>Plant-Based Diets</h2>
@@ -2133,7 +2134,7 @@
 
 		<section class="py-20 lg:py-10 bg-secondary">
 	<div class="container">
-		<div class="grid grid-cols-12 gap-5">
+		<div class="grid grid-cols-12 gap-6">
 			<div class="col-span-7 lg:col-span-12">
 				<h3 class='text-h3 md:text-h3Mob font-medium'>Subscribe to my weekly <br>
 					newsletter today!</h3>
@@ -2157,7 +2158,7 @@
 </section>
 		<footer class="pt-10 bg-primary text-white">
 	<div class="container flex flex-col overflow-hidden">
-		<div class="grid grid-cols-12 gap-x-5 py-14 md:pt-0 md:pb-10">
+		<div class="grid grid-cols-12 gap-x-6 py-14 md:pt-0 md:pb-10">
 			<div class="col-span-7 md:col-span-12">
 				<div class='flex flex-col max-w-[442px] items-start'>
 					<img class='mb-4 sm:max-w-[115px]' src="img/Logo-1.svg" alt="Main Logo WLM">
@@ -2182,7 +2183,7 @@
 			</div>
 		</div>
 		<div
-			class="grid grid-cols-12 gap-x-5 lg:gap-y-12 border-y border-border-1 py-14 md:py-12 md:gap-y-0 md:border-b-0 md:pb-0">
+			class="grid grid-cols-12 gap-x-6 lg:gap-y-12 border-y border-border-1 py-14 md:py-12 md:gap-y-0 md:border-b-0 md:pb-0">
 			<div class="col-span-3 lg:col-span-6 md:col-span-8 md:order-1">
 				<div class='flex flex-col gap-y-12 lg:gap-y-6'>
 					<h4 class='uppercase font-medium text-t2 md:text-body5'>Pages</h4>
@@ -2317,7 +2318,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="grid grid-cols-12 gap-x-5 py-14 md:py-10">
+		<div class="grid grid-cols-12 gap-x-6 py-14 md:py-10">
 			<div class="col-span-12">
 				<p class='text-body6 tracking-base uppercase md:text-body8 md:font-medium md:text-center'>2024 © weigh loss
 					media | all rights
