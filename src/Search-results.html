@@ -11,27 +11,61 @@
 		'commonStyle': 'bg-secondary'
 		})
 
-		<section class='pt-20 pb-10'>
+		<section class='pt-20 pb-10 lg:py-10 lg:border-b border-border-3'>
 			<div class="container">
 				<div class="grid grid-cols-12 gap-x-5">
 					<div class="col-span-12">
 						<div class="flex flex-col">
-							<span class='text-danger font-medium text-body5 uppercase tracking-1-6 mb-5 block'>Search results</span>
-							<h1 class="text-h3 font-semibold mb-6">Showing results for ”lorem ipsum”</h1>
-							@@include('components/Search-bar.html' {
-							'id': 'search-id-01',
-							'style': '',
-							'placeholder': 'Start your search with keyword'
-							})
+							<span
+								class='text-danger font-medium text-body5 uppercase tracking-1-6 mb-5 block md:text-body8 md:mb-3'>Search
+								results</span>
+							<h1 class="text-h3 font-semibold mb-6 md:text-body2 md:mb-8">Showing results for ”lorem ipsum”</h1>
+							<div x-data="{ query: '', results: [], showResults: false }" @click.away="showResults = false"
+								class='flex flex-col w-full relative @@style'>
+								<label for="search-results" class="text-none absolute -z-10">Search</label>
+								<form
+									class='flex items-center rounded-[40px] w-full border border-border-2 overflow-hidden py-2 pl-6 pr-2 lg:pl-4 h-16 lg:h-14'>
+									<div class="relative w-full">
+										<input type="search" id="search-results" name="Search bar"
+											placeholder="Start your search with keyword" x-model="query" @input.debounce.300="fetchResults"
+											@focus="showResults = true"
+											class="input w-full bg-white border-0 focus:ring-0 focus:bg-transparent focus:border-0 text-base outline-none p-0 pr-44 leading-8 transition-colors duration-200 ease-in-out lg:pr-[75px]">
+										<button type="button" x-show="query.length > 0" @click="query = ''"
+											class="absolute right-36 lg:right-10 top-1/2 transform -translate-y-1/2 text-gray-500 p-3 hover:text-gray-700">
+											<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+												<path
+													d="M10.2616 0.318046L6.00014 4.57951L1.73867 0.318046C1.31253 -0.108101 0.744331 -0.108101 0.318185 0.318046C-0.107962 0.744192 -0.107962 1.31239 0.318185 1.73853L4.57965 6L0.318185 10.2615C-0.107962 10.6876 -0.107962 11.2558 0.318185 11.682C0.744331 12.1081 1.31253 12.1081 1.73867 11.682L6.00014 7.42049L10.2616 11.682C10.6878 12.1081 11.2559 12.1081 11.6821 11.682C12.1082 11.2558 12.1082 10.6876 11.6821 10.2615L7.42063 6L11.6821 1.73853C12.1082 1.31239 12.1082 0.744192 11.6821 0.318046C11.2559 -0.108101 10.6878 -0.108101 10.2616 0.318046Z"
+													fill="#19181B" />
+											</svg>
+										</button>
+									</div>
+									<button type='submit'
+										class="button text-body5 px-6 py-[10px] h-12 rounded-full border transition-all group border-primary hover:border-danger bg-primary inline-flex items-center justify-center hover:bg-transparent text-white hover:text-danger ml-auto absolute top-2 right-2 z-30 lg:p-0 lg:w-10 lg:h-10 lg:top-2">
+										<i class='search-icon mr-3 group-hover:hidden block lg:mr-0'></i>
+										<i class='search-red-icon group-hover:block hidden mr-3 lg:mr-0'></i>
+										<span class="font-normal uppercase lg:hidden">Search</span>
+									</button>
+								</form>
+								<div x-show="showResults && query.length > 0"
+									class="absolute top-full mt-2 p-6 w-full bg-white border border-gray-200 rounded-lg shadow-shadow-2 z-10">
+									<ul>
+										<template x-for="result in results" :key="result.id">
+											<li class="p-2 text-body3 hover:bg-gray-100 cursor-pointer" @click="selectResult(result)">
+												<span x-text="result.title"></span>
+											</li>
+										</template>
+									</ul>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 		</section>
-		<section class='py-10 border-t border-b border-border-3 mb-24'>
+		<section class='py-10 border-t border-b border-border-3 mb-24 sm:border-0 lg:py-10 lg:mb-0'>
 			<div class="container">
-				<div class="grid grid-cols-12 gap-x-5 gap-y-14">
+				<div x-data="{ showAll: false }" class="grid grid-cols-12 gap-x-5 gap-y-14 md:gap-y-5">
 					<div class="col-span-12">
-						<div x-data="{ selected: 0 }" class="flex space-x-2 mb-8">
+						<div x-data="{ selected: 0 }" class="flex gap-x-2 mb-8 md:mb-5">
 							<!-- Loop through options -->
 							<template x-for="(option, index) in ['All', 'diets', 'sports']">
 								<button class='transition uppercase px-4 py-[10px] rounded-full text-body6'
@@ -41,9 +75,10 @@
 									}" x-text="option" class="px-4 py-2 rounded cursor-pointer"></button>
 							</template>
 						</div>
-						<span class='text-border-2 text-body'>Showing results 1 - 12 of 24</span>
+						<span class='text-border-2 text-body md:text-body6 block md:mb-3'>Showing results 1 - 12 of 24</span>
 					</div>
-					<div class="col-span-4">
+					<div x-show="showAll || $el.dataset.index < 6 || window.innerWidth >= 640" data-index="0"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						@@include('components/blog-card.html', {
 						'image': 'img/card-blog-4.jpg',
 						'date': 'September 1, 2022',
@@ -53,7 +88,8 @@
 						'category': 'Diet'
 						})
 					</div>
-					<div class="col-span-4">
+					<div x-show="showAll || $el.dataset.index < 6 || window.innerWidth >= 640" data-index="1"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						@@include('components/blog-card.html', {
 						'image': 'img/card-blog-4.jpg',
 						'date': 'September 1, 2022',
@@ -63,7 +99,8 @@
 						'category': 'Diet'
 						})
 					</div>
-					<div class="col-span-4">
+					<div x-show="showAll || $el.dataset.index < 6 || window.innerWidth >= 640" data-index="2"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						@@include('components/blog-card.html', {
 						'image': 'img/card-blog-4.jpg',
 						'date': 'September 1, 2022',
@@ -73,7 +110,8 @@
 						'category': 'Diet'
 						})
 					</div>
-					<div class="col-span-4">
+					<div x-show="showAll || $el.dataset.index < 6 || window.innerWidth >= 640" data-index="3"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						@@include('components/blog-card.html', {
 						'image': 'img/card-blog-4.jpg',
 						'date': 'September 1, 2022',
@@ -83,7 +121,8 @@
 						'category': 'Sports'
 						})
 					</div>
-					<div class="col-span-4">
+					<div x-show="showAll || $el.dataset.index < 6 || window.innerWidth >= 640" data-index="4"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						@@include('components/blog-card.html', {
 						'image': 'img/card-blog-4.jpg',
 						'date': 'September 1, 2022',
@@ -93,7 +132,8 @@
 						'category': 'Sports'
 						})
 					</div>
-					<div class="col-span-4">
+					<div x-show="showAll || $el.dataset.index < 6 || window.innerWidth >= 640" data-index="5"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						@@include('components/blog-card.html', {
 						'image': 'img/card-blog-4.jpg',
 						'date': 'September 1, 2022',
@@ -103,7 +143,8 @@
 						'category': 'Sports'
 						})
 					</div>
-					<div class="col-span-4">
+					<div x-show="showAll || $el.dataset.index < 6 || window.innerWidth >= 640" data-index="6"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						@@include('components/blog-card.html', {
 						'image': 'img/card-blog-4.jpg',
 						'date': 'September 1, 2022',
@@ -113,7 +154,8 @@
 						'category': 'Diet'
 						})
 					</div>
-					<div class="col-span-4">
+					<div x-show="showAll || $el.dataset.index < 6 || window.innerWidth >= 640" data-index="7"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						@@include('components/blog-card.html', {
 						'image': 'img/card-blog-4.jpg',
 						'date': 'September 1, 2022',
@@ -123,7 +165,8 @@
 						'category': 'Diet'
 						})
 					</div>
-					<div class="col-span-4">
+					<div x-show="showAll || $el.dataset.index < 6 || window.innerWidth >= 640" data-index="8"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						@@include('components/blog-card.html', {
 						'image': 'img/card-blog-4.jpg',
 						'date': 'September 1, 2022',
@@ -134,7 +177,7 @@
 						})
 					</div>
 					<div class="col-span-12">
-						<div class='flex items-center justify-between mx-auto max-w-[692px]'>
+						<div class='flex items-center justify-between mx-auto max-w-[692px] sm:hidden'>
 							<button
 								class='w-16 h-16 bg-primary disabled:bg-white cursor-pointer flex items-center justify-center rounded-full shadow-shadow-5 group'
 								disabled>
@@ -167,6 +210,12 @@
 								</i>
 							</button>
 						</div>
+						<button type='button'
+							class="button text-button px-10 py-4 rounded-full border transition group border-primary hover:border-danger bg-primary inline-flex items-center justify-center hover:bg-transparent text-white hover:text-danger w-full minsm:hidden uppercase"
+							@click="showAll = !showAll">
+							<span x-show="!showAll" class="font-medium">More Posts</span>
+							<span x-show="showAll" class="font-medium">Hidden Posts</span>
+						</button>
 					</div>
 				</div>
 			</div>
