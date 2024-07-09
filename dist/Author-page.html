@@ -1148,6 +1148,16 @@
 		}))
 	})
 
+	function setup() {
+		return {
+			placeholderText: window.innerWidth < 768 ? 'Mobile Search...' : 'Search...',
+			init() {
+				window.addEventListener('resize', () => {
+					this.placeholderText = window.innerWidth < 768 ? 'Mobile Search...' : 'Search...'
+				})
+			}
+		}
+	}
 	function numberedList() {
 		return {
 			items: {

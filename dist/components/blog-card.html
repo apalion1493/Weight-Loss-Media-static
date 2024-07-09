@@ -1,16 +1,18 @@
 <a href="@@link"
-	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] @@style'>
-	<img class='object-cover h-[233px]' src="@@image" alt="@@imageAlt">
-	<div class='flex flex-col px-5 pb-8 h-full'>
-		<div class='flex items-center justify-between mb-8'>
-			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px]' datetime="@@date">@@date</time>
+	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto @@style'>
+	<img class='object-cover h-[233px] sm:h-auto' src="@@image" alt="@@imageAlt">
+	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
+		<div class='flex items-center justify-between mb-8 md:mb-4'>
+			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
+				datetime="@@date">@@date</time>
 			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>@@category</span>
 		</div>
-		<span class='text-tt mb-3 block font-medium'>@@title</span>
-		<p class='blog-card__text text-grey-1 mb-2 text-body'>Lorem ipsum dolor sit amet, consectetur
+		<span class='text-tt mb-3 block font-medium md:text-button md:mb-2'>@@title</span>
+		<p class='blog-card__text text-grey-1 mb-2 lg:mb-6 text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur
 			adipiscing elit. Habitasse arcu vulputate
 			velit scelerisque... </p>
-		<span class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium'>Read
+		<span
+			class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium md:text-body5'>Read
 			More</span>
 	</div>
 </a>

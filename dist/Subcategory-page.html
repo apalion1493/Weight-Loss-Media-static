@@ -781,7 +781,7 @@
 		</section>
 		<section class='py-20 lg:py-10'>
 			<div class="container">
-				<div class="grid grid-cols-12 gap-x-5 gap-y-14">
+				<div x-data="{ showAll: false }" class="grid grid-cols-12 gap-x-5 gap-y-14 md:gap-y-5">
 					<div class="col-span-7 xl:col-span-6 md:hidden">
 						<div class='flex justify-between'>
 							<h2 class='text-h3 font-medium'>Low-Carb Diets</h2>
@@ -792,16 +792,27 @@
 							class='flex flex-col w-full relative'>
 							<label for="Id-2" class="text-none absolute -z-10">Search</label>
 							<form
-								class='flex items-center rounded-[40px] w-full h-16 border border-border-2 overflow-hidden py-2 pl-6 pr-2'>
+								class='flex items-center rounded-[40px] w-full h-16 lg:h-14 border border-border-2 overflow-hidden py-2 pl-6 pr-2'>
 								<div class="relative w-full">
 									<input type="search" id="Id-2" name="Search bar" placeholder="Start your search with keyword"
 										x-model="query" @input.debounce.300="fetchResults" @focus="showResults = true"
-										class="input w-full bg-white border-0 focus:ring-0 focus:bg-transparent focus:border-0 text-base outline-none p-0 pr-40 leading-8 transition-colors duration-200 ease-in-out">
+										class="input w-full bg-white border-0 focus:ring-0 focus:bg-transparent focus:border-0 text-base outline-none p-0 pr-40 leading-8 transition-colors duration-200 ease-in-out lg:pr-[75px] lg:hidden">
+									<input type="search" id="Id-2" name="Search bar" placeholder="Start your search" x-model="query"
+										@input.debounce.300="fetchResults" @focus="showResults = true"
+										class="input w-full bg-white border-0 focus:ring-0 focus:bg-transparent focus:border-0 text-base outline-none p-0 pr-40 leading-8 transition-colors duration-200 ease-in-out lg:pr-[75px] minlg:hidden">
+									<button type="button" x-show="query.length > 0" @click="query = ''"
+										class="absolute right-10 top-1/2 transform -translate-y-1/2 text-gray-500 p-3 hover:text-gray-700">
+										<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+											<path
+												d="M10.2616 0.318046L6.00014 4.57951L1.73867 0.318046C1.31253 -0.108101 0.744331 -0.108101 0.318185 0.318046C-0.107962 0.744192 -0.107962 1.31239 0.318185 1.73853L4.57965 6L0.318185 10.2615C-0.107962 10.6876 -0.107962 11.2558 0.318185 11.682C0.744331 12.1081 1.31253 12.1081 1.73867 11.682L6.00014 7.42049L10.2616 11.682C10.6878 12.1081 11.2559 12.1081 11.6821 11.682C12.1082 11.2558 12.1082 10.6876 11.6821 10.2615L7.42063 6L11.6821 1.73853C12.1082 1.31239 12.1082 0.744192 11.6821 0.318046C11.2559 -0.108101 10.6878 -0.108101 10.2616 0.318046Z"
+												fill="#19181B" />
+										</svg>
+									</button>
 								</div>
 								<button type='submit'
-									class="button text-body5 px-6 py-[10px] h-12 rounded-full border transition-all group border-primary hover:border-danger bg-primary inline-flex items-center justify-center hover:bg-transparent text-white hover:text-danger ml-auto absolute top-2 right-2 z-30 lg:p-0 lg:w-10 lg:h-10">
-									<i class='search-icon mr-3 group-hover:hidden block'></i>
-									<i class='search-red-icon group-hover:block hidden mr-3'></i>
+									class="button text-body5 px-6 py-[10px] h-12 rounded-full border transition-all group border-primary hover:border-danger bg-primary inline-flex items-center justify-center hover:bg-transparent text-white hover:text-danger ml-auto absolute top-2 right-2 z-30 lg:p-0 lg:w-10 lg:h-10 lg:top-2">
+									<i class='search-icon mr-3 group-hover:hidden block lg:mr-0'></i>
+									<i class='search-red-icon group-hover:block hidden mr-3 lg:mr-0'></i>
 									<span class="font-normal uppercase lg:hidden">Search</span>
 								</button>
 							</form>
@@ -817,170 +828,197 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-span-4 lg:col-span-6 sm:col-span-12">
+					<div x-show="showAll || $el.dataset.index < 5 || window.innerWidth >= 640" data-index="0"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
-	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
-	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
-	<div class='flex flex-col px-5 pb-8 h-full'>
-		<div class='flex items-center justify-between mb-8'>
-			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px]' datetime="September 1, 2022">September 1, 2022</time>
+	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
+	<img class='object-cover h-[233px] sm:h-auto' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
+		<div class='flex items-center justify-between mb-8 md:mb-4'>
+			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
+				datetime="September 1, 2022">September 1, 2022</time>
 			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Diet</span>
 		</div>
-		<span class='text-tt mb-3 block font-medium'>The 5 effective fitness morning routines you should follow</span>
-		<p class='blog-card__text text-grey-1 mb-2 text-body'>Lorem ipsum dolor sit amet, consectetur
+		<span class='text-tt mb-3 block font-medium md:text-button md:mb-2'>The 5 effective fitness morning routines you should follow</span>
+		<p class='blog-card__text text-grey-1 mb-2 lg:mb-6 text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur
 			adipiscing elit. Habitasse arcu vulputate
 			velit scelerisque... </p>
-		<span class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium'>Read
+		<span
+			class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium md:text-body5'>Read
 			More</span>
 	</div>
 </a>
 					</div>
-					<div class="col-span-4 lg:col-span-6 sm:col-span-12">
+					<div x-show="showAll || $el.dataset.index < 5 || window.innerWidth >= 640" data-index="1"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
-	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
-	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
-	<div class='flex flex-col px-5 pb-8 h-full'>
-		<div class='flex items-center justify-between mb-8'>
-			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px]' datetime="September 1, 2022">September 1, 2022</time>
+	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
+	<img class='object-cover h-[233px] sm:h-auto' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
+		<div class='flex items-center justify-between mb-8 md:mb-4'>
+			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
+				datetime="September 1, 2022">September 1, 2022</time>
 			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Diet</span>
 		</div>
-		<span class='text-tt mb-3 block font-medium'>The 5 effective fitness morning routines you should follow</span>
-		<p class='blog-card__text text-grey-1 mb-2 text-body'>Lorem ipsum dolor sit amet, consectetur
+		<span class='text-tt mb-3 block font-medium md:text-button md:mb-2'>The 5 effective fitness morning routines you should follow</span>
+		<p class='blog-card__text text-grey-1 mb-2 lg:mb-6 text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur
 			adipiscing elit. Habitasse arcu vulputate
 			velit scelerisque... </p>
-		<span class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium'>Read
+		<span
+			class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium md:text-body5'>Read
 			More</span>
 	</div>
 </a>
 					</div>
-					<div class="col-span-4 lg:col-span-6 sm:col-span-12">
+					<div x-show="showAll || $el.dataset.index < 5 || window.innerWidth >= 640" data-index="2"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
-	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
-	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
-	<div class='flex flex-col px-5 pb-8 h-full'>
-		<div class='flex items-center justify-between mb-8'>
-			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px]' datetime="September 1, 2022">September 1, 2022</time>
+	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
+	<img class='object-cover h-[233px] sm:h-auto' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
+		<div class='flex items-center justify-between mb-8 md:mb-4'>
+			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
+				datetime="September 1, 2022">September 1, 2022</time>
 			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Diet</span>
 		</div>
-		<span class='text-tt mb-3 block font-medium'>The 5 effective fitness morning routines you should follow</span>
-		<p class='blog-card__text text-grey-1 mb-2 text-body'>Lorem ipsum dolor sit amet, consectetur
+		<span class='text-tt mb-3 block font-medium md:text-button md:mb-2'>The 5 effective fitness morning routines you should follow</span>
+		<p class='blog-card__text text-grey-1 mb-2 lg:mb-6 text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur
 			adipiscing elit. Habitasse arcu vulputate
 			velit scelerisque... </p>
-		<span class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium'>Read
+		<span
+			class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium md:text-body5'>Read
 			More</span>
 	</div>
 </a>
 					</div>
-					<div class="col-span-4 lg:col-span-6 sm:col-span-12">
+					<div x-show="showAll || $el.dataset.index < 5 || window.innerWidth >= 640" data-index="3"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
-	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
-	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
-	<div class='flex flex-col px-5 pb-8 h-full'>
-		<div class='flex items-center justify-between mb-8'>
-			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px]' datetime="September 1, 2022">September 1, 2022</time>
+	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
+	<img class='object-cover h-[233px] sm:h-auto' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
+		<div class='flex items-center justify-between mb-8 md:mb-4'>
+			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
+				datetime="September 1, 2022">September 1, 2022</time>
 			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Diet</span>
 		</div>
-		<span class='text-tt mb-3 block font-medium'>The 5 effective fitness morning routines you should follow</span>
-		<p class='blog-card__text text-grey-1 mb-2 text-body'>Lorem ipsum dolor sit amet, consectetur
+		<span class='text-tt mb-3 block font-medium md:text-button md:mb-2'>The 5 effective fitness morning routines you should follow</span>
+		<p class='blog-card__text text-grey-1 mb-2 lg:mb-6 text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur
 			adipiscing elit. Habitasse arcu vulputate
 			velit scelerisque... </p>
-		<span class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium'>Read
+		<span
+			class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium md:text-body5'>Read
 			More</span>
 	</div>
 </a>
 					</div>
-					<div class="col-span-4 lg:col-span-6 sm:col-span-12">
+					<div x-show="showAll || $el.dataset.index < 5 || window.innerWidth >= 640" data-index="4"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
-	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
-	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
-	<div class='flex flex-col px-5 pb-8 h-full'>
-		<div class='flex items-center justify-between mb-8'>
-			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px]' datetime="September 1, 2022">September 1, 2022</time>
+	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
+	<img class='object-cover h-[233px] sm:h-auto' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
+		<div class='flex items-center justify-between mb-8 md:mb-4'>
+			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
+				datetime="September 1, 2022">September 1, 2022</time>
 			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Diet</span>
 		</div>
-		<span class='text-tt mb-3 block font-medium'>The 5 effective fitness morning routines you should follow</span>
-		<p class='blog-card__text text-grey-1 mb-2 text-body'>Lorem ipsum dolor sit amet, consectetur
+		<span class='text-tt mb-3 block font-medium md:text-button md:mb-2'>The 5 effective fitness morning routines you should follow</span>
+		<p class='blog-card__text text-grey-1 mb-2 lg:mb-6 text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur
 			adipiscing elit. Habitasse arcu vulputate
 			velit scelerisque... </p>
-		<span class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium'>Read
+		<span
+			class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium md:text-body5'>Read
 			More</span>
 	</div>
 </a>
 					</div>
-					<div class="col-span-4 lg:col-span-6 sm:col-span-12">
+					<div x-show="showAll || $el.dataset.index < 5 || window.innerWidth >= 640" data-index="5"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
-	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
-	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
-	<div class='flex flex-col px-5 pb-8 h-full'>
-		<div class='flex items-center justify-between mb-8'>
-			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px]' datetime="September 1, 2022">September 1, 2022</time>
+	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
+	<img class='object-cover h-[233px] sm:h-auto' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
+		<div class='flex items-center justify-between mb-8 md:mb-4'>
+			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
+				datetime="September 1, 2022">September 1, 2022</time>
 			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Diet</span>
 		</div>
-		<span class='text-tt mb-3 block font-medium'>The 5 effective fitness morning routines you should follow</span>
-		<p class='blog-card__text text-grey-1 mb-2 text-body'>Lorem ipsum dolor sit amet, consectetur
+		<span class='text-tt mb-3 block font-medium md:text-button md:mb-2'>The 5 effective fitness morning routines you should follow</span>
+		<p class='blog-card__text text-grey-1 mb-2 lg:mb-6 text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur
 			adipiscing elit. Habitasse arcu vulputate
 			velit scelerisque... </p>
-		<span class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium'>Read
+		<span
+			class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium md:text-body5'>Read
 			More</span>
 	</div>
 </a>
 					</div>
-					<div class="col-span-4 lg:col-span-6 sm:col-span-12">
+					<div x-show="showAll || $el.dataset.index < 5 || window.innerWidth >= 640" data-index="6"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
-	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
-	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
-	<div class='flex flex-col px-5 pb-8 h-full'>
-		<div class='flex items-center justify-between mb-8'>
-			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px]' datetime="September 1, 2022">September 1, 2022</time>
+	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
+	<img class='object-cover h-[233px] sm:h-auto' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
+		<div class='flex items-center justify-between mb-8 md:mb-4'>
+			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
+				datetime="September 1, 2022">September 1, 2022</time>
 			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Diet</span>
 		</div>
-		<span class='text-tt mb-3 block font-medium'>The 5 effective fitness morning routines you should follow</span>
-		<p class='blog-card__text text-grey-1 mb-2 text-body'>Lorem ipsum dolor sit amet, consectetur
+		<span class='text-tt mb-3 block font-medium md:text-button md:mb-2'>The 5 effective fitness morning routines you should follow</span>
+		<p class='blog-card__text text-grey-1 mb-2 lg:mb-6 text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur
 			adipiscing elit. Habitasse arcu vulputate
 			velit scelerisque... </p>
-		<span class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium'>Read
+		<span
+			class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium md:text-body5'>Read
 			More</span>
 	</div>
 </a>
 					</div>
-					<div class="col-span-4 lg:col-span-6 sm:col-span-12">
+					<div x-show="showAll || $el.dataset.index < 5 || window.innerWidth >= 640" data-index="7"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
-	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
-	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
-	<div class='flex flex-col px-5 pb-8 h-full'>
-		<div class='flex items-center justify-between mb-8'>
-			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px]' datetime="September 1, 2022">September 1, 2022</time>
+	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
+	<img class='object-cover h-[233px] sm:h-auto' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
+		<div class='flex items-center justify-between mb-8 md:mb-4'>
+			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
+				datetime="September 1, 2022">September 1, 2022</time>
 			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Diet</span>
 		</div>
-		<span class='text-tt mb-3 block font-medium'>The 5 effective fitness morning routines you should follow</span>
-		<p class='blog-card__text text-grey-1 mb-2 text-body'>Lorem ipsum dolor sit amet, consectetur
+		<span class='text-tt mb-3 block font-medium md:text-button md:mb-2'>The 5 effective fitness morning routines you should follow</span>
+		<p class='blog-card__text text-grey-1 mb-2 lg:mb-6 text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur
 			adipiscing elit. Habitasse arcu vulputate
 			velit scelerisque... </p>
-		<span class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium'>Read
+		<span
+			class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium md:text-body5'>Read
 			More</span>
 	</div>
 </a>
 					</div>
-					<div class="col-span-4 lg:col-span-6 sm:col-span-12">
+					<div x-show="showAll || $el.dataset.index < 5 || window.innerWidth >= 640" data-index="8"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
-	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] w-full'>
-	<img class='object-cover h-[233px]' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
-	<div class='flex flex-col px-5 pb-8 h-full'>
-		<div class='flex items-center justify-between mb-8'>
-			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px]' datetime="September 1, 2022">September 1, 2022</time>
+	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
+	<img class='object-cover h-[233px] sm:h-auto' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
+		<div class='flex items-center justify-between mb-8 md:mb-4'>
+			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
+				datetime="September 1, 2022">September 1, 2022</time>
 			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Diet</span>
 		</div>
-		<span class='text-tt mb-3 block font-medium'>The 5 effective fitness morning routines you should follow</span>
-		<p class='blog-card__text text-grey-1 mb-2 text-body'>Lorem ipsum dolor sit amet, consectetur
+		<span class='text-tt mb-3 block font-medium md:text-button md:mb-2'>The 5 effective fitness morning routines you should follow</span>
+		<p class='blog-card__text text-grey-1 mb-2 lg:mb-6 text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur
 			adipiscing elit. Habitasse arcu vulputate
 			velit scelerisque... </p>
-		<span class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium'>Read
+		<span
+			class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium md:text-body5'>Read
 			More</span>
 	</div>
 </a>
 					</div>
 					<div class="col-span-12">
-						<div class='flex items-center justify-between mx-auto max-w-[692px]'>
+						<div class='flex items-center justify-between mx-auto max-w-[692px] sm:hidden'>
 							<button
 								class='w-16 h-16 bg-primary disabled:bg-white cursor-pointer flex items-center justify-center rounded-full shadow-shadow-5 group'
 								disabled>
@@ -1013,6 +1051,12 @@
 								</i>
 							</button>
 						</div>
+						<button type='button'
+							class="button text-button px-10 py-4 rounded-full border transition group border-primary hover:border-danger bg-primary inline-flex items-center justify-center hover:bg-transparent text-white hover:text-danger w-full minsm:hidden uppercase"
+							@click="showAll = !showAll">
+							<span x-show="!showAll" class="font-medium">More Posts</span>
+							<span x-show="showAll" class="font-medium">Hidden Posts</span>
+						</button>
 					</div>
 				</div>
 		</section>
@@ -1228,6 +1272,16 @@
 		}))
 	})
 
+	function setup() {
+		return {
+			placeholderText: window.innerWidth < 768 ? 'Mobile Search...' : 'Search...',
+			init() {
+				window.addEventListener('resize', () => {
+					this.placeholderText = window.innerWidth < 768 ? 'Mobile Search...' : 'Search...'
+				})
+			}
+		}
+	}
 	function numberedList() {
 		return {
 			items: {
