@@ -120,7 +120,6 @@ function initSwiper() {
 			direction: 'horizontal',
 			spaceBetween: 24,
 			slidesPerView: 'auto',
-			centeredSlides: true,
 			pagination: {
 				el: '.swiper-pagination',
 				clickable: true,
