@@ -1,74 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
 	console.log('Loaded Scripts')
 
-	// if (document.querySelector('.splide-1')) {
-	// 	const splide = new Splide('.splide-1', {
-	// 		perPage: 3,
-	// 		focus: 0,
-	// 		omitEnd: true,
-	// 		gap: 20,
-	// 		perMove: 1,
-	// 		arrows: true,
-	// 		pagination: true,
-	// 		breakpoints: {
-	// 			1024: {
-	// 				perPage: 3,
-	// 			},
-	// 			768: {
-	// 				perPage: 2,
-	// 			},
-	// 			640: {
-	// 				perPage: 1,
-	// 				pagination: false,
-	// 			},
-	// 		},
-	// 		classes: {
-	// 			pagination: 'splide__pagination your-class-pagination',
-	// 			page: 'splide__pagination__page your-class-page',
-	// 		},
-	// 	})
-	// 	splide.on('pagination:mounted', function (data) {
-	// 		const maxVisibleButtons = 5 // Максимальное количество видимых кнопок
-	// 		const list = data.list
-	// 		const items = data.items
-	// 		const totalItems = items.length
-
-	// 		if (totalItems > maxVisibleButtons) {
-	// 			// Очистить стандартную пагинацию
-	// 			console.log(123)
-	// 			list.innerHTML = ''
-	// 			list.appendChild(createPaginationButton(items[0]))
-	// 			list.appendChild(createPaginationButton(items[1]))
-
-	// 			const dotsButton = document.createElement('li')
-	// 			dotsButton.classList.add(
-	// 				'splide__pagination__page',
-	// 				'your-class-page',
-	// 				'dots'
-	// 			)
-	// 			dotsButton.innerHTML = '<button>...</button>'
-	// 			list.appendChild(dotsButton)
-	// 		} else {
-	// 			list.classList.add('splide__pagination--custom')
-
-	// 			items.forEach(function (item) {
-	// 				item.button.textContent = String(item.page + 1)
-	// 			})
-	// 		}
-	// 	})
-
-	// 	function createPaginationButton(item) {
-	// 		const listItem = document.createElement('li')
-	// 		listItem.classList.add('splide__pagination__page', 'your-class-page')
-	// 		listItem.innerHTML = `<button>${item.page + 1}</button>`
-	// 		listItem.addEventListener('click', () => {
-	// 			splide.go(item.page)
-	// 		})
-	// 		return listItem
-	// 	}
-	// 	splide.mount()
-	// }
-
 	const swiper1 = new Swiper('.splide-1', {
 		// Optional parameters
 		direction: 'horizontal',
@@ -95,6 +27,20 @@ window.addEventListener('DOMContentLoaded', () => {
 		// And if we need scrollbar
 		scrollbar: {
 			el: '.swiper-scrollbar',
+		},
+
+		breakpoints: {
+			1280: {
+				slidesPerView: 3,
+			},
+
+			1024: {
+				slidesPerView: 2,
+			},
+
+			0: {
+				slidesPerView: 1,
+			}
 		},
 	})
 

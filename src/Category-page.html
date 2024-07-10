@@ -6,896 +6,921 @@
 })
 
 <body class="">
-	<main class="flex flex-col justify-between min-h-screen">
-		@@include('components/Header.html', {
-		'commonStyle': 'bg-secondary'
-		})
+<main class="flex flex-col justify-between min-h-screen">
+    @@include('components/Header.html', {
+    'commonStyle': 'bg-secondary'
+    })
 
-		<section class='py-20'>
-			<div class="container">
-				<div class="grid grid-cols-12 gap-x-6">
-					<div class="col-span-6">
-						<div class='flex flex-col h-full items-start justify-center gap-y-6 max-w-[500px]'>
-							<span class='text-danger font-medium text-body5 uppercase tracking-1-6'>All about diets</span>
-							<h1 class='text-h1 font-semibold'>Food for <br>
-								Weight Loss<span class='text-danger'>.</span>
-							</h1>
-							<p class='text-body text-grey-1'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Habitasse arcu vulputate velit scelerisque cursus nunc.
-								Ac cras sapien quam sem et venenatis velit.
-								A fusce sed convallis.</p>
-							@@include('components/button.html', {
-							'url': '#',
-							'title': 'Read Posts',
-							'style': 'mt-4'
-							})
-						</div>
-					</div>
-					<div class="col-span-6">
-						<img src="img/image-home-hero-fitness-template.png" alt="">
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class='py-20 bg-secondary'>
-			<div class="container">
-				<div class="grid grid-cols-12 6">
-					<div class="col-span-6">
-						<div class='flex flex-col h-full items-start gap-y-6 max-w-[500px]'>
-							<span class='text-danger font-medium text-body5 uppercase tracking-1-6'>Questions & Answers</span>
-							<h2 class='text-h1 font-semibold'>FAQs<span class='text-danger'>.</span>
-							</h2>
-							<p class='text-body'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Habitasse arcu
-								vulputate velit scelerisque cursus nunc.
-								Ac cras sapien quam sem et venenatis velit. </p>
-						</div>
-					</div>
-					<div class="col-span-6">
-						<div x-data="{ selectedAccordionItem: 'one' }" class="w-full overflow-hidden">
-							<div class="px-4 border-b border-border-3 transition-all"
-								:class="selectedAccordionItem === 'one'  ?  'py-3'  :  'py-10'">
-								<button id="controlsAccordionItemOne" type="button"
-									class="flex w-full items-center justify-between gap-4 text-left font-medium text-tt"
-									aria-controls="accordionItemOne" @click="selectedAccordionItem = 'one'"
-									:aria-expanded="selectedAccordionItem === 'one' ? 'true' : 'false'">
-									Lorem ipsum dolor sit amet consectetur?
-									<div class='w-10 min-w-10 h-10 border ml-2 rounded-full flex items-center justify-center'
-										:class="selectedAccordionItem === 'one'  ?  'border-danger'  :  'border-primary'">
+    <section class='py-20 lg:py-10'>
+        <div class="container">
+            <div class="grid grid-cols-12 gap-x-6 lg:gap-y-8">
+                <div class="col-span-6 lg:col-span-12">
+                    <div class='flex flex-col h-full items-start justify-center gap-y-6 max-w-[500px] lg:max-w-full md:gap-y-3'>
+                        <span class='text-danger font-medium text-body5 uppercase tracking-1-6 md:text-body8'>All about diets</span>
+                        <h1 class='text-h1 font-semibold md:text-h1Mob md:mb-2'>Food for <br>
+                            Weight Loss<span class='text-danger'>.</span>
+                        </h1>
+                        <p class='text-body text-grey-1 md:text-body4'>Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit.
+                            Habitasse arcu vulputate velit scelerisque cursus nunc.
+                            Ac cras sapien quam sem et venenatis velit.
+                            A fusce sed convallis.</p>
+                        @@include('components/button.html', {
+                        'url': '#',
+                        'title': 'Read Posts',
+                        'style': 'mt-4 md:mt-3 uppercase md:px-6 md:py-3 md:text-body5'
+                        })
+                    </div>
+                </div>
+                <div class="col-span-6 lg:col-span-12">
+                    <img class="w-full" src="img/image-home-hero-fitness-template.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class='py-20 lg:py-10 bg-secondary'>
+        <div class="container">
+            <div class="grid grid-cols-12 gap-x-6 lg:gap-y-8">
+                <div class="col-span-6 lg:col-span-12">
+                    <div class='flex flex-col h-full items-start gap-y-6 max-w-[500px] lg:max-w-full md:gap-y-2'>
+                        <span class='text-danger font-medium text-body5 uppercase tracking-1-6 md:text-body8'>Questions & Answers</span>
+                        <h2 class='text-h1 font-semibold md:text-h1Mob md:mb-3'>FAQs<span class='text-danger'>.</span>
+                        </h2>
+                        <p class='text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Habitasse arcu
+                            vulputate velit scelerisque cursus nunc.
+                            Ac cras sapien quam sem et venenatis velit. </p>
+                    </div>
+                </div>
+                <div class="col-span-6 lg:col-span-12">
+                    <div x-data="{ selectedAccordionItem: 'one' }" class="w-full overflow-hidden">
+                        <div class="px-4 lg:px-0 border-t border-b border-border-3 transition-all"
+                             :class="selectedAccordionItem === 'one' ? 'py-3 lg:py-10 md:py-5' : 'py-10 md:py-5'">
+                            <button id="controlsAccordionItemOne" type="button"
+                                    class="flex w-full items-center justify-between gap-4 text-left font-medium text-tt md:text-body4"
+                                    aria-controls="accordionItemOne" @click="selectedAccordionItem = 'one'"
+                                    :aria-expanded="selectedAccordionItem === 'one' ? 'true' : 'false'">
+                                Lorem ipsum dolor sit amet consectetur?
+                                <span class='w-10 min-w-10 h-10 md:w-8 md:min-w-8 md:h-8 border ml-2 rounded-full flex items-center justify-center'
+                                      :class="selectedAccordionItem === 'one'  ?  'border-danger'  :  'border-primary'">
 										<span :class="selectedAccordionItem === 'one'  ?  'minus-icon'  :  'plus-icon'"></span>
-									</div>
-								</button>
-								<div class='mt-3' x-cloak x-show="selectedAccordionItem === 'one'" id="accordionItemOne" role="region"
-									aria-labelledby="controlsAccordionItemOne" x-collapse>
-									<div class="text-body sm:text-base text-pretty text-grey-1">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Habitasse arcu vulputate velit scelerisque cursus nunc.
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Habitasse arcu vulputate velit scelerisque cursus nunc.
-									</div>
-								</div>
-							</div>
-							<div class="px-4 border-b border-border-3 transition-all"
-								:class="selectedAccordionItem === 'two'  ?  'py-3'  :  'py-10'">
-								<button id="controlsAccordionItemTwo" type="button"
-									class="flex w-full items-center justify-between gap-4 text-left font-medium text-tt"
-									aria-controls="accordionItemTwo" @click="selectedAccordionItem = 'two'"
-									:aria-expanded="selectedAccordionItem === 'two' ? 'true' : 'false'">
-									Lorem ipsum dolor sit amet consectetur?
-									<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"
-										stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true"
-										:class="selectedAccordionItem === 'two'  ?  'rotate-180'  :  ''">
-										<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-									</svg> -->
-									<div class='w-10 min-w-10 h-10 border ml-2 rounded-full flex items-center justify-center'
-										:class="selectedAccordionItem === 'two'  ?  'border-danger'  :  'border-primary'">
+								</span>
+                            </button>
+                            <div class='mt-3' x-cloak x-show="selectedAccordionItem === 'one'" id="accordionItemOne"
+                                 role="region"
+                                 aria-labelledby="controlsAccordionItemOne" x-collapse>
+                                <div class="text-body md:text-body6 text-pretty text-grey-1">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Habitasse arcu vulputate velit scelerisque cursus nunc.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Habitasse arcu vulputate velit scelerisque cursus nunc.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-4 lg:px-0 border-b border-border-3 transition-all"
+                             :class="selectedAccordionItem === 'two' ? 'py-3 lg:py-10 md:py-5' : 'py-10 md:py-5'">
+                            <button id="controlsAccordionItemTwo" type="button"
+                                    class="flex w-full items-center justify-between gap-4 text-left font-medium text-tt md:text-body4"
+                                    aria-controls="accordionItemTwo" @click="selectedAccordionItem = 'two'"
+                                    :aria-expanded="selectedAccordionItem === 'two' ? 'true' : 'false'">
+                                Lorem ipsum dolor sit amet consectetur?
+                                <span class='w-10 min-w-10 h-10 md:w-8 md:min-w-8 md:h-8 border ml-2 rounded-full flex items-center justify-center'
+                                      :class="selectedAccordionItem === 'two'  ?  'border-danger'  :  'border-primary'">
 										<span :class="selectedAccordionItem === 'two'  ?  'minus-icon'  :  'plus-icon'"></span>
-									</div>
-								</button>
-								<div class='mt-3' x-cloak x-show="selectedAccordionItem === 'two'" id="accordionItemTwo" role="region"
-									aria-labelledby="controlsAccordionItemTwo" x-collapse>
-									<div class="text-body sm:text-base text-pretty text-grey-1">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Habitasse arcu vulputate velit scelerisque cursus nunc.
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Habitasse arcu vulputate velit scelerisque cursus nunc.
-									</div>
-								</div>
-							</div>
-							<div class="px-4 border-b border-border-3 transition-all"
-								:class="selectedAccordionItem === 'three'  ?  'py-3'  :  'py-10'">
-								<button id="controlsAccordionItemThree" type="button"
-									class="flex w-full items-center justify-between gap-4 text-left font-medium text-tt"
-									aria-controls="accordionItemThree" @click="selectedAccordionItem = 'three'"
-									:aria-expanded="selectedAccordionItem === 'three' ? 'true' : 'false'">
-									Lorem ipsum dolor sit amet consectetur?
-									<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"
-										stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true"
-										:class="selectedAccordionItem === 'three'  ?  'rotate-180'  :  ''">
-										<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-									</svg> -->
-									<div class='w-10 min-w-10 h-10 border ml-2 rounded-full flex items-center justify-center'
-										:class="selectedAccordionItem === 'three'  ?  'border-danger'  :  'border-primary'">
+									</span>
+                            </button>
+                            <div class='mt-3' x-cloak x-show="selectedAccordionItem === 'two'" id="accordionItemTwo"
+                                 role="region"
+                                 aria-labelledby="controlsAccordionItemTwo" x-collapse>
+                                <div class="text-body md:text-body6 text-pretty text-grey-1">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Habitasse arcu vulputate velit scelerisque cursus nunc.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Habitasse arcu vulputate velit scelerisque cursus nunc.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-4 lg:px-0 border-b border-border-3 transition-all"
+                             :class="selectedAccordionItem === 'three'  ?  'py-3 lg:py-10 md:py-5'  :  'py-10 md:py-5'">
+                            <button id="controlsAccordionItemThree" type="button"
+                                    class="flex w-full items-center justify-between gap-4 text-left font-medium text-tt md:text-body4"
+                                    aria-controls="accordionItemThree" @click="selectedAccordionItem = 'three'"
+                                    :aria-expanded="selectedAccordionItem === 'three' ? 'true' : 'false'">
+                                Lorem ipsum dolor sit amet consectetur?
+                                <span class='w-10 min-w-10 h-10 md:w-8 md:min-w-8 md:h-8 border ml-2 rounded-full flex items-center justify-center'
+                                      :class="selectedAccordionItem === 'three'  ?  'border-danger'  :  'border-primary'">
 										<span :class="selectedAccordionItem === 'three'  ?  'minus-icon'  :  'plus-icon'"></span>
-									</div>
-								</button>
-								<div class='mt-3' x-cloak x-show="selectedAccordionItem === 'three'" id="accordionItemThree"
-									role="region" aria-labelledby="controlsAccordionItemThree" x-collapse>
-									<div class="text-body sm:text-base text-pretty text-grey-1">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Habitasse arcu vulputate velit scelerisque cursus nunc.
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Habitasse arcu vulputate velit scelerisque cursus nunc.
-									</div>
-								</div>
-							</div>
-							<div class="px-4 transition-all" :class="selectedAccordionItem === 'fourth'  ?  'py-3'  :  'py-10'">
-								<button id="controlsAccordionItemFourth" type="button"
-									class="flex w-full items-center justify-between gap-4 text-left font-medium text-tt"
-									aria-controls="accordionItemFourth" @click="selectedAccordionItem = 'fourth'"
-									:aria-expanded="selectedAccordionItem === 'fourth' ? 'true' : 'false'">
-									Lorem ipsum dolor sit amet consectetur?
-									<!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"
-										stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true"
-										:class="selectedAccordionItem === 'fourth'  ?  'rotate-180'  :  ''">
-										<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-									</svg> -->
-									<div class='w-10 min-w-10 h-10 border ml-2 rounded-full flex items-center justify-center'
-										:class="selectedAccordionItem === 'fourth'  ?  'border-danger'  :  'border-primary'">
+									</span>
+                            </button>
+                            <div class='mt-3' x-cloak x-show="selectedAccordionItem === 'three'" id="accordionItemThree"
+                                 role="region" aria-labelledby="controlsAccordionItemThree" x-collapse>
+                                <div class="text-body md:text-body6 text-pretty text-grey-1">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Habitasse arcu vulputate velit scelerisque cursus nunc.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Habitasse arcu vulputate velit scelerisque cursus nunc.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-4 lg:px-0 lg:border-b border-border-3 transition-all"
+                             :class="selectedAccordionItem === 'fourth'  ?  'py-3 lg:py-10 md:py-5'  :  'py-10 md:py-5'">
+                            <button id="controlsAccordionItemFourth" type="button"
+                                    class="flex w-full items-center justify-between gap-4 text-left font-medium text-tt md:text-body4"
+                                    aria-controls="accordionItemFourth" @click="selectedAccordionItem = 'fourth'"
+                                    :aria-expanded="selectedAccordionItem === 'fourth' ? 'true' : 'false'">
+                                Lorem ipsum dolor sit amet consectetur?
+                                <span class='w-10 min-w-10 h-10 md:w-8 md:min-w-8 md:h-8 border ml-2 rounded-full flex items-center justify-center'
+                                      :class="selectedAccordionItem === 'fourth'  ?  'border-danger'  :  'border-primary'">
 										<span :class="selectedAccordionItem === 'fourth'  ?  'minus-icon'  :  'plus-icon'"></span>
-									</div>
-								</button>
-								<div class='mt-3' x-cloak x-show="selectedAccordionItem === 'fourth'" id="accordionItemFourth"
-									role="region" aria-labelledby="controlsAccordionItemFourth" x-collapse>
-									<div class="text-body sm:text-base text-pretty text-grey-1">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Habitasse arcu vulputate velit scelerisque cursus nunc.
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Habitasse arcu vulputate velit scelerisque cursus nunc.
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+									</span>
+                            </button>
+                            <div class='mt-3' x-cloak x-show="selectedAccordionItem === 'fourth'"
+                                 id="accordionItemFourth"
+                                 role="region" aria-labelledby="controlsAccordionItemFourth" x-collapse>
+                                <div class="text-body md:text-body6 text-pretty text-grey-1">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Habitasse arcu vulputate velit scelerisque cursus nunc.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Habitasse arcu vulputate velit scelerisque cursus nunc.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-				</div>
-			</div>
-		</section>
+    <section class='py-20 lg:py-10 border-b border-border-3'>
+        <div class="container">
+            <div class="grid grid-cols-12 gap-x-6">
+                <div class="col-span-12">
+                    <div class='flex justify-between'>
+                        <h2 class='text-h3 font-medium md:text-h3Mob'>Low-Carb Diets</h2>
+                        @@include('components/button.html', {
+                        'url': '#',
+                        'title': 'More posts',
+                        'style': 'md:hidden uppercase'
+                        })
+                    </div>
+                </div>
+                <div class='col-span-12'>
+                    <div class="mt-10 md:mt-8">
+                        <div class="swiper splide-1 -ml-2 text-black pb-32 sm:pb-16">
+                            <div class="swiper-wrapper pl-2 ">
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
 
-		<section class='py-20 border-b border-border-3'>
-			<div class="container">
-				<div class="grid grid-cols-12 gap-x-6">
-					<div class="col-span-12">
-						<div class='flex justify-between'>
-							<h2 class='text-h3 font-medium'>Low-Carb Diets</h2>
-							@@include('components/button.html', {
-							'url': '#',
-							'title': 'More posts',
-							'style': ''
-							})
-						</div>
-					</div>
-					<div class='col-span-12'>
-						<div class="mt-10">
-							<div class="swiper splide-1 -ml-2 text-black pb-32">
-								<div class="swiper-wrapper pl-2 ">
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-								</div>
-								<div class="swiper-pagination"></div>
+                            <!-- If we need navigation buttons -->
+                            <div class='swiper-button-wrapper'>
+                                <div class="swiper-button swiper-button-prev">
+                                    <i class='slider-button-icon '>
+                                        <span class='arrow-left-black'></span>
+                                    </i>
+                                    <i class='slider-button-icon rotate-180'>
+                                        <span class='arrow-right-white'></span>
+                                    </i>
+                                </div>
+                                <div class="swiper-button swiper-button-next">
+                                    <i class='slider-button-icon rotate-180'>
+                                        <span class='arrow-left-black'></span>
+                                    </i>
+                                    <i class='slider-button-icon'>
+                                        <span class='arrow-right-white'></span>
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-12 minmd:hidden">
+                    @@include('components/button.html', {
+                    'url': '#',
+                    'title': 'More posts',
+                    'style': 'minmd:hidden mt-8 w-full uppercase'
+                    })
+                </div>
+            </div>
+        </div>
+    </section>
 
-								<!-- If we need navigation buttons -->
-								<div class='swiper-button-wrapper'>
-									<div class="swiper-button swiper-button-prev">
-										<i class='slider-button-icon '>
-											<span class='arrow-left-black'></span>
-										</i>
-										<i class='slider-button-icon rotate-180'>
-											<span class='arrow-right-white'></span>
-										</i>
-									</div>
-									<div class="swiper-button swiper-button-next">
-										<i class='slider-button-icon rotate-180'>
-											<span class='arrow-left-black'></span>
-										</i>
-										<i class='slider-button-icon'>
-											<span class='arrow-right-white'></span>
-										</i>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+    <section class='py-20 lg:py-10 border-b border-border-3'>
+        <div class="container">
+            <div class="grid grid-cols-12 gap-x-6">
+                <div class="col-span-12">
+                    <div class='flex justify-between'>
+                        <h2 class='text-h3 font-medium md:text-h3Mob'>Low-Fat Diets</h2>
+                        @@include('components/button.html', {
+                        'url': '#',
+                        'title': 'More posts',
+                        'style': 'md:hidden uppercase'
+                        })
+                    </div>
+                </div>
+                <div class='col-span-12'>
+                    <div class="mt-10 md:mt-8">
+                        <div class="swiper splide-1 -ml-2 text-black pb-32 sm:pb-16">
+                            <div class="swiper-wrapper pl-2 ">
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
 
-		<section class='py-20 border-b border-border-3'>
-			<div class="container">
-				<div class="grid grid-cols-12 gap-x-6">
-					<div class="col-span-12">
-						<div class='flex justify-between'>
-							<h2 class='text-h3 font-medium'>Low-Fat Diets</h2>
-							@@include('components/button.html', {
-							'url': '#',
-							'title': 'More posts',
-							'style': ''
-							})
-						</div>
-					</div>
-					<div class='col-span-12'>
-						<div class="mt-10">
-							<div class="swiper splide-1 -ml-2 text-black pb-32">
-								<div class="swiper-wrapper pl-2 ">
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-								</div>
-								<div class="swiper-pagination"></div>
+                            <!-- If we need navigation buttons -->
+                            <div class='swiper-button-wrapper'>
+                                <div class="swiper-button swiper-button-prev">
+                                    <i class='slider-button-icon '>
+                                        <span class='arrow-left-black'></span>
+                                    </i>
+                                    <i class='slider-button-icon rotate-180'>
+                                        <span class='arrow-right-white'></span>
+                                    </i>
+                                </div>
+                                <div class="swiper-button swiper-button-next">
+                                    <i class='slider-button-icon rotate-180'>
+                                        <span class='arrow-left-black'></span>
+                                    </i>
+                                    <i class='slider-button-icon'>
+                                        <span class='arrow-right-white'></span>
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-12 minmd:hidden">
+                    @@include('components/button.html', {
+                    'url': '#',
+                    'title': 'More posts',
+                    'style': 'minmd:hidden mt-8 w-full uppercase'
+                    })
+                </div>
+            </div>
+        </div>
+    </section>
 
-								<!-- If we need navigation buttons -->
-								<div class='swiper-button-wrapper'>
-									<div class="swiper-button swiper-button-prev">
-										<i class='slider-button-icon '>
-											<span class='arrow-left-black'></span>
-										</i>
-										<i class='slider-button-icon rotate-180'>
-											<span class='arrow-right-white'></span>
-										</i>
-									</div>
-									<div class="swiper-button swiper-button-next">
-										<i class='slider-button-icon rotate-180'>
-											<span class='arrow-left-black'></span>
-										</i>
-										<i class='slider-button-icon'>
-											<span class='arrow-right-white'></span>
-										</i>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+    <section class='py-20 lg:py-10 border-b border-border-3'>
+        <div class="container">
+            <div class="grid grid-cols-12 gap-x-6">
+                <div class="col-span-12">
+                    <div class='flex justify-between'>
+                        <h2 class='text-h3 font-medium md:text-h3Mob'>High-Protein Diets</h2>
+                        @@include('components/button.html', {
+                        'url': '#',
+                        'title': 'More posts',
+                        'style': 'md:hidden uppercase'
+                        })
+                    </div>
+                </div>
+                <div class='col-span-12'>
+                    <div class="mt-10 md:mt-8">
+                        <div class="swiper splide-1 -ml-2 text-black pb-32 sm:pb-16">
+                            <div class="swiper-wrapper pl-2 ">
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
 
-		<section class='py-20 border-b border-border-3'>
-			<div class="container">
-				<div class="grid grid-cols-12 gap-x-6">
-					<div class="col-span-12">
-						<div class='flex justify-between'>
-							<h2 class='text-h3 font-medium'>High-Protein Diets</h2>
-							@@include('components/button.html', {
-							'url': '#',
-							'title': 'More posts',
-							'style': ''
-							})
-						</div>
-					</div>
-					<div class='col-span-12'>
-						<div class="mt-10">
-							<div class="swiper splide-1 -ml-2 text-black pb-32">
-								<div class="swiper-wrapper pl-2 ">
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-								</div>
-								<div class="swiper-pagination"></div>
+                            <!-- If we need navigation buttons -->
+                            <div class='swiper-button-wrapper'>
+                                <div class="swiper-button swiper-button-prev">
+                                    <i class='slider-button-icon '>
+                                        <span class='arrow-left-black'></span>
+                                    </i>
+                                    <i class='slider-button-icon rotate-180'>
+                                        <span class='arrow-right-white'></span>
+                                    </i>
+                                </div>
+                                <div class="swiper-button swiper-button-next">
+                                    <i class='slider-button-icon rotate-180'>
+                                        <span class='arrow-left-black'></span>
+                                    </i>
+                                    <i class='slider-button-icon'>
+                                        <span class='arrow-right-white'></span>
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-12 minmd:hidden">
+                    @@include('components/button.html', {
+                    'url': '#',
+                    'title': 'More posts',
+                    'style': 'minmd:hidden mt-8 w-full uppercase'
+                    })
+                </div>
+            </div>
+        </div>
+    </section>
 
-								<!-- If we need navigation buttons -->
-								<div class='swiper-button-wrapper'>
-									<div class="swiper-button swiper-button-prev">
-										<i class='slider-button-icon '>
-											<span class='arrow-left-black'></span>
-										</i>
-										<i class='slider-button-icon rotate-180'>
-											<span class='arrow-right-white'></span>
-										</i>
-									</div>
-									<div class="swiper-button swiper-button-next">
-										<i class='slider-button-icon rotate-180'>
-											<span class='arrow-left-black'></span>
-										</i>
-										<i class='slider-button-icon'>
-											<span class='arrow-right-white'></span>
-										</i>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+    <section class='py-20 lg:py-10 border-b border-border-3'>
+        <div class="container">
+            <div class="grid grid-cols-12 gap-x-6">
+                <div class="col-span-12">
+                    <div class='flex justify-between'>
+                        <h2 class='text-h3 font-medium md:text-h3Mob'>Meal Planning and Prep</h2>
+                        @@include('components/button.html', {
+                        'url': '#',
+                        'title': 'More posts',
+                        'style': 'md:hidden uppercase'
+                        })
+                    </div>
+                </div>
+                <div class='col-span-12'>
+                    <div class="mt-10 md:mt-8">
+                        <div class="swiper splide-1 -ml-2 text-black pb-32 sm:pb-16">
+                            <div class="swiper-wrapper pl-2 ">
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
 
-		<section class='py-20 border-b border-border-3'>
-			<div class="container">
-				<div class="grid grid-cols-12 gap-x-6">
-					<div class="col-span-12">
-						<div class='flex justify-between'>
-							<h2 class='text-h3 font-medium'>Meal Planning and Prep</h2>
-							@@include('components/button.html', {
-							'url': '#',
-							'title': 'More posts',
-							'style': ''
-							})
-						</div>
-					</div>
-					<div class='col-span-12'>
-						<div class="mt-10">
-							<div class="swiper splide-1 -ml-2 text-black pb-32">
-								<div class="swiper-wrapper pl-2 ">
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-								</div>
-								<div class="swiper-pagination"></div>
+                            <!-- If we need navigation buttons -->
+                            <div class='swiper-button-wrapper'>
+                                <div class="swiper-button swiper-button-prev">
+                                    <i class='slider-button-icon '>
+                                        <span class='arrow-left-black'></span>
+                                    </i>
+                                    <i class='slider-button-icon rotate-180'>
+                                        <span class='arrow-right-white'></span>
+                                    </i>
+                                </div>
+                                <div class="swiper-button swiper-button-next">
+                                    <i class='slider-button-icon rotate-180'>
+                                        <span class='arrow-left-black'></span>
+                                    </i>
+                                    <i class='slider-button-icon'>
+                                        <span class='arrow-right-white'></span>
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-12 minmd:hidden">
+                    @@include('components/button.html', {
+                    'url': '#',
+                    'title': 'More posts',
+                    'style': 'minmd:hidden mt-8 w-full uppercase'
+                    })
+                </div>
+            </div>
+        </div>
+    </section>
 
-								<!-- If we need navigation buttons -->
-								<div class='swiper-button-wrapper'>
-									<div class="swiper-button swiper-button-prev">
-										<i class='slider-button-icon '>
-											<span class='arrow-left-black'></span>
-										</i>
-										<i class='slider-button-icon rotate-180'>
-											<span class='arrow-right-white'></span>
-										</i>
-									</div>
-									<div class="swiper-button swiper-button-next">
-										<i class='slider-button-icon rotate-180'>
-											<span class='arrow-left-black'></span>
-										</i>
-										<i class='slider-button-icon'>
-											<span class='arrow-right-white'></span>
-										</i>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+    <section class='py-20 lg:py-10'>
+        <div class="container">
+            <div class="grid grid-cols-12 gap-x-6">
+                <div class="col-span-12">
+                    <div class='flex justify-between'>
+                        <h2 class='text-h3 font-medium md:text-h3Mob'>Plant-Based Diets</h2>
+                        @@include('components/button.html', {
+                        'url': '#',
+                        'title': 'More posts',
+                        'style': 'md:hidden uppercase'
+                        })
+                    </div>
+                </div>
+                <div class='col-span-12'>
+                    <div class="mt-10 md:mt-8">
+                        <div class="swiper splide-1 -ml-2 text-black pb-32 sm:pb-16">
+                            <div class="swiper-wrapper pl-2 ">
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                                <div class="swiper-slide">
+                                    @@include('components/blog-card.html', {
+                                    'image': 'img/card-blog-4.jpg',
+                                    'date': 'September 1, 2022',
+                                    'title': 'The 5 effective fitness morning routines you should follow',
+                                    'link': '#',
+                                    'style': 'w-full',
+                                    'category': 'Diet'
+                                    })
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
 
-		<section class='py-20'>
-			<div class="container">
-				<div class="grid grid-cols-12 gap-x-6">
-					<div class="col-span-12">
-						<div class='flex justify-between'>
-							<h2 class='text-h3 font-medium'>Plant-Based Diets</h2>
-							@@include('components/button.html', {
-							'url': '#',
-							'title': 'More posts',
-							'style': ''
-							})
-						</div>
-					</div>
-					<div class='col-span-12'>
-						<div class="mt-10">
-							<div class="swiper splide-1 -ml-2 text-black pb-32">
-								<div class="swiper-wrapper pl-2 ">
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-									<div class="swiper-slide">
-										@@include('components/blog-card.html', {
-										'image': 'img/card-blog-4.jpg',
-										'date': 'September 1, 2022',
-										'title': 'The 5 effective fitness morning routines you should follow',
-										'link': '#',
-										'style': 'w-full',
-										'category': 'Diet'
-										})
-									</div>
-								</div>
-								<div class="swiper-pagination"></div>
+                            <!-- If we need navigation buttons -->
+                            <div class='swiper-button-wrapper'>
+                                <div class="swiper-button swiper-button-prev">
+                                    <i class='slider-button-icon '>
+                                        <span class='arrow-left-black'></span>
+                                    </i>
+                                    <i class='slider-button-icon rotate-180'>
+                                        <span class='arrow-right-white'></span>
+                                    </i>
+                                </div>
+                                <div class="swiper-button swiper-button-next">
+                                    <i class='slider-button-icon rotate-180'>
+                                        <span class='arrow-left-black'></span>
+                                    </i>
+                                    <i class='slider-button-icon'>
+                                        <span class='arrow-right-white'></span>
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-12 minmd:hidden">
+                    @@include('components/button.html', {
+                    'url': '#',
+                    'title': 'More posts',
+                    'style': 'minmd:hidden mt-8 w-full uppercase'
+                    })
+                </div>
+            </div>
+        </div>
+    </section>
 
-								<!-- If we need navigation buttons -->
-								<div class='swiper-button-wrapper'>
-									<div class="swiper-button swiper-button-prev">
-										<i class='slider-button-icon '>
-											<span class='arrow-left-black'></span>
-										</i>
-										<i class='slider-button-icon rotate-180'>
-											<span class='arrow-right-white'></span>
-										</i>
-									</div>
-									<div class="swiper-button swiper-button-next">
-										<i class='slider-button-icon rotate-180'>
-											<span class='arrow-left-black'></span>
-										</i>
-										<i class='slider-button-icon'>
-											<span class='arrow-right-white'></span>
-										</i>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+    @@include('components/Newsletter.html')
+    @@include('components/Footer.html')
+</main>
 
-		@@include('components/Newsletter.html')
-		@@include('components/Footer.html')
-	</main>
-
-	@@include('components/script.html')
+@@include('components/script.html')
 </body>
 
 </html>
