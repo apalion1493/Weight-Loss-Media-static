@@ -2,28 +2,30 @@
 <html lang="en">
 
 <head>
-  <style>
-    .loaded {
-      opacity: 1
-    }
-  </style>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Blog Post</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-    rel="stylesheet">
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"> -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <style>
+        .loaded {
+            opacity: 1
+        }
+    </style>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Blog Post</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+            rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <!--  <link href="https://cdn.jsdelivr.net/npm/vlitejs@6/dist/vlite.css" rel="stylesheet" crossorigin />-->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
 </head>
 
 <body class="">
-	<main class="flex flex-col justify-between min-h-screen">
-		<header x-data="{ mobileMenuIsOpen: false }">
+<main class="flex flex-col justify-between min-h-screen">
+    <header x-data="{ mobileMenuIsOpen: false }">
     <nav @click.away="mobileMenuIsOpen = false">
         <div class="lg:shadow py-12 z-[33] relative lg:py-5">
             <div class='container'>
@@ -758,362 +760,420 @@
     </nav>
 </header>
 
-		<section class='py-14 relative md:py-10'>
-			<div class='bg-1 absolute top-0 left-0 z-0'></div>
-			<div class="container relative z-10">
-				<div class="grid grid-cols-12 gap-x-6">
-					<div class="col-span-12">
-						<nav class="flex mb-8 md" aria-label="Breadcrumb">
-							<ol class="inline-flex items-center flex-wrap gap-x-3 md:gap-x-1">
-								<li class="inline-flex items-center gap-x-3 md:gap-x-1">
-									<a href="#"
-										class="inline-flex items-center text-body3 font-medium text-border-2 transition-colors hover:text-danger md:text-body8">
-										Category
-									</a>
-									<span class='font-medium text-border-2'>/</span>
-								</li>
-								<li class="inline-flex items-center gap-x-3 md:gap-x-1">
-									<a href="#"
-										class="text-body3 font-medium text-border-2 transition-colors hover:text-danger md:text-body8">Subcategory</a>
-									<span class='font-medium text-primary'>/</span>
-								</li>
-								<li class="inline-flex items-center gap-x-3 md:gap-x-1" aria-current="page">
-									<div class="flex items-center">
-										<span class="text-body3 font-medium text-primary md:text-body8">Blog Post</span>
-									</div>
-								</li>
-							</ol>
-						</nav>
-					</div>
-					<div class="col-span-8 lg:col-span-12">
-						<div class='flex items-center mb-6 md:mb-4'>
+    <section class='py-14 relative md:py-10'>
+        <div class='bg-1 absolute top-0 left-0 z-0'></div>
+        <div class="container relative z-10">
+            <div class="grid grid-cols-12 gap-x-6">
+                <div class="col-span-12">
+                    <nav class="flex mb-8 md" aria-label="Breadcrumb">
+                        <ol class="inline-flex items-center flex-wrap gap-x-3 md:gap-x-1">
+                            <li class="inline-flex items-center gap-x-3 md:gap-x-1">
+                                <a href="#"
+                                   class="inline-flex items-center text-body3 font-medium text-border-2 transition-colors hover:text-danger md:text-body8">
+                                    Category
+                                </a>
+                                <span class='font-medium text-border-2'>/</span>
+                            </li>
+                            <li class="inline-flex items-center gap-x-3 md:gap-x-1">
+                                <a href="#"
+                                   class="text-body3 font-medium text-border-2 transition-colors hover:text-danger md:text-body8">Subcategory</a>
+                                <span class='font-medium text-primary'>/</span>
+                            </li>
+                            <li class="inline-flex items-center gap-x-3 md:gap-x-1" aria-current="page">
+                                <div class="flex items-center">
+                                    <span class="text-body3 font-medium text-primary md:text-body8">Blog Post</span>
+                                </div>
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-span-8 lg:col-span-12">
+                    <div class='flex items-center mb-6 md:mb-4'>
 							<span
-								class='uppercase bg-primary px-6 py-[10px] rounded-full text-white text-body5 mr-5 md:mr-2 md:text-body6 md:px-4'>recipes</span>
-							<p class='text-grey-1 text-body uppercase tracking-[0.5px] md:text-body6'>9 min read - <time
-									datetime="September 1, 2022">September 1,
-									2022</time>
-							</p>
-						</div>
-						<h1 class='text-h1 font-semibold md:text-h3Mob'>6 essential and easy
-							diet recipes for beginners</h1>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class='py-20 md:py-10 overflow-hidden'>
-			<div class="container">
-				<div class="grid grid-cols-12 gap-x-6 lg:gap-y-20">
-					<div class="col-span-8 xl:col-span-7 lg:col-span-12">
-						<div class='flex flex-col'>
-							<p class='text-body text-grey-1 mb-8 md:text-body4'>Lorem ipsum dolor sit amet, consectetur adipiscing
-								elit. Odio amet
-								egestas dignissim eu nunc. Id pulvinar enim volutpat tellus. Cras tellus ac dui at sed. Suspendisse
-								feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus natoque augue in et,
-								et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio
-								amet egestas dignissim eu nunc. Suspendisse feugiat scelerisque et, viverra urna imperdiet non
-								malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum
-								dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc.</p>
-							<img class='mb-8' src="img/blog-img-2.jpg" alt="plate of salad">
-							<p class='text-body text-grey-1 md:text-body4'>Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit
-								amet,
-								consectetur adipiscing elit. Odio amet egestas dignissim eu nunc. Suspendisse feugiat scelerisque et,
-								viverra urna imperdiet non malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis
-								lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim.
-							</p>
-							<div class='my-14 py-6 px-5 flex flex-col shadow-shadow-4 md:my-8'>
-								<span class='font-medium text-body2 mb-3 block'>In This Article</span>
-								<div class='pt-5 border-t border-border-3'>
-									<div class="">
-										<div class="flex relative pb-6">
-											<div class="h-[26px] w-2 absolute top-[23px] inset-0 flex items-center justify-center">
-												<div class="h-full border-r border-danger pointer-events-none"></div>
-											</div>
-											<div
-												class="w-2 min-w-2 h-2 mt-2 rounded-full bg-danger inline-flex items-center justify-center relative z-10">
-											</div>
-											<div class="flex-grow pl-4">
-												<span class="text-body3">Introduction</span>
-											</div>
-										</div>
-										<div class="flex relative pb-6">
-											<div class="h-[26px] w-2 absolute top-[23px] inset-0 flex items-center justify-center">
-												<div class="h-full border-r border-danger pointer-events-none"></div>
-											</div>
-											<div
-												class="w-2 min-w-2 h-2 mt-2 rounded-full bg-danger inline-flex items-center justify-center relative z-10">
-											</div>
-											<div class="flex-grow pl-4">
-												<span class="text-body3">Best Recipes</span>
-											</div>
-										</div>
-										<div class="flex relative pb-6">
-											<div class="h-[26px] w-2 absolute top-[23px] inset-0 flex items-center justify-center">
-												<div class="h-full border-r border-danger pointer-events-none"></div>
-											</div>
-											<div
-												class="w-2 min-w-2 h-2 mt-2 rounded-full bg-danger inline-flex items-center justify-center relative z-10">
-											</div>
-											<div class="flex-grow pl-4">
+                                    class='uppercase bg-primary px-6 py-[10px] rounded-full text-white text-body5 mr-5 md:mr-2 md:text-body6 md:px-4'>recipes</span>
+                        <p class='text-grey-1 text-body uppercase tracking-[0.5px] md:text-body6'>9 min read -
+                            <time
+                                    datetime="September 1, 2022">September 1,
+                                2022
+                            </time>
+                        </p>
+                    </div>
+                    <h1 class='text-h1 font-semibold md:text-h3Mob'>6 essential and easy
+                        diet recipes for beginners</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class='py-20 md:py-10 overflow-hidden'>
+        <div class="container">
+            <div class="grid grid-cols-12 gap-x-6 lg:gap-y-20">
+                <div class="col-span-8 xl:col-span-7 lg:col-span-12">
+                    <div class='flex flex-col'>
+                        <p class='text-body text-grey-1 mb-8 md:text-body4'>Lorem ipsum dolor sit amet, consectetur
+                            adipiscing
+                            elit. Odio amet
+                            egestas dignissim eu nunc. Id pulvinar enim volutpat tellus. Cras tellus ac dui at sed.
+                            Suspendisse
+                            feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus natoque
+                            augue in et,
+                            et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Odio
+                            amet egestas dignissim eu nunc. Suspendisse feugiat scelerisque et, viverra urna imperdiet
+                            non
+                            malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut viverra.
+                            Lorem ipsum
+                            dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc.</p>
+                        <img class='mb-8' src="img/blog-img-2.jpg" alt="plate of salad">
+                        <p class='text-body text-grey-1 md:text-body4'>Vitae interdum quis lacus ut viverra. Lorem ipsum
+                            dolor sit
+                            amet,
+                            consectetur adipiscing elit. Odio amet egestas dignissim eu nunc. Suspendisse feugiat
+                            scelerisque et,
+                            viverra urna imperdiet non malesuada. In massa id tellus natoque augue in et, et. Vitae
+                            interdum quis
+                            lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas
+                            dignissim.
+                        </p>
+                        <div class='my-14 py-6 px-5 flex flex-col shadow-shadow-4 md:my-8'>
+                            <span class='font-medium text-body2 mb-3 block'>In This Article</span>
+                            <div class='pt-5 border-t border-border-3'>
+                                <div class="">
+                                    <div class="flex relative pb-6">
+                                        <div class="h-[26px] w-2 absolute top-[23px] inset-0 flex items-center justify-center">
+                                            <div class="h-full border-r border-danger pointer-events-none"></div>
+                                        </div>
+                                        <div
+                                                class="w-2 min-w-2 h-2 mt-2 rounded-full bg-danger inline-flex items-center justify-center relative z-10">
+                                        </div>
+                                        <div class="flex-grow pl-4">
+                                            <span class="text-body3">Introduction</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex relative pb-6">
+                                        <div class="h-[26px] w-2 absolute top-[23px] inset-0 flex items-center justify-center">
+                                            <div class="h-full border-r border-danger pointer-events-none"></div>
+                                        </div>
+                                        <div
+                                                class="w-2 min-w-2 h-2 mt-2 rounded-full bg-danger inline-flex items-center justify-center relative z-10">
+                                        </div>
+                                        <div class="flex-grow pl-4">
+                                            <span class="text-body3">Best Recipes</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex relative pb-6">
+                                        <div class="h-[26px] w-2 absolute top-[23px] inset-0 flex items-center justify-center">
+                                            <div class="h-full border-r border-danger pointer-events-none"></div>
+                                        </div>
+                                        <div
+                                                class="w-2 min-w-2 h-2 mt-2 rounded-full bg-danger inline-flex items-center justify-center relative z-10">
+                                        </div>
+                                        <div class="flex-grow pl-4">
 												<span class="text-body3">About Diet Plan
 												</span>
-											</div>
-										</div>
-										<div class="flex relative pb-6">
-											<div class="h-[26px] w-2 absolute top-[23px] inset-0 flex items-center justify-center">
-												<div class="h-full border-r border-danger pointer-events-none"></div>
-											</div>
-											<div
-												class="w-2 min-w-2 h-2 mt-2 rounded-full bg-danger inline-flex items-center justify-center relative z-10">
-											</div>
-											<div class="flex-grow pl-4">
-												<span class="text-body3">14 Best Diets</span>
-											</div>
-										</div>
-										<div class="flex relative pb-6">
-											<div class="h-[26px] w-2 absolute top-[23px] inset-0 flex items-center justify-center">
-												<div class="h-full border-r border-danger pointer-events-none"></div>
-											</div>
-											<div
-												class="w-2 min-w-2 h-2 mt-2 rounded-full bg-danger inline-flex items-center justify-center relative z-10">
-											</div>
-											<div class="flex-grow pl-4">
-												<span class="text-body3">Diet Plan</span>
-											</div>
-										</div>
-										<div class="flex relative">
-											<div
-												class="w-2 min-w-2 h-2 mt-2 rounded-full bg-danger inline-flex items-center justify-center relative z-10">
-											</div>
-											<div class="flex-grow pl-4">
-												<span class="text-body3">Lorem Ipsum</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<h3 class='text-tt font-medium mb-6 md:mb-5'>Is diet good for your health and fitness?</h3>
-							<p class='text-body text-grey-1 mb-6 md:text-body4'>
-								Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet
-								egestas dignissim eu nunc. Suspendisse feugiat scelerisque et, viverra urna imperdiet non malesuada. In
-								massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit
-								amet, consectetur adipiscing elit. Odio amet egestas dignissim.
-							</p>
-							<p class='pl-6 border-l border-danger text-body mb-20 md:text-body6 md:mb-8'>
-								Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet
-								egestas dignissim eu nunc. Suspendisse feugiat scelerisque et, viverra urna imperdiet non malesuada. In
-								massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit
-								amet, consectetur adipiscing elit.
-							</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex relative pb-6">
+                                        <div class="h-[26px] w-2 absolute top-[23px] inset-0 flex items-center justify-center">
+                                            <div class="h-full border-r border-danger pointer-events-none"></div>
+                                        </div>
+                                        <div
+                                                class="w-2 min-w-2 h-2 mt-2 rounded-full bg-danger inline-flex items-center justify-center relative z-10">
+                                        </div>
+                                        <div class="flex-grow pl-4">
+                                            <span class="text-body3">14 Best Diets</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex relative pb-6">
+                                        <div class="h-[26px] w-2 absolute top-[23px] inset-0 flex items-center justify-center">
+                                            <div class="h-full border-r border-danger pointer-events-none"></div>
+                                        </div>
+                                        <div
+                                                class="w-2 min-w-2 h-2 mt-2 rounded-full bg-danger inline-flex items-center justify-center relative z-10">
+                                        </div>
+                                        <div class="flex-grow pl-4">
+                                            <span class="text-body3">Diet Plan</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex relative">
+                                        <div
+                                                class="w-2 min-w-2 h-2 mt-2 rounded-full bg-danger inline-flex items-center justify-center relative z-10">
+                                        </div>
+                                        <div class="flex-grow pl-4">
+                                            <span class="text-body3">Lorem Ipsum</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class='text-tt font-medium mb-6 md:mb-5'>Is diet good for your health and fitness?</h3>
+                        <p class='text-body text-grey-1 mb-6 md:text-body4'>
+                            Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Odio amet
+                            egestas dignissim eu nunc. Suspendisse feugiat scelerisque et, viverra urna imperdiet non
+                            malesuada. In
+                            massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum
+                            dolor sit
+                            amet, consectetur adipiscing elit. Odio amet egestas dignissim.
+                        </p>
+                        <p class='pl-6 border-l border-danger text-body mb-20 md:text-body6 md:mb-8'>
+                            Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Odio amet
+                            egestas dignissim eu nunc. Suspendisse feugiat scelerisque et, viverra urna imperdiet non
+                            malesuada. In
+                            massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum
+                            dolor sit
+                            amet, consectetur adipiscing elit.
+                        </p>
 
-							<span
-								class='text-danger font-medium text-body5 uppercase tracking-1-6 block mb-5 md:text-body8 md:mb-3'>Video</span>
-							<h3 class='text-h3 font-medium mb-10 md:text-h3Mob md:mb-8'>Video recipes for beginners!</h3>
-							<img class='mb-14 md:mb-8' src="img/blog-img-2.jpg" alt="plate of salad">
-							<div x-data="{ isOpen: false }" class="w-full mb-14 shadow-shadow-4 rounded transition-colors">
-								<button @click="isOpen = !isOpen"
-									class="flex justify-between items-center text-body2 w-full px-6 md:px-4 py-5">
-									About Video
-									<span class='transition' x-bind:class='isOpen ? "rotate-180" : ""'>
-										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
+                        <span
+                                class='text-danger font-medium text-body5 uppercase tracking-1-6 block mb-5 md:text-body8 md:mb-3'>Video</span>
+                        <h3 class='text-h3 font-medium mb-10 md:text-h3Mob md:mb-8'>Video recipes for beginners!</h3>
+
+                        <div class="mb-12 block">
+                            <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="aSUJUgQc4vc"></div>
+                        </div>
+
+                        <div x-data="{ isOpen: false }" class="w-full mb-14 shadow-shadow-4 rounded transition-colors">
+                            <button @click="isOpen = !isOpen"
+                                    class="flex justify-between items-center text-body2 w-full px-6 md:px-4 py-5">
+                                About Video
+                                <span class='transition' :class='isOpen ? "rotate-180" : ""'>
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9"
+                                             fill="none">
 											<path
-												d="M15.6824 8.51371C15.4707 8.72543 15.2133 8.83129 14.9104 8.83129C14.6074 8.83129 14.35 8.72543 14.1383 8.51371L8.25755 2.63295L2.37679 8.51371C2.16507 8.72543 1.90589 8.83129 1.59926 8.83129C1.29263 8.83129 1.03345 8.72543 0.821732 8.51371C0.61001 8.30198 0.50415 8.04463 0.50415 7.74165C0.50415 7.43867 0.61001 7.18132 0.821732 6.9696L7.16244 0.628892C7.30845 0.482877 7.4782 0.369715 7.67167 0.289407C7.86514 0.209099 8.05861 0.168945 8.25208 0.168945C8.44555 0.168945 8.63719 0.209099 8.82701 0.289407C9.01683 0.369715 9.1884 0.482877 9.34171 0.628892L15.6824 6.9696C15.8941 7.18132 16 7.43867 16 7.74165C16 8.04463 15.8941 8.30198 15.6824 8.51371Z"
-												fill="#19181B" />
+                                                    d="M15.6824 8.51371C15.4707 8.72543 15.2133 8.83129 14.9104 8.83129C14.6074 8.83129 14.35 8.72543 14.1383 8.51371L8.25755 2.63295L2.37679 8.51371C2.16507 8.72543 1.90589 8.83129 1.59926 8.83129C1.29263 8.83129 1.03345 8.72543 0.821732 8.51371C0.61001 8.30198 0.50415 8.04463 0.50415 7.74165C0.50415 7.43867 0.61001 7.18132 0.821732 6.9696L7.16244 0.628892C7.30845 0.482877 7.4782 0.369715 7.67167 0.289407C7.86514 0.209099 8.05861 0.168945 8.25208 0.168945C8.44555 0.168945 8.63719 0.209099 8.82701 0.289407C9.01683 0.369715 9.1884 0.482877 9.34171 0.628892L15.6824 6.9696C15.8941 7.18132 16 7.43867 16 7.74165C16 8.04463 15.8941 8.30198 15.6824 8.51371Z"
+                                                    fill="#19181B"/>
 										</svg>
 									</span>
-								</button>
-								<div x-show="isOpen" x-transition class=" bg-white pb-5 px-6 md:px-4 pt-1 rounded">
-									<p class="text-body md:text-body4">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc. Id
-										enim volutpat tellus. Cras tellus ac dui at sed. Suspendisse feugiat scelerisque et, viverra urna
-										imperdiet non malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut
-										viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu
-										nunc. Suspendisse feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus
-										natoque augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet,
-										consectetur adipiscing elit. Odio amet egestas dignissim eu nunc.
-									</p>
-									<br>
-									<p class="text-body md:text-body4">
-										Suspendisse feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus natoque
-										augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit. Odio amet egestas dignissim eu nunc.
-									</p>
-								</div>
-							</div>
-							<p class='text-body text-grey-1 mb-6 md:text-body4'>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc. Id enim
-								volutpat tellus. Cras tellus ac dui at sed. Suspendisse feugiat scelerisque et, viverra urna imperdiet
-								non malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut viverra. Lorem
-								ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc. Suspendisse
-								feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus natoque augue in et,
-								et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio
-								amet egestas dignissim eu nunc.
-								<br>
-								<br>
-								Suspendisse feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus natoque
-								augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur
-								adipiscing elit. Odio amet egestas dignissim eu nunc.
-							</p>
-							<img class='mb-14 md:mb-8' src="img/blog-img-2.jpg" alt="plate of salad">
-							<p class='text-body text-grey-1 mb-6 md:text-body4'>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc. Id enim
-								volutpat tellus. Cras tellus ac dui at sed. Suspendisse feugiat scelerisque et, viverra urna imperdiet
-								non malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut viverra. Lorem
-								ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc. Suspendisse
-								feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus natoque augue in et,
-								et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio
-								amet egestas dignissim eu nunc.
-								<br>
-								<br>
-								Suspendisse feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus natoque
-								augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur
-								adipiscing elit. Odio amet egestas dignissim eu nunc.
-							</p>
-							<div x-data="{ isOpen: false }" class="w-full mb-8 shadow-shadow-4 rounded transition-colors md:mb-4">
-								<button @click="isOpen = !isOpen"
-									class="flex justify-between items-center text-body2 w-full px-6 py-5 md:pt-6 md:px-4">
-									Article Sources
-									<span class='transition' x-bind:class='isOpen ? "rotate-180" : ""'>
-										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
+                            </button>
+                            <div x-show="isOpen" x-transition class=" bg-white pb-5 px-6 md:px-4 pt-1 rounded">
+                                <p class="text-body md:text-body4">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim
+                                    eu nunc. Id
+                                    enim volutpat tellus. Cras tellus ac dui at sed. Suspendisse feugiat scelerisque et,
+                                    viverra urna
+                                    imperdiet non malesuada. In massa id tellus natoque augue in et, et. Vitae interdum
+                                    quis lacus ut
+                                    viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas
+                                    dignissim eu
+                                    nunc. Suspendisse feugiat scelerisque et, viverra urna imperdiet non malesuada. In
+                                    massa id tellus
+                                    natoque augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit
+                                    amet,
+                                    consectetur adipiscing elit. Odio amet egestas dignissim eu nunc.
+                                </p>
+                                <br>
+                                <p class="text-body md:text-body4">
+                                    Suspendisse feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa
+                                    id tellus natoque
+                                    augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet,
+                                    consectetur
+                                    adipiscing elit. Odio amet egestas dignissim eu nunc.
+                                </p>
+                            </div>
+                        </div>
+                        <p class='text-body text-grey-1 mb-6 md:text-body4'>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu
+                            nunc. Id enim
+                            volutpat tellus. Cras tellus ac dui at sed. Suspendisse feugiat scelerisque et, viverra urna
+                            imperdiet
+                            non malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut
+                            viverra. Lorem
+                            ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc.
+                            Suspendisse
+                            feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus natoque
+                            augue in et,
+                            et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Odio
+                            amet egestas dignissim eu nunc.
+                            <br>
+                            <br>
+                            Suspendisse feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus
+                            natoque
+                            augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet,
+                            consectetur
+                            adipiscing elit. Odio amet egestas dignissim eu nunc.
+                        </p>
+                        <img class='mb-14 md:mb-8' src="img/blog-img-2.jpg" alt="plate of salad">
+                        <p class='text-body text-grey-1 mb-6 md:text-body4'>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu
+                            nunc. Id enim
+                            volutpat tellus. Cras tellus ac dui at sed. Suspendisse feugiat scelerisque et, viverra urna
+                            imperdiet
+                            non malesuada. In massa id tellus natoque augue in et, et. Vitae interdum quis lacus ut
+                            viverra. Lorem
+                            ipsum dolor sit amet, consectetur adipiscing elit. Odio amet egestas dignissim eu nunc.
+                            Suspendisse
+                            feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus natoque
+                            augue in et,
+                            et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Odio
+                            amet egestas dignissim eu nunc.
+                            <br>
+                            <br>
+                            Suspendisse feugiat scelerisque et, viverra urna imperdiet non malesuada. In massa id tellus
+                            natoque
+                            augue in et, et. Vitae interdum quis lacus ut viverra. Lorem ipsum dolor sit amet,
+                            consectetur
+                            adipiscing elit. Odio amet egestas dignissim eu nunc.
+                        </p>
+                        <div x-data="{ isOpen: false }"
+                             class="w-full mb-8 shadow-shadow-4 rounded transition-colors md:mb-4">
+                            <button @click="isOpen = !isOpen"
+                                    class="flex justify-between items-center text-body2 w-full px-6 py-5 md:pt-6 md:px-4">
+                                Article Sources
+                                <span class='transition' x-bind:class='isOpen ? "rotate-180" : ""'>
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9"
+                                             fill="none">
 											<path
-												d="M15.6824 8.51371C15.4707 8.72543 15.2133 8.83129 14.9104 8.83129C14.6074 8.83129 14.35 8.72543 14.1383 8.51371L8.25755 2.63295L2.37679 8.51371C2.16507 8.72543 1.90589 8.83129 1.59926 8.83129C1.29263 8.83129 1.03345 8.72543 0.821732 8.51371C0.61001 8.30198 0.50415 8.04463 0.50415 7.74165C0.50415 7.43867 0.61001 7.18132 0.821732 6.9696L7.16244 0.628892C7.30845 0.482877 7.4782 0.369715 7.67167 0.289407C7.86514 0.209099 8.05861 0.168945 8.25208 0.168945C8.44555 0.168945 8.63719 0.209099 8.82701 0.289407C9.01683 0.369715 9.1884 0.482877 9.34171 0.628892L15.6824 6.9696C15.8941 7.18132 16 7.43867 16 7.74165C16 8.04463 15.8941 8.30198 15.6824 8.51371Z"
-												fill="#19181B" />
+                                                    d="M15.6824 8.51371C15.4707 8.72543 15.2133 8.83129 14.9104 8.83129C14.6074 8.83129 14.35 8.72543 14.1383 8.51371L8.25755 2.63295L2.37679 8.51371C2.16507 8.72543 1.90589 8.83129 1.59926 8.83129C1.29263 8.83129 1.03345 8.72543 0.821732 8.51371C0.61001 8.30198 0.50415 8.04463 0.50415 7.74165C0.50415 7.43867 0.61001 7.18132 0.821732 6.9696L7.16244 0.628892C7.30845 0.482877 7.4782 0.369715 7.67167 0.289407C7.86514 0.209099 8.05861 0.168945 8.25208 0.168945C8.44555 0.168945 8.63719 0.209099 8.82701 0.289407C9.01683 0.369715 9.1884 0.482877 9.34171 0.628892L15.6824 6.9696C15.8941 7.18132 16 7.43867 16 7.74165C16 8.04463 15.8941 8.30198 15.6824 8.51371Z"
+                                                    fill="#19181B"/>
 										</svg>
 									</span>
-								</button>
-								<div x-show="isOpen" x-transition class=" bg-white pb-5 px-6 pt-1 rounded md:pb-6 md:px-4">
-									<ol x-data="numberedList()" class="flex flex-col gap-y-6">
-										<template x-for="(item, index) in items" :key="index">
-											<li class='text-body3'>
-												<span x-text="formattedNumber(index)" class="text-danger font-medium"></span>.
-												<span class="ml-2" x-text="item[0]"></span>
-												<a target='_blank' :href="item[1]" x-text="item[1]"
-													class="ml-6 transition text-grey-1 hover:text-danger md:ml-0 md:mt-3 md:block"></a>
-											</li>
-										</template>
-									</ol>
-								</div>
-							</div>
-							<div class='flex items-center shadow-shadow-4 py-5 px-6 mb-[72px] md:mb-10'>
-								<img class='mr-2 rounded-full' src=" img/avatar-img.png" alt="Avatar">
-								<div>
-									<p class="text-body2 font-medium mb-2">Sophie Moore</p>
-									<p class="text-body3 text-grey-1 ">Personal Trainer</p>
-								</div>
-							</div>
+                            </button>
+                            <div x-show="isOpen" x-transition class=" bg-white pb-5 px-6 pt-1 rounded md:pb-6 md:px-4">
+                                <ol x-data="numberedList()" class="flex flex-col gap-y-6">
+                                    <template x-for="(item, index) in items" :key="index">
+                                        <li class='text-body3'>
+                                            <span x-text="formattedNumber(index)"
+                                                  class="text-danger font-medium"></span>.
+                                            <span class="ml-2" x-text="item[0]"></span>
+                                            <a target='_blank' :href="item[1]" x-text="item[1]"
+                                               class="ml-6 transition text-grey-1 hover:text-danger md:ml-0 md:mt-3 md:block"></a>
+                                        </li>
+                                    </template>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class='flex items-center shadow-shadow-4 py-5 px-6 mb-[72px] md:mb-10'>
+                            <img class='mr-2 rounded-full' src=" img/avatar-img.png" alt="Avatar">
+                            <div>
+                                <p class="text-body2 font-medium mb-2">Sophie Moore</p>
+                                <p class="text-body3 text-grey-1 ">Personal Trainer</p>
+                            </div>
+                        </div>
 
-							<div class='md:border-t md:border-border-3 md:pt-10 flex items-center mb-8'>
-								<h4 class='text-h3 font-medium mr-2 md:text-h3Mob'>Comments</h4>
-								<span class='text-tt font-medium text-border-2'>(24)</span>
-							</div>
-							<div class='chat-section flex flex-col gap-y-5 mb-10'>
+                        <div class='md:border-t md:border-border-3 md:pt-10 flex items-center mb-8'>
+                            <h4 class='text-h3 font-medium mr-2 md:text-h3Mob'>Comments</h4>
+                            <span class='text-tt font-medium text-border-2'>(24)</span>
+                        </div>
+                        <div class='chat-section flex flex-col gap-y-5 mb-10'>
 
-								<div class='flex flex-col py-4 gap-y-6 md:py-2'>
-									<div class='flex items-center'>
-										<img class='mr-2 rounded-full' src="img/avatar-img.png" alt="Avatar">
-										<div class='flex flex-col'>
-											<p class="text-body2 font-medium mb-2 mr-6 inline-flex gap-x-6 md:text-body4 md:gap-x-5">Sophie
-												Moore <a href='#' class='text-danger share-icon'></a></p>
-											<time class="text-body3 text-grey-1 md:text-body6">month ago</time>
-										</div>
-									</div>
-									<p class='text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet
-										egestas
-										dignissim eu nunc. Id
-										enim volutpat tellus.
-										Cras tellus ac dui at sed.</p>
-								</div>
-								<div class='flex flex-col py-4 gap-y-6 md:py-2'>
-									<div class='flex items-center'>
-										<img class='mr-2 rounded-full' src="img/avatar-img.png" alt="Avatar">
-										<div class='flex flex-col'>
-											<p class="text-body2 font-medium mb-2 mr-6 inline-flex gap-x-6 md:text-body4 md:gap-x-5">Sophie
-												Moore <a href='#' class='text-danger share-icon'></a></p>
-											<time class="text-body3 text-grey-1 md:text-body6">month ago</time>
-										</div>
-									</div>
-									<p class='text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet
-										egestas
-										dignissim eu nunc. Id
-										enim volutpat tellus.
-										Cras tellus ac dui at sed.</p>
-								</div>
-								<div class='flex flex-col py-4 gap-y-6 md:py-2'>
-									<div class='flex items-center'>
-										<img class='mr-2 rounded-full' src="img/avatar-img.png" alt="Avatar">
-										<div class='flex flex-col'>
-											<p class="text-body2 font-medium mb-2 mr-6 inline-flex gap-x-6 md:text-body4 md:gap-x-5">Sophie
-												Moore <a href='#' class='text-danger share-icon'></a></p>
-											<time class="text-body3 text-grey-1 md:text-body6">month ago</time>
-										</div>
-									</div>
-									<p class='text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio amet
-										egestas
-										dignissim eu nunc. Id
-										enim volutpat tellus.
-										Cras tellus ac dui at sed.</p>
-								</div>
-								<div class='flex flex-col gap-y-6 pl-6 border-l border-border-3'>
-									<span class='text-danger uppercase font-medium text-body5 tracking-1-6 md:text-body8'>ANSWERS</span>
-									<div class='flex items-center'>
+                            <div class='flex flex-col py-4 gap-y-6 md:py-2'>
+                                <div class='flex items-center'>
+                                    <img class='mr-2 rounded-full' src="img/avatar-img.png" alt="Avatar">
+                                    <div class='flex flex-col'>
+                                        <p class="text-body2 font-medium mb-2 mr-6 inline-flex gap-x-6 md:text-body4 md:gap-x-5">
+                                            Sophie
+                                            Moore <a href='#' class='text-danger share-icon'></a></p>
+                                        <time class="text-body3 text-grey-1 md:text-body6">month ago</time>
+                                    </div>
+                                </div>
+                                <p class='text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit. Odio amet
+                                    egestas
+                                    dignissim eu nunc. Id
+                                    enim volutpat tellus.
+                                    Cras tellus ac dui at sed.</p>
+                            </div>
+                            <div class='flex flex-col py-4 gap-y-6 md:py-2'>
+                                <div class='flex items-center'>
+                                    <img class='mr-2 rounded-full' src="img/avatar-img.png" alt="Avatar">
+                                    <div class='flex flex-col'>
+                                        <p class="text-body2 font-medium mb-2 mr-6 inline-flex gap-x-6 md:text-body4 md:gap-x-5">
+                                            Sophie
+                                            Moore <a href='#' class='text-danger share-icon'></a></p>
+                                        <time class="text-body3 text-grey-1 md:text-body6">month ago</time>
+                                    </div>
+                                </div>
+                                <p class='text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit. Odio amet
+                                    egestas
+                                    dignissim eu nunc. Id
+                                    enim volutpat tellus.
+                                    Cras tellus ac dui at sed.</p>
+                            </div>
+                            <div class='flex flex-col py-4 gap-y-6 md:py-2'>
+                                <div class='flex items-center'>
+                                    <img class='mr-2 rounded-full' src="img/avatar-img.png" alt="Avatar">
+                                    <div class='flex flex-col'>
+                                        <p class="text-body2 font-medium mb-2 mr-6 inline-flex gap-x-6 md:text-body4 md:gap-x-5">
+                                            Sophie
+                                            Moore <a href='#' class='text-danger share-icon'></a></p>
+                                        <time class="text-body3 text-grey-1 md:text-body6">month ago</time>
+                                    </div>
+                                </div>
+                                <p class='text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit. Odio amet
+                                    egestas
+                                    dignissim eu nunc. Id
+                                    enim volutpat tellus.
+                                    Cras tellus ac dui at sed.</p>
+                            </div>
+                            <div class='flex flex-col gap-y-6 pl-6 border-l border-border-3'>
+                                <span class='text-danger uppercase font-medium text-body5 tracking-1-6 md:text-body8'>ANSWERS</span>
+                                <div class='flex items-center'>
 
-										<img class='mr-2 rounded-full' src="img/avatar-2-img.png" alt="Avatar">
-										<div class='flex flex-col'>
-											<p class="text-body2 font-medium mb-2 mr-6 inline-flex gap-x-6 md:text-body4 md:gap-x-5">Admond
-												Haddys <a href='#' class='text-danger share-icon'></a></p>
-											<time class="text-body3 text-grey-1 md:text-body6">12 march 2024</time>
-										</div>
-									</div>
-									<p class='text-body md:text-body4'>Odio amet egestas dignissim eu nunc. Id enim volutpat.</p>
-								</div>
+                                    <img class='mr-2 rounded-full' src="img/avatar-2-img.png" alt="Avatar">
+                                    <div class='flex flex-col'>
+                                        <p class="text-body2 font-medium mb-2 mr-6 inline-flex gap-x-6 md:text-body4 md:gap-x-5">
+                                            Admond
+                                            Haddys <a href='#' class='text-danger share-icon'></a></p>
+                                        <time class="text-body3 text-grey-1 md:text-body6">12 march 2024</time>
+                                    </div>
+                                </div>
+                                <p class='text-body md:text-body4'>Odio amet egestas dignissim eu nunc. Id enim
+                                    volutpat.</p>
+                            </div>
 
-								<a class='text-danger text-button underline mt-10 font-medium md:mt-5' href="#">Show All</a>
-							</div>
-							<div class='flex flex-col p-8 border border-secondary shadow-shadow-4 md:px-4 md:py-6'>
-								<span class='block mb-6 font-medium text-tt'>Leave Comment</span>
-								<form action="">
-									<div class='grid grid-cols-12 gap-x-3 mb-4 md:gap-y-2 md:mb-2'>
-										<div class='col-span-6 md:col-span-12'>
-											<div class="form-group flex flex-col items-start @@common-style">
+                            <a class='text-danger text-button underline mt-10 font-medium md:mt-5' href="#">Show All</a>
+                        </div>
+                        <div class='flex flex-col p-8 border border-secondary shadow-shadow-4 md:px-4 md:py-6'>
+                            <span class='block mb-6 font-medium text-tt'>Leave Comment</span>
+                            <form action="">
+                                <div class='grid grid-cols-12 gap-x-3 mb-4 md:gap-y-2 md:mb-2'>
+                                    <div class='col-span-6 md:col-span-12'>
+                                        <div class="form-group flex flex-col items-start @@common-style">
     <label class="text-none" for="nameId">Name</label>
     <input
         class="input rounded-full text-primary border text-body3 w-full focus:outline-0 focus:shadow-none focus:ring-0 focus:border-border-2 border-border-2 py-4 pl-6 pr-2 md:py-3 md:pl-4 md:pr-2 md:text-body6 @@styleInput "
         type="text" id="nameId" placeholder="What’s your name?">
     <small class="self-end text-h11 text-danger mt-3 hidden">Name is required</small>
 </div>
-										</div>
-										<div class='col-span-6 md:col-span-12'>
-											<div class="form-group flex flex-col items-start @@common-style">
+                                    </div>
+                                    <div class='col-span-6 md:col-span-12'>
+                                        <div class="form-group flex flex-col items-start @@common-style">
     <label class="text-none" for="emailId">Email</label>
     <input
         class="input rounded-full text-primary border text-body3 w-full focus:outline-0 focus:shadow-none focus:ring-0 focus:border-border-2 border-border-2 py-4 pl-6 pr-2 md:py-3 md:pl-4 md:pr-2 md:text-body6 @@styleInput "
         type="email" id="emailId" placeholder="What’s your email?">
     <small class="self-end text-h11 text-danger mt-3 hidden">Name is required</small>
 </div>
-										</div>
+                                    </div>
 
-									</div>
-									<div class="form-group flex flex-col items-start overflow-hidden mb-6">
+                                </div>
+                                <div class="form-group flex flex-col items-start overflow-hidden mb-6">
     <label class="text-none" for="@@idTextarea">Message</label>
     <textarea
         class="input rounded-[32px] text-primary border text-body3 w-full focus:outline-0 focus:shadow-none focus:ring-0 focus:border-border-2 border-border-2 py-5 px-6 h-[180px] resize-none md:py-3 md:pl-4 md:pr-2 md:text-body6 @@styleTextarea"
         id="@@idTextarea" placeholder="What’s your message?" rows="@@rows"></textarea>
 </div>
-									<button type='submit'
-										class="button text-button px-10 py-4 rounded-full border transition group border-primary hover:border-danger bg-primary inline-flex justify-center items-center hover:bg-transparent text-white hover:text-danger uppercase w-[211px] md:w-full">
-										<span class="font-medium">paste</span>
-									</button>
-								</form>
-							</div>
+                                <button type='submit'
+                                        class="button text-button px-10 py-4 rounded-full border transition group border-primary hover:border-danger bg-primary inline-flex justify-center items-center hover:bg-transparent text-white hover:text-danger uppercase w-[211px] md:w-full">
+                                    <span class="font-medium">paste</span>
+                                </button>
+                            </form>
+                        </div>
 
-						</div>
-					</div>
-					<div class="col-span-4 xl:col-span-5 lg:col-span-12">
-						<div class='flex flex-col pl-6 overflow-hidden md:overflow-visible lg:pl-0'>
-							<span class='uppercase font-medium text-t2 block mb-8'>popular Articles</span>
-							<div class='splide-2 swiper w-full md:pb-28'>
-								<div class="swiper-wrapper minmd:flex minmd:flex-col minmd:gap-y-6">
-									<div class="swiper-slide">
-										<a href='#' class='flex gap-5 h-[157px] md:h-[110px] text-primary md:h-full md:hidden'>
+                    </div>
+                </div>
+                <div class="col-span-4 xl:col-span-5 lg:col-span-12">
+                    <div class='flex flex-col pl-6 overflow-hidden md:overflow-visible lg:pl-0'>
+                        <span class='uppercase font-medium text-t2 block mb-8'>popular Articles</span>
+                        <div class='splide-2 swiper w-full md:pb-28'>
+                            <div class="swiper-wrapper minmd:flex minmd:flex-col minmd:gap-y-6">
+                                <div class="swiper-slide">
+                                    <a href='#' class='flex gap-5 h-[157px] md:h-[110px] text-primary md:h-full md:hidden'>
 	<div class='min-w-[146px] md:min-w-[116px] flex items-center justify-center overflow-hidden'>
 		<img class='object-cover' src="img/blog-post-fitness-templates.jpg" alt="Title image">
 	</div>
@@ -1125,7 +1185,7 @@
 			More</span>
 	</div>
 </a>
-										<div
+                                    <div
 	class='blog-card flex flex-col bg-white gap-y-8 hover:shadow-shadow-3 transition overflow-hidden md:gap-y-6 text-primary md:h-full minmd:hidden max-w-[315px]'>
 	<img class='object-cover h-[291px] md:h-[231px]' src="img/blog-post-fitness-templates.jpg" alt="img/blog-post-fitness-templates.jpgAlt">
 	<div class='flex flex-col px-5 pb-3 h-full md:px-2 md:pb-4'>
@@ -1141,9 +1201,9 @@
 		<a class='text-danger mt-auto uppercase tracking-[0.5px] font-medium' href="@@link">Read More</a>
 	</div>
 </div>
-									</div>
-									<div class="swiper-slide">
-										<a href='#' class='flex gap-5 h-[157px] md:h-[110px] text-primary md:h-full md:hidden'>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href='#' class='flex gap-5 h-[157px] md:h-[110px] text-primary md:h-full md:hidden'>
 	<div class='min-w-[146px] md:min-w-[116px] flex items-center justify-center overflow-hidden'>
 		<img class='object-cover' src="img/blog-post-fitness-templates.jpg" alt="Title image">
 	</div>
@@ -1155,7 +1215,7 @@
 			More</span>
 	</div>
 </a>
-										<div
+                                    <div
 	class='blog-card flex flex-col bg-white gap-y-8 hover:shadow-shadow-3 transition overflow-hidden md:gap-y-6 text-primary md:h-full minmd:hidden max-w-[315px]'>
 	<img class='object-cover h-[291px] md:h-[231px]' src="img/blog-post-fitness-templates.jpg" alt="img/blog-post-fitness-templates.jpgAlt">
 	<div class='flex flex-col px-5 pb-3 h-full md:px-2 md:pb-4'>
@@ -1171,9 +1231,9 @@
 		<a class='text-danger mt-auto uppercase tracking-[0.5px] font-medium' href="@@link">Read More</a>
 	</div>
 </div>
-									</div>
-									<div class="swiper-slide">
-										<a href='#' class='flex gap-5 h-[157px] md:h-[110px] text-primary md:h-full md:hidden'>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href='#' class='flex gap-5 h-[157px] md:h-[110px] text-primary md:h-full md:hidden'>
 	<div class='min-w-[146px] md:min-w-[116px] flex items-center justify-center overflow-hidden'>
 		<img class='object-cover' src="img/blog-post-fitness-templates.jpg" alt="Title image">
 	</div>
@@ -1185,7 +1245,7 @@
 			More</span>
 	</div>
 </a>
-										<div
+                                    <div
 	class='blog-card flex flex-col bg-white gap-y-8 hover:shadow-shadow-3 transition overflow-hidden md:gap-y-6 text-primary md:h-full minmd:hidden max-w-[315px]'>
 	<img class='object-cover h-[291px] md:h-[231px]' src="img/blog-post-fitness-templates.jpg" alt="img/blog-post-fitness-templates.jpgAlt">
 	<div class='flex flex-col px-5 pb-3 h-full md:px-2 md:pb-4'>
@@ -1201,24 +1261,38 @@
 		<a class='text-danger mt-auto uppercase tracking-[0.5px] font-medium' href="@@link">Read More</a>
 	</div>
 </div>
-									</div>
-								</div>
-								<div class="swiper-pagination minmd:hidden"></div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination minmd:hidden"></div>
 
-								<!-- If we need navigation buttons -->
-								<div class="swiper-button-wrapper">
-									<div class="swiper-button-prev minmd:hidden"></div>
-									<div class="swiper-button-next minmd:hidden"></div>
-								</div>
-							</div>
-							<img class='mt-14 object-cover lg:hidden' src="img/article-bg-image-2.png" alt="">
-						</div>
-					</div>
-				</div>
-		</section>
+                            <!-- If we need navigation buttons -->
+                            <div class='swiper-button-wrapper'>
+                                <div class="swiper-button swiper-button-prev">
+                                    <i class='slider-button-icon '>
+                                        <span class='arrow-left-black'></span>
+                                    </i>
+                                    <i class='slider-button-icon rotate-180'>
+                                        <span class='arrow-right-white'></span>
+                                    </i>
+                                </div>
+                                <div class="swiper-button swiper-button-next">
+                                    <i class='slider-button-icon rotate-180'>
+                                        <span class='arrow-left-black'></span>
+                                    </i>
+                                    <i class='slider-button-icon'>
+                                        <span class='arrow-right-white'></span>
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                        <img class='mt-14 object-cover lg:hidden' src="img/article-bg-image-2.png" alt="">
+                    </div>
+                </div>
+            </div>
+    </section>
 
 
-		<section class="py-20 lg:py-10 bg-secondary">
+    <section class="py-20 lg:py-10 bg-secondary">
 	<div class="container">
 		<div class="grid grid-cols-12 gap-6">
 			<div class="col-span-7 lg:col-span-12">
@@ -1242,7 +1316,7 @@
 		</div>
 	</div>
 </section>
-		<footer class="pt-10 bg-primary text-white">
+    <footer class="pt-10 bg-primary text-white">
 	<div class="container flex flex-col overflow-hidden">
 		<div class="grid grid-cols-12 gap-x-6 py-14 md:pt-0 md:pb-10">
 			<div class="col-span-7 md:col-span-12">
@@ -1413,64 +1487,65 @@
 		</div>
 	</div>
 </footer>
-	</main>
+</main>
 
-	<!-- <script defer type="text/html" src="./js/libs/splide.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.7.8/plyr.min.js"></script>
 <script type="module" src="./js/scripts.js"></script>
 <script>
-	document.addEventListener('alpine:init', () => {
-		Alpine.data('dropdown', () => ({
-			open: false,
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('dropdown', () => ({
+            open: false,
 
-			toggle() {
-				this.open = !this.open
-			},
-		}))
-	})
+            toggle() {
+                this.open = !this.open
+            },
+        }))
+    })
 
-	function setup() {
-		return {
-			placeholderText: window.innerWidth < 768 ? 'Mobile Search...' : 'Search...',
-			init() {
-				window.addEventListener('resize', () => {
-					this.placeholderText = window.innerWidth < 768 ? 'Mobile Search...' : 'Search...'
-				})
-			}
-		}
-	}
-	function numberedList() {
-		return {
-			items: {
-				'1': ['Lorem ipsum', 'https//www.fintess.recipes-onliner ecipes'],
-				'2': ['Odio amet', 'https//www.fintess.recipes-online'],
-				'3': ['Suspendisse urna', 'https//www.fintess.recipes-online'],
-			},
+    function setup() {
+        return {
+            placeholderText: window.innerWidth < 768 ? 'Mobile Search...' : 'Search...',
+            init() {
+                window.addEventListener('resize', () => {
+                    this.placeholderText = window.innerWidth < 768 ? 'Mobile Search...' : 'Search...'
+                })
+            }
+        }
+    }
 
-			formattedNumber(number) {
-				// Форматируем числа меньше 10 с ведущим нулем
-				return number < 10 ? `0${number}` : number
-			}
-		}
-	}
+    function numberedList() {
+        return {
+            items: {
+                '1': ['Lorem ipsum', 'https//www.fintess.recipes-onliner ecipes'],
+                '2': ['Odio amet', 'https//www.fintess.recipes-online'],
+                '3': ['Suspendisse urna', 'https//www.fintess.recipes-online'],
+            },
 
-	function fetchResults() {
-		this.results = []
-		if (this.query.length > 0) {
-			// Имитация поиска. Поменять на реальный API вызов или логику поиска.
-			this.results = [
-				{ id: 1, title: 'Result 1' },
-				{ id: 2, title: 'Result 2' },
-				{ id: 3, title: 'Result 3' },
-			]
-		}
-		this.showResults = this.results.length > 0
-	}
+            formattedNumber(number) {
+                // Форматируем числа меньше 10 с ведущим нулем
+                return number < 10 ? `0${number}` : number
+            }
+        }
+    }
 
-	function selectResult(result) {
-		this.query = result.title
-		this.showResults = false
-	}
+    function fetchResults() {
+        this.results = []
+        if (this.query.length > 0) {
+            // Имитация поиска. Поменять на реальный API вызов или логику поиска.
+            this.results = [
+                {id: 1, title: 'Result 1'},
+                {id: 2, title: 'Result 2'},
+                {id: 3, title: 'Result 3'},
+            ]
+        }
+        this.showResults = this.results.length > 0
+    }
+
+    function selectResult(result) {
+        this.query = result.title
+        this.showResults = false
+    }
 </script>
 </body>
 

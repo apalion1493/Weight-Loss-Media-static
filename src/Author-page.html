@@ -6,176 +6,210 @@
 })
 
 <body class="">
-	<main class="flex flex-col justify-between min-h-screen">
-		@@include('components/Header.html', {
-		'commonStyle': 'bg-secondary'
-		})
+<main class="flex flex-col justify-between min-h-screen">
+    @@include('components/Header.html', {
+    'commonStyle': 'bg-secondary'
+    })
 
-		<section class='pt-20 pb-10 mb-5'>
-			<div class="container">
-				<div class="grid grid-cols-12 gap-x-6">
-					<div class="col-span-12">
-						<nav class="flex mb-8" aria-label="Breadcrumb">
-							<ol class="inline-flex items-center flex-wrap gap-x-3">
-								<li class="inline-flex items-center gap-x-3">
-									<a href="#"
-										class="inline-flex items-center text-body3 font-medium text-border-2 transition-colors hover:text-danger">
-										Category
-									</a>
-									<span class='font-medium text-border-2'>/</span>
-								</li>
-								<li class="inline-flex items-center gap-x-3">
-									<a href="#"
-										class="text-body3 font-medium text-border-2 transition-colors hover:text-danger">Subcategory</a>
-									<span class='font-medium text-primary'>/</span>
-								</li>
-								<li class="inline-flex items-center gap-x-3" aria-current="page">
-									<div class="flex items-center">
+    <section class='pt-20 pb-10 lg:py-10 mb-5'>
+        <div class="container">
+            <div class="grid grid-cols-12 gap-x-6 lg:gap-y-6">
+                <div class="col-span-12">
+                    <nav class="flex mb-8" aria-label="Breadcrumb">
+                        <ol class="inline-flex items-center flex-wrap gap-x-3">
+                            <li class="inline-flex items-center gap-x-3">
+                                <a href="#"
+                                   class="inline-flex items-center text-body3 font-medium text-border-2 transition-colors hover:text-danger">
+                                    Category
+                                </a>
+                                <span class='font-medium text-border-2'>/</span>
+                            </li>
+                            <li class="inline-flex items-center gap-x-3">
+                                <a href="#"
+                                   class="text-body3 font-medium text-border-2 transition-colors hover:text-danger">Subcategory</a>
+                                <span class='font-medium text-primary'>/</span>
+                            </li>
+                            <li class="inline-flex items-center gap-x-3" aria-current="page">
+                                <div class="flex items-center">
 										<span class="text-body3 font-medium text-primary">Blog
 											Post</span>
-									</div>
-								</li>
-							</ol>
-						</nav>
-					</div>
-					<div class="col-span-6">
-						<div>
-							<img src="img/image-home-hero-fitness-template-2.jpg" alt="Alt Image">
-						</div>
-					</div>
-					<div class="col-span-6">
-						<div class='pl-6 flex flex-col'>
-							<span class='text-danger font-medium text-body5 uppercase tracking-1-6 mb-5 block'>Author</span>
-							<h1 class="text-h1 font-semibold mb-6">Maria Biesu</h1>
-							<div class='flex flex-col gap-y-6'>
-								<p class='text-grey-1 text-body'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									Habitasse arcu vulputate velit scelerisque cursus nunc.
-									Ac cras sapien quam sem et venenatis velit. A fusce sed convallis.Lorem ipsum dolor sit amet,
-									consectetur adipiscing elit. Habitasse arcu vulputate velit scelerisque cursus nunc. Ac cras sapien
-									quam
-									sem et venenatis velit. A fusce sed convallis.</p>
-								<p class='text-grey-1 text-body'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									Habitasse arcu vulputate velit scelerisque cursus nunc.
-									Ac cras sapien quam sem et venenatis velit.</p>
-							</div>
-							<div x-data="{ isOpen: false }" class="w-full mt-10">
-								<button @click="isOpen = !isOpen"
-									class="flex justify-between items-center text-body2 w-full px-6 py-5 shadow-shadow-4 rounded transition-colors">
-									Lorem Ipsum
-									<span class='transition' x-bind:class='isOpen ? "rotate-180" : ""'>
-										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
+                                </div>
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-span-6 lg:col-span-12">
+                    <div class="flex justify-center">
+                        <img class="lg:w-full" src="img/image-home-hero-fitness-template-2.jpg" alt="Alt Image">
+                    </div>
+                </div>
+                <div class="col-span-6 lg:col-span-12">
+                    <div class='pl-6 lg:pl-0 flex flex-col'>
+                        <span class='text-danger font-medium text-body5 uppercase tracking-1-6 mb-5 block md:text-body8'>Author</span>
+                        <h1 class="text-h1 font-semibold mb-6 md:text-h1Mob">Maria Biesu</h1>
+                        <div class='flex flex-col gap-y-6'>
+                            <p class='text-grey-1 text-body'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Habitasse arcu vulputate velit scelerisque cursus nunc.
+                                Ac cras sapien quam sem et venenatis velit. A fusce sed convallis.Lorem ipsum dolor sit
+                                amet,
+                                consectetur adipiscing elit. Habitasse arcu vulputate velit scelerisque cursus nunc. Ac
+                                cras sapien
+                                quam
+                                sem et venenatis velit. A fusce sed convallis.</p>
+                            <p class='text-grey-1 text-body'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Habitasse arcu vulputate velit scelerisque cursus nunc.
+                                Ac cras sapien quam sem et venenatis velit.</p>
+                        </div>
+                        <div x-data="{ isOpen: false }" class="w-full mt-10">
+                            <button @click="isOpen = !isOpen"
+                                    class="flex justify-between items-center text-body2 w-full px-6 py-5 shadow-shadow-4 rounded transition-colors">
+                                Lorem Ipsum
+                                <span class='transition' :class='isOpen ? "rotate-180" : ""'>
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9"
+                                             fill="none">
 											<path
-												d="M15.6824 8.51371C15.4707 8.72543 15.2133 8.83129 14.9104 8.83129C14.6074 8.83129 14.35 8.72543 14.1383 8.51371L8.25755 2.63295L2.37679 8.51371C2.16507 8.72543 1.90589 8.83129 1.59926 8.83129C1.29263 8.83129 1.03345 8.72543 0.821732 8.51371C0.61001 8.30198 0.50415 8.04463 0.50415 7.74165C0.50415 7.43867 0.61001 7.18132 0.821732 6.9696L7.16244 0.628892C7.30845 0.482877 7.4782 0.369715 7.67167 0.289407C7.86514 0.209099 8.05861 0.168945 8.25208 0.168945C8.44555 0.168945 8.63719 0.209099 8.82701 0.289407C9.01683 0.369715 9.1884 0.482877 9.34171 0.628892L15.6824 6.9696C15.8941 7.18132 16 7.43867 16 7.74165C16 8.04463 15.8941 8.30198 15.6824 8.51371Z"
-												fill="#19181B" />
+                                                    d="M15.6824 8.51371C15.4707 8.72543 15.2133 8.83129 14.9104 8.83129C14.6074 8.83129 14.35 8.72543 14.1383 8.51371L8.25755 2.63295L2.37679 8.51371C2.16507 8.72543 1.90589 8.83129 1.59926 8.83129C1.29263 8.83129 1.03345 8.72543 0.821732 8.51371C0.61001 8.30198 0.50415 8.04463 0.50415 7.74165C0.50415 7.43867 0.61001 7.18132 0.821732 6.9696L7.16244 0.628892C7.30845 0.482877 7.4782 0.369715 7.67167 0.289407C7.86514 0.209099 8.05861 0.168945 8.25208 0.168945C8.44555 0.168945 8.63719 0.209099 8.82701 0.289407C9.01683 0.369715 9.1884 0.482877 9.34171 0.628892L15.6824 6.9696C15.8941 7.18132 16 7.43867 16 7.74165C16 8.04463 15.8941 8.30198 15.6824 8.51371Z"
+                                                    fill="#19181B"/>
 										</svg>
 									</span>
-								</button>
-								<div x-show="isOpen" x-transition class="mt-4 bg-white p-4 rounded shadow-shadow-4">
-									<p class="text-body text-grey-1">
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class='py-10'>
-			<div class="container">
-				<form class="grid grid-cols-12 gap-6 ">
-					<div class="col-span-12">
-						<h3 class="text-h3 font-semibold mb-2">Get in touch<span class='text-danger'>!</span></h3>
-					</div>
-					<div class="col-span-6">
-						@@include('components/input.html', {
-						'label': 'Name',
-						'placeholder': 'What’s your name?',
-						'type': 'text',
-						'idInput': 'nameId',
-						'errorStyle': '',
-						'commonStyle': ''
-						})
-					</div>
-					<div class="col-span-6">
-						@@include('components/input.html', {
-						'label': 'Email',
-						'placeholder': 'What’s your email?',
-						'type': 'email',
-						'idInput': 'emailId',
-						'errorStyle': 'hidden',
-						'commonStyle': ''
-						})
-					</div>
-					<div class="col-span-12">
-						@@include('components/textarea.html', {
-						'label': 'Message',
-						'placeholder': 'What’s your message?',
-						'type': 'text',
-						'idInput': 'messageId',
-						'commonStyle': ''
-						})
-					</div>
-					<div class="col-span-12">
-						<button type='submit'
-							class="button text-button px-10 py-4 rounded-full border transition group border-primary hover:border-danger bg-primary inline-flex items-center hover:bg-transparent text-white hover:text-danger uppercase">
-							<span class="font-medium">Send message</span>
-						</button>
-					</div>
-				</form>
-			</div>
-		</section>
-		<section class='py-20'>
-			<div class="container">
-				<div class="grid grid-cols-12 gap-6">
-					<div class="col-span-12">
-						<h3 class="text-h3 font-semibold mb-6">More Authors</h3>
-					</div>
-					<div class="col-span-3">
-						@@include('components/Author-card.html', {
-						'name': 'Adalin Remy',
-						'position': 'Lorem ipsum dolor sit amet.',
-						'img': 'img/image-home-hero-fitness-template-2.jpg',
-						'alt': 'Alt Image',
-						'url': '#'
-						})
-					</div>
-					<div class="col-span-3">
-						@@include('components/Author-card.html', {
-						'name': 'Adalin Remy',
-						'position': 'Lorem ipsum dolor sit amet.',
-						'img': 'img/image-home-hero-fitness-template-2.jpg',
-						'alt': 'Alt Image',
-						'url': '#'
-						})
-					</div>
-					<div class="col-span-3">
-						@@include('components/Author-card.html', {
-						'name': 'Adalin Remy',
-						'position': 'Lorem ipsum dolor sit amet.',
-						'img': 'img/image-home-hero-fitness-template-2.jpg',
-						'alt': 'Alt Image',
-						'url': '#'
-						})
-					</div>
-					<div class="col-span-3">
-						@@include('components/Author-card.html', {
-						'name': 'Adalin Remy',
-						'position': 'Lorem ipsum dolor sit amet.',
-						'img': 'img/image-home-hero-fitness-template-2.jpg',
-						'alt': 'Alt Image',
-						'url': '#'
-						})
-					</div>
-				</div>
-			</div>
-		</section>
+                            </button>
+                            <div x-show="isOpen" x-transition class="mt-4 bg-white p-4 rounded shadow-shadow-4">
+                                <p class="text-body text-grey-1">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class='py-10'>
+        <div class="container">
+            <form class="grid grid-cols-12 gap-6 ">
+                <div class="col-span-12">
+                    <h3 class="text-h3 font-semibold mb-2">Get in touch<span class='text-danger'>!</span></h3>
+                </div>
+                <div class="col-span-6">
+                    @@include('components/input.html', {
+                    'label': 'Name',
+                    'placeholder': 'What’s your name?',
+                    'type': 'text',
+                    'idInput': 'nameId',
+                    'errorStyle': '',
+                    'commonStyle': ''
+                    })
+                </div>
+                <div class="col-span-6">
+                    @@include('components/input.html', {
+                    'label': 'Email',
+                    'placeholder': 'What’s your email?',
+                    'type': 'email',
+                    'idInput': 'emailId',
+                    'errorStyle': 'hidden',
+                    'commonStyle': ''
+                    })
+                </div>
+                <div class="col-span-12">
+                    @@include('components/textarea.html', {
+                    'label': 'Message',
+                    'placeholder': 'What’s your message?',
+                    'type': 'text',
+                    'idInput': 'messageId',
+                    'commonStyle': ''
+                    })
+                </div>
+                <div class="col-span-12">
+                    <button type='submit'
+                            class="button text-button px-10 py-4 rounded-full border transition group border-primary hover:border-danger bg-primary inline-flex items-center hover:bg-transparent text-white hover:text-danger uppercase">
+                        <span class="font-medium">Send message</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section class='py-20 lg:py-10 overflow-hidden'>
+        <div class="container">
+            <div class="grid grid-cols-12 gap-6">
+                <div class="col-span-12">
+                    <h3 class="text-h3 font-semibold mb-6">More Authors</h3>
+                </div>
+                <div class="col-span-12">
+                    <div class="swiper splide-4 -ml-2 text-black pb-32 sm:pb-16">
+                        <div class="swiper-wrapper pl-2 ">
+                            <div class="swiper-slide">
+                                @@include('components/Author-card.html', {
+                                'name': 'Adalin Remy',
+                                'position': 'Lorem ipsum dolor sit amet.',
+                                'img': 'img/image-home-hero-fitness-template-2.jpg',
+                                'alt': 'Alt Image',
+                                'url': '#',
+                                'style': 'md:max-w-[302px]'
+                                })
+                            </div>
+                            <div class="swiper-slide">
+                                @@include('components/Author-card.html', {
+                                'name': 'Adalin Remy',
+                                'position': 'Lorem ipsum dolor sit amet.',
+                                'img': 'img/image-home-hero-fitness-template-2.jpg',
+                                'alt': 'Alt Image',
+                                'url': '#',
+                                'style': 'md:max-w-[302px]'
+                                })
+                            </div>
+                            <div class="swiper-slide">
+                                @@include('components/Author-card.html', {
+                                'name': 'Adalin Remy',
+                                'position': 'Lorem ipsum dolor sit amet.',
+                                'img': 'img/image-home-hero-fitness-template-2.jpg',
+                                'alt': 'Alt Image',
+                                'url': '#',
+                                'style': 'md:max-w-[302px]'
+                                })
+                            </div>
+                            <div class="swiper-slide">
+                                @@include('components/Author-card.html', {
+                                'name': 'Adalin Remy',
+                                'position': 'Lorem ipsum dolor sit amet.',
+                                'img': 'img/image-home-hero-fitness-template-2.jpg',
+                                'alt': 'Alt Image',
+                                'url': '#',
+                                'style': 'md:max-w-[302px]'
+                                })
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
 
-		@@include('components/Newsletter.html')
-		@@include('components/Footer.html')
-	</main>
+                        <!-- If we need navigation buttons -->
+                        <div class='swiper-button-wrapper'>
+                            <div class="swiper-button swiper-button-prev">
+                                <i class='slider-button-icon '>
+                                    <span class='arrow-left-black'></span>
+                                </i>
+                                <i class='slider-button-icon rotate-180'>
+                                    <span class='arrow-right-white'></span>
+                                </i>
+                            </div>
+                            <div class="swiper-button swiper-button-next">
+                                <i class='slider-button-icon rotate-180'>
+                                    <span class='arrow-left-black'></span>
+                                </i>
+                                <i class='slider-button-icon'>
+                                    <span class='arrow-right-white'></span>
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	@@include('components/script.html')
+    @@include('components/Newsletter.html')
+    @@include('components/Footer.html')
+</main>
+
+@@include('components/script.html')
 </body>
 
 </html>

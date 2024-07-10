@@ -900,6 +900,9 @@ select {
 .mb-10 {
   margin-bottom: 2.5rem;
 }
+.mb-12 {
+  margin-bottom: 3rem;
+}
 .mb-14 {
   margin-bottom: 3.5rem;
 }
@@ -1980,12 +1983,6 @@ select {
   background-repeat: no-repeat;
 }
 
-.swiper-pagination {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .swiper-pagination-bullet {
   display: inline-flex;
   height: 3.5rem;
@@ -2005,7 +2002,9 @@ select {
 
   .swiper-pagination-bullet {
     height: 10px;
+    min-height: 10px;
     width: 10px;
+    min-width: 10px;
     font-size: 0px;
     line-height: 0px;
   }
@@ -2022,7 +2021,9 @@ select {
 
   .swiper-pagination-bullet-active {
     height: 14px;
+    min-height: 14px;
     width: 14px;
+    min-width: 14px;
   }
 }
 
@@ -2129,6 +2130,12 @@ input[type=search]::-webkit-search-results-decoration {
   overflow: visible;
 }
 
+.splide-4.swiper {
+  width: 100%;
+  padding-left: 0;
+  overflow: visible;
+}
+
 @media (max-width: 1023.98px) {
   .button.clicked {
     --tw-bg-opacity: 1;
@@ -2149,6 +2156,9 @@ input[type=search]::-webkit-search-results-decoration {
     min-width: 315px;
   }
   .splide-3 .swiper-slide {
+    width: auto;
+  }
+  .splide-4 .swiper-slide {
     width: auto;
   }
   .splide-2 .swiper-slide {
@@ -2367,6 +2377,10 @@ input[type=search]::-webkit-search-results-decoration {
 
   .lg\:w-12 {
     width: 3rem;
+  }
+
+  .lg\:w-full {
+    width: 100%;
   }
 
   .lg\:min-w-\[115px\] {
@@ -2614,6 +2628,10 @@ input[type=search]::-webkit-search-results-decoration {
 
   .md\:min-w-\[116px\] {
     min-width: 116px;
+  }
+
+  .md\:max-w-\[302px\] {
+    max-width: 302px;
   }
 
   .md\:flex-row {
