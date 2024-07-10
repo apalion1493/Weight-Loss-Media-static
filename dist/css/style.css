@@ -799,6 +799,15 @@ select {
 .top-full {
   top: 100%;
 }
+.-top-1 {
+  top: -0.25rem;
+}
+.-top-2 {
+  top: -0.5rem;
+}
+.top-3 {
+  top: 0.75rem;
+}
 .-z-10 {
   z-index: -10;
 }
@@ -1060,6 +1069,9 @@ select {
 .h-full {
   height: 100%;
 }
+.h-\[64px\] {
+  height: 64px;
+}
 .max-h-\[611px\] {
   max-height: 611px;
 }
@@ -1071,6 +1083,12 @@ select {
 }
 .min-h-screen {
   min-height: 100vh;
+}
+.min-h-14 {
+  min-height: 3.5rem;
+}
+.min-h-16 {
+  min-height: 4rem;
 }
 .w-10 {
   width: 2.5rem;
@@ -1509,6 +1527,14 @@ select {
 .py-\[10px\] {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+.py-\[14px\] {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.py-\[13px\] {
+  padding-top: 13px;
+  padding-bottom: 13px;
 }
 .pb-10 {
   padding-bottom: 2.5rem;
@@ -2161,6 +2187,9 @@ input[type=search]::-webkit-search-results-decoration {
   .splide-4 .swiper-slide {
     width: auto;
   }
+  .splide-4 .swiper-pagination {
+    bottom: 20px;
+  }
   .splide-2 .swiper-slide {
     width: auto;
   }
@@ -2309,6 +2338,14 @@ input[type=search]::-webkit-search-results-decoration {
 
   .lg\:top-2 {
     top: 0.5rem;
+  }
+
+  .lg\:top-0 {
+    top: 0px;
+  }
+
+  .lg\:top-3 {
+    top: 0.75rem;
   }
 
   .lg\:z-\[32\] {
@@ -2534,6 +2571,10 @@ input[type=search]::-webkit-search-results-decoration {
     margin-bottom: 0px;
   }
 
+  .md\:mb-1 {
+    margin-bottom: 0.25rem;
+  }
+
   .md\:mb-10 {
     margin-bottom: 2.5rem;
   }
@@ -2580,6 +2621,10 @@ input[type=search]::-webkit-search-results-decoration {
 
   .md\:mt-5 {
     margin-top: 1.25rem;
+  }
+
+  .md\:mt-6 {
+    margin-top: 1.5rem;
   }
 
   .md\:mt-8 {
@@ -2697,6 +2742,10 @@ input[type=search]::-webkit-search-results-decoration {
     border-bottom-width: 1px;
   }
 
+  .md\:border-b {
+    border-bottom-width: 1px;
+  }
+
   .md\:border-b-0 {
     border-bottom-width: 0px;
   }
@@ -2785,6 +2834,10 @@ input[type=search]::-webkit-search-results-decoration {
 
   .md\:pb-7 {
     padding-bottom: 1.75rem;
+  }
+
+  .md\:pb-\[70px\] {
+    padding-bottom: 70px;
   }
 
   .md\:pl-4 {
@@ -2990,5 +3043,11 @@ input[type=search]::-webkit-search-results-decoration {
 
   .minlg\:hidden {
     display: none;
+  }
+}
+@media (min-width: 1280px) {
+
+  .minxl\:pb-0 {
+    padding-bottom: 0px;
   }
 }

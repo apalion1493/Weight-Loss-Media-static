@@ -296,6 +296,12 @@ input[type='search']::-webkit-search-results-decoration {
 		width: auto;
 	}
 
+	.splide-4 {
+		.swiper-pagination {
+			bottom: 20px;
+		}
+	}
+
 	.splide-2 .swiper-slide {
 		width: auto;
 	}
