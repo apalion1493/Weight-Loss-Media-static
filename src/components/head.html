@@ -17,5 +17,63 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <!--  <link href="https://cdn.jsdelivr.net/npm/vlitejs@6/dist/vlite.css" rel="stylesheet" crossorigin />-->
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css"/>
+    <style>
+        .loader-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .loader {
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .fade-out {
+            animation: fadeOut 0.1s forwards;
+        }
+        .fade-in {
+            animation: fadeIn 0.1s forwards;
+        }
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
     <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                const content = document.getElementById('content');
+                const body = document.querySelector('body');
+                loader.classList.add('fade-out');
+                loader.addEventListener('animationend', () => {
+                    loader.classList.add('hidden');
+                    content.classList.remove('hidden');
+                    body.classList.remove('loader-wrapper')
+
+                    content.classList.add('fade-in');
+                }, { once: true });
+            }, 500);
+        });
+
+    </script>
 </head>
