@@ -31,11 +31,11 @@
             <div class='container min-h-16'>
                 <div class="grid grid-cols-12 gap-x-6">
                     <div class="col-span-12">
-                        <div class="flex items-center justify-between lg:relative">
+                        <div class="flex items-center justify-between lg:relative h-[64px] lg:h-[56px]">
                             <a class='min-w-[145px] z-[1] lg:min-w-[115px]' href="index.html">
                                 <img src="img/Logo-1.svg" alt="Main Logo WLM" />
                             </a>
-                            <div class='flex items-center relative lg:static w-full h-[56px]'>
+                            <div class='flex items-center relative lg:static w-full h-[64px] lg:h-[56px]'>
                                 <ul
                                     class='flex items-center gap-x-8 xl:gap-x-4 relative z-[11] mx-auto pr-[144px] lg:hidden'>
                                     <li>
@@ -370,7 +370,7 @@
                                     <label for="header-search" class="text-none absolute -z-10">Search</label>
                                     <div class='flex items-center relative'>
                                         <div :class='showForm ? "py-2 pl-6 lg:pl-4 pr-40 border opacity-100" : " border-0 p-0 opacity-0"'
-                                            class='flex items-center rounded-[40px] lg:pr-[56px] h-[64px] w-full  overflow-hidden transition-all bg-white border-border-2 relative h-[56px]'>
+                                            class='flex items-center rounded-[40px] lg:pr-[56px] h-[64px] lg:h-[56px] w-full  overflow-hidden transition-all bg-white border-border-2 relative h-[56px]'>
                                             <div class="relative w-full">
                                                 <input type="search" id="header-search" name="Search bar"
                                                     placeholder="Start your search with keyword" x-model="query"
@@ -388,8 +388,8 @@
                                             </div>
                                         </div>
                                         <button
-                                            :class='showForm ? "active right-2 clicked lg:w-10 lg:h-10" : "right-0 lg:w-12 lg:h-12"'
-                                            class="button text-body5 px-6 py-[13px] rounded-full border top-2 lg:top-3 transition-all group border-primary hover:border-danger bg-primary inline-flex items-center justify-center hover:bg-transparent text-white hover:text-danger ml-auto absolute  z-30 lg:p-0 lg:bg-secondary lg:border-secondary lg:hover:bg-primary lg:hover:border-primary"
+                                            :class='showForm ? "active right-2 clicked lg:w-10 lg:h-10 top-2 lg:top-2" : "right-0 lg:w-12 lg:h-12 top-2 lg:top-[6px]"'
+                                            class="button text-body5 px-6 py-[13px] rounded-full border transition-all group border-primary hover:border-danger bg-primary inline-flex items-center justify-center hover:bg-transparent text-white hover:text-danger ml-auto absolute  z-30 lg:p-0 lg:bg-secondary lg:border-secondary lg:hover:bg-primary lg:hover:border-primary"
                                             @click="showForm = !showForm; showResults = false">
                                             <i
                                                 class='search-icon mr-3 group-hover:hidden block lg:mr-0 lg:hidden lg:group-hover:block'></i>
@@ -783,8 +783,9 @@
 								</a>
 							</li>
 							<li class=''>
-								<a class='flex items-center justify-center rounded-full bg-primary w-12 h-12 uppercase transition hover:text-danger group tracking-wider'
+								<a class='flex items-center justify-center text-none rounded-full bg-primary w-12 h-12 uppercase transition hover:text-danger group tracking-wider'
 									href="#">
+									Linkedin
 									<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
 										<path class='group-hover:fill-danger transition'
 											d="M0.377998 2.7C0.377998 2.148 0.572998 1.692 0.962998 1.332C1.353 0.972 1.86 0.792002 2.484 0.792002C3.108 0.792002 3.606 0.969002 3.978 1.323C4.35 1.677 4.536 2.148 4.536 2.736C4.536 3.288 4.35 3.732 3.978 4.068C3.57 4.44 3.06 4.626 2.448 4.626H2.43C1.83 4.626 1.338 4.443 0.953998 4.077C0.569998 3.711 0.377998 3.252 0.377998 2.7ZM0.593998 17.208V6.12H4.284V17.208H0.593998ZM6.336 17.208H10.026V11.016C10.026 10.644 10.074 10.35 10.17 10.134C10.338 9.75 10.575 9.429 10.881 9.171C11.187 8.913 11.58 8.784 12.06 8.784C13.308 8.784 13.932 9.618 13.932 11.286V17.208H17.622V10.854C17.622 9.21 17.232 7.968 16.452 7.128C15.672 6.288 14.646 5.868 13.374 5.868C11.958 5.868 10.842 6.48 10.026 7.704V7.74V6.12H6.336C6.36 6.6 6.372 7.704 6.372 9.432C6.372 10.38 6.366 12.234 6.354 14.994L6.336 17.208Z"
@@ -793,8 +794,9 @@
 								</a>
 							</li>
 							<li class=''>
-								<a class='flex items-center justify-center rounded-full bg-primary w-12 h-12 uppercase transition hover:text-danger group tracking-wider'
+								<a class='flex items-center justify-center text-none rounded-full bg-primary w-12 h-12 uppercase transition hover:text-danger group tracking-wider'
 									href="#">
+									Instagram
 									<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
 										<path class='group-hover:fill-danger transition'
 											d="M11.952 8.991C11.952 9.519 11.82 10.008 11.556 10.458C11.292 10.908 10.932 11.265 10.476 11.529C10.02 11.793 9.528 11.925 9 11.925C8.472 11.925 7.983 11.793 7.533 11.529C7.083 11.265 6.726 10.908 6.462 10.458C6.198 10.008 6.066 9.519 6.066 8.991C6.066 8.463 6.198 7.974 6.462 7.524C6.726 7.074 7.083 6.717 7.533 6.453C7.983 6.189 8.472 6.057 9 6.057C9.528 6.057 10.02 6.189 10.476 6.453C10.932 6.717 11.292 7.074 11.556 7.524C11.82 7.974 11.952 8.463 11.952 8.991ZM16.776 2.619C16.404 2.067 15.942 1.599 15.39 1.215C14.994 0.951002 14.514 0.759003 13.95 0.639002C13.434 0.531002 12.756 0.465002 11.916 0.441002C11.376 0.417002 10.404 0.405003 9 0.405003C7.596 0.405003 6.624 0.417002 6.084 0.441002C5.244 0.465002 4.572 0.531002 4.068 0.639002C3.504 0.759003 3.024 0.951002 2.628 1.215C2.04 1.611 1.572 2.079 1.224 2.619C0.960001 3.015 0.768001 3.495 0.648001 4.059C0.540001 4.575 0.474001 5.253 0.450001 6.093C0.426001 6.633 0.414001 7.602 0.414001 9C0.414001 10.398 0.426001 11.367 0.450001 11.907C0.474001 12.747 0.540001 13.425 0.648001 13.941C0.768001 14.505 0.960001 14.985 1.224 15.381C1.572 15.933 2.04 16.395 2.628 16.767C3.024 17.031 3.504 17.223 4.068 17.343C4.572 17.463 5.244 17.535 6.084 17.559C6.624 17.583 7.596 17.595 9 17.595C10.404 17.595 11.376 17.583 11.916 17.559C12.756 17.535 13.434 17.463 13.95 17.343C14.514 17.223 14.994 17.031 15.39 16.767C15.93 16.407 16.392 15.945 16.776 15.381C17.04 14.985 17.232 14.505 17.352 13.941C17.46 13.425 17.526 12.747 17.55 11.907C17.574 11.367 17.586 10.398 17.586 9C17.586 7.602 17.574 6.633 17.55 6.093C17.526 5.253 17.46 4.575 17.352 4.059C17.232 3.495 17.04 3.015 16.776 2.619ZM9 13.437C8.196 13.437 7.455 13.239 6.777 12.843C6.099 12.447 5.559 11.907 5.157 11.223C4.755 10.539 4.554 9.795 4.554 8.991C4.554 8.187 4.755 7.446 5.157 6.768C5.559 6.09 6.099 5.55 6.777 5.148C7.455 4.746 8.196 4.545 9 4.545C9.804 4.545 10.548 4.746 11.232 5.148C11.916 5.55 12.456 6.09 12.852 6.768C13.248 7.446 13.446 8.187 13.446 8.991C13.446 9.795 13.248 10.539 12.852 11.223C12.456 11.907 11.916 12.447 11.232 12.843C10.548 13.239 9.804 13.437 9 13.437ZM13.626 5.373C13.338 5.373 13.092 5.271 12.888 5.067C12.684 4.863 12.582 4.617 12.582 4.329C12.582 4.041 12.684 3.795 12.888 3.591C13.092 3.387 13.338 3.285 13.626 3.285C13.914 3.285 14.16 3.387 14.364 3.591C14.568 3.795 14.67 4.041 14.67 4.329C14.67 4.617 14.568 4.863 14.364 5.067C14.16 5.271 13.914 5.373 13.626 5.373Z"
@@ -803,8 +805,9 @@
 								</a>
 							</li>
 							<li class=''>
-								<a class='flex items-center justify-center rounded-full bg-primary w-12 h-12 uppercase transition hover:text-danger group tracking-wider'
+								<a class='flex items-center justify-center text-none rounded-full bg-primary w-12 h-12 uppercase transition hover:text-danger group tracking-wider'
 									href="#" target="_blank">
+									Facebook
 									<svg xmlns="http://www.w3.org/2000/svg" width="10" height="18" viewBox="0 0 10 18" fill="none">
 										<path class='group-hover:fill-danger transition'
 											d="M6.431 17.82V9.774H9.275L9.689 6.642H6.431V4.626C6.431 4.122 6.533 3.756 6.737 3.528C6.989 3.252 7.433 3.114 8.069 3.114H9.815V0.306C9.107 0.222 8.261 0.18 7.277 0.18C6.437 0.18 5.696 0.339001 5.054 0.657C4.412 0.975 3.917 1.44 3.569 2.052C3.209 2.688 3.029 3.444 3.029 4.32V6.642H0.184998V9.774H3.029V17.82H6.431Z"

@@ -4,11 +4,11 @@
             <div class='container min-h-16'>
                 <div class="grid grid-cols-12 gap-x-6">
                     <div class="col-span-12">
-                        <div class="flex items-center justify-between lg:relative">
+                        <div class="flex items-center justify-between lg:relative h-[64px] lg:h-[56px]">
                             <a class='min-w-[145px] z-[1] lg:min-w-[115px]' href="index.html">
                                 <img src="img/Logo-1.svg" alt="Main Logo WLM" />
                             </a>
-                            <div class='flex items-center relative lg:static w-full h-[56px]'>
+                            <div class='flex items-center relative lg:static w-full h-[64px] lg:h-[56px]'>
                                 <ul
                                     class='flex items-center gap-x-8 xl:gap-x-4 relative z-[11] mx-auto pr-[144px] lg:hidden'>
                                     <li>
@@ -343,7 +343,7 @@
                                     <label for="header-search" class="text-none absolute -z-10">Search</label>
                                     <div class='flex items-center relative'>
                                         <div :class='showForm ? "py-2 pl-6 lg:pl-4 pr-40 border opacity-100" : " border-0 p-0 opacity-0"'
-                                            class='flex items-center rounded-[40px] lg:pr-[56px] h-[64px] w-full  overflow-hidden transition-all bg-white border-border-2 relative h-[56px]'>
+                                            class='flex items-center rounded-[40px] lg:pr-[56px] h-[64px] lg:h-[56px] w-full  overflow-hidden transition-all bg-white border-border-2 relative h-[56px]'>
                                             <div class="relative w-full">
                                                 <input type="search" id="header-search" name="Search bar"
                                                     placeholder="Start your search with keyword" x-model="query"
@@ -361,8 +361,8 @@
                                             </div>
                                         </div>
                                         <button
-                                            :class='showForm ? "active right-2 clicked lg:w-10 lg:h-10" : "right-0 lg:w-12 lg:h-12"'
-                                            class="button text-body5 px-6 py-[13px] rounded-full border top-2 lg:top-3 transition-all group border-primary hover:border-danger bg-primary inline-flex items-center justify-center hover:bg-transparent text-white hover:text-danger ml-auto absolute  z-30 lg:p-0 lg:bg-secondary lg:border-secondary lg:hover:bg-primary lg:hover:border-primary"
+                                            :class='showForm ? "active right-2 clicked lg:w-10 lg:h-10 top-2 lg:top-2" : "right-0 lg:w-12 lg:h-12 top-2 lg:top-[6px]"'
+                                            class="button text-body5 px-6 py-[13px] rounded-full border transition-all group border-primary hover:border-danger bg-primary inline-flex items-center justify-center hover:bg-transparent text-white hover:text-danger ml-auto absolute  z-30 lg:p-0 lg:bg-secondary lg:border-secondary lg:hover:bg-primary lg:hover:border-primary"
                                             @click="showForm = !showForm; showResults = false">
                                             <i
                                                 class='search-icon mr-3 group-hover:hidden block lg:mr-0 lg:hidden lg:group-hover:block'></i>
