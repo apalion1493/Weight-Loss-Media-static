@@ -363,7 +363,7 @@
                                         <button
                                             :class='showForm ? "active right-2 clicked lg:w-10 lg:h-10 top-2 lg:top-2" : "right-0 lg:w-12 lg:h-12 top-2 lg:top-[6px]"'
                                             class="button text-body5 px-6 py-[13px] rounded-full border transition-all group border-primary hover:border-danger bg-primary inline-flex items-center justify-center hover:bg-transparent text-white hover:text-danger ml-auto absolute  z-30 lg:p-0 lg:bg-secondary lg:border-secondary lg:hover:bg-primary lg:hover:border-primary"
-                                            @click="showForm = !showForm; showResults = false">
+                                            @click="showForm = !showForm; showResults = false" aria-label="Search button">
                                             <i
                                                 class='search-icon mr-3 group-hover:hidden block lg:mr-0 lg:hidden lg:group-hover:block'></i>
                                             <i
@@ -393,6 +393,7 @@
                                 </div>
                             </div>
                             <button @click="mobileMenuIsOpen = !mobileMenuIsOpen" :aria-expanded="mobileMenuIsOpen"
+                                    aria-label="Menu burger"
                                 id='burger-button'
                                 class='bg-primary flex flex-col items-center justify-center w-12 h-12 min-w-12 text-white minlg:hidden rounded-full z-[31] relative gap-y-1'>
                                 <span
@@ -403,7 +404,6 @@
                                 <span
                                     :class="mobileMenuIsOpen ? '-rotate-45 transform -translate-y-[6px]' : 'translate-y-0'"
                                     class="block w-5 h-[2px] bg-white transition-all duration-300 rounded-full"></span>
-
                             </button>
                         </div>
                     </div>
