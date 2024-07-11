@@ -79,6 +79,51 @@
         });
 
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            } else {
+                // Fallback for browsers without IntersectionObserver
+                let lazyLoad = function() {
+                    lazyImages.forEach(function(lazyImage) {
+                        if (lazyImage.getBoundingClientRect().top < window.innerHeight && lazyImage.getBoundingClientRect().bottom > 0 && getComputedStyle(lazyImage).display !== "none") {
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImages = lazyImages.filter(function(image) {
+                                return image !== lazyImage;
+                            });
+                        }
+                    });
+
+                    if (lazyImages.length === 0) {
+                        document.removeEventListener("scroll", lazyLoad);
+                        window.removeEventListener("resize", lazyLoad);
+                        window.removeEventListener("orientationchange", lazyLoad);
+                    }
+                };
+
+                document.addEventListener("scroll", lazyLoad);
+                window.addEventListener("resize", lazyLoad);
+                window.addEventListener("orientationchange", lazyLoad);
+            }
+        });
+    </script>
 </head>
 
 <body class="loader-wrapper">
@@ -94,7 +139,7 @@
                     <div class="col-span-12">
                         <div class="flex items-center justify-between lg:relative h-[64px] lg:h-[56px]">
                             <a class='min-w-[145px] z-[1] lg:min-w-[115px]' href="index.html">
-                                <img src="img/Logo-1.svg" alt="Main Logo WLM" />
+                                <img class="lazy" data-src="img/Logo-1.svg" alt="Main Logo WLM" />
                             </a>
                             <div class='flex items-center relative lg:static w-full h-[64px] lg:h-[56px]'>
                                 <ul
@@ -849,7 +894,7 @@
                 </div>
                 <div class="col-span-6 lg:col-span-12">
                     <div class="flex justify-center">
-                        <img class="lg:w-full" src="img/image-home-hero-fitness-template-2.jpg" alt="Alt Image">
+                        <img class="lg:w-full lazy" data-src="img/image-home-hero-fitness-template-2.jpg" alt="Alt Image">
                     </div>
                 </div>
                 <div class="col-span-6 lg:col-span-12">
@@ -947,7 +992,7 @@
                             <div class="swiper-slide">
                                 <div class='flex flex-col shadow-shadow-3 bg-white h-full md:max-w-[302px]'>
 	<div class='flex flex-col items-center justify-center overflow-hidden w-full h-[231px]'>
-		<img src="img/image-home-hero-fitness-template-2.jpg" alt="Alt Image">
+		<img class="lazy" data-src="img/image-home-hero-fitness-template-2.jpg" alt="Alt Image">
 	</div>
 	<div class='flex flex-col items-start px-5 py-6 md:px-4'>
 		<span class='text-tt font-medium bloc mb-2 md:text-button md:mb-1'>Adalin Remy</span>
@@ -962,7 +1007,7 @@
                             <div class="swiper-slide">
                                 <div class='flex flex-col shadow-shadow-3 bg-white h-full md:max-w-[302px]'>
 	<div class='flex flex-col items-center justify-center overflow-hidden w-full h-[231px]'>
-		<img src="img/image-home-hero-fitness-template-2.jpg" alt="Alt Image">
+		<img class="lazy" data-src="img/image-home-hero-fitness-template-2.jpg" alt="Alt Image">
 	</div>
 	<div class='flex flex-col items-start px-5 py-6 md:px-4'>
 		<span class='text-tt font-medium bloc mb-2 md:text-button md:mb-1'>Adalin Remy</span>
@@ -977,7 +1022,7 @@
                             <div class="swiper-slide">
                                 <div class='flex flex-col shadow-shadow-3 bg-white h-full md:max-w-[302px]'>
 	<div class='flex flex-col items-center justify-center overflow-hidden w-full h-[231px]'>
-		<img src="img/image-home-hero-fitness-template-2.jpg" alt="Alt Image">
+		<img class="lazy" data-src="img/image-home-hero-fitness-template-2.jpg" alt="Alt Image">
 	</div>
 	<div class='flex flex-col items-start px-5 py-6 md:px-4'>
 		<span class='text-tt font-medium bloc mb-2 md:text-button md:mb-1'>Adalin Remy</span>
@@ -992,7 +1037,7 @@
                             <div class="swiper-slide">
                                 <div class='flex flex-col shadow-shadow-3 bg-white h-full md:max-w-[302px]'>
 	<div class='flex flex-col items-center justify-center overflow-hidden w-full h-[231px]'>
-		<img src="img/image-home-hero-fitness-template-2.jpg" alt="Alt Image">
+		<img class="lazy" data-src="img/image-home-hero-fitness-template-2.jpg" alt="Alt Image">
 	</div>
 	<div class='flex flex-col items-start px-5 py-6 md:px-4'>
 		<span class='text-tt font-medium bloc mb-2 md:text-button md:mb-1'>Adalin Remy</span>
@@ -1182,7 +1227,7 @@
 					<div class='flex flex-col gap-y-6 md:gap-y-5'>
 						<a href='#' class='flex gap-5 h-[157px] md:h-[110px] uppercase text-primary'>
 	<div class='min-w-[146px] md:min-w-[116px] flex items-center justify-center overflow-hidden'>
-		<img class='object-cover' src="img/blog-post-fitness-templates.jpg" alt="Title image">
+		<img class='object-cover lazy' data-src="img/blog-post-fitness-templates.jpg" alt="Title image">
 	</div>
 	<div class='flex flex-col gap-3 pt-3'>
 		<time class='text-body6 md:text-body8 uppercase text-grey-2' datetime="September 1, 2022">September 1, 2022</time>
@@ -1194,7 +1239,7 @@
 </a>
 						<a href='#' class='flex gap-5 h-[157px] md:h-[110px] uppercase text-primary'>
 	<div class='min-w-[146px] md:min-w-[116px] flex items-center justify-center overflow-hidden'>
-		<img class='object-cover' src="img/blog-post-fitness-templates.jpg" alt="Title image">
+		<img class='object-cover lazy' data-src="img/blog-post-fitness-templates.jpg" alt="Title image">
 	</div>
 	<div class='flex flex-col gap-3 pt-3'>
 		<time class='text-body6 md:text-body8 uppercase text-grey-2' datetime="September 1, 2022">September 1, 2022</time>

@@ -1355,9 +1355,6 @@ select {
 .border-0 {
   border-width: 0px;
 }
-.border-4 {
-  border-width: 4px;
-}
 .border-y {
   border-top-width: 1px;
   border-bottom-width: 1px;
@@ -1402,10 +1399,6 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
-.border-blue-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(59 130 246 / var(--tw-border-opacity));
-}
 .bg-danger {
   --tw-bg-opacity: 1;
   background-color: rgb(255 63 86 / var(--tw-bg-opacity));
@@ -1424,9 +1417,6 @@ select {
 }
 .bg-secondary {
   background-color: rgba(25, 24, 27, 0.05);
-}
-.bg-transparent {
-  background-color: transparent;
 }
 .bg-white {
   --tw-bg-opacity: 1;
@@ -1930,13 +1920,11 @@ select {
 }
 
 .bg-1 {
-  background: url(../img/bg-1.png);
   display: block;
   height: 100%;
   width: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  -o-object-fit: cover;
+     object-fit: cover;
   opacity: 0.15;
 }
 

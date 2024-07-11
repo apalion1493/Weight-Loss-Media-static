@@ -77,8 +77,7 @@
 }
 
 .bg-1 {
-	background: url(../img/bg-1.png);
-	@apply block h-[100%] w-[100%] bg-cover bg-center bg-no-repeat opacity-15;
+	@apply block h-[100%] w-[100%] object-cover opacity-15;
 }
 
 .share-icon {

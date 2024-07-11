@@ -79,6 +79,51 @@
         });
 
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            } else {
+                // Fallback for browsers without IntersectionObserver
+                let lazyLoad = function() {
+                    lazyImages.forEach(function(lazyImage) {
+                        if (lazyImage.getBoundingClientRect().top < window.innerHeight && lazyImage.getBoundingClientRect().bottom > 0 && getComputedStyle(lazyImage).display !== "none") {
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImages = lazyImages.filter(function(image) {
+                                return image !== lazyImage;
+                            });
+                        }
+                    });
+
+                    if (lazyImages.length === 0) {
+                        document.removeEventListener("scroll", lazyLoad);
+                        window.removeEventListener("resize", lazyLoad);
+                        window.removeEventListener("orientationchange", lazyLoad);
+                    }
+                };
+
+                document.addEventListener("scroll", lazyLoad);
+                window.addEventListener("resize", lazyLoad);
+                window.addEventListener("orientationchange", lazyLoad);
+            }
+        });
+    </script>
 </head>
 
 <body class="loader-wrapper">
@@ -94,7 +139,7 @@
                     <div class="col-span-12">
                         <div class="flex items-center justify-between lg:relative h-[64px] lg:h-[56px]">
                             <a class='min-w-[145px] z-[1] lg:min-w-[115px]' href="index.html">
-                                <img src="img/Logo-1.svg" alt="Main Logo WLM" />
+                                <img class="lazy" data-src="img/Logo-1.svg" alt="Main Logo WLM" />
                             </a>
                             <div class='flex items-center relative lg:static w-full h-[64px] lg:h-[56px]'>
                                 <ul
@@ -894,7 +939,7 @@
 						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
-	<img class='object-cover h-[233px] sm:h-auto' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<img class='object-cover h-[233px] sm:h-auto lazy' data-src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
 	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
 		<div class='flex items-center justify-between mb-8 md:mb-4'>
 			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
@@ -915,7 +960,7 @@
 						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
-	<img class='object-cover h-[233px] sm:h-auto' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<img class='object-cover h-[233px] sm:h-auto lazy' data-src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
 	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
 		<div class='flex items-center justify-between mb-8 md:mb-4'>
 			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
@@ -936,7 +981,7 @@
 						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
-	<img class='object-cover h-[233px] sm:h-auto' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<img class='object-cover h-[233px] sm:h-auto lazy' data-src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
 	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
 		<div class='flex items-center justify-between mb-8 md:mb-4'>
 			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
@@ -957,7 +1002,7 @@
 						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
-	<img class='object-cover h-[233px] sm:h-auto' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<img class='object-cover h-[233px] sm:h-auto lazy' data-src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
 	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
 		<div class='flex items-center justify-between mb-8 md:mb-4'>
 			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
@@ -978,7 +1023,7 @@
 						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
-	<img class='object-cover h-[233px] sm:h-auto' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<img class='object-cover h-[233px] sm:h-auto lazy' data-src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
 	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
 		<div class='flex items-center justify-between mb-8 md:mb-4'>
 			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
@@ -999,7 +1044,7 @@
 						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
-	<img class='object-cover h-[233px] sm:h-auto' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<img class='object-cover h-[233px] sm:h-auto lazy' data-src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
 	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
 		<div class='flex items-center justify-between mb-8 md:mb-4'>
 			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
@@ -1020,7 +1065,7 @@
 						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
-	<img class='object-cover h-[233px] sm:h-auto' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<img class='object-cover h-[233px] sm:h-auto lazy' data-src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
 	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
 		<div class='flex items-center justify-between mb-8 md:mb-4'>
 			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
@@ -1041,7 +1086,7 @@
 						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
-	<img class='object-cover h-[233px] sm:h-auto' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<img class='object-cover h-[233px] sm:h-auto lazy' data-src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
 	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
 		<div class='flex items-center justify-between mb-8 md:mb-4'>
 			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
@@ -1062,7 +1107,7 @@
 						class="col-span-4 lg:col-span-6 sm:col-span-12">
 						<a href="#"
 	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
-	<img class='object-cover h-[233px] sm:h-auto' src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<img class='object-cover h-[233px] sm:h-auto lazy' data-src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
 	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
 		<div class='flex items-center justify-between mb-8 md:mb-4'>
 			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
@@ -1274,7 +1319,7 @@
 					<div class='flex flex-col gap-y-6 md:gap-y-5'>
 						<a href='#' class='flex gap-5 h-[157px] md:h-[110px] uppercase text-primary'>
 	<div class='min-w-[146px] md:min-w-[116px] flex items-center justify-center overflow-hidden'>
-		<img class='object-cover' src="img/blog-post-fitness-templates.jpg" alt="Title image">
+		<img class='object-cover lazy' data-src="img/blog-post-fitness-templates.jpg" alt="Title image">
 	</div>
 	<div class='flex flex-col gap-3 pt-3'>
 		<time class='text-body6 md:text-body8 uppercase text-grey-2' datetime="September 1, 2022">September 1, 2022</time>
@@ -1286,7 +1331,7 @@
 </a>
 						<a href='#' class='flex gap-5 h-[157px] md:h-[110px] uppercase text-primary'>
 	<div class='min-w-[146px] md:min-w-[116px] flex items-center justify-center overflow-hidden'>
-		<img class='object-cover' src="img/blog-post-fitness-templates.jpg" alt="Title image">
+		<img class='object-cover lazy' data-src="img/blog-post-fitness-templates.jpg" alt="Title image">
 	</div>
 	<div class='flex flex-col gap-3 pt-3'>
 		<time class='text-body6 md:text-body8 uppercase text-grey-2' datetime="September 1, 2022">September 1, 2022</time>
