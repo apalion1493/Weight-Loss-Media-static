@@ -14,9 +14,9 @@
     'commonStyle': 'bg-secondary'
     })
 
-    <section class='py-14 relative md:py-10'>
+    <section class='py-14 relative md:py-10 overflow-hidden'>
         <div class='bg-1 absolute top-0 left-0 z-0'>
-            <img class="lazy" data-src="img/bg-1.png" alt="Background image">
+            <img class="lazy h-full w-full object-cover" data-src="img/bg-1.png" alt="Background image">
         </div>
         <div class="container relative z-10">
             <div class="grid grid-cols-12 gap-x-6">
@@ -443,7 +443,7 @@
                                     'timeStyle': 'text-grey-1'
                                     })
                                     @@include('components/medium-blog-card.html', {
-                                    'url': '#',
+                                    'link': '#',
                                     'title': 'The 5 effective morning routines you should follow',
                                     'date': 'September 1, 2022',
                                     'style': 'text-primary md:h-full minmd:hidden max-w-[315px]',
@@ -466,7 +466,7 @@
                                     'timeStyle': 'text-grey-1'
                                     })
                                     @@include('components/medium-blog-card.html', {
-                                    'url': '#',
+                                    'link': '#',
                                     'title': 'The 5 effective morning routines you should follow',
                                     'date': 'September 1, 2022',
                                     'style': 'text-primary md:h-full minmd:hidden max-w-[315px]',
@@ -489,7 +489,7 @@
                                     'timeStyle': 'text-grey-1'
                                     })
                                     @@include('components/medium-blog-card.html', {
-                                    'url': '#',
+                                    'link': '#',
                                     'title': 'The 5 effective morning routines you should follow',
                                     'date': 'September 1, 2022',
                                     'style': 'text-primary md:h-full minmd:hidden max-w-[315px]',
