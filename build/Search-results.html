@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .loaded {
+            opacity: 1
+        }
+    </style>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Search results</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+            rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <!--  <link href="https://cdn.jsdelivr.net/npm/vlitejs@6/dist/vlite.css" rel="stylesheet" crossorigin />-->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css"/>
+    <style>
+        .loader-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .loader {
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .fade-out {
+            animation: fadeOut 0.1s forwards;
+        }
+        .fade-in {
+            animation: fadeIn 0.1s forwards;
+        }
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                const content = document.getElementById('content');
+                const body = document.querySelector('body');
+                loader.classList.add('fade-out');
+                loader.addEventListener('animationend', () => {
+                    loader.classList.add('hidden');
+                    content.classList.remove('hidden');
+                    body.classList.remove('loader-wrapper')
+
+                    content.classList.add('fade-in');
+                }, { once: true });
+            }, 500);
+        });
+
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            } else {
+                // Fallback for browsers without IntersectionObserver
+                let lazyLoad = function() {
+                    lazyImages.forEach(function(lazyImage) {
+                        if (lazyImage.getBoundingClientRect().top < window.innerHeight && lazyImage.getBoundingClientRect().bottom > 0 && getComputedStyle(lazyImage).display !== "none") {
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy");
+                            lazyImages = lazyImages.filter(function(image) {
+                                return image !== lazyImage;
+                            });
+                        }
+                    });
+
+                    if (lazyImages.length === 0) {
+                        document.removeEventListener("scroll", lazyLoad);
+                        window.removeEventListener("resize", lazyLoad);
+                        window.removeEventListener("orientationchange", lazyLoad);
+                    }
+                };
+
+                document.addEventListener("scroll", lazyLoad);
+                window.addEventListener("resize", lazyLoad);
+                window.addEventListener("orientationchange", lazyLoad);
+            }
+        });
+    </script>
+</head>
+
+<body class="loader-wrapper">
+<div id="loader" class="loader w-16 h-16">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><radialGradient id="a12" cx=".66" fx=".66" cy=".3125" fy=".3125" gradientTransform="scale(1.5)"><stop offset="0" stop-color="#FF3F56"></stop><stop offset=".3" stop-color="#FF3F56" stop-opacity=".9"></stop><stop offset=".6" stop-color="#FF3F56" stop-opacity=".6"></stop><stop offset=".8" stop-color="#FF3F56" stop-opacity=".3"></stop><stop offset="1" stop-color="#FF3F56" stop-opacity="0"></stop></radialGradient><circle transform-origin="center" fill="none" stroke="url(#a12)" stroke-width="15" stroke-linecap="round" stroke-dasharray="200 1000" stroke-dashoffset="0" cx="100" cy="100" r="70"><animateTransform type="rotate" attributeName="transform" calcMode="spline" dur="2" values="360;0" keyTimes="0;1" keySplines="0 0 1 1" repeatCount="indefinite"></animateTransform></circle><circle transform-origin="center" fill="none" opacity=".2" stroke="#FF3F56" stroke-width="15" stroke-linecap="round" cx="100" cy="100" r="70"></circle></svg>
+</div>
+	<main id="content" class="flex flex-col justify-between min-h-screen hidden">
+		<header x-data="{ mobileMenuIsOpen: false }">
+    <nav @click.away="mobileMenuIsOpen = false">
+        <div class="lg:shadow py-12 z-[33] relative lg:py-5">
+            <div class='container min-h-16'>
+                <div class="grid grid-cols-12 gap-x-6">
+                    <div class="col-span-12">
+                        <div class="flex items-center justify-between lg:relative h-[64px] lg:h-[56px]">
+                            <a class='min-w-[145px] z-[1] lg:min-w-[115px]' href="index.html">
+                                <img class="lazy" data-src="img/Logo-1.svg" alt="Main Logo WLM" />
+                            </a>
+                            <div class='flex items-center relative lg:static w-full h-[64px] lg:h-[56px]'>
+                                <ul
+                                    class='flex items-center gap-x-8 xl:gap-x-4 relative z-[11] mx-auto pr-[144px] lg:hidden'>
+                                    <li>
+                                        <div x-data="{ isOpen: false, openedWithKeyboard: false, leaveTimeout: null }"
+                                            @mouseleave.prevent="leaveTimeout = setTimeout(() => { isOpen = false }, 250)"
+                                            @mouseenter="leaveTimeout ? clearTimeout(leaveTimeout) : true"
+                                            @keydown.esc.prevent="isOpen = false, openedWithKeyboard = false"
+                                            @click.outside="isOpen = false, openedWithKeyboard = false"
+                                            class="relative">
+                                            <!-- Toggle Button -->
+                                            <button type="button" @mouseover="isOpen = true"
+                                                @keydown.space.prevent="openedWithKeyboard = true"
+                                                @keydown.enter.prevent="openedWithKeyboard = true"
+                                                @keydown.down.prevent="openedWithKeyboard = true"
+                                                class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger text-body5 xl:text-body6"
+                                                :aria-expanded="isOpen || openedWithKeyboard" aria-haspopup="true">
+                                                Food
+                                                <svg aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                    class="h-4 w-4 rotate-0">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                                </svg>
+                                            </button>
+                                            <!-- Dropdown Menu -->
+                                            <div x-cloak x-show="isOpen || openedWithKeyboard" x-transition
+                                                x-trap="openedWithKeyboard"
+                                                @click.outside="isOpen = false, openedWithKeyboard = false"
+                                                @keydown.down.prevent="$focus.wrap().next()"
+                                                @keydown.up.prevent="$focus.wrap().previous()"
+                                                class="absolute top-11 left-0 flex w-full min-w-[270px] flex-col gap-y-3 overflow-hidden shadow-shadow-2 bg-white py-4 px-5"
+                                                role="menu">
+                                                <span class='uppercase font-medium tracking-1-6'>Food for weight
+                                                    loss</span>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Low-Carb
+                                                    Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Low-Fat
+                                                    Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">High-Protein Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Plant-Based
+                                                    Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Meal
+                                                    Planning and Prep</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div x-data="{ isOpen: false, openedWithKeyboard: false, leaveTimeout: null }"
+                                            @mouseleave.prevent="leaveTimeout = setTimeout(() => { isOpen = false }, 250)"
+                                            @mouseenter="leaveTimeout ? clearTimeout(leaveTimeout) : true"
+                                            @keydown.esc.prevent="isOpen = false, openedWithKeyboard = false"
+                                            @click.outside="isOpen = false, openedWithKeyboard = false"
+                                            class="relative">
+                                            <!-- Toggle Button -->
+                                            <button type="button" @mouseover="isOpen = true"
+                                                @keydown.space.prevent="openedWithKeyboard = true"
+                                                @keydown.enter.prevent="openedWithKeyboard = true"
+                                                @keydown.down.prevent="openedWithKeyboard = true"
+                                                class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger text-body5 xl:text-body6"
+                                                :aria-expanded="isOpen || openedWithKeyboard" aria-haspopup="true">
+                                                Sports
+                                                <svg aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                    class="h-4 w-4 rotate-0">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                                </svg>
+                                            </button>
+                                            <!-- Dropdown Menu -->
+                                            <div x-cloak x-show="isOpen || openedWithKeyboard" x-transition
+                                                x-trap="openedWithKeyboard"
+                                                @click.outside="isOpen = false, openedWithKeyboard = false"
+                                                @keydown.down.prevent="$focus.wrap().next()"
+                                                @keydown.up.prevent="$focus.wrap().previous()"
+                                                class="absolute top-11 left-0 flex w-full min-w-[270px] flex-col gap-y-3 overflow-hidden shadow-shadow-2 bg-white py-4 px-5"
+                                                role="menu">
+                                                <span class='uppercase font-medium tracking-1-6'>Food for weight
+                                                    loss</span>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Low-Carb
+                                                    Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Low-Fat
+                                                    Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">High-Protein Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Plant-Based
+                                                    Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Meal
+                                                    Planning and Prep</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div x-data="{ isOpen: false, openedWithKeyboard: false, leaveTimeout: null }"
+                                            @mouseleave.prevent="leaveTimeout = setTimeout(() => { isOpen = false }, 250)"
+                                            @mouseenter="leaveTimeout ? clearTimeout(leaveTimeout) : true"
+                                            @keydown.esc.prevent="isOpen = false, openedWithKeyboard = false"
+                                            @click.outside="isOpen = false, openedWithKeyboard = false"
+                                            class="relative">
+                                            <!-- Toggle Button -->
+                                            <button type="button" @mouseover="isOpen = true"
+                                                @keydown.space.prevent="openedWithKeyboard = true"
+                                                @keydown.enter.prevent="openedWithKeyboard = true"
+                                                @keydown.down.prevent="openedWithKeyboard = true"
+                                                class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger text-body5 xl:text-body6"
+                                                :aria-expanded="isOpen || openedWithKeyboard" aria-haspopup="true">
+                                                Procedures
+                                                <svg aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                    class="h-4 w-4 rotate-0">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                                </svg>
+                                            </button>
+                                            <!-- Dropdown Menu -->
+                                            <div x-cloak x-show="isOpen || openedWithKeyboard" x-transition
+                                                x-trap="openedWithKeyboard"
+                                                @click.outside="isOpen = false, openedWithKeyboard = false"
+                                                @keydown.down.prevent="$focus.wrap().next()"
+                                                @keydown.up.prevent="$focus.wrap().previous()"
+                                                class="absolute top-11 left-0 flex w-full min-w-[270px] flex-col gap-y-3 overflow-hidden shadow-shadow-2 bg-white py-4 px-5"
+                                                role="menu">
+                                                <span class='uppercase font-medium tracking-1-6'>Food for weight
+                                                    loss</span>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Low-Carb
+                                                    Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Low-Fat
+                                                    Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">High-Protein Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Plant-Based
+                                                    Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Meal
+                                                    Planning and Prep</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div x-data="{ isOpen: false, openedWithKeyboard: false, leaveTimeout: null }"
+                                            @mouseleave.prevent="leaveTimeout = setTimeout(() => { isOpen = false }, 250)"
+                                            @mouseenter="leaveTimeout ? clearTimeout(leaveTimeout) : true"
+                                            @keydown.esc.prevent="isOpen = false, openedWithKeyboard = false"
+                                            @click.outside="isOpen = false, openedWithKeyboard = false"
+                                            class="relative">
+                                            <!-- Toggle Button -->
+                                            <button type="button" @mouseover="isOpen = true"
+                                                @keydown.space.prevent="openedWithKeyboard = true"
+                                                @keydown.enter.prevent="openedWithKeyboard = true"
+                                                @keydown.down.prevent="openedWithKeyboard = true"
+                                                class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger text-body5 xl:text-body6"
+                                                :aria-expanded="isOpen || openedWithKeyboard" aria-haspopup="true">
+                                                Surgery
+                                                <svg aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                    class="h-4 w-4 rotate-0">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                                </svg>
+                                            </button>
+                                            <!-- Dropdown Menu -->
+                                            <div x-cloak x-show="isOpen || openedWithKeyboard" x-transition
+                                                x-trap="openedWithKeyboard"
+                                                @click.outside="isOpen = false, openedWithKeyboard = false"
+                                                @keydown.down.prevent="$focus.wrap().next()"
+                                                @keydown.up.prevent="$focus.wrap().previous()"
+                                                class="absolute top-11 left-0 flex w-full min-w-[270px] flex-col gap-y-3 overflow-hidden shadow-shadow-2 bg-white py-4 px-5"
+                                                role="menu">
+                                                <span class='uppercase font-medium tracking-1-6'>Food for weight
+                                                    loss</span>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Low-Carb
+                                                    Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Low-Fat
+                                                    Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">High-Protein Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Plant-Based
+                                                    Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Meal
+                                                    Planning and Prep</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div x-data="{ isOpen: false, openedWithKeyboard: false, leaveTimeout: null }"
+                                            @mouseleave.prevent="leaveTimeout = setTimeout(() => { isOpen = false }, 250)"
+                                            @mouseenter="leaveTimeout ? clearTimeout(leaveTimeout) : true"
+                                            @keydown.esc.prevent="isOpen = false, openedWithKeyboard = false"
+                                            @click.outside="isOpen = false, openedWithKeyboard = false"
+                                            class="relative">
+                                            <!-- Toggle Button -->
+                                            <button type="button" @mouseover="isOpen = true"
+                                                @keydown.space.prevent="openedWithKeyboard = true"
+                                                @keydown.enter.prevent="openedWithKeyboard = true"
+                                                @keydown.down.prevent="openedWithKeyboard = true"
+                                                class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger text-body5 xl:text-body6"
+                                                :aria-expanded="isOpen || openedWithKeyboard" aria-haspopup="true">
+                                                Medications
+                                                <svg aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                    class="h-4 w-4 rotate-0">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                                </svg>
+                                            </button>
+                                            <!-- Dropdown Menu -->
+                                            <div x-cloak x-show="isOpen || openedWithKeyboard" x-transition
+                                                x-trap="openedWithKeyboard"
+                                                @click.outside="isOpen = false, openedWithKeyboard = false"
+                                                @keydown.down.prevent="$focus.wrap().next()"
+                                                @keydown.up.prevent="$focus.wrap().previous()"
+                                                class="absolute top-11 left-0 flex w-full min-w-[270px] flex-col gap-y-3 overflow-hidden shadow-shadow-2 bg-white py-4 px-5"
+                                                role="menu">
+                                                <span class='uppercase font-medium tracking-1-6'>Food for weight
+                                                    loss</span>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Low-Carb
+                                                    Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Low-Fat
+                                                    Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">High-Protein Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Plant-Based
+                                                    Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Meal
+                                                    Planning and Prep</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div x-data="{ isOpen: false, openedWithKeyboard: false, leaveTimeout: null }"
+                                            @mouseleave.prevent="leaveTimeout = setTimeout(() => { isOpen = false }, 250)"
+                                            @mouseenter="leaveTimeout ? clearTimeout(leaveTimeout) : true"
+                                            @keydown.esc.prevent="isOpen = false, openedWithKeyboard = false"
+                                            @click.outside="isOpen = false, openedWithKeyboard = false"
+                                            class="relative">
+                                            <!-- Toggle Button -->
+                                            <button type="button" @mouseover="isOpen = true"
+                                                @keydown.space.prevent="openedWithKeyboard = true"
+                                                @keydown.enter.prevent="openedWithKeyboard = true"
+                                                @keydown.down.prevent="openedWithKeyboard = true"
+                                                class="inline-flex cursor-pointer items-center gap-2 whitespace-nowrap py-2 uppercase tracking--032 transition hover:text-danger text-body5 xl:text-body6"
+                                                :aria-expanded="isOpen || openedWithKeyboard" aria-haspopup="true">
+                                                Psychology
+                                                <svg aria-hidden="true" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                                    class="h-4 w-4 rotate-0">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                                </svg>
+                                            </button>
+                                            <!-- Dropdown Menu -->
+                                            <div x-cloak x-show="isOpen || openedWithKeyboard" x-transition
+                                                x-trap="openedWithKeyboard"
+                                                @click.outside="isOpen = false, openedWithKeyboard = false"
+                                                @keydown.down.prevent="$focus.wrap().next()"
+                                                @keydown.up.prevent="$focus.wrap().previous()"
+                                                class="absolute top-11 left-0 flex w-full min-w-[270px] flex-col gap-y-3 overflow-hidden shadow-shadow-2 bg-white py-4 px-5"
+                                                role="menu">
+                                                <span class='uppercase font-medium tracking-1-6'>Food for weight
+                                                    loss</span>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Low-Carb
+                                                    Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Low-Fat
+                                                    Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">High-Protein Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Plant-Based
+                                                    Diets</a>
+                                                <a href="#"
+                                                    class="hover:text-danger transition uppercase text-grey-1 text-body5"
+                                                    role="menuitem">Meal
+                                                    Planning and Prep</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div x-data="{ query: '', results: [], showResults: false, showForm: false }"
+                                    @click.away="showResults = false, showForm = false"
+                                    class='flex flex-col w-full absolute top-0 right-0 bg-white pl-1/24 lg:pl-0 transition-all '
+                                    :class='showForm ? "z-[12] lg:pr-0 lg:z-[32] w-full" : "lg:pr-[56px] w-[200px]"'>
+                                    <label for="header-search" class="text-none absolute -z-10">Search</label>
+                                    <div class='flex items-center relative'>
+                                        <div :class='showForm ? "py-2 pl-6 lg:pl-4 pr-40 border opacity-100" : " border-0 p-0 opacity-0"'
+                                            class='flex items-center rounded-[40px] lg:pr-[56px] h-[64px] lg:h-[56px] w-full  overflow-hidden transition-all bg-white border-border-2 relative h-[56px]'>
+                                            <div class="relative w-full">
+                                                <input type="search" id="header-search" name="Search bar"
+                                                    placeholder="Start your search with keyword" x-model="query"
+                                                    @input.debounce.300="fetchResults" @focus="showResults = true"
+                                                    class="input w-full bg-white border-0 focus:ring-0 focus:bg-transparent focus:border-0 text-base outline-none p-0 pr-7 leading-8 transition-colors duration-200 ease-in-out appearance-none">
+                                                <button type="button" x-show="query.length > 0" @click="query = ''"
+                                                    class="absolute -right-2 top-1/2 transform -translate-y-1/2 text-gray-500 p-3 hover:text-gray-700">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                                        viewBox="0 0 12 12" fill="none">
+                                                        <path
+                                                            d="M10.2616 0.318046L6.00014 4.57951L1.73867 0.318046C1.31253 -0.108101 0.744331 -0.108101 0.318185 0.318046C-0.107962 0.744192 -0.107962 1.31239 0.318185 1.73853L4.57965 6L0.318185 10.2615C-0.107962 10.6876 -0.107962 11.2558 0.318185 11.682C0.744331 12.1081 1.31253 12.1081 1.73867 11.682L6.00014 7.42049L10.2616 11.682C10.6878 12.1081 11.2559 12.1081 11.6821 11.682C12.1082 11.2558 12.1082 10.6876 11.6821 10.2615L7.42063 6L11.6821 1.73853C12.1082 1.31239 12.1082 0.744192 11.6821 0.318046C11.2559 -0.108101 10.6878 -0.108101 10.2616 0.318046Z"
+                                                            fill="#19181B" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <button
+                                            :class='showForm ? "active right-2 clicked lg:w-10 lg:h-10 top-2 lg:top-2" : "right-0 lg:w-12 lg:h-12 top-2 lg:top-[6px]"'
+                                            class="button text-body5 px-6 py-[13px] rounded-full border transition-all group border-primary hover:border-danger bg-primary inline-flex items-center justify-center hover:bg-transparent text-white hover:text-danger ml-auto absolute  z-30 lg:p-0 lg:bg-secondary lg:border-secondary lg:hover:bg-primary lg:hover:border-primary"
+                                            @click="showForm = !showForm; showResults = false" aria-label="Search button">
+                                            <i
+                                                class='search-icon mr-3 group-hover:hidden block lg:mr-0 lg:hidden lg:group-hover:block'></i>
+                                            <i
+                                                class='search-red-icon group-hover:block hidden mr-3 lg:mr-0 lg:hidden lg:group-hover:hidden'></i>
+                                            <i
+                                                class='search-black-icon hidden mr-3 lg:mr-0 lg:block lg:group-hover:hidden'></i>
+                                            <span class="font-normal uppercase lg:hidden">Search</span>
+                                        </button>
+                                    </div>
+                                    <div x-show="showResults && query.length > 0"
+                                        class="absolute left-0 top-full mt-2 pl-1/24 w-full z-10 lg:pl-0">
+                                        <div
+                                            class='bg-white border border-gray-200 rounded-lg shadow-shadow-2 p-6 md:px-4 md:py-5'>
+                                            <ul class='flex flex-col gap-y-4'>
+                                                <template x-for="result in results" :key="result.id">
+                                                    <li class="text-body3 hover:bg-gray-100 cursor-pointer"
+                                                        @click="selectResult(result)">
+                                                        <span x-text="result.title"></span>
+                                                    </li>
+                                                </template>
+                                            </ul>
+                                            <a class='text-danger uppercase font-semibold text-body6 tracking-[0.5px] mt-6 block'
+                                                href="#">More results</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <button @click="mobileMenuIsOpen = !mobileMenuIsOpen" :aria-expanded="mobileMenuIsOpen"
+                                    aria-label="Menu burger"
+                                id='burger-button'
+                                class='bg-primary flex flex-col items-center justify-center w-12 h-12 min-w-12 text-white minlg:hidden rounded-full z-[31] relative gap-y-1'>
+                                <span
+                                    :class="mobileMenuIsOpen ? 'rotate-45 transform translate-y-[6px]' : 'translate-y-0'"
+                                    class="block w-5 h-[2px] bg-white transition-all duration-300 rounded-full"></span>
+                                <span :class="mobileMenuIsOpen ? 'opacity-0' : 'opacity-100'"
+                                    class="block w-5 h-[2px] bg-white transition-opacity duration-300 rounded-full"></span>
+                                <span
+                                    :class="mobileMenuIsOpen ? '-rotate-45 transform -translate-y-[6px]' : 'translate-y-0'"
+                                    class="block w-5 h-[2px] bg-white transition-all duration-300 rounded-full"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id='mobile-menu'>
+            <ul x-cloak x-show="mobileMenuIsOpen"
+                x-transition:enter="transition motion-reduce:transition-none ease-out duration-300"
+                x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
+                x-transition:leave="transition motion-reduce:transition-none ease-out duration-300"
+                x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" id="mobileMenu"
+                class="fixed max-h-svh overflow-x-auto inset-x-0 top-[98px] z-[32] flex flex-col h-full bg-white px-6 pb-60 pt-16 minlg:hidden overflow-y-scroll items-center">
+                <li class="">
+                    <div x-data="{ isExpanded: false }" class="w-full overflow-hidden flex flex-col items-center">
+                        <button id="controlsAccordionItemOne" type="button"
+                            class="flex items-center justify-between gap-2 p-4 uppercase font-medium text-body5 tracking-0-5"
+                            aria-controls="accordionItemOne" @click="isExpanded = ! isExpanded"
+                            :class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+                            :aria-expanded="isExpanded ? 'true' : 'false'">
+                            Food
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"
+                                stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true"
+                                :class="isExpanded  ?  'rotate-180'  :  ''">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </button>
+                        <div x-cloak x-show="isExpanded" id="accordionItemOne" role="region"
+                            aria-labelledby="controlsAccordionItemOne" x-collapse>
+                            <div class="">
+                                <ul class='flex flex-col items-center gap-5 pb-4'>
+                                    <li class="text-body3">
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Low-Carb
+                                            Diets</a>
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Low-Fat
+                                            Diets</a>
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">High-Protein Diets</a>
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Plant-Based
+                                            Diets</a>
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Meal
+                                            Planning and Prep</a>
+                                    </li>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <div x-data="{ isExpanded: false }" class="w-full overflow-hidden flex flex-col items-center">
+                        <button id="controlsAccordionItem2" type="button"
+                            class="flex items-center justify-between gap-2 p-4 uppercase font-medium text-body5 tracking-0-5"
+                            aria-controls="accordionItem2" @click="isExpanded = ! isExpanded"
+                            :class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+                            :aria-expanded="isExpanded ? 'true' : 'false'">
+                            Sports
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"
+                                stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true"
+                                :class="isExpanded  ?  'rotate-180'  :  ''">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </button>
+                        <div x-cloak x-show="isExpanded" id="accordionItem2" role="region"
+                            aria-labelledby="controlsAccordionItem2" x-collapse>
+                            <div class="">
+                                <ul class='flex flex-col items-center gap-5 pb-4'>
+                                    <li class="text-body3">
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Low-Carb
+                                            Diets</a>
+
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Low-Fat
+                                            Diets</a>
+
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">High-Protein Diets</a>
+
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Plant-Based
+                                            Diets</a>
+
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Meal
+                                            Planning and Prep</a>
+                                    </li>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <div x-data="{ isExpanded: false }" class="w-full overflow-hidden flex flex-col items-center">
+                        <button id="controlsAccordionItem3" type="button"
+                            class="flex items-center justify-between gap-2 p-4 uppercase font-medium text-body5 tracking-0-5"
+                            aria-controls="accordionItem3" @click="isExpanded = ! isExpanded"
+                            :class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+                            :aria-expanded="isExpanded ? 'true' : 'false'">
+                            Procedures
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"
+                                stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true"
+                                :class="isExpanded  ?  'rotate-180'  :  ''">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </button>
+                        <div x-cloak x-show="isExpanded" id="accordionItem3" role="region"
+                            aria-labelledby="controlsAccordionItem3" x-collapse>
+                            <div class="">
+                                <ul class='flex flex-col items-center gap-5 pb-4'>
+                                    <li class="text-body3">
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Low-Carb
+                                            Diets</a>
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Low-Fat
+                                            Diets</a>
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">High-Protein Diets</a>
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Plant-Based
+                                            Diets</a>
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Meal
+                                            Planning and Prep</a>
+                                    </li>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <div x-data="{ isExpanded: false }" class="w-full overflow-hidden flex flex-col items-center">
+                        <button id="controlsAccordionItem4" type="button"
+                            class="flex items-center justify-between gap-2 p-4 uppercase font-medium text-body5 tracking-0-5"
+                            aria-controls="accordionItem4" @click="isExpanded = ! isExpanded"
+                            :class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+                            :aria-expanded="isExpanded ? 'true' : 'false'">
+                            Surgery
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"
+                                stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true"
+                                :class="isExpanded  ?  'rotate-180'  :  ''">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </button>
+                        <div x-cloak x-show="isExpanded" id="accordionItem4" role="region"
+                            aria-labelledby="controlsAccordionItem4" x-collapse>
+                            <div class="">
+                                <ul class='flex flex-col items-center gap-5 pb-4'>
+                                    <li class="text-body3">
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Low-Carb
+                                            Diets</a>
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Low-Fat
+                                            Diets</a>
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">High-Protein Diets</a>
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Plant-Based
+                                            Diets</a>
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Meal
+                                            Planning and Prep</a>
+                                    </li>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <div x-data="{ isExpanded: false }" class="w-full overflow-hidden flex flex-col items-center">
+                        <button id="controlsAccordionItem5" type="button"
+                            class="flex items-center justify-between gap-2 p-4 uppercase font-medium text-body5 tracking-0-5"
+                            aria-controls="accordionItem5" @click="isExpanded = ! isExpanded"
+                            :class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+                            :aria-expanded="isExpanded ? 'true' : 'false'">
+                            Medications
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"
+                                stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true"
+                                :class="isExpanded  ?  'rotate-180'  :  ''">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </button>
+                        <div x-cloak x-show="isExpanded" id="accordionItem5" role="region"
+                            aria-labelledby="controlsAccordionItem5" x-collapse>
+                            <div class="">
+                                <ul class='flex flex-col items-center gap-5 pb-4'>
+                                    <li class="text-body3">
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Low-Carb
+                                            Diets</a>
+
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Low-Fat
+                                            Diets</a>
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">High-Protein Diets</a>
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Plant-Based
+                                            Diets</a>
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Meal
+                                            Planning and Prep</a>
+                                    </li>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <div x-data="{ isExpanded: false }" class="w-full overflow-hidden flex flex-col items-center">
+                        <button id="controlsAccordionItem6" type="button"
+                            class="flex items-center justify-between gap-2 p-4 uppercase font-medium text-body5 tracking-0-5"
+                            aria-controls="accordionItem6" @click="isExpanded = ! isExpanded"
+                            :class="isExpanded ? 'text-onSurfaceStrong dark:text-onSurfaceDarkStrong font-bold'  : 'text-onSurface dark:text-onSurfaceDark font-medium'"
+                            :aria-expanded="isExpanded ? 'true' : 'false'">
+                            Psychology
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2"
+                                stroke="currentColor" class="size-5 shrink-0 transition" aria-hidden="true"
+                                :class="isExpanded  ?  'rotate-180'  :  ''">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </button>
+                        <div x-cloak x-show="isExpanded" id="accordionItem6" role="region"
+                            aria-labelledby="controlsAccordionItem6" x-collapse>
+                            <div class="">
+                                <ul class='flex flex-col items-center gap-5 pb-4'>
+                                    <li class="text-body3">
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Low-Carb
+                                            Diets</a>
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Low-Fat
+                                            Diets</a>
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">High-Protein Diets</a>
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Plant-Based
+                                            Diets</a>
+                                    </li>
+                                    <li class='text-body3'>
+                                        <a href="#"
+                                            class="hover:text-danger transition uppercase text-grey-1 text-body6"
+                                            role="menuitem">Meal
+                                            Planning and Prep</a>
+                                    </li>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+		<section class='pt-20 pb-10 lg:py-10 lg:border-b border-border-3'>
+			<div class="container">
+				<div class="grid grid-cols-12 gap-x-6">
+					<div class="col-span-12">
+						<div class="flex flex-col">
+							<span
+								class='text-danger font-medium text-body5 uppercase tracking-1-6 mb-5 block md:text-body8 md:mb-3'>Search
+								results</span>
+							<h1 class="text-h3 font-semibold mb-6 md:text-body2 md:mb-8">Showing results for ”lorem ipsum”</h1>
+							<div x-data="{ query: '', results: [], showResults: false }" @click.away="showResults = false"
+								class='flex flex-col w-full relative @@style'>
+								<label for="search-results" class="text-none absolute -z-10">Search</label>
+								<form
+									class='flex items-center rounded-[40px] w-full border border-border-2 overflow-hidden py-2 pl-6 pr-2 lg:pl-4 h-16 lg:h-14'>
+									<div class="relative w-full">
+										<input type="search" id="search-results" name="Search bar"
+											placeholder="Start your search with keyword" x-model="query" @input.debounce.300="fetchResults"
+											@focus="showResults = true"
+											class="input w-full bg-white border-0 focus:ring-0 focus:bg-transparent focus:border-0 text-base outline-none p-0 pr-44 leading-8 transition-colors duration-200 ease-in-out lg:pr-[75px]">
+										<button type="button" x-show="query.length > 0" @click="query = ''"
+											class="absolute right-36 lg:right-10 top-1/2 transform -translate-y-1/2 text-gray-500 p-3 hover:text-gray-700">
+											<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+												<path
+													d="M10.2616 0.318046L6.00014 4.57951L1.73867 0.318046C1.31253 -0.108101 0.744331 -0.108101 0.318185 0.318046C-0.107962 0.744192 -0.107962 1.31239 0.318185 1.73853L4.57965 6L0.318185 10.2615C-0.107962 10.6876 -0.107962 11.2558 0.318185 11.682C0.744331 12.1081 1.31253 12.1081 1.73867 11.682L6.00014 7.42049L10.2616 11.682C10.6878 12.1081 11.2559 12.1081 11.6821 11.682C12.1082 11.2558 12.1082 10.6876 11.6821 10.2615L7.42063 6L11.6821 1.73853C12.1082 1.31239 12.1082 0.744192 11.6821 0.318046C11.2559 -0.108101 10.6878 -0.108101 10.2616 0.318046Z"
+													fill="#19181B" />
+											</svg>
+										</button>
+									</div>
+									<button type='submit'
+										class="button text-body5 px-6 py-[10px] h-12 rounded-full border transition-all group border-primary hover:border-danger bg-primary inline-flex items-center justify-center hover:bg-transparent text-white hover:text-danger ml-auto absolute top-2 right-2 z-30 lg:p-0 lg:w-10 lg:h-10 lg:top-2">
+										<i class='search-icon mr-3 group-hover:hidden block lg:mr-0'></i>
+										<i class='search-red-icon group-hover:block hidden mr-3 lg:mr-0'></i>
+										<span class="font-normal uppercase lg:hidden">Search</span>
+									</button>
+								</form>
+								<div x-show="showResults && query.length > 0"
+									class="absolute left-0 top-full mt-2 pl-0 w-full z-10 lg:pl-0">
+									<div class='bg-white border border-gray-200 rounded-lg shadow-shadow-2 p-6 md:px-4 md:py-5'>
+										<ul class='flex flex-col gap-y-4'>
+											<template x-for="result in results" :key="result.id">
+												<li class="text-body3 hover:bg-gray-100 cursor-pointer" @click="selectResult(result)">
+													<span x-text="result.title"></span>
+												</li>
+											</template>
+										</ul>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</section>
+		<section class='py-10 border-t border-b border-border-3 mb-24 sm:border-0 lg:py-10 lg:mb-0'>
+			<div class="container">
+				<div x-data="{ showAll: false }" class="grid grid-cols-12 gap-x-6 gap-y-14 md:gap-y-5">
+					<div class="col-span-12">
+						<div x-data="{ selected: 0 }" class="flex gap-x-2 mb-8 md:mb-5">
+							<!-- Loop through options -->
+							<template x-for="(option, index) in ['All', 'diets', 'sports']">
+								<button class='transition uppercase px-4 py-[10px] rounded-full text-body6'
+									x-on:click="selected = index" :class="{
+										'bg-primary text-white border-primary': selected === index,
+										'bg-secondary border-secondary ': selected !== index
+									}" x-text="option" class="px-4 py-2 rounded cursor-pointer"></button>
+							</template>
+						</div>
+						<span class='text-border-2 text-body md:text-body6 block md:mb-3'>Showing results 1 - 12 of 24</span>
+					</div>
+					<div x-show="showAll || $el.dataset.index < 6 || window.innerWidth >= 640" data-index="0"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
+						<a href="#"
+	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
+	<img class='object-cover h-[233px] sm:h-auto lazy' data-src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
+		<div class='flex items-center justify-between mb-8 md:mb-4'>
+			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
+				datetime="September 1, 2022">September 1, 2022</time>
+			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Diet</span>
+		</div>
+		<span class='text-tt mb-3 block font-medium md:text-button md:mb-2'>The 5 effective fitness morning routines you should follow</span>
+		<p class='blog-card__text text-grey-1 mb-2 lg:mb-6 text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur
+			adipiscing elit. Habitasse arcu vulputate
+			velit scelerisque... </p>
+		<span
+			class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium md:text-body5'>Read
+			More</span>
+	</div>
+</a>
+					</div>
+					<div x-show="showAll || $el.dataset.index < 6 || window.innerWidth >= 640" data-index="1"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
+						<a href="#"
+	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
+	<img class='object-cover h-[233px] sm:h-auto lazy' data-src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
+		<div class='flex items-center justify-between mb-8 md:mb-4'>
+			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
+				datetime="September 1, 2022">September 1, 2022</time>
+			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Diet</span>
+		</div>
+		<span class='text-tt mb-3 block font-medium md:text-button md:mb-2'>The 5 effective fitness morning routines you should follow</span>
+		<p class='blog-card__text text-grey-1 mb-2 lg:mb-6 text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur
+			adipiscing elit. Habitasse arcu vulputate
+			velit scelerisque... </p>
+		<span
+			class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium md:text-body5'>Read
+			More</span>
+	</div>
+</a>
+					</div>
+					<div x-show="showAll || $el.dataset.index < 6 || window.innerWidth >= 640" data-index="2"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
+						<a href="#"
+	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
+	<img class='object-cover h-[233px] sm:h-auto lazy' data-src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
+		<div class='flex items-center justify-between mb-8 md:mb-4'>
+			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
+				datetime="September 1, 2022">September 1, 2022</time>
+			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Diet</span>
+		</div>
+		<span class='text-tt mb-3 block font-medium md:text-button md:mb-2'>The 5 effective fitness morning routines you should follow</span>
+		<p class='blog-card__text text-grey-1 mb-2 lg:mb-6 text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur
+			adipiscing elit. Habitasse arcu vulputate
+			velit scelerisque... </p>
+		<span
+			class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium md:text-body5'>Read
+			More</span>
+	</div>
+</a>
+					</div>
+					<div x-show="showAll || $el.dataset.index < 6 || window.innerWidth >= 640" data-index="3"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
+						<a href="#"
+	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
+	<img class='object-cover h-[233px] sm:h-auto lazy' data-src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
+		<div class='flex items-center justify-between mb-8 md:mb-4'>
+			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
+				datetime="September 1, 2022">September 1, 2022</time>
+			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Sports</span>
+		</div>
+		<span class='text-tt mb-3 block font-medium md:text-button md:mb-2'>The 5 effective fitness morning routines you should follow</span>
+		<p class='blog-card__text text-grey-1 mb-2 lg:mb-6 text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur
+			adipiscing elit. Habitasse arcu vulputate
+			velit scelerisque... </p>
+		<span
+			class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium md:text-body5'>Read
+			More</span>
+	</div>
+</a>
+					</div>
+					<div x-show="showAll || $el.dataset.index < 6 || window.innerWidth >= 640" data-index="4"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
+						<a href="#"
+	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
+	<img class='object-cover h-[233px] sm:h-auto lazy' data-src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
+		<div class='flex items-center justify-between mb-8 md:mb-4'>
+			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
+				datetime="September 1, 2022">September 1, 2022</time>
+			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Sports</span>
+		</div>
+		<span class='text-tt mb-3 block font-medium md:text-button md:mb-2'>The 5 effective fitness morning routines you should follow</span>
+		<p class='blog-card__text text-grey-1 mb-2 lg:mb-6 text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur
+			adipiscing elit. Habitasse arcu vulputate
+			velit scelerisque... </p>
+		<span
+			class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium md:text-body5'>Read
+			More</span>
+	</div>
+</a>
+					</div>
+					<div x-show="showAll || $el.dataset.index < 6 || window.innerWidth >= 640" data-index="5"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
+						<a href="#"
+	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
+	<img class='object-cover h-[233px] sm:h-auto lazy' data-src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
+		<div class='flex items-center justify-between mb-8 md:mb-4'>
+			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
+				datetime="September 1, 2022">September 1, 2022</time>
+			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Sports</span>
+		</div>
+		<span class='text-tt mb-3 block font-medium md:text-button md:mb-2'>The 5 effective fitness morning routines you should follow</span>
+		<p class='blog-card__text text-grey-1 mb-2 lg:mb-6 text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur
+			adipiscing elit. Habitasse arcu vulputate
+			velit scelerisque... </p>
+		<span
+			class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium md:text-body5'>Read
+			More</span>
+	</div>
+</a>
+					</div>
+					<div x-show="showAll || $el.dataset.index < 6 || window.innerWidth >= 640" data-index="6"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
+						<a href="#"
+	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
+	<img class='object-cover h-[233px] sm:h-auto lazy' data-src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
+		<div class='flex items-center justify-between mb-8 md:mb-4'>
+			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
+				datetime="September 1, 2022">September 1, 2022</time>
+			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Diet</span>
+		</div>
+		<span class='text-tt mb-3 block font-medium md:text-button md:mb-2'>The 5 effective fitness morning routines you should follow</span>
+		<p class='blog-card__text text-grey-1 mb-2 lg:mb-6 text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur
+			adipiscing elit. Habitasse arcu vulputate
+			velit scelerisque... </p>
+		<span
+			class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium md:text-body5'>Read
+			More</span>
+	</div>
+</a>
+					</div>
+					<div x-show="showAll || $el.dataset.index < 6 || window.innerWidth >= 640" data-index="7"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
+						<a href="#"
+	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
+	<img class='object-cover h-[233px] sm:h-auto lazy' data-src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
+		<div class='flex items-center justify-between mb-8 md:mb-4'>
+			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
+				datetime="September 1, 2022">September 1, 2022</time>
+			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Diet</span>
+		</div>
+		<span class='text-tt mb-3 block font-medium md:text-button md:mb-2'>The 5 effective fitness morning routines you should follow</span>
+		<p class='blog-card__text text-grey-1 mb-2 lg:mb-6 text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur
+			adipiscing elit. Habitasse arcu vulputate
+			velit scelerisque... </p>
+		<span
+			class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium md:text-body5'>Read
+			More</span>
+	</div>
+</a>
+					</div>
+					<div x-show="showAll || $el.dataset.index < 6 || window.innerWidth >= 640" data-index="8"
+						class="col-span-4 lg:col-span-6 sm:col-span-12">
+						<a href="#"
+	class='blog-card flex flex-col bg-white gap-y-10 hover:shadow-shadow-3 transition overflow-hidden h-[572px] md:gap-y-6 md:h-auto w-full'>
+	<img class='object-cover h-[233px] sm:h-auto lazy' data-src="img/card-blog-4.jpg" alt="img/card-blog-4.jpgAlt">
+	<div class='flex flex-col px-5 pb-8 h-full md:px-2 md:pb-7'>
+		<div class='flex items-center justify-between mb-8 md:mb-4'>
+			<time class='text-grey-1 text-body5 font-medium uppercase tracking-[1.6px] md:text-body6'
+				datetime="September 1, 2022">September 1, 2022</time>
+			<span class='bg-secondary px-4 py-[10px] rounded-full uppercase text-body6 tracking-[1px]'>Diet</span>
+		</div>
+		<span class='text-tt mb-3 block font-medium md:text-button md:mb-2'>The 5 effective fitness morning routines you should follow</span>
+		<p class='blog-card__text text-grey-1 mb-2 lg:mb-6 text-body md:text-body4'>Lorem ipsum dolor sit amet, consectetur
+			adipiscing elit. Habitasse arcu vulputate
+			velit scelerisque... </p>
+		<span
+			class='text-danger hover:text-primary transition mt-auto uppercase tracking-[0.5px] font-medium md:text-body5'>Read
+			More</span>
+	</div>
+</a>
+					</div>
+					<div class="col-span-12">
+						<div class='flex items-center justify-between mx-auto max-w-[692px] sm:hidden'>
+							<button type="button" aria-label="Prev"
+								class='w-16 h-16 bg-primary disabled:bg-white cursor-pointer flex items-center justify-center rounded-full shadow-shadow-5 group'
+								disabled>
+								<i class='group-disabled:block hidden'>
+									<span class='arrow-left-black'></span>
+								</i>
+								<i class='group-disabled:hidden block rotate-180'>
+									<span class='arrow-right-white'></span>
+								</i>
+							</button>
+							<div class='flex items-center gap-3'>
+								<div class='pagination-num active'>
+									1</div>
+								<div class='pagination-num'>
+									2</div>
+								<div class='pagination-num'>
+									3</div>
+								<div class='pagination-num'>
+									...</div>
+								<div class='pagination-num'>
+									10</div>
+							</div>
+							<button type="button" aria-label="Next"
+								class='w-16 h-16 bg-primary disabled:bg-white cursor-pointer flex items-center justify-center rounded-full shadow-shadow-5 group'>
+								<i class='group-disabled:block hidden rotate-180'>
+									<span class='arrow-left-black'></span>
+								</i>
+								<i class='group-disabled:hidden block'>
+									<span class='arrow-right-white'></span>
+								</i>
+							</button>
+						</div>
+						<button type='button'
+							class="button text-button px-10 py-4 rounded-full border transition group border-primary hover:border-danger bg-primary inline-flex items-center justify-center hover:bg-transparent text-white hover:text-danger w-full minsm:hidden uppercase"
+							@click="showAll = !showAll">
+							<span x-show="!showAll" class="font-medium">More Posts</span>
+							<span x-show="showAll" class="font-medium">Hidden Posts</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="py-20 lg:py-10 bg-secondary">
+	<div class="container">
+		<div class="grid grid-cols-12 gap-6">
+			<div class="col-span-7 lg:col-span-12">
+				<h3 class='text-h3 md:text-h3Mob font-medium'>Subscribe to my weekly <br>
+					newsletter today!</h3>
+			</div>
+			<div class="col-span-5 lg:col-span-12 flex items-center">
+				<form
+					class='flex items-center rounded-[40px] w-full border border-border-2 overflow-hidden py-2 pl-6 pr-2 md:pl-4'>
+					<div class="relative w-full">
+						<label for="hero-field" class="text-none absolute -z-10">Placeholder</label>
+						<input type="email" id="hero-field" name="hero-field" placeholder="Enter your email"
+							class="input w-full bg-gray-100 border-0 focus:ring-0 focus:bg-transparent focus:border-0 text-base outline-none text-gray-700 p-0 pr-2 leading-8 transition-colors duration-200 ease-in-out">
+					</div>
+					<button type='submit'
+						class="button text-body5 px-6 py-[10px] rounded-full border transition group border-primary hover:border-danger bg-primary inline-flex items-center hover:bg-transparent text-white hover:text-danger md:text-body6 md:px-5">
+						<span class="font-normal uppercase">Subscribe</span>
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+		<footer class="pt-10 bg-primary text-white">
+	<div class="container flex flex-col overflow-hidden">
+		<div class="grid grid-cols-12 gap-x-6 py-14 md:pt-0 md:pb-10">
+			<div class="col-span-7 md:col-span-12">
+				<div class='flex flex-col max-w-[442px] items-start'>
+					<img class='mb-4 sm:max-w-[115px]' src="img/Logo-1.svg" alt="Main Logo WLM">
+					<p class='text-body3 md:text-grey-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						Habitasse arcu vulputate velit scelerisque.</p>
+				</div>
+			</div>
+			<div class="col-span-5 md:col-span-12"></div>
+		</div>
+		<div
+			class="grid grid-cols-12 gap-x-6 lg:gap-y-12 border-y border-border-1 py-14 md:py-12 md:gap-y-0 md:border-b-0 md:pb-0">
+			<div class="col-span-3 lg:col-span-6 md:col-span-8 md:order-1">
+				<div class='flex flex-col gap-y-12 lg:gap-y-6'>
+					<h4 class='uppercase font-medium text-t2 md:text-body5'>Pages</h4>
+					<ul class='flex flex-col gap-5 md:gap-y-4'>
+						<li>
+							<a class='uppercase transition hover:text-danger tracking-wider md:text-body6 md:text-grey-2'
+								href="#">Food for Weight Loss</a>
+						</li>
+						<li>
+							<a class='uppercase transition hover:text-danger tracking-wider md:text-body6 md:text-grey-2'
+								href="#">Sports for Weight Loss</a>
+						</li>
+						<li>
+							<a class='uppercase transition hover:text-danger tracking-wider md:text-body6 md:text-grey-2'
+								href="#">Weight Loss Procedures</a>
+						</li>
+						<li>
+							<a class='uppercase transition hover:text-danger tracking-wider md:text-body6 md:text-grey-2'
+								href="#">Weight Loss Surgery</a>
+						</li>
+						<li>
+							<a class='uppercase transition hover:text-danger tracking-wider md:text-body6 md:text-grey-2'
+								href="#">Medications for Weight Loss</a>
+						</li>
+						<li>
+							<a class='uppercase transition hover:text-danger tracking-wider md:text-body6 md:text-grey-2'
+								href="#">Psychology in Weight Loss</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-span-2 lg:col-span-4 md:col-span-4 md:order-2">
+				<div class='flex flex-col gap-y-12 lg:gap-y-6'>
+					<h4 class='uppercase font-medium text-t2 md:text-body5'>Legal</h4>
+					<ul class='flex flex-col gap-5 md:gap-y-4'>
+						<li>
+							<a class='uppercase transition hover:text-danger tracking-wider md:text-body6 md:text-grey-2'
+								href="#">terms</a>
+						</li>
+						<li>
+							<a class='uppercase transition hover:text-danger tracking-wider md:text-body6 md:text-grey-2'
+								href="#">privacy</a>
+						</li>
+						<li>
+							<a class='uppercase transition hover:text-danger tracking-wider md:text-body6 md:text-grey-2'
+								href="#">policy</a>
+						</li>
+						<li>
+							<a class='uppercase transition hover:text-danger tracking-wider md:text-body6 md:text-grey-2'
+								href="#">conditions</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-span-2 lg:col-span-2 md:col-span-12 md:order-4">
+				<div class='flex flex-col gap-y-12 lg:gap-y-6'>
+					<h4 class='uppercase font-medium text-t2 md:hidden'>Socials</h4>
+					<ul class='flex flex-col gap-5 md:flex-row md:justify-between'>
+						<li class="text-none">
+							<a target='_blank' class='uppercase transition hover:text-danger group tracking-wider text-none' href="#">
+								Twitter
+								<svg class='md:w-8 md:h-8' xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16"
+									fill="none">
+									<path class='group-hover:fill-danger transition'
+										d="M13.2215 0.230996H14.1225L14.4625 0.298996C14.6778 0.332996 14.8762 0.383996 15.0575 0.451997L15.2275 0.536997C15.3748 0.604997 15.491 0.661663 15.576 0.706996C15.661 0.75233 15.7885 0.825996 15.9585 0.927997L16.0265 0.978996C16.1625 1.081 16.2843 1.183 16.392 1.285C16.4997 1.387 16.6612 1.41533 16.8765 1.37C17.0125 1.336 17.2222 1.27366 17.5055 1.183L17.6075 1.149C17.8682 1.05833 18.1232 0.956329 18.3725 0.842997L18.5255 0.774997C18.7068 0.695663 18.8088 0.644663 18.8315 0.621996L19.0015 0.536997V0.519997H19.0185L19.0355 0.502996H19.0525V0.536997L19.0355 0.553996L19.0015 0.638996V0.672997C18.9902 0.68433 18.9845 0.706996 18.9845 0.740996L18.8145 1.081C18.7238 1.26233 18.5935 1.46633 18.4235 1.693C18.2875 1.87433 18.1515 2.033 18.0155 2.169C17.8682 2.271 17.7832 2.34466 17.7605 2.39C17.7038 2.44666 17.6528 2.48633 17.6075 2.509L17.4885 2.577V2.594H17.4715L17.4375 2.611V2.628H17.4205V2.645H17.4035H17.4885L17.9815 2.543C18.2422 2.48633 18.5482 2.407 18.8995 2.305L19.4435 2.118L19.5115 2.084H19.5455L19.5795 2.067V2.118H19.5625L19.2905 2.492L19.1375 2.679C19.0922 2.747 19.0638 2.781 19.0525 2.781C19.0412 2.781 19.0242 2.80366 19.0015 2.849C18.9788 2.89433 18.8542 3.02466 18.6275 3.24C18.4008 3.45533 18.1798 3.648 17.9645 3.818C17.7492 3.988 17.6415 4.20333 17.6415 4.464C17.6415 4.61133 17.6302 4.86633 17.6075 5.229V5.331C17.5962 5.61433 17.5508 5.96566 17.4715 6.385C17.4262 6.70233 17.3298 7.12166 17.1825 7.643C17.0352 8.16433 16.8765 8.62333 16.7065 9.02C16.4912 9.51866 16.2928 9.921 16.1115 10.227L16.0095 10.38C15.7942 10.7427 15.6355 10.9977 15.5335 11.145C15.3068 11.4623 15.134 11.6947 15.015 11.842C14.896 11.9893 14.6665 12.233 14.3265 12.573C14.0432 12.8563 13.8958 13.0093 13.8845 13.032L13.5445 13.304C13.3632 13.4513 13.1535 13.6157 12.9155 13.797C12.6775 13.9783 12.4678 14.1172 12.2865 14.2135C12.1052 14.3098 11.8728 14.4317 11.5895 14.579C11.3855 14.6923 11.0965 14.8227 10.7225 14.97C10.5185 15.0607 10.1898 15.174 9.7365 15.31C9.3625 15.4233 9.02817 15.5027 8.7335 15.548C8.40483 15.616 8.04217 15.667 7.6455 15.701L7.0335 15.769H5.9115L5.6055 15.735L4.6875 15.633C4.25683 15.565 3.96783 15.5083 3.8205 15.463C3.57117 15.4063 3.217 15.2987 2.758 15.14C2.299 14.9813 1.90517 14.817 1.5765 14.647C1.25917 14.4997 1.0495 14.3977 0.9475 14.341C0.8795 14.307 0.788833 14.256 0.6755 14.188L0.4545 14.052V14.035H0.4205V14.001L0.5395 14.018C0.664166 14.018 0.805833 14.0237 0.9645 14.035C1.19117 14.0577 1.43483 14.0577 1.6955 14.035H1.7465C2.07517 14.0123 2.3245 13.9897 2.4945 13.967C2.84583 13.899 3.16317 13.8253 3.4465 13.746C3.79783 13.6667 4.13783 13.5533 4.4665 13.406C4.7725 13.27 4.9935 13.168 5.1295 13.1C5.3335 12.9867 5.52617 12.862 5.7075 12.726L6.1155 12.471V12.454H6.1325V12.437H6.1495L6.1665 12.42H6.1835V12.386H6.2005L5.7925 12.352C5.74717 12.352 5.66217 12.3407 5.5375 12.318L5.3845 12.284C5.19183 12.2273 4.98783 12.1537 4.7725 12.063C4.55717 11.9723 4.35317 11.8647 4.1605 11.74C4.0245 11.6493 3.88283 11.5473 3.7355 11.434C3.69017 11.4 3.62217 11.332 3.5315 11.23L3.3785 11.077C3.23117 10.907 3.10933 10.7455 3.013 10.5925C2.91667 10.4395 2.8175 10.2553 2.7155 10.04L2.5795 9.734L2.5625 9.666L2.5455 9.649L2.8005 9.683C2.87983 9.69433 3.07817 9.7 3.3955 9.7C3.6335 9.7 3.8205 9.68866 3.9565 9.666L4.1435 9.632L4.1775 9.615L4.2795 9.598V9.581L3.9905 9.513C3.9565 9.50166 3.8715 9.46766 3.7355 9.411L3.5145 9.326C3.26517 9.21266 3.06117 9.10216 2.9025 8.9945C2.74383 8.88683 2.60783 8.77633 2.4945 8.663C2.30183 8.47033 2.14883 8.31166 2.0355 8.187C1.84283 7.92633 1.70117 7.694 1.6105 7.49C1.4745 7.19533 1.37817 6.95166 1.3215 6.759C1.2535 6.44166 1.21383 6.20366 1.2025 6.045L1.1685 5.671L1.1855 5.688H1.2025L1.5425 5.841C1.7125 5.92033 1.9335 5.98833 2.2055 6.045C2.31883 6.06766 2.4435 6.096 2.5795 6.13L2.6815 6.147H2.9195H2.9025V6.13H2.8855V6.113L2.8515 6.096H2.8345V6.079L2.8005 6.062H2.7835L2.6475 5.943C2.53417 5.86366 2.43217 5.773 2.3415 5.671L2.0355 5.314C1.8995 5.13266 1.80883 4.99666 1.7635 4.906C1.6615 4.72466 1.5765 4.53766 1.5085 4.345C1.4065 4.11833 1.3385 3.89733 1.3045 3.682C1.24783 3.43266 1.2195 3.21166 1.2195 3.019C1.2195 2.747 1.22517 2.56 1.2365 2.458C1.24783 2.31066 1.28183 2.135 1.3385 1.931C1.36117 1.829 1.41783 1.66466 1.5085 1.438L1.7295 0.927997H1.7465H1.7635V0.944997H1.7805L1.7975 0.978996V0.995996H1.8145L2.0355 1.251L2.2395 1.455C2.38683 1.625 2.50583 1.74966 2.5965 1.829C2.77783 2.033 2.89683 2.14633 2.9535 2.169C2.96483 2.169 2.9875 2.19166 3.0215 2.237C3.0555 2.28233 3.1745 2.38716 3.3785 2.5515C3.5825 2.71583 3.8375 2.9 4.1435 3.104C4.40417 3.28533 4.7555 3.495 5.1975 3.733C5.61683 3.94833 6.03617 4.13533 6.4555 4.294L7.3735 4.634C7.45283 4.65666 7.63417 4.69633 7.9175 4.753L8.2915 4.821C8.7335 4.91166 9.06217 4.96266 9.2775 4.974L9.7195 5.025H9.8385L9.8045 4.753C9.78183 4.66233 9.7705 4.464 9.7705 4.158C9.7705 3.886 9.7875 3.648 9.8215 3.444C9.8895 3.14933 9.95183 2.92266 10.0085 2.764C10.1105 2.51466 10.1898 2.339 10.2465 2.237C10.3145 2.101 10.4165 1.948 10.5525 1.778C10.6432 1.63066 10.8075 1.44933 11.0455 1.234C11.2268 1.07533 11.4535 0.910996 11.7255 0.740996C12.0655 0.570996 12.3092 0.463329 12.4565 0.417996C12.7058 0.338663 12.8872 0.287663 13.0005 0.264997L13.2215 0.230996Z"
+										fill="white" />
+								</svg>
+							</a>
+						</li>
+						<li class="text-none">
+							<a target='_blank' class='uppercase transition hover:text-danger group tracking-wider text-none' href="#">
+								Linkedin
+								<svg class='md:w-8 md:h-8' xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+									fill="none">
+									<path class='group-hover:fill-danger transition'
+										d="M0.377998 2.7C0.377998 2.148 0.572998 1.692 0.962998 1.332C1.353 0.972 1.86 0.792002 2.484 0.792002C3.108 0.792002 3.606 0.969002 3.978 1.323C4.35 1.677 4.536 2.148 4.536 2.736C4.536 3.288 4.35 3.732 3.978 4.068C3.57 4.44 3.06 4.626 2.448 4.626H2.43C1.83 4.626 1.338 4.443 0.953998 4.077C0.569998 3.711 0.377998 3.252 0.377998 2.7ZM0.593998 17.208V6.12H4.284V17.208H0.593998ZM6.336 17.208H10.026V11.016C10.026 10.644 10.074 10.35 10.17 10.134C10.338 9.75 10.575 9.429 10.881 9.171C11.187 8.913 11.58 8.784 12.06 8.784C13.308 8.784 13.932 9.618 13.932 11.286V17.208H17.622V10.854C17.622 9.21 17.232 7.968 16.452 7.128C15.672 6.288 14.646 5.868 13.374 5.868C11.958 5.868 10.842 6.48 10.026 7.704V7.74V6.12H6.336C6.36 6.6 6.372 7.704 6.372 9.432C6.372 10.38 6.366 12.234 6.354 14.994L6.336 17.208Z"
+										fill="white" />
+								</svg>
+							</a>
+						</li>
+						<li class="text-none">
+							<a target='_blank' class='uppercase transition hover:text-danger group tracking-wider text-none' href="#">
+								Instagram
+								<svg class='md:w-8 md:h-8' xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+									fill="none">
+									<path class='group-hover:fill-danger transition'
+										d="M11.952 8.991C11.952 9.519 11.82 10.008 11.556 10.458C11.292 10.908 10.932 11.265 10.476 11.529C10.02 11.793 9.528 11.925 9 11.925C8.472 11.925 7.983 11.793 7.533 11.529C7.083 11.265 6.726 10.908 6.462 10.458C6.198 10.008 6.066 9.519 6.066 8.991C6.066 8.463 6.198 7.974 6.462 7.524C6.726 7.074 7.083 6.717 7.533 6.453C7.983 6.189 8.472 6.057 9 6.057C9.528 6.057 10.02 6.189 10.476 6.453C10.932 6.717 11.292 7.074 11.556 7.524C11.82 7.974 11.952 8.463 11.952 8.991ZM16.776 2.619C16.404 2.067 15.942 1.599 15.39 1.215C14.994 0.951002 14.514 0.759003 13.95 0.639002C13.434 0.531002 12.756 0.465002 11.916 0.441002C11.376 0.417002 10.404 0.405003 9 0.405003C7.596 0.405003 6.624 0.417002 6.084 0.441002C5.244 0.465002 4.572 0.531002 4.068 0.639002C3.504 0.759003 3.024 0.951002 2.628 1.215C2.04 1.611 1.572 2.079 1.224 2.619C0.960001 3.015 0.768001 3.495 0.648001 4.059C0.540001 4.575 0.474001 5.253 0.450001 6.093C0.426001 6.633 0.414001 7.602 0.414001 9C0.414001 10.398 0.426001 11.367 0.450001 11.907C0.474001 12.747 0.540001 13.425 0.648001 13.941C0.768001 14.505 0.960001 14.985 1.224 15.381C1.572 15.933 2.04 16.395 2.628 16.767C3.024 17.031 3.504 17.223 4.068 17.343C4.572 17.463 5.244 17.535 6.084 17.559C6.624 17.583 7.596 17.595 9 17.595C10.404 17.595 11.376 17.583 11.916 17.559C12.756 17.535 13.434 17.463 13.95 17.343C14.514 17.223 14.994 17.031 15.39 16.767C15.93 16.407 16.392 15.945 16.776 15.381C17.04 14.985 17.232 14.505 17.352 13.941C17.46 13.425 17.526 12.747 17.55 11.907C17.574 11.367 17.586 10.398 17.586 9C17.586 7.602 17.574 6.633 17.55 6.093C17.526 5.253 17.46 4.575 17.352 4.059C17.232 3.495 17.04 3.015 16.776 2.619ZM9 13.437C8.196 13.437 7.455 13.239 6.777 12.843C6.099 12.447 5.559 11.907 5.157 11.223C4.755 10.539 4.554 9.795 4.554 8.991C4.554 8.187 4.755 7.446 5.157 6.768C5.559 6.09 6.099 5.55 6.777 5.148C7.455 4.746 8.196 4.545 9 4.545C9.804 4.545 10.548 4.746 11.232 5.148C11.916 5.55 12.456 6.09 12.852 6.768C13.248 7.446 13.446 8.187 13.446 8.991C13.446 9.795 13.248 10.539 12.852 11.223C12.456 11.907 11.916 12.447 11.232 12.843C10.548 13.239 9.804 13.437 9 13.437ZM13.626 5.373C13.338 5.373 13.092 5.271 12.888 5.067C12.684 4.863 12.582 4.617 12.582 4.329C12.582 4.041 12.684 3.795 12.888 3.591C13.092 3.387 13.338 3.285 13.626 3.285C13.914 3.285 14.16 3.387 14.364 3.591C14.568 3.795 14.67 4.041 14.67 4.329C14.67 4.617 14.568 4.863 14.364 5.067C14.16 5.271 13.914 5.373 13.626 5.373Z"
+										fill="white" />
+								</svg>
+							</a>
+						</li>
+						<li class="text-none">
+							<a target='_blank' class='uppercase transition hover:text-danger group tracking-wider text-none' href="#">
+								Facebook
+								<svg class='md:w-8 md:h-8' xmlns="http://www.w3.org/2000/svg" width="10" height="18" viewBox="0 0 10 18"
+									fill="none">
+									<path class='group-hover:fill-danger transition'
+										d="M6.431 17.82V9.774H9.275L9.689 6.642H6.431V4.626C6.431 4.122 6.533 3.756 6.737 3.528C6.989 3.252 7.433 3.114 8.069 3.114H9.815V0.306C9.107 0.222 8.261 0.18 7.277 0.18C6.437 0.18 5.696 0.339001 5.054 0.657C4.412 0.975 3.917 1.44 3.569 2.052C3.209 2.688 3.029 3.444 3.029 4.32V6.642H0.184998V9.774H3.029V17.82H6.431Z"
+										fill="white" />
+								</svg>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-span-1 lg:hidden"></div>
+			<div class="col-span-4 lg:col-span-12 md:order-3 md:py-10 md:border-y md:border-border-1 md:my-10">
+				<div class='flex flex-col'>
+					<span class='uppercase font-medium text-t2 block mb-14 md:mb-6 md:text-body5'>Latest Articles</span>
+					<div class='flex flex-col gap-y-6 md:gap-y-5'>
+						<a href='#' class='flex gap-5 h-[157px] md:h-[110px] uppercase text-primary'>
+	<div class='min-w-[146px] md:min-w-[116px] flex items-center justify-center overflow-hidden'>
+		<img class='object-cover lazy' data-src="img/blog-post-fitness-templates.jpg" alt="Title image">
+	</div>
+	<div class='flex flex-col gap-3 pt-3'>
+		<time class='text-body6 md:text-body8 uppercase text-grey-2' datetime="September 1, 2022">September 1, 2022</time>
+		<p class='md:normal-case md:text-body6 text-white'>The 5 effective morning routines you should follow</p>
+		<span
+			class='text-danger font-medium text-body7 block mt-auto mb-3 uppercase tracking-1-6 transition md:text-body6'>Read
+			More</span>
+	</div>
+</a>
+						<a href='#' class='flex gap-5 h-[157px] md:h-[110px] uppercase text-primary'>
+	<div class='min-w-[146px] md:min-w-[116px] flex items-center justify-center overflow-hidden'>
+		<img class='object-cover lazy' data-src="img/blog-post-fitness-templates.jpg" alt="Title image">
+	</div>
+	<div class='flex flex-col gap-3 pt-3'>
+		<time class='text-body6 md:text-body8 uppercase text-grey-2' datetime="September 1, 2022">September 1, 2022</time>
+		<p class='md:normal-case md:text-body6 text-white'>The 5 effective morning routines you should follow</p>
+		<span
+			class='text-danger font-medium text-body7 block mt-auto mb-3 uppercase tracking-1-6 transition md:text-body6'>Read
+			More</span>
+	</div>
+</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="grid grid-cols-12 gap-x-6 py-14 md:py-10">
+			<div class="col-span-12">
+				<p class='text-body6 tracking-base uppercase md:text-body8 md:font-medium md:text-center'>2024 © weigh loss
+					media | all rights
+					reserved</p>
+			</div>
+		</div>
+	</div>
+</footer>
+	</main>
+
+	<script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.7.8/plyr.min.js"></script>
+<script src="./js/scripts.js"></script>
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('dropdown', () => ({
+            open: false,
+
+            toggle() {
+                this.open = !this.open
+            },
+        }))
+    })
+
+    function setup() {
+        return {
+            placeholderText: window.innerWidth < 768 ? 'Mobile Search...' : 'Search...',
+            init() {
+                window.addEventListener('resize', () => {
+                    this.placeholderText = window.innerWidth < 768 ? 'Mobile Search...' : 'Search...'
+                })
+            }
+        }
+    }
+
+    function numberedList() {
+        return {
+            items: {
+                '1': ['Lorem ipsum', 'https//www.fintess.recipes-onliner ecipes'],
+                '2': ['Odio amet', 'https//www.fintess.recipes-online'],
+                '3': ['Suspendisse urna', 'https//www.fintess.recipes-online'],
+            },
+
+            formattedNumber(number) {
+                // Форматируем числа меньше 10 с ведущим нулем
+                return number < 10 ? `0${number}` : number
+            }
+        }
+    }
+
+    function fetchResults() {
+        this.results = []
+        if (this.query.length > 0) {
+            // Имитация поиска. Поменять на реальный API вызов или логику поиска.
+            this.results = [
+                {id: 1, title: 'Result 1'},
+                {id: 2, title: 'Result 2'},
+                {id: 3, title: 'Result 3'},
+            ]
+        }
+        this.showResults = this.results.length > 0
+    }
+
+    function selectResult(result) {
+        this.query = result.title
+        this.showResults = false
+    }
+</script>
+</body>
+
+</html>
