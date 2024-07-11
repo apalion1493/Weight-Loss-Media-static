@@ -139,7 +139,7 @@
                     <div class="col-span-12">
                         <div class="flex items-center justify-between lg:relative h-[64px] lg:h-[56px]">
                             <a class='min-w-[145px] z-[1] lg:min-w-[115px]' href="index.html">
-                                <img class="lazy" data-src="img/Logo-1.svg" alt="Main Logo WLM" />
+                                <img src="img/Logo-1.svg" alt="Main Logo WLM" />
                             </a>
                             <div class='flex items-center relative lg:static w-full h-[64px] lg:h-[56px]'>
                                 <ul
@@ -885,7 +885,7 @@
 											placeholder="Start your search with keyword" x-model="query" @input.debounce.300="fetchResults"
 											@focus="showResults = true"
 											class="input w-full bg-white border-0 focus:ring-0 focus:bg-transparent focus:border-0 text-base outline-none p-0 pr-44 leading-8 transition-colors duration-200 ease-in-out lg:pr-[75px]">
-										<button type="button" x-show="query.length > 0" @click="query = ''"
+										<button type="button" x-show="query.length > 0" @click="query = ''" aria-label="Clear search result"
 											class="absolute right-36 lg:right-10 top-1/2 transform -translate-y-1/2 text-gray-500 p-3 hover:text-gray-700">
 											<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
 												<path
@@ -894,7 +894,7 @@
 											</svg>
 										</button>
 									</div>
-									<button type='submit'
+									<button type='submit' aria-label="Search button"
 										class="button text-body5 px-6 py-[10px] h-12 rounded-full border transition-all group border-primary hover:border-danger bg-primary inline-flex items-center justify-center hover:bg-transparent text-white hover:text-danger ml-auto absolute top-2 right-2 z-30 lg:p-0 lg:w-10 lg:h-10 lg:top-2">
 										<i class='search-icon mr-3 group-hover:hidden block lg:mr-0'></i>
 										<i class='search-red-icon group-hover:block hidden mr-3 lg:mr-0'></i>
@@ -918,6 +918,7 @@
 						</div>
 					</div>
 				</div>
+			</div>
 		</section>
 		<section class='py-10 border-t border-b border-border-3 mb-24 sm:border-0 lg:py-10 lg:mb-0'>
 			<div class="container">
@@ -926,11 +927,11 @@
 						<div x-data="{ selected: 0 }" class="flex gap-x-2 mb-8 md:mb-5">
 							<!-- Loop through options -->
 							<template x-for="(option, index) in ['All', 'diets', 'sports']">
-								<button class='transition uppercase px-4 py-[10px] rounded-full text-body6'
-									x-on:click="selected = index" :class="{
+								<button class='transition uppercase px-4 py-[10px] rounded-full text-body6 px-4 py-2 rounded cursor-pointer'
+								type="button" :click="selected = index" :class="{
 										'bg-primary text-white border-primary': selected === index,
 										'bg-secondary border-secondary ': selected !== index
-									}" x-text="option" class="px-4 py-2 rounded cursor-pointer"></button>
+									}" x-text="option"></button>
 							</template>
 						</div>
 						<span class='text-border-2 text-body md:text-body6 block md:mb-3'>Showing results 1 - 12 of 24</span>
