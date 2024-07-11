@@ -2451,61 +2451,59 @@
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.7.8/plyr.min.js"></script>
 <script src="./js/scripts.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function (event) {
-        document.addEventListener('alpine:init', () => {
-            Alpine.data('dropdown', () => ({
-                open: false,
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('dropdown', () => ({
+            open: false,
 
-                toggle() {
-                    this.open = !this.open
-                },
-            }))
-        })
-
-        function setup() {
-            return {
-                placeholderText: window.innerWidth < 768 ? 'Mobile Search...' : 'Search...',
-                init() {
-                    window.addEventListener('resize', () => {
-                        this.placeholderText = window.innerWidth < 768 ? 'Mobile Search...' : 'Search...'
-                    })
-                }
-            }
-        }
-
-        function numberedList() {
-            return {
-                items: {
-                    '1': ['Lorem ipsum', 'https//www.fintess.recipes-onliner ecipes'],
-                    '2': ['Odio amet', 'https//www.fintess.recipes-online'],
-                    '3': ['Suspendisse urna', 'https//www.fintess.recipes-online'],
-                },
-
-                formattedNumber(number) {
-                    // Форматируем числа меньше 10 с ведущим нулем
-                    return number < 10 ? `0${number}` : number
-                }
-            }
-        }
-
-        function fetchResults() {
-            this.results = []
-            if (this.query.length > 0) {
-                // Имитация поиска. Поменять на реальный API вызов или логику поиска.
-                this.results = [
-                    {id: 1, title: 'Result 1'},
-                    {id: 2, title: 'Result 2'},
-                    {id: 3, title: 'Result 3'},
-                ]
-            }
-            this.showResults = this.results.length > 0
-        }
-
-        function selectResult(result) {
-            this.query = result.title
-            this.showResults = false
-        }
+            toggle() {
+                this.open = !this.open
+            },
+        }))
     })
+
+    function setup() {
+        return {
+            placeholderText: window.innerWidth < 768 ? 'Mobile Search...' : 'Search...',
+            init() {
+                window.addEventListener('resize', () => {
+                    this.placeholderText = window.innerWidth < 768 ? 'Mobile Search...' : 'Search...'
+                })
+            }
+        }
+    }
+
+    function numberedList() {
+        return {
+            items: {
+                '1': ['Lorem ipsum', 'https//www.fintess.recipes-onliner ecipes'],
+                '2': ['Odio amet', 'https//www.fintess.recipes-online'],
+                '3': ['Suspendisse urna', 'https//www.fintess.recipes-online'],
+            },
+
+            formattedNumber(number) {
+                // Форматируем числа меньше 10 с ведущим нулем
+                return number < 10 ? `0${number}` : number
+            }
+        }
+    }
+
+    function fetchResults() {
+        this.results = []
+        if (this.query.length > 0) {
+            // Имитация поиска. Поменять на реальный API вызов или логику поиска.
+            this.results = [
+                {id: 1, title: 'Result 1'},
+                {id: 2, title: 'Result 2'},
+                {id: 3, title: 'Result 3'},
+            ]
+        }
+        this.showResults = this.results.length > 0
+    }
+
+    function selectResult(result) {
+        this.query = result.title
+        this.showResults = false
+    }
 </script>
 </body>
 

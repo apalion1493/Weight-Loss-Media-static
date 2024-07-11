@@ -796,6 +796,12 @@ select {
 .top-full {
   top: 100%;
 }
+.right-14 {
+  right: 3.5rem;
+}
+.right-\[145px\] {
+  right: 145px;
+}
 .-z-10 {
   z-index: -10;
 }
@@ -2318,6 +2324,10 @@ input[type=search]::-webkit-search-results-decoration {
 
   .lg\:top-\[6px\] {
     top: 6px;
+  }
+
+  .lg\:right-14 {
+    right: 3.5rem;
   }
 
   .lg\:z-\[32\] {
