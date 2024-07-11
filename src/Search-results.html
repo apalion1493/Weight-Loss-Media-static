@@ -76,7 +76,7 @@
 							<!-- Loop through options -->
 							<template x-for="(option, index) in ['All', 'diets', 'sports']">
 								<button class='transition uppercase px-4 py-[10px] rounded-full text-body6 px-4 py-2 rounded cursor-pointer'
-								type="button" :click="selected = index" :class="{
+								type="button" x-on:click="selected = index" :class="{
 										'bg-primary text-white border-primary': selected === index,
 										'bg-secondary border-secondary ': selected !== index
 									}" x-text="option"></button>
