@@ -1432,6 +1432,10 @@ select {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.object-top {
+  -o-object-position: top;
+     object-position: top;
+}
 .p-0 {
   padding: 0px;
 }
@@ -2282,6 +2286,10 @@ input[type=search]::-webkit-search-results-decoration {
 
   .xl\:col-span-8 {
     grid-column: span 8 / span 8;
+  }
+
+  .xl\:block {
+    display: block;
   }
 
   .xl\:hidden {
